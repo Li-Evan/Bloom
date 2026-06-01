@@ -1,8 +1,13 @@
 .tech-lead/
 .env
+.env.*
+!.env.example
 __pycache__/
 *.pyc
 *.db
+*.db-wal
+*.db-shm
+*.db-journal
 .venv/
 node_modules/
 dist/
@@ -14,6 +19,23 @@ htmlcov/
 build/
 *.log
 .gstack/
-.tech-lead/
+
+# Playwright MCP 抓取的临时产物（截图 / 控制台日志 / 页面快照）
+.playwright-mcp/
+
+# 仓库根目录下随手丢的临时截图（frontend/src/assets/*.png 等正经资源不受影响）
+/*.png
+
+# IDE / 编辑器配置
+.idea/
+.vscode/
+.cursor/
+
+# 密钥 / 证书（永远不该进仓库）
+*.pem
+*.key
+*.crt
+
 docs/CHANGELOG.md
 docs/ARCHITECTURE.md
+CLAUDE.md
