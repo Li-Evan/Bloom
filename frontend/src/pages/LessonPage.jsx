@@ -1,20 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import Markdown from '../components/Markdown';
 import {
   getLesson, getLessons, getAnnotations, createAnnotation, deleteAnnotation,
   submitFeedback, generateNextLesson, getFeedback, recordLessonOpened,
 } from '../lib/api';
-
-const stripFences = (text) => {
-  if (!text) return '';
-  let t = text.trim();
-  if (/^```(?:markdown|md)?\s*\n?/i.test(t)) {
-    t = t.replace(/^```(?:markdown|md)?\s*\n?/i, '').replace(/\n?```\s*$/, '');
-  }
-  return t.trim();
-};
 
 export default function LessonPage() {
   const { courseId, lessonNum } = useParams();
@@ -253,7 +243,7 @@ export default function LessonPage() {
             className="bg-white rounded-2xl border border-stone-200/60 shadow-[0_1px_3px_rgba(0,0,0,0.04)] p-8 md:p-10 mb-8"
           >
             <div className="prose prose-stone prose-lg max-w-none">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>{stripFences(lesson?.content)}</ReactMarkdown>
+              <Markdown>{lesson?.content}</Markdown>
             </div>
           </article>
 
@@ -346,7 +336,7 @@ export default function LessonPage() {
               </div>
               {streamContent ? (
                 <div className="prose prose-sm prose-stone max-w-none">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{stripFences(streamContent)}</ReactMarkdown>
+                  <Markdown>{streamContent}</Markdown>
                 </div>
               ) : (
                 <p className="text-stone-400 text-sm">AI 正在思考中...</p>

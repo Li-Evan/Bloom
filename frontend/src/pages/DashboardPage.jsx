@@ -2,6 +2,14 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getCourses, createCourse, deleteCourse, getGlobalStats } from '../lib/api';
 
+// 创建是阻塞式的（串行两次 LLM），前端拿不到真实进度，用阶段文案 + 伪进度营造前进感
+const LOADING_MESSAGES = [
+  '正在分析课题与参考材料…',
+  '正在设计课程大纲…',
+  '正在编写第一课…',
+  '即将完成，正在收尾…',
+];
+
 export default function DashboardPage() {
   const [courses, setCourses] = useState([]);
   const [stats, setStats] = useState(null);
@@ -10,6 +18,8 @@ export default function DashboardPage() {
   const [showCreate, setShowCreate] = useState(false);
   const [loading, setLoading] = useState(true);
   const [creating, setCreating] = useState(false);
+  const [loadingStep, setLoadingStep] = useState(0);
+  const [progress, setProgress] = useState(0);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -19,6 +29,18 @@ export default function DashboardPage() {
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }, []);
+
+  // 创建中：阶段文案轮播 + 伪进度（趋近 92% 封顶，成功后整页跳转，无需归零）
+  useEffect(() => {
+    if (!creating) { setLoadingStep(0); setProgress(0); return; }
+    const msgTimer = setInterval(() => {
+      setLoadingStep((s) => Math.min(s + 1, LOADING_MESSAGES.length - 1));
+    }, 3500);
+    const progTimer = setInterval(() => {
+      setProgress((p) => (p < 92 ? p + (92 - p) * 0.06 : p));
+    }, 350);
+    return () => { clearInterval(msgTimer); clearInterval(progTimer); };
+  }, [creating]);
 
   const handleCreate = async (e) => {
     e.preventDefault();
@@ -52,6 +74,25 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-[100dvh] bg-stone-50">
+      {/* Creating overlay — full-screen loading */}
+      {creating && (
+        <div className="fixed inset-0 z-50 bg-stone-950/40 modal-backdrop flex items-center justify-center p-6">
+          <div className="bg-white rounded-2xl p-8 max-w-sm w-full shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] border border-stone-200/40 text-center">
+            <div className="w-11 h-11 rounded-full border-[3px] border-stone-200 border-t-emerald-600 animate-spin mx-auto mb-5" />
+            <h3 className="text-base font-semibold text-stone-900 mb-1.5">正在为你定制课程</h3>
+            <p className="text-sm text-stone-500 mb-6 min-h-[20px] transition-opacity duration-300">
+              {LOADING_MESSAGES[loadingStep]}
+            </p>
+            <div className="w-full h-1.5 bg-stone-100 rounded-full overflow-hidden mb-2.5">
+              <div
+                className="h-full bg-emerald-500 rounded-full transition-[width] duration-500 ease-out"
+                style={{ width: `${Math.round(progress)}%` }}
+              />
+            </div>
+            <p className="text-xs text-stone-400">AI 串行生成大纲与第一课 · 约 20–60 秒</p>
+          </div>
+        </div>
+      )}
       {/* Header — dark */}
       <header className="bg-stone-900 sticky top-0 z-10">
         <div className="max-w-[1100px] mx-auto px-6 py-4 flex items-center justify-between">

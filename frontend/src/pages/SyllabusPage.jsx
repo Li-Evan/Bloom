@@ -1,17 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import Markdown from '../components/Markdown';
 import { getCourse, getLessons } from '../lib/api';
-
-const stripFences = (text) => {
-  if (!text) return '';
-  let t = text.trim();
-  if (/^```(?:markdown|md)?\s*\n?/i.test(t)) {
-    t = t.replace(/^```(?:markdown|md)?\s*\n?/i, '').replace(/\n?```\s*$/, '');
-  }
-  return t.trim();
-};
 
 export default function SyllabusPage() {
   const { courseId } = useParams();
@@ -100,7 +90,7 @@ export default function SyllabusPage() {
         <main className="flex-1 min-w-0">
           <article className="bg-white rounded-2xl border border-stone-200/60 shadow-[0_1px_3px_rgba(0,0,0,0.04)] p-8 md:p-10">
             <div className="prose prose-stone prose-lg max-w-none">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>{stripFences(course?.syllabus_content)}</ReactMarkdown>
+              <Markdown>{course?.syllabus_content}</Markdown>
             </div>
           </article>
         </main>

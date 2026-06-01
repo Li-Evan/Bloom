@@ -1,17 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import Markdown from '../components/Markdown';
 import { getCourse, getLessons, getSummary } from '../lib/api';
-
-const stripFences = (text) => {
-  if (!text) return '';
-  let t = text.trim();
-  if (/^```(?:markdown|md)?\s*\n?/i.test(t)) {
-    t = t.replace(/^```(?:markdown|md)?\s*\n?/i, '').replace(/\n?```\s*$/, '');
-  }
-  return t.trim();
-};
 
 export default function CoursePage() {
   const { courseId } = useParams();
@@ -221,7 +211,7 @@ export default function CoursePage() {
             <h2 className="text-xs font-medium text-emerald-600 uppercase tracking-wide mb-4">课程总结</h2>
             <div className="bg-white rounded-xl border border-emerald-200/40 p-6">
               <div className="prose prose-sm prose-stone max-w-none">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>{stripFences(summary.content)}</ReactMarkdown>
+                <Markdown>{summary.content}</Markdown>
               </div>
             </div>
           </div>
