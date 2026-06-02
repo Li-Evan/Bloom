@@ -73,6 +73,21 @@ body {
 
 button:active:not(:disabled) { transform: scale(0.98); }
 
+/* ── Page-by-page snap scrolling (only where there's room: wide AND tall enough) ── */
+@media (min-width: 1024px) and (min-height: 850px) {
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 4rem; /* sticky nav height */
+  }
+  .page {
+    min-height: calc(100svh - 4rem);
+    display: flex;
+    align-items: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
+
 /* ── Respect reduced motion: no animation, everything visible ── */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

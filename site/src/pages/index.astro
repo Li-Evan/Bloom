@@ -227,7 +227,7 @@ const dotGrid =
 
   <!-- ── Nav ── -->
   <header class="sticky top-0 z-50 bg-stone-950/80 backdrop-blur border-b border-white/5">
-    <div class="max-w-6xl mx-auto px-5 sm:px-6 h-16 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 h-16 flex items-center justify-between">
       <a href="#top" class="flex items-center gap-2.5 select-none" aria-label="Bloom home">
         <svg width="26" height="26" viewBox="0 0 100 84" fill="none" aria-hidden="true">
           <path d="M50 6C54 20 64 25 50 42C36 25 46 20 50 6Z" fill="#34d399" />
@@ -257,31 +257,31 @@ const dotGrid =
   </header>
 
   <!-- ── Hero (fills the first screen: nav + hero = 100svh) ── -->
-  <section id="top" class="relative bg-stone-950 text-stone-50 overflow-hidden flex items-center min-h-[calc(100svh_-_4rem)]">
+  <section id="top" class="page relative bg-stone-950 text-stone-50 overflow-hidden flex items-center min-h-[calc(100svh_-_4rem)]">
     <div class="absolute inset-0" style={dotGrid}></div>
     <div class="absolute -top-40 -right-32 w-[36rem] h-[36rem] rounded-full bg-emerald-500/20 blur-[120px]"></div>
     <div class="absolute -bottom-48 -left-24 w-[30rem] h-[30rem] rounded-full bg-emerald-700/10 blur-[120px]"></div>
-    <div class="relative w-full max-w-6xl mx-auto px-5 sm:px-6 py-16 lg:py-20 grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-10 items-center">
+    <div class="relative w-full max-w-7xl mx-auto px-5 sm:px-6 py-16 lg:py-20 grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-center">
       <div>
-        <p class="rise font-mono text-[0.7rem] sm:text-xs tracking-[0.18em] text-emerald-400 mb-6" data-i18n="hero.kicker">{en.hero.kicker}</p>
-        <h1 class="text-[2.7rem] leading-[1.04] sm:text-6xl lg:text-[4.1rem] font-bold tracking-[-0.03em]">
+        <p class="rise font-mono text-xs sm:text-sm tracking-[0.2em] text-emerald-400 mb-7" data-i18n="hero.kicker">{en.hero.kicker}</p>
+        <h1 class="text-5xl leading-[1.02] sm:text-7xl lg:text-[5.25rem] font-bold tracking-[-0.035em]">
           <span class="rise block" style="--d:80ms" data-i18n="hero.title0">{en.hero.title0}</span>
           <span class="rise block text-emerald-400" style="--d:160ms" data-i18n="hero.title1">{en.hero.title1}</span>
         </h1>
-        <p class="rise mt-7 text-base sm:text-lg text-stone-300/90 leading-relaxed max-w-xl" style="--d:260ms" data-i18n="hero.sub">{en.hero.sub}</p>
-        <div class="rise mt-9 flex flex-wrap items-center gap-3.5" style="--d:360ms">
-          <a href="#start" class="group bg-emerald-500 hover:bg-emerald-400 text-stone-950 font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-[0_10px_40px_-12px_rgba(52,211,153,0.6)]">
+        <p class="rise mt-8 text-lg sm:text-xl text-stone-300/90 leading-relaxed max-w-2xl" style="--d:260ms" data-i18n="hero.sub">{en.hero.sub}</p>
+        <div class="rise mt-10 flex flex-wrap items-center gap-4" style="--d:360ms">
+          <a href="#start" class="group bg-emerald-500 hover:bg-emerald-400 text-stone-950 font-semibold text-base px-7 py-3.5 rounded-xl transition-all hover:shadow-[0_10px_40px_-12px_rgba(52,211,153,0.6)]">
             <span data-i18n="hero.ctaPrimary">{en.hero.ctaPrimary}</span>
             <span class="inline-block ml-1.5 transition-transform group-hover:translate-x-0.5">→</span>
           </a>
-          <a href={GITHUB} target="_blank" rel="noreferrer" class="flex items-center gap-2 border border-white/15 hover:border-white/35 hover:bg-white/5 text-stone-100 font-medium px-5 py-3 rounded-xl transition-colors">
+          <a href={GITHUB} target="_blank" rel="noreferrer" class="flex items-center gap-2 border border-white/15 hover:border-white/35 hover:bg-white/5 text-stone-100 font-medium text-base px-6 py-3.5 rounded-xl transition-colors">
             <svg class="w-[1.05rem] h-[1.05rem]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>
             <span data-i18n="hero.ctaSecondary">{en.hero.ctaSecondary}</span>
           </a>
         </div>
       </div>
       <div class="rise relative" style="--d:420ms">
-        <div class="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-5 sm:p-7">
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 sm:p-9">
           <svg viewBox={`0 0 ${W} ${H}`} class="w-full h-auto" role="img" aria-label="Two normal distributions two sigma apart">
             <defs>
               <linearGradient id="bc-emerald" x1="0" y1="0" x2="0" y2="1">
@@ -316,11 +316,11 @@ const dotGrid =
   </section>
 
   <!-- ── The 2 Sigma Problem ── -->
-  <section class="bg-stone-50 border-b border-stone-200/70">
-    <div class="max-w-6xl mx-auto px-5 sm:px-6 py-20 sm:py-28 grid lg:grid-cols-[1fr_0.85fr] gap-12 lg:gap-16 items-center">
+  <section class="page bg-stone-50 border-b border-stone-200/70">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 py-16 lg:py-8 grid lg:grid-cols-[1fr_0.85fr] gap-12 lg:gap-16 items-center">
       <div class="reveal">
         <p class="font-mono text-xs tracking-[0.18em] text-emerald-600 mb-4" data-i18n="problem.label">{en.problem.label}</p>
-        <h2 class="text-3xl sm:text-[2.6rem] leading-[1.1] font-bold tracking-[-0.025em] text-stone-900 mb-7" data-i18n="problem.heading">{en.problem.heading}</h2>
+        <h2 class="text-3xl sm:text-4xl lg:text-[3rem] leading-[1.1] font-bold tracking-[-0.025em] text-stone-900 mb-7" data-i18n="problem.heading">{en.problem.heading}</h2>
         <p class="text-stone-600 leading-relaxed text-[1.05rem] mb-4" data-i18n="problem.p1">{en.problem.p1}</p>
         <p class="text-stone-600 leading-relaxed text-[1.05rem] mb-7" data-i18n="problem.p2">{en.problem.p2}</p>
         <p class="text-xl sm:text-2xl font-semibold tracking-tight text-stone-900" data-i18n="problem.punch">{en.problem.punch}</p>
@@ -336,11 +336,11 @@ const dotGrid =
   </section>
 
   <!-- ── How it works ── -->
-  <section id="how" class="bg-white scroll-mt-20">
-    <div class="max-w-6xl mx-auto px-5 sm:px-6 py-20 sm:py-28">
+  <section id="how" class="page bg-white">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 py-16 lg:py-8">
       <div class="reveal max-w-2xl mb-14">
         <p class="font-mono text-xs tracking-[0.18em] text-emerald-600 mb-4" data-i18n="how.label">{en.how.label}</p>
-        <h2 class="text-3xl sm:text-[2.6rem] leading-[1.1] font-bold tracking-[-0.025em] text-stone-900 mb-4" data-i18n="how.heading">{en.how.heading}</h2>
+        <h2 class="text-3xl sm:text-4xl lg:text-[3rem] leading-[1.1] font-bold tracking-[-0.025em] text-stone-900 mb-4" data-i18n="how.heading">{en.how.heading}</h2>
         <p class="text-stone-500 text-[1.05rem] leading-relaxed" data-i18n="how.sub">{en.how.sub}</p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-stone-200/70 rounded-2xl overflow-hidden border border-stone-200/70">
@@ -364,11 +364,11 @@ const dotGrid =
   </section>
 
   <!-- ── Features ── -->
-  <section id="features" class="bg-stone-50 border-y border-stone-200/70 scroll-mt-20">
-    <div class="max-w-6xl mx-auto px-5 sm:px-6 py-20 sm:py-28">
+  <section id="features" class="page bg-stone-50 border-y border-stone-200/70">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 py-16 lg:py-8">
       <div class="reveal max-w-2xl mb-14">
         <p class="font-mono text-xs tracking-[0.18em] text-emerald-600 mb-4" data-i18n="features.label">{en.features.label}</p>
-        <h2 class="text-3xl sm:text-[2.6rem] leading-[1.1] font-bold tracking-[-0.025em] text-stone-900" data-i18n="features.heading">{en.features.heading}</h2>
+        <h2 class="text-3xl sm:text-4xl lg:text-[3rem] leading-[1.1] font-bold tracking-[-0.025em] text-stone-900" data-i18n="features.heading">{en.features.heading}</h2>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {en.features.items.map((f, i) => (
@@ -389,11 +389,11 @@ const dotGrid =
   </section>
 
   <!-- ── The Science ── -->
-  <section id="science" class="bg-white scroll-mt-20">
-    <div class="max-w-6xl mx-auto px-5 sm:px-6 py-20 sm:py-28">
+  <section id="science" class="page bg-white">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 py-16 lg:py-8">
       <div class="reveal max-w-2xl mb-14">
         <p class="font-mono text-xs tracking-[0.18em] text-emerald-600 mb-4" data-i18n="science.label">{en.science.label}</p>
-        <h2 class="text-3xl sm:text-[2.6rem] leading-[1.1] font-bold tracking-[-0.025em] text-stone-900" data-i18n="science.heading">{en.science.heading}</h2>
+        <h2 class="text-3xl sm:text-4xl lg:text-[3rem] leading-[1.1] font-bold tracking-[-0.025em] text-stone-900" data-i18n="science.heading">{en.science.heading}</h2>
       </div>
       <div class="grid sm:grid-cols-2 gap-px bg-stone-200/70 rounded-2xl overflow-hidden border border-stone-200/70">
         {en.science.items.map((s, i) => (
@@ -412,11 +412,11 @@ const dotGrid =
   </section>
 
   <!-- ── Two ways to use ── -->
-  <section class="bg-stone-50 border-y border-stone-200/70">
-    <div class="max-w-6xl mx-auto px-5 sm:px-6 py-20 sm:py-28">
+  <section class="page bg-stone-50 border-y border-stone-200/70">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 py-16 lg:py-8">
       <div class="reveal max-w-2xl mb-14">
         <p class="font-mono text-xs tracking-[0.18em] text-emerald-600 mb-4" data-i18n="ways.label">{en.ways.label}</p>
-        <h2 class="text-3xl sm:text-[2.6rem] leading-[1.1] font-bold tracking-[-0.025em] text-stone-900" data-i18n="ways.heading">{en.ways.heading}</h2>
+        <h2 class="text-3xl sm:text-4xl lg:text-[3rem] leading-[1.1] font-bold tracking-[-0.025em] text-stone-900" data-i18n="ways.heading">{en.ways.heading}</h2>
       </div>
       <div class="grid md:grid-cols-2 gap-4">
         {en.ways.items.map((w, i) => (
@@ -435,13 +435,13 @@ const dotGrid =
   </section>
 
   <!-- ── Quick start ── -->
-  <section id="start" class="bg-stone-950 text-stone-50 scroll-mt-20 relative overflow-hidden">
+  <section id="start" class="page bg-stone-950 text-stone-50 relative overflow-hidden">
     <div class="absolute inset-0" style={dotGrid}></div>
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[20rem] rounded-full bg-emerald-600/10 blur-[120px]"></div>
-    <div class="relative max-w-4xl mx-auto px-5 sm:px-6 py-20 sm:py-28">
+    <div class="relative max-w-4xl mx-auto px-5 sm:px-6 py-16 lg:py-8">
       <div class="reveal mb-10 text-center">
         <p class="font-mono text-xs tracking-[0.18em] text-emerald-400 mb-4" data-i18n="start.label">{en.start.label}</p>
-        <h2 class="text-3xl sm:text-[2.6rem] leading-[1.1] font-bold tracking-[-0.025em]" data-i18n="start.heading">{en.start.heading}</h2>
+        <h2 class="text-3xl sm:text-4xl lg:text-[3rem] leading-[1.1] font-bold tracking-[-0.025em]" data-i18n="start.heading">{en.start.heading}</h2>
       </div>
       <div class="reveal" style="--d:120ms">
         <div class="rounded-2xl border border-white/10 bg-stone-900/80 overflow-hidden shadow-2xl">
@@ -461,7 +461,7 @@ const dotGrid =
   </section>
 
   <!-- ── Final CTA ── -->
-  <section class="bg-emerald-500 relative overflow-hidden">
+  <section class="page bg-emerald-500 relative overflow-hidden">
     <div class="absolute inset-0" style={dotGrid + ' opacity: 0.4;'}></div>
     <div class="relative max-w-4xl mx-auto px-5 sm:px-6 py-20 sm:py-24 text-center">
       <div class="reveal">
@@ -480,7 +480,7 @@ const dotGrid =
 
   <!-- ── Footer ── -->
   <footer class="bg-stone-950 text-stone-400">
-    <div class="max-w-6xl mx-auto px-5 sm:px-6 py-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 py-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
       <div>
         <span class="flex items-center gap-2.5 select-none">
           <svg width="26" height="26" viewBox="0 0 100 84" fill="none" aria-hidden="true">
@@ -503,7 +503,7 @@ const dotGrid =
       </div>
     </div>
     <div class="border-t border-white/5">
-      <div class="max-w-6xl mx-auto px-5 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-stone-600 font-mono">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-stone-600 font-mono">
         <span data-i18n="footer.rights">{en.footer.rights}</span>
         <span data-i18n="footer.powered">{en.footer.powered}</span>
       </div>
