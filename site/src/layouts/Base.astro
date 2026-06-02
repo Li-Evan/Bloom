@@ -1,0 +1,45 @@
+---
+import '../styles/global.css';
+
+const {
+  title = 'Bloom — Your Personal AI Tutor, powered by the 2-Sigma method',
+  description = 'Bloom is your personal AI tutor. It builds a syllabus, teaches one lesson at a time, reads your annotations, and adapts the next lesson to exactly where you are — closing Bloom’s 2 Sigma gap with AI.',
+} = Astro.props;
+
+// Prefix public assets with the configured base (handles trailing slash safely)
+const favicon = import.meta.env.BASE_URL.replace(/\/$/, '') + '/favicon.svg';
+---
+
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href={favicon} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0c0a09" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Apply saved language before paint to avoid a flash of the wrong language -->
+    <script is:inline>
+      try {
+        const l = localStorage.getItem('bloom_lang');
+        if (l === 'zh') {
+          document.documentElement.setAttribute('data-lang', 'zh');
+          document.documentElement.lang = 'zh-CN';
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,571 @@
+---
+import Base from '../layouts/Base.astro';
+
+const GITHUB = 'https://github.com/Li-Evan/Bloom';
+
+const COPY = {
+  en: {
+    nav: { how: 'How it works', features: 'Features', science: 'The science', start: 'Quick start', start_btn: 'Get started' },
+    hero: {
+      kicker: "BLOOM'S 2-SIGMA PROBLEM · 1984",
+      title0: 'From average',
+      title1: 'to the top 2%.',
+      sub: 'Bloom is your personal AI tutor. It designs a syllabus, teaches one lesson at a time, reads your every annotation, and reshapes the next lesson to exactly where you are.',
+      ctaPrimary: 'Get started',
+      ctaSecondary: 'View on GitHub',
+      curveAvg: 'Conventional class',
+      curveTutored: '1-on-1 tutored',
+      curveTop: 'Top 2%',
+    },
+    problem: {
+      label: 'THE PROBLEM',
+      heading: 'A proven result that never scaled.',
+      p1: 'In 1984, educational psychologist Benjamin Bloom found that students who received one-on-one tutoring performed two standard deviations better than those in a conventional classroom — moving the average student into the top 2%.',
+      p2: 'The catch: human tutors don’t scale. Bloom called it the “2 Sigma Problem.” The effect is real, but you can’t give every student a personal teacher.',
+      punch: 'Bloom closes the gap with AI.',
+      statCaption: 'standard deviations above the classroom average',
+    },
+    how: {
+      label: 'HOW IT WORKS',
+      heading: 'A tutor’s loop, run by AI.',
+      sub: 'The same rhythm a great tutor follows — automated, and tuned to you.',
+      loopKicker: '↺ LOOP',
+      loop: 'Then it repeats — each pass tuned tighter to you, until mastery.',
+      steps: [
+        { t: 'Syllabus', d: 'AI designs a mastery-based syllabus from your topic and any reference material you paste.' },
+        { t: 'Lesson', d: 'One lesson at a time. Never a wall of content dumped at once.' },
+        { t: 'Annotate', d: 'Select any passage and drop a ??? exactly where you’re confused.' },
+        { t: 'Feedback', d: 'Answer the thought questions and write down what clicked.' },
+        { t: 'Next lesson', d: 'AI reviews your answers, addresses every ???, then teaches on.' },
+        { t: 'Evaluation', d: 'When every mastery item is checked, an evaluation confirms it.' },
+        { t: 'Summary', d: 'A personal knowledge map, auto-written from your whole journey.' },
+      ],
+    },
+    features: {
+      label: 'FEATURES',
+      heading: 'Built like a tutor who actually pays attention.',
+      items: [
+        { t: 'Reference material', d: 'Paste textbook chapters, papers, or notes — the AI shapes the curriculum around them.' },
+        { t: 'Inline annotations', d: 'Highlight any passage and mark precisely what’s unclear, right where you read it.' },
+        { t: 'Adaptive lessons', d: 'Every lesson targets the specific gaps you revealed in the last one.' },
+        { t: 'Chapter sidebar', d: 'Jump between lessons freely while you read, without losing your place.' },
+        { t: 'Streaming generation', d: 'Watch the next lesson write itself, in real time.' },
+        { t: 'Progress tracking', d: 'Streaks, annotations, mastery — your effort, made visible.' },
+      ],
+    },
+    science: {
+      label: 'THE SCIENCE',
+      heading: 'Four ideas doing the heavy lifting.',
+      items: [
+        { t: 'Mastery Learning', d: 'Don’t move on until the concept is truly understood.' },
+        { t: 'Socratic Method', d: 'Ask questions and guide thinking — don’t hand over answers.' },
+        { t: 'Spaced Retrieval', d: 'Each lesson opens by reviewing the last. Memory, reinforced.' },
+        { t: 'Adaptive Path', d: 'Fixed goals, flexible route. The path bends to you, not the other way around.' },
+      ],
+    },
+    ways: {
+      label: 'TWO WAYS TO USE',
+      heading: 'Terminal or browser. Same loop.',
+      items: [
+        { name: 'CLI', tag: 'Claude Code + terminal', d: 'For power users who live in Markdown editors. No backend to run — just Claude Code and a folder.' },
+        { name: 'Web', tag: 'React + FastAPI', d: 'For visual learners. A polished browser app with text-select annotations, streaming, and progress tracking.' },
+      ],
+    },
+    start: {
+      label: 'QUICK START',
+      heading: 'Running in under a minute.',
+      note: 'Open http://localhost:5173, click New Course, enter a topic, and start learning.',
+      copy: 'Copy',
+      copied: 'Copied',
+    },
+    cta: { heading: 'Learn the way the top 2% do.', sub: 'Open source. MIT licensed. Bring your own LLM key.', primary: 'Get started', secondary: 'Star on GitHub' },
+    footer: { tagline: 'Your personal AI tutor, powered by the 2-Sigma method.', repo: 'Repository', guide: 'Guide', license: 'License', rights: '© Bloom · MIT Licensed', powered: 'Powered by the 2-Sigma method' },
+  },
+  zh: {
+    nav: { how: '运作方式', features: '功能', science: '理论根基', start: '快速开始', start_btn: '快速开始' },
+    hero: {
+      kicker: '布卢姆 2-Sigma 问题 · 1984',
+      title0: '从平均水平',
+      title1: '到前 2%。',
+      sub: 'Bloom 是你的私人 AI 导师。它生成大纲、一次只教一课、读懂你的每一条批注，再把下一课精确地塑造到你当前的理解水平。',
+      ctaPrimary: '快速开始',
+      ctaSecondary: '在 GitHub 查看',
+      curveAvg: '传统课堂',
+      curveTutored: '一对一辅导',
+      curveTop: '前 2%',
+    },
+    problem: {
+      label: '问题',
+      heading: '一个被证实、却从未规模化的结果。',
+      p1: '1984 年，教育心理学家本杰明·布卢姆发现：接受一对一辅导的学生，成绩比传统课堂的学生高出整整两个标准差——把普通学生推到了前 2%。',
+      p2: '难题在于：真人家教无法规模化。布卢姆称之为「2 Sigma 问题」——效果是真的，但你没法给每个学生都配一位私人老师。',
+      punch: 'Bloom 用 AI 补上了这道鸿沟。',
+      statCaption: '高出课堂平均的标准差数',
+    },
+    how: {
+      label: '运作方式',
+      heading: 'AI 跑通了一位导师的完整闭环。',
+      sub: '一位好导师遵循的节奏——被自动化，并为你量身校准。',
+      loopKicker: '↺ 循环',
+      loop: '然后循环往复——每一轮都更贴合你，直到真正掌握。',
+      steps: [
+        { t: '大纲', d: 'AI 根据你的课题和粘贴的参考材料，设计一份以「掌握」为目标的大纲。' },
+        { t: '单课', d: '一次只教一课，绝不把一整面墙的内容一次性甩给你。' },
+        { t: '批注', d: '选中任意段落，在你困惑的地方精确地标一个 ???。' },
+        { t: '反馈', d: '回答思考题，写下你刚刚领悟到的东西。' },
+        { t: '下一课', d: 'AI 复盘你的回答、回应每一个 ???，再继续往下教。' },
+        { t: '测评', d: '当每一项掌握目标都打上勾，一篇测评来确认你真的学会了。' },
+        { t: '总结', d: '一份从你完整学习轨迹自动生成的个人知识图谱。' },
+      ],
+    },
+    features: {
+      label: '功能',
+      heading: '像一位真正用心的导师那样打造。',
+      items: [
+        { t: '参考材料', d: '粘贴课本章节、论文或笔记——AI 会围绕它们设计整门课程。' },
+        { t: '行内批注', d: '高亮任意段落，就在阅读的地方精确标出哪里没懂。' },
+        { t: '自适应课程', d: '每一课都针对你上一课暴露出的具体短板。' },
+        { t: '章节侧栏', d: '阅读时在课文之间自由跳转，不会迷失位置。' },
+        { t: '流式生成', d: '实时看着下一课一字一句自己写出来。' },
+        { t: '学习追踪', d: '连续天数、批注、掌握度——让你的努力看得见。' },
+      ],
+    },
+    science: {
+      label: '理论根基',
+      heading: '撑起这一切的四个理念。',
+      items: [
+        { t: '掌握学习', d: '概念没真正搞懂，就绝不往下走。' },
+        { t: '苏格拉底法', d: '用提问引导思考，而不是直接把答案递给你。' },
+        { t: '间隔提取', d: '每一课都以复盘上一课开场——记忆被反复强化。' },
+        { t: '自适应路径', d: '目标固定，路径灵活。是路线为你而弯，而非你迁就路线。' },
+      ],
+    },
+    ways: {
+      label: '两种用法',
+      heading: '终端或浏览器，同一套闭环。',
+      items: [
+        { name: 'CLI', tag: 'Claude Code + 终端', d: '面向习惯住在 Markdown 编辑器里的高手。无需运行后端——只要 Claude Code 和一个文件夹。' },
+        { name: 'Web', tag: 'React + FastAPI', d: '面向偏好可视化的学习者。一个精致的浏览器应用，支持划词批注、流式生成与进度追踪。' },
+      ],
+    },
+    start: {
+      label: '快速开始',
+      heading: '一分钟内跑起来。',
+      note: '打开 http://localhost:5173，点击「新建课程」，输入课题，开始学习。',
+      copy: '复制',
+      copied: '已复制',
+    },
+    cta: { heading: '用前 2% 的方式开始学习。', sub: '开源项目 · MIT 许可 · 自带你的 LLM Key。', primary: '快速开始', secondary: '去 GitHub 点 Star' },
+    footer: { tagline: '你的私人 AI 导师，由 2-Sigma 方法论驱动。', repo: '代码仓库', guide: '使用指南', license: '许可证', rights: '© Bloom · MIT 许可', powered: 'Powered by the 2-Sigma method' },
+  },
+};
+
+// Stroke-based icons (not translated) aligned to features.items by index
+const FEATURE_ICONS = [
+  'M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25',
+  'm16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10',
+  'M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75',
+  'M9 4.5v15m-4.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125Z',
+  'M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z',
+  'M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z',
+];
+
+// Flatten COPY to dotted keys so the client can swap text by [data-i18n] attribute
+function flatten(obj, prefix = '', out = {}) {
+  for (const [k, v] of Object.entries(obj)) {
+    const key = prefix ? `${prefix}.${k}` : k;
+    if (Array.isArray(v)) {
+      v.forEach((item, i) => {
+        if (item && typeof item === 'object') flatten(item, `${key}.${i}`, out);
+        else out[`${key}.${i}`] = item;
+      });
+    } else if (v && typeof v === 'object') {
+      flatten(v, key, out);
+    } else {
+      out[key] = v;
+    }
+  }
+  return out;
+}
+const FLAT = { en: flatten(COPY.en), zh: flatten(COPY.zh) };
+const en = COPY.en; // initial render is English (good for SEO / no-JS)
+
+// ── Twin normal distributions, +2σ apart — computed at build time ──
+const W = 560, H = 320, baseY = 250, x0 = 40, x1 = 520, sigma = 48, amp = 168;
+const meanA = 196;
+const meanB = meanA + 2 * sigma; // 292
+const peak = baseY - amp;        // 82
+function curve(cx) {
+  let d = '';
+  for (let x = x0; x <= x1; x += 3) {
+    const y = baseY - amp * Math.exp(-((x - cx) ** 2) / (2 * sigma * sigma));
+    d += `${d ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)} `;
+  }
+  return d.trim();
+}
+const area = (cx) => `${curve(cx)} L${x1},${baseY} L${x0},${baseY} Z`;
+const greyCurve = curve(meanA), greyArea = area(meanA);
+const emCurve = curve(meanB), emArea = area(meanB);
+
+const CODE = `git clone ${GITHUB}.git
+cd Bloom
+cp .env.example .env          # add your LLM_API_KEY
+
+# backend
+cd backend && uv sync && uv run uvicorn app.main:app --reload --port 8000
+
+# frontend (new terminal)
+cd frontend && npm install && npm run dev`;
+
+const dotGrid =
+  'background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 26px 26px;';
+---
+
+<Base>
+  <!-- i18n dictionary for the client -->
+  <script type="application/json" id="i18n-data" set:html={JSON.stringify(FLAT)} />
+
+  <!-- ── Nav ── -->
+  <header class="sticky top-0 z-50 bg-stone-950/80 backdrop-blur border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2.5 select-none" aria-label="Bloom home">
+        <svg width="26" height="26" viewBox="0 0 100 84" fill="none" aria-hidden="true">
+          <path d="M50 6C54 20 64 25 50 42C36 25 46 20 50 6Z" fill="#34d399" />
+          <path d="M88 42C74 46 69 56 50 42C69 28 74 38 88 42Z" fill="#34d399" opacity="0.8" />
+          <path d="M50 78C46 64 36 59 50 42C64 59 54 64 50 78Z" fill="#34d399" opacity="0.6" />
+          <path d="M12 42C26 38 31 28 50 42C31 56 26 46 12 42Z" fill="#34d399" opacity="0.7" />
+          <path d="M76 16C68 24 66 34 50 42C58 28 63 21 76 16Z" fill="#34d399" opacity="0.5" />
+          <path d="M24 68C32 60 34 50 50 42C42 56 37 63 24 68Z" fill="#34d399" opacity="0.4" />
+          <circle cx="50" cy="42" r="5" fill="#34d399" />
+        </svg>
+        <span class="text-[1.05rem] font-semibold tracking-tight text-stone-50">Bloom</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-stone-400">
+        <a href="#how" class="hover:text-stone-50 transition-colors" data-i18n="nav.how">{en.nav.how}</a>
+        <a href="#features" class="hover:text-stone-50 transition-colors" data-i18n="nav.features">{en.nav.features}</a>
+        <a href="#science" class="hover:text-stone-50 transition-colors" data-i18n="nav.science">{en.nav.science}</a>
+        <a href="#start" class="hover:text-stone-50 transition-colors" data-i18n="nav.start">{en.nav.start}</a>
+      </nav>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button data-lang-toggle class="text-xs font-mono px-2.5 py-1.5 rounded-md text-stone-300 border border-white/10 hover:border-white/25 hover:text-stone-50 transition-colors cursor-pointer" aria-label="Toggle language"><span data-i18n-label>中文</span></button>
+        <a href={GITHUB} target="_blank" rel="noreferrer" class="text-stone-300 hover:text-stone-50 transition-colors p-1.5" aria-label="GitHub">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>
+        </a>
+        <a href="#start" class="bg-emerald-500 hover:bg-emerald-400 text-stone-950 font-medium text-sm px-3.5 py-1.5 rounded-lg transition-colors" data-i18n="nav.start_btn">{en.nav.start_btn}</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section id="top" class="relative bg-stone-950 text-stone-50 overflow-hidden">
+    <div class="absolute inset-0" style={dotGrid}></div>
+    <div class="absolute -top-40 -right-32 w-[36rem] h-[36rem] rounded-full bg-emerald-500/20 blur-[120px]"></div>
+    <div class="absolute -bottom-48 -left-24 w-[30rem] h-[30rem] rounded-full bg-emerald-700/10 blur-[120px]"></div>
+    <div class="relative max-w-6xl mx-auto px-5 sm:px-6 pt-20 pb-24 lg:pt-28 lg:pb-32 grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-10 items-center">
+      <div>
+        <p class="rise font-mono text-[0.7rem] sm:text-xs tracking-[0.18em] text-emerald-400 mb-6" data-i18n="hero.kicker">{en.hero.kicker}</p>
+        <h1 class="text-[2.7rem] leading-[1.04] sm:text-6xl lg:text-[4.1rem] font-bold tracking-[-0.03em]">
+          <span class="rise block" style="--d:80ms" data-i18n="hero.title0">{en.hero.title0}</span>
+          <span class="rise block text-emerald-400" style="--d:160ms" data-i18n="hero.title1">{en.hero.title1}</span>
+        </h1>
+        <p class="rise mt-7 text-base sm:text-lg text-stone-300/90 leading-relaxed max-w-xl" style="--d:260ms" data-i18n="hero.sub">{en.hero.sub}</p>
+        <div class="rise mt-9 flex flex-wrap items-center gap-3.5" style="--d:360ms">
+          <a href="#start" class="group bg-emerald-500 hover:bg-emerald-400 text-stone-950 font-semibold px-6 py-3 rounded-xl transition-all hover:shadow-[0_10px_40px_-12px_rgba(52,211,153,0.6)]">
+            <span data-i18n="hero.ctaPrimary">{en.hero.ctaPrimary}</span>
+            <span class="inline-block ml-1.5 transition-transform group-hover:translate-x-0.5">→</span>
+          </a>
+          <a href={GITHUB} target="_blank" rel="noreferrer" class="flex items-center gap-2 border border-white/15 hover:border-white/35 hover:bg-white/5 text-stone-100 font-medium px-5 py-3 rounded-xl transition-colors">
+            <svg class="w-[1.05rem] h-[1.05rem]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>
+            <span data-i18n="hero.ctaSecondary">{en.hero.ctaSecondary}</span>
+          </a>
+        </div>
+      </div>
+      <div class="rise relative" style="--d:420ms">
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-5 sm:p-7">
+          <svg viewBox={`0 0 ${W} ${H}`} class="w-full h-auto" role="img" aria-label="Two normal distributions two sigma apart">
+            <defs>
+              <linearGradient id="bc-emerald" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#34d399" stop-opacity="0.45" />
+                <stop offset="100%" stop-color="#34d399" stop-opacity="0.02" />
+              </linearGradient>
+              <linearGradient id="bc-grey" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#a8a29e" stop-opacity="0.20" />
+                <stop offset="100%" stop-color="#a8a29e" stop-opacity="0.01" />
+              </linearGradient>
+            </defs>
+            <line x1={x0} y1={baseY} x2={x1} y2={baseY} stroke="#44403c" stroke-width="1" />
+            <path d={greyArea} fill="url(#bc-grey)" />
+            <path d={greyCurve} fill="none" stroke="#78716c" stroke-width="1.75" />
+            <line x1={meanA} y1={baseY} x2={meanA} y2={peak + 6} stroke="#78716c" stroke-width="1" stroke-dasharray="3 4" />
+            <path class="fade-late" d={emArea} fill="url(#bc-emerald)" />
+            <path class="curve-draw" d={emCurve} fill="none" stroke="#34d399" stroke-width="2.75" stroke-linecap="round" pathLength="1" />
+            <line x1={meanB} y1={baseY} x2={meanB} y2={peak + 6} stroke="#34d399" stroke-width="1.25" stroke-dasharray="3 4" />
+            <g class="fade-later">
+              <line x1={meanA} y1={peak - 14} x2={meanB} y2={peak - 14} stroke="#34d399" stroke-width="1.25" />
+              <line x1={meanA} y1={peak - 20} x2={meanA} y2={peak - 8} stroke="#34d399" stroke-width="1.25" />
+              <line x1={meanB} y1={peak - 20} x2={meanB} y2={peak - 8} stroke="#34d399" stroke-width="1.25" />
+              <text x={(meanA + meanB) / 2} y={peak - 22} text-anchor="middle" class="font-mono" font-size="16" font-weight="600" fill="#34d399">+2σ</text>
+            </g>
+            <text x={meanA - 8} y={baseY + 22} text-anchor="end" class="font-mono" font-size="12.5" fill="#a8a29e" data-i18n="hero.curveAvg">{en.hero.curveAvg}</text>
+            <text x={meanB + 8} y={baseY + 22} text-anchor="start" class="font-mono" font-size="12.5" fill="#6ee7b7" data-i18n="hero.curveTutored">{en.hero.curveTutored}</text>
+            <text x={meanB + 30} y={peak - 30} text-anchor="middle" class="font-mono" font-size="12.5" font-weight="600" fill="#34d399" data-i18n="hero.curveTop">{en.hero.curveTop}</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The 2 Sigma Problem ── -->
+  <section class="bg-stone-50 border-b border-stone-200/70">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6 py-20 sm:py-28 grid lg:grid-cols-[1fr_0.85fr] gap-12 lg:gap-16 items-center">
+      <div class="reveal">
+        <p class="font-mono text-xs tracking-[0.18em] text-emerald-600 mb-4" data-i18n="problem.label">{en.problem.label}</p>
+        <h2 class="text-3xl sm:text-[2.6rem] leading-[1.1] font-bold tracking-[-0.025em] text-stone-900 mb-7" data-i18n="problem.heading">{en.problem.heading}</h2>
+        <p class="text-stone-600 leading-relaxed text-[1.05rem] mb-4" data-i18n="problem.p1">{en.problem.p1}</p>
+        <p class="text-stone-600 leading-relaxed text-[1.05rem] mb-7" data-i18n="problem.p2">{en.problem.p2}</p>
+        <p class="text-xl sm:text-2xl font-semibold tracking-tight text-stone-900" data-i18n="problem.punch">{en.problem.punch}</p>
+      </div>
+      <div class="reveal" style="--d:120ms">
+        <div class="rounded-2xl bg-stone-900 text-stone-50 p-9 sm:p-11 text-center">
+          <p class="font-mono text-[5rem] sm:text-[6.5rem] leading-none font-bold text-emerald-400 tracking-tighter">+2σ</p>
+          <div class="mx-auto my-6 h-px w-16 bg-white/15"></div>
+          <p class="text-stone-300/90 text-sm leading-relaxed max-w-[15rem] mx-auto" data-i18n="problem.statCaption">{en.problem.statCaption}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How it works ── -->
+  <section id="how" class="bg-white scroll-mt-20">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6 py-20 sm:py-28">
+      <div class="reveal max-w-2xl mb-14">
+        <p class="font-mono text-xs tracking-[0.18em] text-emerald-600 mb-4" data-i18n="how.label">{en.how.label}</p>
+        <h2 class="text-3xl sm:text-[2.6rem] leading-[1.1] font-bold tracking-[-0.025em] text-stone-900 mb-4" data-i18n="how.heading">{en.how.heading}</h2>
+        <p class="text-stone-500 text-[1.05rem] leading-relaxed" data-i18n="how.sub">{en.how.sub}</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-stone-200/70 rounded-2xl overflow-hidden border border-stone-200/70">
+        {en.how.steps.map((s, i) => (
+          <div class="reveal bg-white" style={`--d:${(i % 3) * 80}ms`}>
+            <div class="h-full p-7 hover:bg-stone-50/70 transition-colors">
+              <span class="font-mono text-sm text-emerald-600 tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="mt-4 text-lg font-semibold tracking-tight text-stone-900" data-i18n={`how.steps.${i}.t`}>{s.t}</h3>
+              <p class="mt-2 text-stone-500 text-[0.95rem] leading-relaxed" data-i18n={`how.steps.${i}.d`}>{s.d}</p>
+            </div>
+          </div>
+        ))}
+        <div class="bg-gradient-to-br from-emerald-500 to-emerald-600 p-7 flex items-center">
+          <p class="text-emerald-50 font-medium leading-relaxed">
+            <span class="font-mono text-xs tracking-widest text-emerald-100/80 block mb-2" data-i18n="how.loopKicker">{en.how.loopKicker}</span>
+            <span data-i18n="how.loop">{en.how.loop}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ── -->
+  <section id="features" class="bg-stone-50 border-y border-stone-200/70 scroll-mt-20">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6 py-20 sm:py-28">
+      <div class="reveal max-w-2xl mb-14">
+        <p class="font-mono text-xs tracking-[0.18em] text-emerald-600 mb-4" data-i18n="features.label">{en.features.label}</p>
+        <h2 class="text-3xl sm:text-[2.6rem] leading-[1.1] font-bold tracking-[-0.025em] text-stone-900" data-i18n="features.heading">{en.features.heading}</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {en.features.items.map((f, i) => (
+          <div class="reveal" style={`--d:${(i % 3) * 80}ms`}>
+            <div class="group h-full bg-white rounded-2xl border border-stone-200/70 p-7 hover:border-emerald-300/70 hover:shadow-[0_8px_30px_-12px_rgba(5,150,105,0.18)] transition-all duration-300">
+              <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:bg-emerald-100 transition-colors">
+                <svg class="w-[1.35rem] h-[1.35rem]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={FEATURE_ICONS[i]} />
+                </svg>
+              </div>
+              <h3 class="mt-5 text-lg font-semibold tracking-tight text-stone-900" data-i18n={`features.items.${i}.t`}>{f.t}</h3>
+              <p class="mt-2 text-stone-500 text-[0.95rem] leading-relaxed" data-i18n={`features.items.${i}.d`}>{f.d}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The Science ── -->
+  <section id="science" class="bg-white scroll-mt-20">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6 py-20 sm:py-28">
+      <div class="reveal max-w-2xl mb-14">
+        <p class="font-mono text-xs tracking-[0.18em] text-emerald-600 mb-4" data-i18n="science.label">{en.science.label}</p>
+        <h2 class="text-3xl sm:text-[2.6rem] leading-[1.1] font-bold tracking-[-0.025em] text-stone-900" data-i18n="science.heading">{en.science.heading}</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-px bg-stone-200/70 rounded-2xl overflow-hidden border border-stone-200/70">
+        {en.science.items.map((s, i) => (
+          <div class="reveal bg-white" style={`--d:${(i % 2) * 90}ms`}>
+            <div class="h-full p-8 flex gap-5 hover:bg-stone-50/70 transition-colors">
+              <span class="font-mono text-emerald-600/40 text-2xl font-bold leading-none tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3 class="text-lg font-semibold tracking-tight text-stone-900" data-i18n={`science.items.${i}.t`}>{s.t}</h3>
+                <p class="mt-2 text-stone-500 text-[0.97rem] leading-relaxed" data-i18n={`science.items.${i}.d`}>{s.d}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Two ways to use ── -->
+  <section class="bg-stone-50 border-y border-stone-200/70">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6 py-20 sm:py-28">
+      <div class="reveal max-w-2xl mb-14">
+        <p class="font-mono text-xs tracking-[0.18em] text-emerald-600 mb-4" data-i18n="ways.label">{en.ways.label}</p>
+        <h2 class="text-3xl sm:text-[2.6rem] leading-[1.1] font-bold tracking-[-0.025em] text-stone-900" data-i18n="ways.heading">{en.ways.heading}</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+        {en.ways.items.map((w, i) => (
+          <div class="reveal" style={`--d:${i * 100}ms`}>
+            <div class="h-full bg-white rounded-2xl border border-stone-200/70 p-8 sm:p-9">
+              <div class="flex items-center gap-3 mb-5">
+                <span class="text-2xl font-bold tracking-tight text-stone-900">{w.name}</span>
+                <span class="font-mono text-xs px-2.5 py-1 rounded-full bg-stone-100 text-stone-500 border border-stone-200" data-i18n={`ways.items.${i}.tag`}>{w.tag}</span>
+              </div>
+              <p class="text-stone-500 leading-relaxed" data-i18n={`ways.items.${i}.d`}>{w.d}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Quick start ── -->
+  <section id="start" class="bg-stone-950 text-stone-50 scroll-mt-20 relative overflow-hidden">
+    <div class="absolute inset-0" style={dotGrid}></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[20rem] rounded-full bg-emerald-600/10 blur-[120px]"></div>
+    <div class="relative max-w-4xl mx-auto px-5 sm:px-6 py-20 sm:py-28">
+      <div class="reveal mb-10 text-center">
+        <p class="font-mono text-xs tracking-[0.18em] text-emerald-400 mb-4" data-i18n="start.label">{en.start.label}</p>
+        <h2 class="text-3xl sm:text-[2.6rem] leading-[1.1] font-bold tracking-[-0.025em]" data-i18n="start.heading">{en.start.heading}</h2>
+      </div>
+      <div class="reveal" style="--d:120ms">
+        <div class="rounded-2xl border border-white/10 bg-stone-900/80 overflow-hidden shadow-2xl">
+          <div class="flex items-center justify-between px-5 py-3 border-b border-white/8 bg-white/[0.02]">
+            <div class="flex gap-1.5">
+              <span class="w-3 h-3 rounded-full bg-stone-700"></span>
+              <span class="w-3 h-3 rounded-full bg-stone-700"></span>
+              <span class="w-3 h-3 rounded-full bg-stone-700"></span>
+            </div>
+            <button id="copy-btn" class="font-mono text-xs text-stone-400 hover:text-emerald-400 transition-colors cursor-pointer" data-i18n="start.copy">{en.start.copy}</button>
+          </div>
+          <pre class="px-5 sm:px-6 py-5 overflow-x-auto text-[0.82rem] sm:text-sm leading-[1.7] font-mono text-stone-300"><code id="code-block">{CODE}</code></pre>
+        </div>
+        <p class="mt-5 text-center text-sm text-stone-400 font-mono" data-i18n="start.note">{en.start.note}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Final CTA ── -->
+  <section class="bg-emerald-500 relative overflow-hidden">
+    <div class="absolute inset-0" style={dotGrid + ' opacity: 0.4;'}></div>
+    <div class="relative max-w-4xl mx-auto px-5 sm:px-6 py-20 sm:py-24 text-center">
+      <div class="reveal">
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-[-0.03em] text-stone-950" data-i18n="cta.heading">{en.cta.heading}</h2>
+        <p class="mt-4 text-emerald-950/70 text-lg" data-i18n="cta.sub">{en.cta.sub}</p>
+        <div class="mt-9 flex flex-wrap items-center justify-center gap-3.5">
+          <a href="#start" class="bg-stone-950 hover:bg-stone-800 text-stone-50 font-semibold px-7 py-3.5 rounded-xl transition-colors" data-i18n="cta.primary">{en.cta.primary}</a>
+          <a href={GITHUB} target="_blank" rel="noreferrer" class="flex items-center gap-2 bg-white/25 hover:bg-white/40 text-stone-950 font-medium px-6 py-3.5 rounded-xl transition-colors backdrop-blur-sm">
+            <svg class="w-[1.05rem] h-[1.05rem]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>
+            <span data-i18n="cta.secondary">{en.cta.secondary}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="bg-stone-950 text-stone-400">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6 py-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div>
+        <span class="flex items-center gap-2.5 select-none">
+          <svg width="26" height="26" viewBox="0 0 100 84" fill="none" aria-hidden="true">
+            <path d="M50 6C54 20 64 25 50 42C36 25 46 20 50 6Z" fill="#34d399" />
+            <path d="M88 42C74 46 69 56 50 42C69 28 74 38 88 42Z" fill="#34d399" opacity="0.8" />
+            <path d="M50 78C46 64 36 59 50 42C64 59 54 64 50 78Z" fill="#34d399" opacity="0.6" />
+            <path d="M12 42C26 38 31 28 50 42C31 56 26 46 12 42Z" fill="#34d399" opacity="0.7" />
+            <path d="M76 16C68 24 66 34 50 42C58 28 63 21 76 16Z" fill="#34d399" opacity="0.5" />
+            <path d="M24 68C32 60 34 50 50 42C42 56 37 63 24 68Z" fill="#34d399" opacity="0.4" />
+            <circle cx="50" cy="42" r="5" fill="#34d399" />
+          </svg>
+          <span class="text-[1.05rem] font-semibold tracking-tight text-stone-50">Bloom</span>
+        </span>
+        <p class="mt-3 text-sm text-stone-500 max-w-xs leading-relaxed" data-i18n="footer.tagline">{en.footer.tagline}</p>
+      </div>
+      <div class="flex items-center gap-7 text-sm">
+        <a href={GITHUB} target="_blank" rel="noreferrer" class="hover:text-stone-50 transition-colors" data-i18n="footer.repo">{en.footer.repo}</a>
+        <a href={`${GITHUB}/blob/main/GUIDE.md`} target="_blank" rel="noreferrer" class="hover:text-stone-50 transition-colors" data-i18n="footer.guide">{en.footer.guide}</a>
+        <a href={`${GITHUB}/blob/main/LICENSE`} target="_blank" rel="noreferrer" class="hover:text-stone-50 transition-colors" data-i18n="footer.license">{en.footer.license}</a>
+      </div>
+    </div>
+    <div class="border-t border-white/5">
+      <div class="max-w-6xl mx-auto px-5 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-stone-600 font-mono">
+        <span data-i18n="footer.rights">{en.footer.rights}</span>
+        <span data-i18n="footer.powered">{en.footer.powered}</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const data = JSON.parse(document.getElementById('i18n-data').textContent);
+
+    function apply(lang) {
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const v = data[lang][el.getAttribute('data-i18n')];
+        if (v != null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-label]').forEach((el) => {
+        el.textContent = lang === 'en' ? '中文' : 'EN';
+      });
+    }
+
+    let current = 'en';
+    try { current = localStorage.getItem('bloom_lang') === 'zh' ? 'zh' : 'en'; } catch (e) {}
+    if (current === 'zh') apply('zh');
+    else document.querySelectorAll('[data-i18n-label]').forEach((el) => (el.textContent = '中文'));
+
+    document.querySelectorAll('[data-lang-toggle]').forEach((btn) =>
+      btn.addEventListener('click', () => {
+        current = document.documentElement.getAttribute('data-lang') === 'en' ? 'zh' : 'en';
+        try { localStorage.setItem('bloom_lang', current); } catch (e) {}
+        apply(current);
+      })
+    );
+
+    // Reveal-on-scroll — reveal when in view OR once scrolled past, so fast flings never strand content
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = document.querySelectorAll('.reveal');
+    if (reduce) {
+      els.forEach((el) => el.classList.add('reveal-in'));
+    } else {
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting || e.boundingClientRect.top < 0) {
+              e.target.classList.add('reveal-in');
+              obs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+      els.forEach((el) => obs.observe(el));
+    }
+
+    // Copy quick-start command
+    const copyBtn = document.getElementById('copy-btn');
+    copyBtn?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(document.getElementById('code-block').textContent);
+        copyBtn.textContent = '✓ ' + data[current]['start.copied'];
+        setTimeout(() => { copyBtn.textContent = data[current]['start.copy']; }, 1800);
+      } catch (e) {}
+    });
+  </script>
+</Base>

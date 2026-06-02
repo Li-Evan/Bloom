@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  --accent: #059669;
+  --accent-light: #d1fae5;
+  --accent-hover: #047857;
+  --bg: #fafaf9;
+  --ink: #1c1917;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--ink);
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+::selection {
+  background-color: var(--accent-light);
+  color: var(--ink);
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #a8a29e; }
+
+/* ── On-load hero entrance ── */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+.rise {
+  opacity: 0;
+  animation: riseIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--d, 0ms);
+}
+
+/* ── Bell-curve draw-on-load ── */
+@keyframes drawCurve { to { stroke-dashoffset: 0; } }
+.curve-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: drawCurve 1.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+@keyframes fadeIn { to { opacity: 1; } }
+.fade-late { opacity: 0; animation: fadeIn 0.9s ease 0.7s forwards; }
+.fade-later { opacity: 0; animation: fadeIn 0.8s ease 1.2s forwards; }
+
+/* ── Reveal-on-scroll (JS toggles .reveal-in) ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--d, 0ms);
+}
+.reveal.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+button:active:not(:disabled) { transform: scale(0.98); }
+
+/* ── Respect reduced motion: no animation, everything visible ── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise, .curve-draw, .fade-late, .fade-later, .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
