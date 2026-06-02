@@ -119,6 +119,22 @@ docker compose up -d   # 访问 http://localhost:3000
 - **可折叠大纲** — 随时查看掌握进度
 - **流式生成** — 实时看 AI 写下一篇课文
 
+## Skills 技能
+
+Bloom 在 [`skills/`](./skills/) 里附带一组可移植的 **[Claude Code](https://claude.com/claude-code) skill** —— 自包含的能力包，拷进 `~/.claude/skills/`（全局）或任意项目的 `.claude/skills/` 即可随处使用。
+
+| Skill | 作用 |
+|-------|------|
+| **bloom-tutor** | 把整套交互式学习系统封装成一个 skill —— 大纲 → 自适应课文 → `???` 批注 → 评估 → 总结。就是 CLI 模式，打包成可移植形态 |
+| **learn-deep** | 深度学习默认入口 —— 一次跑完下面五种视角，再帮你选深入方向 |
+| **learn-crossover** | 用你已掌握的知识撬动新概念（结构类比） |
+| **learn-occam** | 判断某个东西该不该学、学到什么程度（ROI、够用就好） |
+| **learn-graph** | 为一个领域建知识图谱地图 + 学习路径 |
+| **learn-prototype** | 用「先做最垃圾的能跑原型再迭代」来学 |
+| **learn-feynman** | 用「讲给别人听」自查是否真懂 |
+
+每个文件夹都零依赖：拷进任意 skills 目录，然后直接对 Claude Code 说话（如 *「帮我学 X」*、*「我读完了」*）。
+
 ## 技术栈
 
 | 层 | 技术 |

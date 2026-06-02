@@ -119,6 +119,22 @@ Create course → AI generates syllabus + lesson 01
 - **Collapsible syllabus** — track mastery progress without clutter
 - **Streaming generation** — watch AI write the next lesson in real-time
 
+## Skills
+
+Bloom ships a set of portable **[Claude Code](https://claude.com/claude-code) skills** in [`skills/`](./skills/) — self-contained capability packs you can copy into `~/.claude/skills/` (global) or any project's `.claude/skills/` and use anywhere.
+
+| Skill | What it does |
+|-------|-------------|
+| **bloom-tutor** | The full interactive tutoring system as one skill — syllabus → adaptive lessons → `???` annotations → evaluation → summary. CLI mode, packaged and portable. |
+| **learn-deep** | Default deep-dive entry — runs all five lenses below in one pass, then helps you pick a direction |
+| **learn-crossover** | Learn a new concept by leveraging what you already know (structural analogies) |
+| **learn-occam** | Decide whether / how deeply something is worth learning (ROI, just-enough) |
+| **learn-graph** | Build a knowledge-graph map of a field plus a learning path |
+| **learn-prototype** | Learn by building the crappiest working prototype, then iterating |
+| **learn-feynman** | Verify true understanding by explaining it back |
+
+Each folder is dependency-free: copy it into a skills directory, then just talk to Claude Code (e.g. *"help me learn X"*, *"I'm done reading"*).
+
 ## Tech Stack
 
 | Layer | Technology |
@@ -154,7 +170,8 @@ make up / make down   # docker start / stop
 │       ├── DashboardPage  # course list + create form
 │       ├── CoursePage     # syllabus + lesson list
 │       └── LessonPage     # reader + annotations + feedback + AI gen
-└── example/               # pre-built topics for CLI mode
+├── example/               # pre-built topics for CLI mode
+└── skills/                # portable Claude Code skills (bloom-tutor + learn-*)
 ```
 
 ## The Science
