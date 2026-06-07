@@ -87,7 +87,7 @@ cd backend && uv sync && uv run uvicorn app.main:app --reload --port 8000
 cd frontend && npm install && npm run dev
 ```
 
-Open http://localhost:5173. Click **New Course**, choose **Topic** or **Source Upload**, and start learning.
+Open http://localhost:5173. Click **New Course**, choose **Topic** or **Source Upload**, pick a learning depth, and start learning.
 
 ### Docker
 
@@ -132,6 +132,7 @@ Upload PDF / TXT / MD → AI generates syllabus + source-reading chapter
 ## Features
 
 - **Two course modes** — generate from a topic, or upload a PDF/TXT/MD source
+- **Learning depth** — choose simple, standard, or deep syllabus expansion when creating a course
 - **Reference material** — paste textbook chapters, papers, or notes when creating a topic course
 - **Highlight Q&A sessions** — select any text in any lesson (or source) and a small icon pops up; click it to ask. The highlighted text stays marked in yellow, the AI answers instantly, and you can keep asking follow-ups in the same thread. The window is draggable and collapses into a margin dot you can reopen anytime. Each session sees the full lesson + the highlighted span + its own conversation, and your questions still feed the next lesson.
 - **Adaptive lessons** — each lesson addresses your specific gaps from the previous one

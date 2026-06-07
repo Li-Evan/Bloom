@@ -1,11 +1,17 @@
+from typing import Literal
+
 from pydantic import BaseModel, Field, field_validator
 from datetime import datetime
+
+
+LearningDepth = Literal["simple", "standard", "deep"]
 
 
 # Course
 class CreateCourseRequest(BaseModel):
     name: str = Field(..., min_length=1, max_length=200)
     reference: str = Field("", max_length=50000)  # optional reference material
+    learning_depth: LearningDepth = "standard"
 
 
 class CreateSourceCourseResponse(BaseModel):

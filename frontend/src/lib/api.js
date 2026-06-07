@@ -27,16 +27,17 @@ export async function getCourse(courseId) {
   return apiRequest(`/courses/${courseId}`);
 }
 
-export async function createCourse(name, reference = '') {
+export async function createCourse(name, reference = '', learningDepth = 'standard') {
   return apiRequest('/courses', {
     method: 'POST',
-    body: JSON.stringify({ name, reference }),
+    body: JSON.stringify({ name, reference, learning_depth: learningDepth }),
   });
 }
 
-export async function createSourceCourse(name, file) {
+export async function createSourceCourse(name, file, learningDepth = 'standard') {
   const formData = new FormData();
   formData.append('name', name);
+  formData.append('learning_depth', learningDepth);
   formData.append('file', file);
 
   const res = await fetch(`${API_BASE}/courses/from-source`, {

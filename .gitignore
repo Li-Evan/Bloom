@@ -36,8 +36,6 @@ build/
 *.key
 *.crt
 
-docs/CHANGELOG.md
-docs/ARCHITECTURE.md
 docs/AUTORESEARCH-METHOD.md
 
 # 本地 AI Agent 指令文件：只指导当前工作区，不作为项目内容发布

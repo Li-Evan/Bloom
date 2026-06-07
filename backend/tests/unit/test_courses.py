@@ -55,6 +55,27 @@ def test_create_course(client):
     assert "课程大纲" in data["syllabus_content"]
 
 
+def test_create_course_passes_learning_depth_to_prompts(client):
+    syllabus_resp = _make_mock_response("# 深入课程 · 课程大纲\n\n## 核心掌握项\n\n### 模块一\n- [ ] 能够解释底层机制")
+    lesson_resp = _make_mock_response("# 第一章\n\n正文内容")
+
+    with patch("app.courses.get_openai_client") as mock_get_client:
+        mock_client = MagicMock()
+        mock_client.chat.completions.create.side_effect = [syllabus_resp, lesson_resp]
+        mock_get_client.return_value = mock_client
+
+        res = client.post("/api/courses", json={"name": "机器学习", "learning_depth": "deep"})
+
+    assert res.status_code == 200
+    calls = mock_client.chat.completions.create.call_args_list
+    syllabus_messages = calls[0].kwargs["messages"]
+    lesson_messages = calls[1].kwargs["messages"]
+    assert "学习深度：深入" in syllabus_messages[0]["content"]
+    assert "12-15 条掌握项" in syllabus_messages[0]["content"]
+    assert "学习深度：深入" in syllabus_messages[1]["content"]
+    assert "按「深入」学习深度" in lesson_messages[1]["content"]
+
+
 def test_list_courses(client):
     _mock_create_course(client)
     res = client.get("/api/courses")
@@ -193,6 +214,29 @@ Alpha 是材料的中心主张。
     next_lesson = client.get(f"/api/courses/{cid}/lessons/2").json()
     assert next_lesson["is_source"] is False
     assert "划线问题复盘" in next_lesson["content"]
+
+
+def test_source_course_passes_learning_depth_to_syllabus_prompt(client):
+    syllabus_resp = _make_mock_response(
+        "# 原文学习 · 课程大纲\n\n## 核心掌握项\n\n### 主干\n- [ ] 能够解释原文主线"
+    )
+
+    with patch("app.courses.get_openai_client") as mock_get_client:
+        mock_client = MagicMock()
+        mock_client.chat.completions.create.return_value = syllabus_resp
+        mock_get_client.return_value = mock_client
+
+        res = client.post(
+            "/api/courses/from-source",
+            data={"name": "原文学习", "learning_depth": "simple"},
+            files={"file": ("source.txt", b"Alpha is the central claim.", "text/plain")},
+        )
+
+    assert res.status_code == 200
+    messages = mock_client.chat.completions.create.call_args.kwargs["messages"]
+    assert "学习深度：简单" in messages[0]["content"]
+    assert "8-10 条掌握项" in messages[0]["content"]
+    assert "学习深度：简单" in messages[1]["content"]
 
 
 def test_highlight_creates_session_with_thread(client):

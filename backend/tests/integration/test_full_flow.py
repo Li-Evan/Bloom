@@ -304,7 +304,7 @@ def test_complete_learning_journey(client):
     assert '"is_evaluation": true' in body
 
     lessons = client.get(f"/api/courses/{cid}/lessons").json()
-    eval_lesson = [l for l in lessons if l["is_evaluation"]]
+    eval_lesson = [lesson for lesson in lessons if lesson["is_evaluation"]]
     assert len(eval_lesson) == 1
     assert eval_lesson[0]["number"] == 3
 
@@ -551,7 +551,7 @@ def test_lesson_list_has_title_and_feedback_status(client):
 
     # Check title extraction
     lessons = client.get(f"/api/courses/{cid}/lessons").json()
-    lesson1 = [l for l in lessons if l["number"] == 1][0]
+    lesson1 = [lesson for lesson in lessons if lesson["number"] == 1][0]
     assert lesson1["title"] == "认识核心概念A"
     assert lesson1["has_feedback"] is False
 
@@ -562,5 +562,5 @@ def test_lesson_list_has_title_and_feedback_status(client):
 
     # Check has_feedback is now True
     lessons = client.get(f"/api/courses/{cid}/lessons").json()
-    lesson1 = [l for l in lessons if l["number"] == 1][0]
+    lesson1 = [lesson for lesson in lessons if lesson["number"] == 1][0]
     assert lesson1["has_feedback"] is True
