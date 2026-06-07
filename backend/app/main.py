@@ -6,6 +6,7 @@ import os
 from app.config import settings
 from app.database import engine, Base, ensure_sqlite_schema
 from app.courses import router as courses_router
+from app.recommendations import router as recommendations_router
 
 # Create tables
 Base.metadata.create_all(bind=engine)
@@ -22,6 +23,7 @@ app.add_middleware(
 )
 
 app.include_router(courses_router)
+app.include_router(recommendations_router)
 
 
 @app.get("/api/health")

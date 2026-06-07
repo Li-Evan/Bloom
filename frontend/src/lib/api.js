@@ -191,3 +191,28 @@ export async function getCourseStats(courseId) {
 export async function getSummary(courseId) {
   return apiRequest(`/courses/${courseId}/summary`);
 }
+
+// --- Recommendations ---
+
+export async function getRecommendations() {
+  return apiRequest('/recommendations');
+}
+
+export async function refreshRecommendations() {
+  return apiRequest('/recommendations/refresh', { method: 'POST' });
+}
+
+export async function saveRecommendation(recommendationId) {
+  return apiRequest(`/recommendations/${recommendationId}/save`, { method: 'POST' });
+}
+
+export async function removeSavedRecommendation(recommendationId) {
+  return apiRequest(`/recommendations/${recommendationId}/save`, { method: 'DELETE' });
+}
+
+export async function startRecommendation(recommendationId, courseId) {
+  return apiRequest(`/recommendations/${recommendationId}/start`, {
+    method: 'POST',
+    body: JSON.stringify({ course_id: courseId }),
+  });
+}

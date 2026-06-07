@@ -2,9 +2,11 @@ import logging
 import json
 import io
 import re
+from datetime import date, timedelta
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from fastapi.responses import StreamingResponse
+from sqlalchemy import func
 from sqlalchemy.orm import Session
 from openai import OpenAI
 from pypdf import PdfReader
@@ -382,8 +384,6 @@ def get_openai_client() -> OpenAI:
     return OpenAI(api_key=settings.LLM_API_KEY, base_url=settings.LLM_BASE_URL)
 
 
-import re
-
 _FENCE_RE = re.compile(r'^```(?:markdown|md)?\s*\n?', re.IGNORECASE)
 _FENCE_END_RE = re.compile(r'\n?```\s*$')
 
@@ -653,7 +653,7 @@ def create_course(req: CreateCourseRequest, db: Session = Depends(get_db)):
             mastery_progress=0.0,
             source_filename=course.source_filename,
         )
-    except Exception as e:
+    except Exception:
         logger.exception("Course creation error")
         db.rollback()
         raise HTTPException(status_code=500, detail="课程创建失败，请稍后重试")
@@ -805,13 +805,13 @@ def list_lessons(course_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="课程不存在")
     return [
         LessonListItem(
-            id=l.id, number=l.number, is_evaluation=l.is_evaluation,
-            is_source=l.is_source,
-            title=_extract_title(l.content),
-            has_feedback=l.feedback is not None,
-            created_at=l.created_at,
+            id=lesson.id, number=lesson.number, is_evaluation=lesson.is_evaluation,
+            is_source=lesson.is_source,
+            title=_extract_title(lesson.content),
+            has_feedback=lesson.feedback is not None,
+            created_at=lesson.created_at,
         )
-        for l in course.lessons
+        for lesson in course.lessons
     ]
 
 
@@ -1054,7 +1054,7 @@ def generate_next_lesson(
     else:
         recent = lessons[-3:] if len(lessons) > 3 else lessons
         prev_text = "\n\n---\n\n".join(
-            f"### 第{l.number}篇\n{l.content[:20000]}" for l in recent
+            f"### 第{lesson.number}篇\n{lesson.content[:20000]}" for lesson in recent
         )
         prompt = NEXT_LESSON_PROMPT.format(
             syllabus=syllabus_content,
@@ -1100,7 +1100,7 @@ def generate_next_lesson(
 
             yield f"data: {json.dumps({'done': True, 'lesson_number': next_number, 'is_evaluation': is_eval}, ensure_ascii=False)}\n\n"
 
-        except Exception as e:
+        except Exception:
             logger.exception("Next lesson generation error")
             db.rollback()
             yield f"data: {json.dumps({'error': '服务暂时不可用，请稍后重试'}, ensure_ascii=False)}\n\n"
@@ -1112,7 +1112,7 @@ def _generate_summary_response(course: Course, db: Session):
     """Generate summary after evaluation article is read."""
     syllabus_content = course.syllabus.content
     all_lessons_text = "\n\n---\n\n".join(
-        f"### 第{l.number}篇\n{l.content}" for l in course.lessons
+        f"### 第{lesson.number}篇\n{lesson.content}" for lesson in course.lessons
     )
 
     cid = course.id
@@ -1142,7 +1142,7 @@ def _generate_summary_response(course: Course, db: Session):
 
             yield f"data: {json.dumps({'done': True, 'completed': True}, ensure_ascii=False)}\n\n"
 
-        except Exception as e:
+        except Exception:
             logger.exception("Summary generation error")
             db.rollback()
             yield f"data: {json.dumps({'error': '总结生成失败，请重试'}, ensure_ascii=False)}\n\n"
@@ -1210,9 +1210,9 @@ def get_course_stats(course_id: int, db: Session = Depends(get_db)):
     if not course:
         raise HTTPException(status_code=404, detail="课程不存在")
 
-    normal_lessons = [l for l in course.lessons if l.number > 0]
-    total_annotations = sum(len(l.annotations) for l in normal_lessons)
-    total_feedback = sum(1 for l in normal_lessons if l.feedback)
+    normal_lessons = [lesson for lesson in course.lessons if lesson.number > 0]
+    total_annotations = sum(len(lesson.annotations) for lesson in normal_lessons)
+    total_feedback = sum(1 for lesson in normal_lessons if lesson.feedback)
 
     checked, total = (0, 0)
     if course.syllabus:
@@ -1235,11 +1235,6 @@ def get_course_stats(course_id: int, db: Session = Depends(get_db)):
         first_activity=first_activity,
         last_activity=last_activity,
     )
-
-
-from datetime import date, timedelta
-from sqlalchemy import func
-
 
 @router.get("/stats", response_model=GlobalStatsResponse)
 def get_global_stats(db: Session = Depends(get_db)):

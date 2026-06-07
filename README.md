@@ -128,6 +128,7 @@ Upload PDF / TXT / MD → AI generates syllabus + source-reading chapter
 
 - **Two course modes** — generate from a topic, or upload a PDF/TXT/MD source
 - **Reference material** — paste textbook chapters, papers, or notes when creating a topic course
+- **Next-topic recommendations** — generate 3 course-ready topics from your full learning history, refresh the set, save ideas to a learning queue, or start one directly through the normal syllabus → lesson flow
 - **Highlight Q&A sessions** — select any text in any lesson (or source) and a small icon pops up; click it to ask. The highlighted text stays marked in yellow, the AI answers instantly, and you can keep asking follow-ups in the same thread. The window is draggable and collapses into a margin dot you can reopen anytime. Each session sees the full lesson + the highlighted span + its own conversation, and your questions still feed the next lesson.
 - **Adaptive lessons** — each lesson addresses your specific gaps from the previous one
 - **Chapter sidebar** — quick-jump between lessons while reading
@@ -177,8 +178,9 @@ make up / make down   # docker start / stop
 ├── .env.example           # env template
 ├── backend/
 │   └── app/
-│       ├── courses.py     # all API routes + AI prompt logic
-│       ├── models.py      # Course, Lesson, Annotation, Feedback
+│       ├── courses.py     # course, lesson, annotation, feedback, stats, summary APIs
+│       ├── recommendations.py # next-topic recommendation APIs
+│       ├── models.py      # Course, Lesson, Annotation, Feedback, Recommendation
 │       └── config.py      # reads .env
 ├── frontend/
 │   └── src/pages/

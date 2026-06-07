@@ -45,12 +45,13 @@ def _setup_course(client, syllabus_content=None):
 def test_create_annotation(client):
     course_id = _setup_course(client)
 
-    res = client.post(f"/api/courses/{course_id}/lessons/1/annotations", json={
-        "position_start": 10,
-        "position_end": 20,
-        "original_text": "正文",
-        "comment": "这里不太理解",
-    })
+    with patch("app.courses._call_llm_messages", return_value="这是测试回答。"):
+        res = client.post(f"/api/courses/{course_id}/lessons/1/annotations", json={
+            "position_start": 10,
+            "position_end": 20,
+            "original_text": "正文",
+            "comment": "这里不太理解",
+        })
     assert res.status_code == 200
     data = res.json()
     assert data["original_text"] == "正文"
@@ -62,12 +63,13 @@ def test_create_annotation(client):
 def test_get_annotations(client):
     course_id = _setup_course(client)
 
-    client.post(f"/api/courses/{course_id}/lessons/1/annotations", json={
-        "position_start": 0, "position_end": 5, "original_text": "文本1", "comment": "???为什么",
-    })
-    client.post(f"/api/courses/{course_id}/lessons/1/annotations", json={
-        "position_start": 10, "position_end": 15, "original_text": "文本2", "comment": "???不懂",
-    })
+    with patch("app.courses._call_llm_messages", return_value="这是测试回答。"):
+        client.post(f"/api/courses/{course_id}/lessons/1/annotations", json={
+            "position_start": 0, "position_end": 5, "original_text": "文本1", "comment": "???为什么",
+        })
+        client.post(f"/api/courses/{course_id}/lessons/1/annotations", json={
+            "position_start": 10, "position_end": 15, "original_text": "文本2", "comment": "???不懂",
+        })
 
     res = client.get(f"/api/courses/{course_id}/lessons/1/annotations")
     assert res.status_code == 200

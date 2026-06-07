@@ -176,3 +176,28 @@ class LearningEventResponse(BaseModel):
     created_at: datetime
 
     model_config = {"from_attributes": True}
+
+
+# Recommendations
+class RecommendationResponse(BaseModel):
+    id: int
+    title: str
+    rationale: str
+    bridge: str = ""
+    source_topics: list[str] = []
+    status: str
+    generation: int
+    course_id: int | None = None
+    created_at: datetime
+    updated_at: datetime | None = None
+
+    model_config = {"from_attributes": True}
+
+
+class RecommendationDashboardResponse(BaseModel):
+    recommendations: list[RecommendationResponse]
+    saved: list[RecommendationResponse]
+
+
+class StartRecommendationRequest(BaseModel):
+    course_id: int | None = None

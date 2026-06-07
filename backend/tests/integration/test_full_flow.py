@@ -213,12 +213,13 @@ def test_complete_learning_journey(client):
     assert lesson1["is_evaluation"] is False
 
     # ── Step 4: Add annotation to lesson 1 ──
-    ann = client.post(f"/api/courses/{cid}/lessons/1/annotations", json={
-        "position_start": 10,
-        "position_end": 30,
-        "original_text": "概念A 是本课题的基石",
-        "comment": "为什么说是基石？",
-    }).json()
+    with patch("app.courses._call_llm_messages", return_value="因为后续概念都建立在它之上。"):
+        ann = client.post(f"/api/courses/{cid}/lessons/1/annotations", json={
+            "position_start": 10,
+            "position_end": 30,
+            "original_text": "概念A 是本课题的基石",
+            "comment": "为什么说是基石？",
+        }).json()
     assert ann["original_text"] == "概念A 是本课题的基石"
 
     annotations = client.get(f"/api/courses/{cid}/lessons/1/annotations").json()
@@ -288,7 +289,7 @@ def test_complete_learning_journey(client):
     assert '"is_evaluation": true' in body
 
     lessons = client.get(f"/api/courses/{cid}/lessons").json()
-    eval_lesson = [l for l in lessons if l["is_evaluation"]]
+    eval_lesson = [lesson for lesson in lessons if lesson["is_evaluation"]]
     assert len(eval_lesson) == 1
     assert eval_lesson[0]["number"] == 3
 
@@ -394,14 +395,15 @@ def test_delete_annotation(client):
     cid = course["id"]
 
     # Create two annotations
-    a1 = client.post(f"/api/courses/{cid}/lessons/1/annotations", json={
-        "position_start": 0, "position_end": 10,
-        "original_text": "概念A", "comment": "这个不太对",
-    }).json()
-    a2 = client.post(f"/api/courses/{cid}/lessons/1/annotations", json={
-        "position_start": 20, "position_end": 30,
-        "original_text": "基石", "comment": "为什么是基石",
-    }).json()
+    with patch("app.courses._call_llm_messages", return_value="这是测试回答。"):
+        a1 = client.post(f"/api/courses/{cid}/lessons/1/annotations", json={
+            "position_start": 0, "position_end": 10,
+            "original_text": "概念A", "comment": "这个不太对",
+        }).json()
+        a2 = client.post(f"/api/courses/{cid}/lessons/1/annotations", json={
+            "position_start": 20, "position_end": 30,
+            "original_text": "基石", "comment": "为什么是基石",
+        }).json()
 
     # Verify both exist
     anns = client.get(f"/api/courses/{cid}/lessons/1/annotations").json()
@@ -527,7 +529,7 @@ def test_lesson_list_has_title_and_feedback_status(client):
 
     # Check title extraction
     lessons = client.get(f"/api/courses/{cid}/lessons").json()
-    lesson1 = [l for l in lessons if l["number"] == 1][0]
+    lesson1 = [lesson for lesson in lessons if lesson["number"] == 1][0]
     assert lesson1["title"] == "认识核心概念A"
     assert lesson1["has_feedback"] is False
 
@@ -538,5 +540,5 @@ def test_lesson_list_has_title_and_feedback_status(client):
 
     # Check has_feedback is now True
     lessons = client.get(f"/api/courses/{cid}/lessons").json()
-    lesson1 = [l for l in lessons if l["number"] == 1][0]
+    lesson1 = [lesson for lesson in lessons if lesson["number"] == 1][0]
     assert lesson1["has_feedback"] is True

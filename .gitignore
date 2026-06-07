@@ -36,7 +36,5 @@ build/
 *.key
 *.crt
 
-docs/CHANGELOG.md
-docs/ARCHITECTURE.md
 CLAUDE.md
 docs/AUTORESEARCH-METHOD.md
