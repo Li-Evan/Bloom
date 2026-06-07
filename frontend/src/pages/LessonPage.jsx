@@ -202,11 +202,12 @@ export default function LessonPage() {
     const start = { mx: e.clientX, my: e.clientY, left: cardRect.left, top: cardRect.top };
     const move = (ev) => setCardRect((r) => (r ? { ...r, left: start.left + ev.clientX - start.mx, top: Math.max(0, start.top + ev.clientY - start.my) } : r));
     const up = () => {
-      document.removeEventListener('mousemove', move);
-      document.removeEventListener('mouseup', up);
+      window.removeEventListener('mousemove', move, true);
+      window.removeEventListener('mouseup', up, true);
     };
-    document.addEventListener('mousemove', move);
-    document.addEventListener('mouseup', up);
+    // capture phase → the card's onMouseUp stopPropagation can't swallow these
+    window.addEventListener('mousemove', move, true);
+    window.addEventListener('mouseup', up, true);
   };
 
   // Resize the active overlay from any edge/corner. dir ∈ {n,s,e,w,ne,nw,se,sw}.
@@ -226,11 +227,12 @@ export default function LessonPage() {
       setCardRect({ left, top, width, height });
     };
     const up = () => {
-      document.removeEventListener('mousemove', move);
-      document.removeEventListener('mouseup', up);
+      window.removeEventListener('mousemove', move, true);
+      window.removeEventListener('mouseup', up, true);
     };
-    document.addEventListener('mousemove', move);
-    document.addEventListener('mouseup', up);
+    // capture phase → the card's onMouseUp stopPropagation can't swallow these
+    window.addEventListener('mousemove', move, true);
+    window.addEventListener('mouseup', up, true);
   };
 
   const handleTextSelect = () => {
