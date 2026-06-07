@@ -176,3 +176,28 @@ class LearningEventResponse(BaseModel):
     created_at: datetime
 
     model_config = {"from_attributes": True}
+
+
+# Learning Calendar — 个人中心学习日历
+class CalendarCourseActivity(BaseModel):
+    course_id: int
+    course_name: str
+    mode: str
+    lessons: list[int]   # 当天接触到的课文编号（去重、升序，不含总结篇 0）
+    annotations: int     # 当天该课程的划线问答数
+    event_count: int     # 当天该课程的活动事件总数
+
+
+class CalendarDay(BaseModel):
+    date: str            # YYYY-MM-DD（按事件存储时间的日期归组）
+    event_count: int
+    lessons_read: int    # 当天读到的课文数（按 课程+编号 去重）
+    annotations: int
+    courses: list[CalendarCourseActivity]
+
+
+class CalendarResponse(BaseModel):
+    days: list[CalendarDay]
+    total_active_days: int
+    first_active_date: str | None = None
+    last_active_date: str | None = None

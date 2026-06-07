@@ -214,6 +214,12 @@ export async function getCourseStats(courseId) {
   return apiRequest(`/courses/${courseId}/stats`);
 }
 
+// --- Learning Calendar (个人中心) ---
+
+export async function getCalendar() {
+  return apiRequest('/calendar');
+}
+
 // --- Summary ---
 
 export async function getSummary(courseId) {

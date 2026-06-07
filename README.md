@@ -138,6 +138,7 @@ Upload PDF / TXT / MD → AI generates syllabus + source-reading chapter
 - **Chapter sidebar** — quick-jump between lessons while reading
 - **Collapsible syllabus** — track mastery progress without clutter
 - **Streaming generation** — watch AI write the next lesson in real-time
+- **Personal center & learning calendar** — open the profile from the header to see a month calendar shaded by daily activity; click any day to see which courses, lessons, and highlights you studied, alongside overview stat cards and a six-month contribution heatmap (streaks and grouping use your local date)
 
 ## Skills
 
