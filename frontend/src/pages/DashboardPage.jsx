@@ -1,6 +1,18 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getCourses, createCourse, createSourceCourse, deleteCourse, getGlobalStats } from '../lib/api';
+import RecommendationPanel from '../components/RecommendationPanel';
+import {
+  getCourses,
+  createCourse,
+  createSourceCourse,
+  deleteCourse,
+  getGlobalStats,
+  getRecommendations,
+  refreshRecommendations,
+  saveRecommendation,
+  removeSavedRecommendation,
+  startRecommendation,
+} from '../lib/api';
 
 // 创建是阻塞式的（串行两次 LLM），前端拿不到真实进度，用阶段文案 + 伪进度营造前进感
 const LOADING_MESSAGES = [
@@ -19,6 +31,8 @@ const LEARNING_DEPTH_OPTIONS = [
 export default function DashboardPage() {
   const [courses, setCourses] = useState([]);
   const [stats, setStats] = useState(null);
+  const [recommendations, setRecommendations] = useState([]);
+  const [savedRecommendations, setSavedRecommendations] = useState([]);
   const [newCourseName, setNewCourseName] = useState('');
   const [newCourseRef, setNewCourseRef] = useState('');
   const [learningDepth, setLearningDepth] = useState('standard');
@@ -29,14 +43,46 @@ export default function DashboardPage() {
   const [creating, setCreating] = useState(false);
   const [loadingStep, setLoadingStep] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [refreshingRecommendations, setRefreshingRecommendations] = useState(false);
+  const [startingRecommendationId, setStartingRecommendationId] = useState(null);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
-    Promise.all([getCourses(), getGlobalStats()])
-      .then(([c, s]) => { setCourses(c); setStats(s); })
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
+    let cancelled = false;
+
+    async function loadInitialData() {
+      try {
+        const [c, s, r] = await Promise.all([getCourses(), getGlobalStats(), getRecommendations()]);
+        if (cancelled) return;
+        setCourses(c);
+        setStats(s);
+        setRecommendations(r.recommendations || []);
+        setSavedRecommendations(r.saved || []);
+        setLoading(false);
+
+        if (c.length > 0 && (r.recommendations || []).length === 0) {
+          setRefreshingRecommendations(true);
+          try {
+            const data = await refreshRecommendations();
+            if (cancelled) return;
+            setRecommendations(data.recommendations || []);
+            setSavedRecommendations(data.saved || []);
+          } catch (err) {
+            if (!cancelled) setError(err.message);
+          } finally {
+            if (!cancelled) setRefreshingRecommendations(false);
+          }
+        }
+      } catch (err) {
+        if (!cancelled) setError(err.message);
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+
+    loadInitialData();
+    return () => { cancelled = true; };
   }, []);
 
   // 创建中：阶段文案轮播 + 伪进度（趋近 92% 封顶，成功后整页跳转，无需归零）
@@ -76,6 +122,65 @@ export default function DashboardPage() {
       setError(err.message);
     } finally {
       setCreating(false);
+    }
+  };
+
+  async function handleRefreshRecommendations() {
+    if (refreshingRecommendations) return;
+    setError('');
+    setRefreshingRecommendations(true);
+    try {
+      const data = await refreshRecommendations();
+      setRecommendations(data.recommendations || []);
+      setSavedRecommendations(data.saved || []);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setRefreshingRecommendations(false);
+    }
+  }
+
+  const handleSaveRecommendation = async (item) => {
+    try {
+      const saved = await saveRecommendation(item.id);
+      setRecommendations((prev) => prev.filter((rec) => rec.id !== item.id));
+      setSavedRecommendations((prev) => [saved, ...prev.filter((rec) => rec.id !== item.id)]);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const handleRemoveSavedRecommendation = async (item) => {
+    try {
+      await removeSavedRecommendation(item.id);
+      setSavedRecommendations((prev) => prev.filter((rec) => rec.id !== item.id));
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const handleStartRecommendation = async (item) => {
+    if (creating) return;
+    setError('');
+    setStartingRecommendationId(item.id);
+    setCreating(true);
+    try {
+      const reference = [
+        `推荐理由：${item.rationale}`,
+        item.bridge ? `已学连接：${item.bridge}` : '',
+        item.source_topics?.length ? `相关已学主题：${item.source_topics.join('、')}` : '',
+      ].filter(Boolean).join('\n');
+      const course = await createCourse(item.title, reference);
+      await startRecommendation(item.id, course.id);
+      setCourses((prev) => [course, ...prev]);
+      setRecommendations((prev) => prev.filter((rec) => rec.id !== item.id));
+      setSavedRecommendations((prev) => prev.filter((rec) => rec.id !== item.id));
+      navigate(`/course/${course.id}`);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setCreating(false);
+      setStartingRecommendationId(null);
     }
   };
 
@@ -164,6 +269,17 @@ export default function DashboardPage() {
             {error}
           </div>
         )}
+
+        <RecommendationPanel
+          recommendations={recommendations}
+          savedRecommendations={savedRecommendations}
+          refreshing={refreshingRecommendations}
+          startingId={startingRecommendationId}
+          onRefresh={handleRefreshRecommendations}
+          onSave={handleSaveRecommendation}
+          onRemove={handleRemoveSavedRecommendation}
+          onStart={handleStartRecommendation}
+        />
 
         {/* Create form */}
         {showCreate && (

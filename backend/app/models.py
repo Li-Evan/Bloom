@@ -102,3 +102,24 @@ class LearningEvent(Base):
     created_at = Column(DateTime, default=_utcnow)
 
     course = relationship("Course", back_populates="learning_events")
+
+
+class LearningRecommendation(Base):
+    __tablename__ = "learning_recommendations"
+    __table_args__ = (
+        CheckConstraint(
+            "status IN ('suggested', 'saved', 'started', 'dismissed')",
+            name="ck_learning_recommendation_status",
+        ),
+    )
+
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, nullable=False)
+    rationale = Column(Text, nullable=False)
+    bridge = Column(Text, default="")
+    source_topics = Column(Text, default="[]")
+    status = Column(String, default="suggested", nullable=False)
+    generation = Column(Integer, default=1, nullable=False)
+    course_id = Column(Integer, ForeignKey("courses.id", ondelete="SET NULL"), nullable=True)
+    created_at = Column(DateTime, default=_utcnow)
+    updated_at = Column(DateTime, default=_utcnow, onupdate=_utcnow)
