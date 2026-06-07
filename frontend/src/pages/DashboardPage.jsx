@@ -10,11 +10,18 @@ const LOADING_MESSAGES = [
   '即将完成，正在收尾…',
 ];
 
+const LEARNING_DEPTH_OPTIONS = [
+  { value: 'simple', label: '简单', hint: '主干路径' },
+  { value: 'standard', label: '标准', hint: '完整掌握' },
+  { value: 'deep', label: '深入', hint: '原理展开' },
+];
+
 export default function DashboardPage() {
   const [courses, setCourses] = useState([]);
   const [stats, setStats] = useState(null);
   const [newCourseName, setNewCourseName] = useState('');
   const [newCourseRef, setNewCourseRef] = useState('');
+  const [learningDepth, setLearningDepth] = useState('standard');
   const [createMode, setCreateMode] = useState('topic');
   const [sourceFile, setSourceFile] = useState(null);
   const [showCreate, setShowCreate] = useState(false);
@@ -57,8 +64,8 @@ export default function DashboardPage() {
     try {
       const sourceName = sourceFile?.name?.replace(/\.[^.]+$/, '') || '';
       const course = createMode === 'source'
-        ? await createSourceCourse(newCourseName.trim() || sourceName, sourceFile)
-        : await createCourse(newCourseName.trim(), newCourseRef.trim());
+        ? await createSourceCourse(newCourseName.trim() || sourceName, sourceFile, learningDepth)
+        : await createCourse(newCourseName.trim(), newCourseRef.trim(), learningDepth);
       setCourses([course, ...courses]);
       setNewCourseName('');
       setNewCourseRef('');
@@ -184,6 +191,34 @@ export default function DashboardPage() {
               >
                 上传原文
               </button>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-stone-700 mb-1.5">学习深度</label>
+              <div className="grid grid-cols-3 gap-2">
+                {LEARNING_DEPTH_OPTIONS.map((option) => {
+                  const selected = learningDepth === option.value;
+                  return (
+                    <button
+                      key={option.value}
+                      type="button"
+                      aria-pressed={selected}
+                      disabled={creating}
+                      onClick={() => setLearningDepth(option.value)}
+                      className={`min-h-[58px] rounded-lg border px-3 py-2 text-left transition-all disabled:opacity-50 ${
+                        selected
+                          ? 'border-emerald-600 bg-emerald-50 text-emerald-800'
+                          : 'border-stone-200 bg-white text-stone-600 hover:border-stone-300 hover:bg-stone-50'
+                      }`}
+                    >
+                      <span className="block text-sm font-medium">{option.label}</span>
+                      <span className={`block text-xs mt-0.5 ${selected ? 'text-emerald-600' : 'text-stone-400'}`}>
+                        {option.hint}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
             <div>

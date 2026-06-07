@@ -2,9 +2,11 @@ import logging
 import json
 import io
 import re
+from datetime import date, timedelta
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from fastapi.responses import StreamingResponse
+from sqlalchemy import func
 from sqlalchemy.orm import Session
 from openai import OpenAI
 from pypdf import PdfReader
@@ -25,11 +27,51 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api", tags=["courses"])
 
+LEARNING_DEPTH_PROFILES = {
+    "simple": {
+        "label": "简单",
+        "modules": "2-3 个模块",
+        "items": "8-10 条掌握项",
+        "focus": "只保留课题主干、最低必要概念和高频应用场景；避免历史脉络、复杂证明、分支争议和高级扩展。",
+    },
+    "standard": {
+        "label": "标准",
+        "modules": "3-4 个模块",
+        "items": "10-12 条掌握项",
+        "focus": "覆盖核心概念、关键推理、典型应用和常见误区；在体系完整和认知负荷之间保持平衡。",
+    },
+    "deep": {
+        "label": "深入",
+        "modules": "4-5 个模块",
+        "items": "12-15 条掌握项",
+        "focus": "从第一性原理展开，加入底层机制、边界条件、反例、跨场景迁移和批判性判断。",
+    },
+}
+
+
+def _learning_depth_profile(learning_depth: str) -> dict[str, str]:
+    if learning_depth not in LEARNING_DEPTH_PROFILES:
+        raise HTTPException(status_code=400, detail="学习深度必须是 simple、standard 或 deep")
+    return LEARNING_DEPTH_PROFILES[learning_depth]
+
+
+def _build_syllabus_prompt(learning_depth: str) -> str:
+    profile = _learning_depth_profile(learning_depth)
+    depth_section = f"""- 学习深度：{profile['label']}
+- 模块数量：{profile['modules']}
+- 掌握项数量：{profile['items']}
+- 展开策略：{profile['focus']}"""
+    return SYLLABUS_PROMPT.format(learning_depth_section=depth_section)
+
+
 # ---------------------------------------------------------------------------
 # AI System Prompts
 # ---------------------------------------------------------------------------
 
 SYLLABUS_PROMPT = """你是一个课程大纲设计专家。根据用户给出的课题名称，生成一份结构化的课程大纲。
+
+## 学习深度（必须遵守）
+{learning_depth_section}
 
 ## 输出格式（严格遵守，不要加额外说明）
 
@@ -37,6 +79,7 @@ SYLLABUS_PROMPT = """你是一个课程大纲设计专家。根据用户给出�
 # [课题名] · 课程大纲
 
 > 这份大纲定义了完成本课题后你将掌握的所有能力。
+> 学习深度：[简单 / 标准 / 深入]
 > 文档数量因人而异，但掌握内容不打折扣。
 
 ## 核心掌握项
@@ -63,8 +106,8 @@ SYLLABUS_PROMPT = """你是一个课程大纲设计专家。根据用户给出�
 
 ## 规则
 1. 所有掌握项必须是**可验证的行为**（能解释、能推导、能应用、能判断），禁止写"了解 X""熟悉 Y"
-2. 按知识的内在逻辑分 2-5 个模块
-3. 总条目数控制在 8-15 条
+2. 模块数量必须服从上方学习深度要求，同时按知识的内在逻辑分组
+3. 总条目数必须服从上方学习深度要求，且所有条目必须有实质差异
 4. "不在本课题范围内"必须填写
 5. 只输出 markdown 内容，不要加任何前缀说明或后缀解释
 """
@@ -108,6 +151,7 @@ FIRST_LESSON_PROMPT = """你是一个基于 Bloom 2-Sigma 理论的一对一苏�
 5. **类比优先**：每个抽象概念至少配一个生活化类比
 6. **先why后what**：先讲为什么需要学这个，再讲内容
 7. **认知负荷控制**：第一课只引入2-3个核心概念，不要铺开太多
+8. **深度一致**：第一课的展开力度必须服从大纲中的学习深度；简单重主干，标准重完整，深入重底层机制和边界
 """
 
 SOURCE_LESSON_PROMPT = """你是一个基于 Bloom 2-Sigma 理论的一对一苏格拉底式导师。
@@ -382,8 +426,6 @@ def get_openai_client() -> OpenAI:
     return OpenAI(api_key=settings.LLM_API_KEY, base_url=settings.LLM_BASE_URL)
 
 
-import re
-
 _FENCE_RE = re.compile(r'^```(?:markdown|md)?\s*\n?', re.IGNORECASE)
 _FENCE_END_RE = re.compile(r'\n?```\s*$')
 
@@ -635,6 +677,7 @@ def _auto_check_mastery(syllabus_content: str, lesson_content: str) -> str:
 @router.post("/courses", response_model=CourseDetailResponse)
 def create_course(req: CreateCourseRequest, db: Session = Depends(get_db)):
     """Create course + AI generates syllabus + first lesson (blocking)."""
+    depth_profile = _learning_depth_profile(req.learning_depth)
     course = Course(name=req.name, mode="topic", status="learning")
     db.add(course)
     db.flush()
@@ -644,14 +687,14 @@ def create_course(req: CreateCourseRequest, db: Session = Depends(get_db)):
         if req.reference.strip():
             ref_section = f"\n\n## 参考材料（用户提供）\n\n{req.reference.strip()}"
 
-        user_msg = f"课题：{req.name}{ref_section}"
-        syllabus_content = _strip_markdown_fences(_call_llm(SYLLABUS_PROMPT, user_msg))
+        user_msg = f"课题：{req.name}\n学习深度：{depth_profile['label']}{ref_section}"
+        syllabus_content = _strip_markdown_fences(_call_llm(_build_syllabus_prompt(req.learning_depth), user_msg))
         syllabus = Syllabus(course_id=course.id, content=syllabus_content)
         db.add(syllabus)
         db.flush()
 
         prompt = FIRST_LESSON_PROMPT.format(syllabus=syllabus_content)
-        lesson_user_msg = f"请为课题「{req.name}」生成第一篇课文{ref_section}"
+        lesson_user_msg = f"请为课题「{req.name}」按「{depth_profile['label']}」学习深度生成第一篇课文{ref_section}"
         lesson_content = _strip_markdown_fences(_call_llm(prompt, lesson_user_msg))
         lesson = Lesson(course_id=course.id, number=1, content=lesson_content)
         db.add(lesson)
@@ -669,7 +712,7 @@ def create_course(req: CreateCourseRequest, db: Session = Depends(get_db)):
             mastery_progress=0.0,
             source_filename=course.source_filename,
         )
-    except Exception as e:
+    except Exception:
         logger.exception("Course creation error")
         db.rollback()
         raise HTTPException(status_code=500, detail="课程创建失败，请稍后重试")
@@ -678,10 +721,12 @@ def create_course(req: CreateCourseRequest, db: Session = Depends(get_db)):
 @router.post("/courses/from-source", response_model=CreateSourceCourseResponse)
 async def create_course_from_source(
     name: str = Form(""),
+    learning_depth: str = Form("standard"),
     file: UploadFile = File(...),
     db: Session = Depends(get_db),
 ):
     """Create a source-mode course from an uploaded PDF/TXT/Markdown file."""
+    depth_profile = _learning_depth_profile(learning_depth)
     filename, source_text = await _extract_upload_text(file)
     course_name = name.strip() or filename.rsplit(".", 1)[0]
 
@@ -697,6 +742,7 @@ async def create_course_from_source(
 
     try:
         user_msg = f"""课题：{course_name}
+学习深度：{depth_profile['label']}
 
 请根据以下用户上传原始材料生成课程大纲。大纲要服务于读懂并掌握这份材料，而不是泛泛讲同名主题。
 
@@ -704,7 +750,7 @@ async def create_course_from_source(
 
 {source_text}
 """
-        syllabus_content = _strip_markdown_fences(_call_llm(SYLLABUS_PROMPT, user_msg))
+        syllabus_content = _strip_markdown_fences(_call_llm(_build_syllabus_prompt(learning_depth), user_msg))
         syllabus = Syllabus(course_id=course.id, content=syllabus_content)
         db.add(syllabus)
 
@@ -821,13 +867,13 @@ def list_lessons(course_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="课程不存在")
     return [
         LessonListItem(
-            id=l.id, number=l.number, is_evaluation=l.is_evaluation,
-            is_source=l.is_source,
-            title=_extract_title(l.content),
-            has_feedback=l.feedback is not None,
-            created_at=l.created_at,
+            id=lesson.id, number=lesson.number, is_evaluation=lesson.is_evaluation,
+            is_source=lesson.is_source,
+            title=_extract_title(lesson.content),
+            has_feedback=lesson.feedback is not None,
+            created_at=lesson.created_at,
         )
-        for l in course.lessons
+        for lesson in course.lessons
     ]
 
 
@@ -1098,7 +1144,7 @@ def generate_next_lesson(
     else:
         recent = lessons[-3:] if len(lessons) > 3 else lessons
         prev_text = "\n\n---\n\n".join(
-            f"### 第{l.number}篇\n{l.content[:20000]}" for l in recent
+            f"### 第{lesson.number}篇\n{lesson.content[:20000]}" for lesson in recent
         )
         prompt = NEXT_LESSON_PROMPT.format(
             syllabus=syllabus_content,
@@ -1144,7 +1190,7 @@ def generate_next_lesson(
 
             yield f"data: {json.dumps({'done': True, 'lesson_number': next_number, 'is_evaluation': is_eval}, ensure_ascii=False)}\n\n"
 
-        except Exception as e:
+        except Exception:
             logger.exception("Next lesson generation error")
             db.rollback()
             yield f"data: {json.dumps({'error': '服务暂时不可用，请稍后重试'}, ensure_ascii=False)}\n\n"
@@ -1156,7 +1202,7 @@ def _generate_summary_response(course: Course, db: Session):
     """Generate summary after evaluation article is read."""
     syllabus_content = course.syllabus.content
     all_lessons_text = "\n\n---\n\n".join(
-        f"### 第{l.number}篇\n{l.content}" for l in course.lessons
+        f"### 第{lesson.number}篇\n{lesson.content}" for lesson in course.lessons
     )
 
     cid = course.id
@@ -1186,7 +1232,7 @@ def _generate_summary_response(course: Course, db: Session):
 
             yield f"data: {json.dumps({'done': True, 'completed': True}, ensure_ascii=False)}\n\n"
 
-        except Exception as e:
+        except Exception:
             logger.exception("Summary generation error")
             db.rollback()
             yield f"data: {json.dumps({'error': '总结生成失败，请重试'}, ensure_ascii=False)}\n\n"
@@ -1254,9 +1300,9 @@ def get_course_stats(course_id: int, db: Session = Depends(get_db)):
     if not course:
         raise HTTPException(status_code=404, detail="课程不存在")
 
-    normal_lessons = [l for l in course.lessons if l.number > 0]
-    total_annotations = sum(len(l.annotations) for l in normal_lessons)
-    total_feedback = sum(1 for l in normal_lessons if l.feedback)
+    normal_lessons = [lesson for lesson in course.lessons if lesson.number > 0]
+    total_annotations = sum(len(lesson.annotations) for lesson in normal_lessons)
+    total_feedback = sum(1 for lesson in normal_lessons if lesson.feedback)
 
     checked, total = (0, 0)
     if course.syllabus:
@@ -1279,10 +1325,6 @@ def get_course_stats(course_id: int, db: Session = Depends(get_db)):
         first_activity=first_activity,
         last_activity=last_activity,
     )
-
-
-from datetime import date, timedelta
-from sqlalchemy import func
 
 
 @router.get("/stats", response_model=GlobalStatsResponse)
