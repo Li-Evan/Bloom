@@ -32,10 +32,6 @@
   <a href="https://li-evan.github.io/Bloom/"><img src="assets/hero.png" alt="Bloom — from average to the top 2%" width="820"></a>
 </p>
 
-<p align="center">
-  <img src="assets/demo.gif" alt="Bloom in action" width="820">
-</p>
-
 ---
 
 In 1984, educational psychologist Benjamin Bloom discovered that students receiving **one-on-one tutoring** scored **2 standard deviations (+2σ)** above the classroom average — jumping to the **top 2%**. Bloom called this the "2 Sigma Problem": the effect is proven, but personal tutors don't scale.

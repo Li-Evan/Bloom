@@ -32,10 +32,6 @@
   <a href="https://li-evan.github.io/Bloom/"><img src="assets/hero.png" alt="Bloom — 从平均水平到前 2%" width="820"></a>
 </p>
 
-<p align="center">
-  <img src="assets/demo.gif" alt="Bloom 实际演示" width="820">
-</p>
-
 ---
 
 1984 年，教育心理学家 Benjamin Bloom 发现：接受**一对一导师指导**的学生，成绩比传统课堂学生高出 **2 个标准差（+2σ）**——直接跃升到**前 2%**。Bloom 称之为"2 Sigma Problem"：效果已被证明，但私人导师太贵、无法规模化。
