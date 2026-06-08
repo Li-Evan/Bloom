@@ -66,6 +66,13 @@ claude
 
 Then say: `Create a new folder and help me learn [any topic]`
 
+**Or install it as a plugin** (bundles `bloom-tutor` plus the `learn-*` skills) — in Claude Code:
+
+```text
+/plugin marketplace add Li-Evan/Bloom
+/plugin install bloom@li-evan
+```
+
 See [GUIDE.md](./GUIDE.md) for the full walkthrough.
 
 ## Quick Start: Web Mode

@@ -1,0 +1,18 @@
+{
+  "name": "li-evan",
+  "owner": {
+    "name": "Li Zhengping",
+    "url": "https://github.com/Li-Evan"
+  },
+  "metadata": {
+    "description": "Bloom — a personal AI tutor (Bloom's 2-sigma) as a Claude Code plugin.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "bloom",
+      "source": "./",
+      "description": "A personal AI tutor based on Bloom's 2-sigma research: it generates a structured syllabus, teaches one adaptive lesson at a time, and tailors each next lesson to the learner's highlights and feedback. Bundles bloom-tutor plus six learn-* skills."
+    }
+  ]
+}

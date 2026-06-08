@@ -66,6 +66,13 @@ claude
 
 然后说：`开一个新的文件夹，帮助我学习 [任意课题]`
 
+**或者作为插件安装**（打包了 `bloom-tutor` 和全部 `learn-*` skill）—— 在 Claude Code 里：
+
+```text
+/plugin marketplace add Li-Evan/Bloom
+/plugin install bloom@li-evan
+```
+
 详见 [GUIDE.zh.md](./GUIDE.zh.md)。
 
 ## 快速开始：Web 模式

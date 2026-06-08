@@ -1,0 +1,22 @@
+{
+  "name": "bloom",
+  "displayName": "Bloom",
+  "version": "1.0.0",
+  "description": "A personal AI tutor based on Bloom's 2-sigma research: it generates a structured syllabus, teaches one adaptive lesson at a time, and tailors each next lesson to the learner's highlights and feedback. Bundles the bloom-tutor tutoring skill plus six learn-* learning-method skills.",
+  "author": {
+    "name": "Li Zhengping",
+    "url": "https://github.com/Li-Evan"
+  },
+  "homepage": "https://github.com/Li-Evan/Bloom",
+  "repository": "https://github.com/Li-Evan/Bloom",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "agent-skills",
+    "ai-tutor",
+    "education",
+    "adaptive-learning",
+    "socratic-method",
+    "bloom-2-sigma"
+  ]
+}
