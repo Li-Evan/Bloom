@@ -7,15 +7,17 @@
 </p>
 
 <p align="center">
-  <strong>你的私人 AI 导师 — 基于 2-Sigma 方法论</strong>
+  <strong>给任何想学的东西，请一位私人 AI 导师。</strong>
 </p>
 
 <p align="center">
-  <em>从平均水平到前 2%，一篇课文一步脚印。</em>
+  <em>AI 读懂你真实的理解程度，再为你一个人定制下一篇课文。<br>源自 Bloom 的 2σ 研究：一对一辅导 = 冲进前 2%。</em>
 </p>
 
 <p align="center">
+  <a href="https://github.com/Li-Evan/Bloom/stargazers"><img src="https://img.shields.io/github/stars/Li-Evan/Bloom?style=social" alt="GitHub stars"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License"></a>
+  <img src="https://img.shields.io/github/last-commit/Li-Evan/Bloom" alt="Last commit">
   <img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python 3.11+">
   <img src="https://img.shields.io/badge/node-18+-blue.svg" alt="Node.js 18+">
   <img src="https://img.shields.io/badge/react-19-blue.svg" alt="React 19">
@@ -24,6 +26,10 @@
 
 <p align="center">
   <a href="https://li-evan.github.io/Bloom/"><strong>🌐 官网</strong></a> · 简体中文 · <a href="./README.md">English</a>
+</p>
+
+<p align="center">
+  <a href="https://li-evan.github.io/Bloom/"><img src="assets/hero.png" alt="Bloom — 从平均水平到前 2%" width="820"></a>
 </p>
 
 ---
@@ -196,6 +202,16 @@ make up / make down   # Docker 启动 / 停止
 | **苏格拉底式教学** | 用提问引导，不直接给答案 |
 | **间隔检索** | 每篇课文开头的思考题复盘强化记忆 |
 | **自适应路径** | 内容根据个体反馈实时调整 |
+
+## 星标历史
+
+<a href="https://star-history.com/#Li-Evan/Bloom&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Li-Evan/Bloom&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Li-Evan/Bloom&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Li-Evan/Bloom&type=Date" width="640" />
+  </picture>
+</a>
 
 ## 许可
 

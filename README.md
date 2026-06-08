@@ -7,15 +7,17 @@
 </p>
 
 <p align="center">
-  <strong>Your Personal AI Tutor — Powered by the 2-Sigma Method</strong>
+  <strong>Hire a private AI tutor for anything you want to learn.</strong>
 </p>
 
 <p align="center">
-  <em>From average to top 2%. One lesson at a time.</em>
+  <em>Your AI reads how you actually learn — and teaches the next lesson just for you.<br>Built on Bloom's 2-Sigma research: 1-on-1 tutoring = top 2%.</em>
 </p>
 
 <p align="center">
+  <a href="https://github.com/Li-Evan/Bloom/stargazers"><img src="https://img.shields.io/github/stars/Li-Evan/Bloom?style=social" alt="GitHub stars"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License"></a>
+  <img src="https://img.shields.io/github/last-commit/Li-Evan/Bloom" alt="Last commit">
   <img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python 3.11+">
   <img src="https://img.shields.io/badge/node-18+-blue.svg" alt="Node.js 18+">
   <img src="https://img.shields.io/badge/react-19-blue.svg" alt="React 19">
@@ -24,6 +26,10 @@
 
 <p align="center">
   <a href="https://li-evan.github.io/Bloom/"><strong>🌐 Website</strong></a> · <a href="./README.zh.md">Chinese</a> · English
+</p>
+
+<p align="center">
+  <a href="https://li-evan.github.io/Bloom/"><img src="assets/hero.png" alt="Bloom — from average to the top 2%" width="820"></a>
 </p>
 
 ---
@@ -217,6 +223,16 @@ make up / make down   # docker start / stop
 | **Socratic Method** | Ask questions, don't hand answers |
 | **Spaced Retrieval** | Thought question reviews at lesson start reinforce memory |
 | **Adaptive Path** | Content adjusts to individual feedback in real-time |
+
+## Star History
+
+<a href="https://star-history.com/#Li-Evan/Bloom&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Li-Evan/Bloom&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Li-Evan/Bloom&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Li-Evan/Bloom&type=Date" width="640" />
+  </picture>
+</a>
 
 ## License
 
