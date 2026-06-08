@@ -5,7 +5,7 @@ import re
 from datetime import date, timedelta, timezone, datetime
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, Response
 from sqlalchemy.orm import Session
 from openai import OpenAI
 from pypdf import PdfReader
@@ -552,41 +552,6 @@ _CODE_LANGS = {
 }
 
 
-async def _extract_project_file(file: UploadFile) -> tuple[str, str]:
-    """Read one project file → (path, markdown-ready content).
-
-    Markdown renders as-is; code/text files are wrapped in a fenced block so they
-    display readable (and highlightable) instead of being parsed as markdown.
-    """
-    path = file.filename or "file"
-    name = path.rsplit("/", 1)[-1]
-    suffix = name.rsplit(".", 1)[-1].lower() if "." in name else ""
-    raw = await file.read()
-
-    if suffix == "pdf":
-        try:
-            reader = PdfReader(io.BytesIO(raw))
-            text = "\n\n".join(page.extract_text() or "" for page in reader.pages)
-        except Exception:
-            text = "（PDF 解析失败）"
-        return path, f"# {name}\n\n{text.strip()}"
-
-    text = None
-    for encoding in ("utf-8", "utf-8-sig", "gb18030"):
-        try:
-            text = raw.decode(encoding)
-            break
-        except UnicodeDecodeError:
-            continue
-    if text is None:
-        return path, f"# {name}\n\n> （二进制文件，无法以文本显示）"
-
-    if suffix in ("md", "markdown"):
-        return path, text
-    lang = _CODE_LANGS.get(suffix, "")
-    return path, f"# {name}\n\n```{lang}\n{text}\n```"
-
-
 def _source_lesson_content(filename: str, source_text: str) -> str:
     return f"""# 原始材料：{filename}
 
@@ -845,11 +810,31 @@ async def create_course_from_project(
     if not files:
         raise HTTPException(status_code=400, detail="请至少上传一个文件")
 
-    extracted: list[tuple[str, str]] = []
+    extracted: list[tuple[str, str, bytes | None]] = []
     for f in files:
-        path, content = await _extract_project_file(f)
-        if content and content.strip():
-            extracted.append((path, content))
+        path = f.filename or "file"
+        name_only = path.rsplit("/", 1)[-1]
+        suffix = name_only.rsplit(".", 1)[-1].lower() if "." in name_only else ""
+        raw = await f.read()
+        if suffix == "pdf":
+            extracted.append((path, "", raw))  # 原始 PDF，前端 pdf.js 渲染、保留全部格式
+            continue
+        text = None
+        for enc in ("utf-8", "utf-8-sig", "gb18030"):
+            try:
+                text = raw.decode(enc)
+                break
+            except UnicodeDecodeError:
+                continue
+        if text is None:
+            continue
+        if suffix in ("md", "markdown"):
+            content = text
+        else:
+            lang = _CODE_LANGS.get(suffix, "")
+            content = f"# {name_only}\n\n```{lang}\n{text}\n```"
+        if content.strip():
+            extracted.append((path, content, None))
     if not extracted:
         raise HTTPException(status_code=400, detail="没有可读取的文件内容")
 
@@ -876,13 +861,14 @@ async def create_course_from_project(
     db.add(course)
     db.flush()
 
-    for i, (path, content) in enumerate(extracted, start=1):
+    for i, (path, content, blob) in enumerate(extracted, start=1):
         db.add(Lesson(
             course_id=course.id,
             number=i,
             content=content,
             is_source=True,
             source_filename=path,
+            source_blob=blob,
         ))
 
     _record_event(db, course.id, "project_created")
@@ -896,6 +882,19 @@ async def create_course_from_project(
         lesson_count=len(extracted), syllabus_content=None,
         mastery_progress=0.0, source_filename=course.source_filename,
     )
+
+
+@router.get("/courses/{course_id}/lessons/{lesson_num}/file")
+def get_lesson_file(course_id: int, lesson_num: int, db: Session = Depends(get_db)):
+    """返回某一篇的原始文件二进制（如 PDF），供前端 pdf.js 原生渲染。"""
+    lesson = db.query(Lesson).join(Course).filter(
+        Course.id == course_id, Lesson.number == lesson_num
+    ).first()
+    if not lesson or not lesson.source_blob:
+        raise HTTPException(status_code=404, detail="该课文没有原始文件")
+    name = (lesson.source_filename or "file").rsplit("/", 1)[-1]
+    media = "application/pdf" if name.lower().endswith(".pdf") else "application/octet-stream"
+    return Response(content=lesson.source_blob, media_type=media)
 
 
 @router.get("/courses", response_model=list[CourseResponse])

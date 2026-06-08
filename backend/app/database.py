@@ -26,6 +26,7 @@ def ensure_sqlite_schema():
         "lessons": {
             "is_source": "is_source BOOLEAN DEFAULT 0",
             "source_filename": "source_filename VARCHAR",
+            "source_blob": "source_blob BLOB",
         },
         "annotations": {
             "answer": "answer TEXT DEFAULT ''",

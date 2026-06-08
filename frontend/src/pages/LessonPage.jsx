@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Markdown from '../components/Markdown';
+import PdfViewer from '../components/PdfViewer';
 import {
   getLesson, getLessons, getAnnotations, createAnnotation, deleteAnnotation,
   addAnnotationMessage, saveInterruptedAnnotation, submitFeedback, generateNextLesson, getFeedback, recordLessonOpened,
@@ -60,6 +61,7 @@ export default function LessonPage() {
   const [lesson, setLesson] = useState(null);
   const [course, setCourse] = useState(null);
   const [allLessons, setAllLessons] = useState([]);
+  const [renderTick, setRenderTick] = useState(0);
   const [sessions, setSessions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -163,7 +165,7 @@ export default function LessonPage() {
       window.removeEventListener('resize', compute);
       if (HL_SUPPORTED) CSS.highlights.delete('bloom-ann');
     };
-  }, [sessions, lesson?.content]);
+  }, [sessions, lesson?.content, renderTick]);
 
   // Paint a distinct highlight for the pending (being-asked) selection.
   useEffect(() => {
@@ -456,6 +458,9 @@ export default function LessonPage() {
   const currentNum = parseInt(lessonNum, 10);
   const isSourceLesson = Boolean(lesson?.is_source);
   const isProject = Boolean(course?.is_project);
+  const isPdf = Boolean(lesson?.source_filename?.toLowerCase().endsWith('.pdf'));
+  const fileUrl = `/api/courses/${courseId}/lessons/${lessonNum}/file`;
+  const handlePdfReady = useCallback(() => setRenderTick((t) => t + 1), []);
 
   if (loading) {
     return (
@@ -547,9 +552,13 @@ export default function LessonPage() {
             onMouseUp={handleTextSelect}
             className="relative bg-white rounded-2xl border border-stone-200/60 shadow-[0_1px_3px_rgba(0,0,0,0.04)] p-8 md:p-10 mb-8"
           >
-            <div ref={proseRef} className="prose prose-stone prose-lg max-w-none">
-              <Markdown>{lesson?.content}</Markdown>
-            </div>
+            {isPdf ? (
+              <PdfViewer ref={proseRef} url={fileUrl} onReady={handlePdfReady} />
+            ) : (
+              <div ref={proseRef} className="prose prose-stone prose-lg max-w-none">
+                <Markdown>{lesson?.content}</Markdown>
+              </div>
+            )}
 
             {/* After selecting text → a small icon appears; click it to open the question box */}
             {marker && (

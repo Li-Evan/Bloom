@@ -1,5 +1,5 @@
 from datetime import datetime, timezone
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Text, Boolean, CheckConstraint, UniqueConstraint
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Text, Boolean, LargeBinary, CheckConstraint, UniqueConstraint
 from sqlalchemy.orm import relationship
 
 from app.database import Base
@@ -55,6 +55,7 @@ class Lesson(Base):
     is_evaluation = Column(Boolean, default=False)
     is_source = Column(Boolean, default=False)
     source_filename = Column(String, nullable=True)
+    source_blob = Column(LargeBinary, nullable=True)  # 原始文件二进制（PDF 等，前端 pdf.js 原生渲染）
     created_at = Column(DateTime, default=_utcnow)
 
     course = relationship("Course", back_populates="lessons")
