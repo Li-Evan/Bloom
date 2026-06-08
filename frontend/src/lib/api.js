@@ -1,5 +1,12 @@
 const API_BASE = '/api';
 
+// FastAPI 422 的 detail 是数组（每项含 msg），直接 throw 会显示成 "[object Object]"；这里提取成可读文本。
+function extractDetail(data, status) {
+  const d = data?.detail;
+  if (Array.isArray(d)) return d.map((e) => e?.msg || JSON.stringify(e)).join('；');
+  return d || `请求失败 (${status})`;
+}
+
 export async function apiRequest(path, options = {}) {
   const res = await fetch(`${API_BASE}${path}`, {
     ...options,
@@ -11,7 +18,7 @@ export async function apiRequest(path, options = {}) {
 
   if (!res.ok) {
     const data = await res.json().catch(() => ({}));
-    throw new Error(data.detail || `请求失败 (${res.status})`);
+    throw new Error(extractDetail(data, res.status));
   }
 
   return res.json();
@@ -47,7 +54,7 @@ export async function createSourceCourse(name, file, learningDepth = 'standard')
 
   if (!res.ok) {
     const data = await res.json().catch(() => ({}));
-    throw new Error(data.detail || `请求失败 (${res.status})`);
+    throw new Error(extractDetail(data, res.status));
   }
 
   return res.json();
@@ -66,7 +73,7 @@ export async function createProjectCourse(name, files) {
 
   if (!res.ok) {
     const data = await res.json().catch(() => ({}));
-    throw new Error(data.detail || `请求失败 (${res.status})`);
+    throw new Error(extractDetail(data, res.status));
   }
 
   return res.json();
@@ -116,7 +123,7 @@ async function postSSE(path, body, onChunk, onDone, signal) {
   });
   if (!res.ok) {
     const data = await res.json().catch(() => ({}));
-    throw new Error(data.detail || `请求失败 (${res.status})`);
+    throw new Error(extractDetail(data, res.status));
   }
   const reader = res.body.getReader();
   const decoder = new TextDecoder();
@@ -186,7 +193,7 @@ export async function generateNextLesson(courseId, onChunk, onDone) {
 
     if (!res.ok) {
       const data = await res.json().catch(() => ({}));
-      throw new Error(data.detail || `请求失败 (${res.status})`);
+      throw new Error(extractDetail(data, res.status));
     }
 
     const reader = res.body.getReader();

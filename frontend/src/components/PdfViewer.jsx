@@ -117,7 +117,7 @@ export default function PdfViewer({ url, highlights = [], onSelect, onOpenHighli
       .filter((r) => r.w > 0.001 && r.h > 0.001);
     if (!rects.length) return;
     const hostRect = hostRef.current.getBoundingClientRect();
-    const anchorTop = range.getBoundingClientRect().top - hostRect.top;
+    const anchorTop = Math.max(0, Math.round(range.getBoundingClientRect().top - hostRect.top));
     sel.removeAllRanges();
     onSelect && onSelect({ text, position: { page: pageNum, rects }, anchorTop });
   };
