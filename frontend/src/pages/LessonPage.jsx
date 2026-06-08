@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Markdown from '../components/Markdown';
 import PdfViewer from '../components/PdfViewer';
@@ -78,6 +78,7 @@ export default function LessonPage() {
   const [streaming, setStreaming] = useState(false);  // a highlight answer is streaming in
   const [streamText, setStreamText] = useState('');   // live streamed answer text
   const [tops, setTops] = useState({});             // session id -> px top within article (reflow-resilient)
+  const [pdfTops, setPdfTops] = useState({});       // PDF session id -> px top within article, computed from geometric rects
   const [cardRect, setCardRect] = useState(null);   // { left, top, width, height } of the active overlay (drag + resize)
 
   const [generating, setGenerating] = useState(false);
@@ -104,6 +105,8 @@ export default function LessonPage() {
     setCardRect(null);
     setStreaming(false);
     setStreamText('');
+    setTops({});
+    setPdfTops({});
 
     Promise.all([
       getLesson(courseId, lessonNum),
@@ -185,12 +188,23 @@ export default function LessonPage() {
     return { left, top: Math.max(0, top), width, height };
   };
 
+  const clearPendingSelection = () => {
+    setMarker(null);
+    setComposer(null);
+    if (!openId) setCardRect(null);
+  };
+
+  const sessionTop = (session) => {
+    if (!session) return 0;
+    if (session.pdf_position) return pdfTops[session.id] ?? session.anchor_top ?? 0;
+    return tops[session.id] ?? session.anchor_top ?? 0;
+  };
+
   const openSession = (id) => {
     setMarker(null);
     setComposer(null);
     setFollowDraft('');
-    const top = tops[id] ?? (sessions.find((s) => s.id === id)?.anchor_top || 0);
-    setCardRect(initRect(top));
+    setCardRect(initRect(sessionTop(sessions.find((s) => s.id === id))));
     setOpenId(id);
   };
 
@@ -245,19 +259,21 @@ export default function LessonPage() {
   const handleTextSelect = () => {
     try {
       const selection = window.getSelection();
-      if (!selection || selection.rangeCount === 0 || selection.isCollapsed) { setMarker(null); return; }
+      if (!selection || selection.rangeCount === 0 || selection.isCollapsed) { clearPendingSelection(); return; }
       const text = selection.toString().trim();
       const range = selection.getRangeAt(0);
       // 用选区公共祖先判断是否落在课文区（跨浏览器更稳健）
       const node = range.commonAncestorContainer;
       const el = node.nodeType === Node.ELEMENT_NODE ? node : node.parentNode;
-      if (!text || !proseRef.current?.contains(el)) { setMarker(null); return; }
+      if (!text || !proseRef.current?.contains(el)) { clearPendingSelection(); return; }
       const rect = range.getBoundingClientRect();
       const articleRect = contentRef.current.getBoundingClientRect();
       const top = Math.max(0, Math.round(rect.top - articleRect.top));
       const left = Math.max(8, Math.min(Math.round(rect.right - articleRect.left), Math.round(articleRect.width - 72)));
       const start = charOffset(proseRef.current, range.startContainer, range.startOffset);
       const end = start + text.length;
+      setOpenId(null);
+      setComposer(null);
       setMarker({ top, left, selectedText: text, start, end });
     } catch (e) {
       console.error('handleTextSelect failed', e);
@@ -463,15 +479,51 @@ export default function LessonPage() {
   const isProject = Boolean(course?.is_project);
   const isPdf = Boolean(lesson?.source_filename?.toLowerCase().endsWith('.pdf'));
   const fileUrl = `/api/courses/${courseId}/lessons/${lessonNum}/file`;
-  const handlePdfSelect = ({ text, position, anchorTop }) => {
-    setComposer({ selectedText: text, pdfPosition: position, draft: '', top: anchorTop || 0 });
+  const handlePdfSelect = ({ text, position, clientRect }) => {
+    const articleRect = contentRef.current?.getBoundingClientRect();
+    if (!articleRect || !clientRect) return;
+    const top = Math.max(0, Math.round(clientRect.top - articleRect.top));
+    const left = Math.max(8, Math.min(Math.round(clientRect.right - articleRect.left), Math.round(articleRect.width - 72)));
+    setOpenId(null);
+    setComposer(null);
+    setMarker({
+      top,
+      left,
+      selectedText: text,
+      start: 0,
+      end: text.length,
+      pdfPosition: position,
+    });
   };
-  const handleOpenPdfHighlight = (id) => { setOpenId(id); setCardRect(null); };
+  const handleOpenPdfHighlight = (id) => {
+    setMarker(null);
+    setComposer(null);
+    setFollowDraft('');
+    setCardRect(initRect(sessionTop(sessions.find((s) => s.id === id))));
+    setOpenId(id);
+  };
+  const handlePdfHighlightTops = useCallback((nextTops) => {
+    setPdfTops((prev) => {
+      const prevKeys = Object.keys(prev);
+      const nextKeys = Object.keys(nextTops);
+      if (
+        prevKeys.length === nextKeys.length
+        && nextKeys.every((key) => prev[key] === nextTops[key])
+      ) return prev;
+      return nextTops;
+    });
+  }, []);
+  const pendingPdfHighlight = isPdf && (composer?.pdfPosition || marker?.pdfPosition)
+    ? [{ id: '__pending-pdf', position: composer?.pdfPosition || marker?.pdfPosition, pending: true }]
+    : [];
   const pdfHighlights = isPdf
-    ? sessions.flatMap((s) => {
-        if (!s.pdf_position) return [];
-        try { return [{ id: s.id, position: JSON.parse(s.pdf_position) }]; } catch { return []; }
-      })
+    ? [
+        ...sessions.flatMap((s) => {
+          if (!s.pdf_position) return [];
+          try { return [{ id: s.id, position: JSON.parse(s.pdf_position) }]; } catch { return []; }
+        }),
+        ...pendingPdfHighlight,
+      ]
     : [];
 
   if (loading) {
@@ -562,7 +614,7 @@ export default function LessonPage() {
           <article
             ref={contentRef}
             onMouseUp={handleTextSelect}
-            className="relative bg-white rounded-2xl border border-stone-200/60 shadow-[0_1px_3px_rgba(0,0,0,0.04)] p-8 md:p-10 mb-8"
+            className={`relative bg-white rounded-2xl border border-stone-200/60 shadow-[0_1px_3px_rgba(0,0,0,0.04)] mb-8 ${isPdf ? 'overflow-hidden p-0' : 'p-8 md:p-10'}`}
           >
             {isPdf ? (
               <PdfViewer
@@ -570,6 +622,8 @@ export default function LessonPage() {
                 highlights={pdfHighlights}
                 onSelect={handlePdfSelect}
                 onOpenHighlight={handleOpenPdfHighlight}
+                onHighlightTops={handlePdfHighlightTops}
+                onClearSelection={clearPendingSelection}
               />
             ) : (
               <div ref={proseRef} className="prose prose-stone prose-lg max-w-none">
@@ -602,7 +656,7 @@ export default function LessonPage() {
                   onMouseUp={(e) => e.stopPropagation()}
                   title={s.comment}
                   className="absolute z-20 flex items-center group/dot"
-                  style={{ top: Math.max(0, (tops[s.id] ?? s.anchor_top) - 6), right: 6 }}
+                  style={{ top: Math.max(0, sessionTop(s) - 6), right: 6 }}
                 >
                   <span className="w-5 h-px bg-amber-300 mr-1 group-hover/dot:bg-amber-400 transition-colors" />
                   <span className="w-3 h-3 rounded-full bg-emerald-500 ring-4 ring-emerald-100/70 group-hover/dot:scale-125 transition-transform" />
@@ -662,7 +716,7 @@ export default function LessonPage() {
                   onMouseUp={(e) => e.stopPropagation()}
                   style={cardRect
                     ? { left: cardRect.left, top: cardRect.top, width: cardRect.width, height: cardRect.height }
-                    : { top: tops[s.id] ?? s.anchor_top, right: 8, width: 340, height: 440 }}
+                    : { top: sessionTop(s), right: 8, width: 340, height: 440 }}
                   className="absolute z-50 max-w-[calc(100%-1rem)] bg-white rounded-xl border border-emerald-200 shadow-[0_12px_30px_-10px_rgba(0,0,0,0.18)] flex flex-col anim-pop"
                 >
                   <div onMouseDown={startDrag} className="flex items-center justify-between px-4 py-2.5 border-b border-stone-100 shrink-0 cursor-move select-none">

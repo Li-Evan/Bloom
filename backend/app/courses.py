@@ -511,6 +511,11 @@ def _stream_llm_messages(system_prompt: str, history: list[dict]):
     yield full_response, True
 
 
+def _extract_pdf_text(raw: bytes) -> str:
+    reader = PdfReader(io.BytesIO(raw))
+    return "\n\n".join(page.extract_text() or "" for page in reader.pages).strip()
+
+
 async def _extract_upload_text(file: UploadFile) -> tuple[str, str]:
     """Return (filename, extracted text) for a PDF, TXT, or Markdown upload."""
     filename = file.filename or "uploaded-source"
@@ -528,8 +533,7 @@ async def _extract_upload_text(file: UploadFile) -> tuple[str, str]:
             raise HTTPException(status_code=400, detail="文本文件编码无法识别，请转为 UTF-8 后重试")
     elif suffix == "pdf":
         try:
-            reader = PdfReader(io.BytesIO(raw))
-            text = "\n\n".join(page.extract_text() or "" for page in reader.pages)
+            text = _extract_pdf_text(raw)
         except Exception:
             raise HTTPException(status_code=400, detail="PDF 解析失败，请确认文件未加密且包含可提取文本")
     else:
@@ -615,7 +619,11 @@ def _format_annotations(annotations: list[Annotation]) -> str:
 
 def _annotation_system_prompt(course: Course, lesson: Lesson, selected_text: str) -> str:
     """Build the system prompt for a highlight Q&A turn: tutor instructions + full lesson + selection."""
-    context = course.source_content if course.mode == "source" and lesson.is_source else lesson.content
+    context = lesson.content
+    if course.mode == "source" and lesson.is_source and not course.is_project and course.source_content:
+        context = course.source_content
+    if not context:
+        context = selected_text
     return f"""{ANNOTATION_ANSWER_PROMPT}
 
 ## 当前学习材料
@@ -818,7 +826,11 @@ async def create_course_from_project(
         suffix = name_only.rsplit(".", 1)[-1].lower() if "." in name_only else ""
         raw = await f.read()
         if suffix == "pdf":
-            extracted.append((path, "", raw))  # 原始 PDF，前端 pdf.js 渲染、保留全部格式
+            try:
+                content = _extract_pdf_text(raw)
+            except Exception:
+                content = ""
+            extracted.append((path, content, raw))  # 原始 PDF 仍由前端 pdf.js 渲染；content 供划线问答上下文使用
             continue
         text = None
         for enc in ("utf-8", "utf-8-sig", "gb18030"):

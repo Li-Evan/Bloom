@@ -334,3 +334,58 @@ def test_source_course_md_upload(client):
     lesson = client.get(f"/api/courses/{course['id']}/lessons/1").json()
     assert lesson["is_source"] is True
     assert "# Title" in lesson["content"]
+
+
+def test_project_pdf_upload_keeps_file_and_uses_extracted_text_for_highlight_context(client):
+    class FakePdfPage:
+        def extract_text(self):
+            return "PDF context paragraph for highlight answers."
+
+    class FakePdfReader:
+        def __init__(self, _stream):
+            self.pages = [FakePdfPage()]
+
+    with patch("app.courses.PdfReader", FakePdfReader):
+        res = client.post(
+            "/api/courses/from-project",
+            data={"name": "PDF 项目"},
+            files=[("files", ("paper.pdf", b"%PDF fake bytes", "application/pdf"))],
+        )
+
+    assert res.status_code == 200
+    course = res.json()
+    cid = course["id"]
+
+    lesson = client.get(f"/api/courses/{cid}/lessons/1").json()
+    assert lesson["is_source"] is True
+    assert lesson["source_filename"] == "paper.pdf"
+    assert "PDF context paragraph" in lesson["content"]
+
+    file_res = client.get(f"/api/courses/{cid}/lessons/1/file")
+    assert file_res.status_code == 200
+    assert file_res.content == b"%PDF fake bytes"
+    assert file_res.headers["content-type"].startswith("application/pdf")
+
+    pdf_position = '{"page":1,"rects":[{"page":1,"x":0.1,"y":0.2,"w":0.3,"h":0.04}]}'
+    with patch("app.courses.get_openai_client") as mock_get_client:
+        mock_client = MagicMock()
+        mock_client.chat.completions.create.return_value = _mock_stream(["PDF 划线回答。"])
+        mock_get_client.return_value = mock_client
+
+        ann = client.post(f"/api/courses/{cid}/lessons/1/annotations", json={
+            "position_start": 0,
+            "position_end": 13,
+            "original_text": "PDF context",
+            "comment": "这段 PDF 在讲什么？",
+            "anchor_top": 240,
+            "pdf_position": pdf_position,
+        })
+
+    assert ann.status_code == 200
+    system_prompt = mock_client.chat.completions.create.call_args.kwargs["messages"][0]["content"]
+    assert "PDF context paragraph for highlight answers." in system_prompt
+    assert "\nNone\n" not in system_prompt
+    body = _sse_done(ann)["annotation"]
+    assert body["pdf_position"] == pdf_position
+    assert body["anchor_top"] == 240
+    assert "PDF 划线回答" in body["answer"]

@@ -129,6 +129,20 @@ button:active:not(:disabled) {
   text-decoration: none;
 }
 
+/* Keep the invisible PDF text layer invisible while the browser is painting a native drag selection.
+   Without the explicit color, some engines temporarily draw the text layer in black on top of the
+   canvas, which looks like duplicated/blurred PDF text during selection. */
+.pdf-viewer .textLayer span::selection,
+.pdf-viewer .textLayer br::selection {
+  color: transparent;
+  background: rgba(250, 204, 21, 0.28);
+}
+.pdf-viewer .textLayer span::-moz-selection,
+.pdf-viewer .textLayer br::-moz-selection {
+  color: transparent;
+  background: rgba(250, 204, 21, 0.28);
+}
+
 /* Focus ring */
 input:focus-visible, textarea:focus-visible, select:focus-visible {
   outline: 2px solid var(--accent);
