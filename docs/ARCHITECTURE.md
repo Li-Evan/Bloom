@@ -91,6 +91,15 @@ When the frontend starts a recommendation, it calls the existing `POST /api/cour
 
 Course generation remains owned by `app/courses.py`. Recommendation APIs never create lessons directly and never mutate syllabus progress. This keeps "candidate learning intent" separate from "actual learning record".
 
+## Personal Center & Learning Calendar
+
+`GET /api/calendar` aggregates `LearningEvent` rows (joined to `Course`) into per-day activity for the profile page. Each day reports the courses touched, their lesson numbers, and a highlight count.
+
+- Day grouping uses the **server local date** via `_event_local_date` in `app/courses.py`: stored timestamps are UTC, so they are converted to local time before taking the date. The `/stats` streak computation calls the same helper, so streaks and the calendar share one basis and early-morning study is no longer attributed to the previous UTC day.
+- Highlight counts come from `Annotation` rows (by `created_at`), not `annotation_answered` events, so follow-up turns are never double-counted and the per-day totals sum to `/stats` `total_annotations`.
+
+The frontend route `/profile` (`frontend/src/pages/ProfilePage.jsx`) renders overview stat cards, a month calendar shaded by daily activity (clicking a day reveals that day's courses, lessons, and highlights), and a six-month contribution heatmap. The dashboard header links to it.
+
 ## Verification
 
 Backend tests live in `backend/tests/` and run with:

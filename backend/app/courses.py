@@ -2,11 +2,10 @@ import logging
 import json
 import io
 import re
-from datetime import date, timedelta
+from datetime import date, timedelta, timezone, datetime
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from fastapi.responses import StreamingResponse
-from sqlalchemy import func
 from sqlalchemy.orm import Session
 from openai import OpenAI
 from pypdf import PdfReader
@@ -21,6 +20,7 @@ from app.schemas import (
     CreateAnnotationRequest, AnnotationResponse, AddAnnotationMessageRequest,
     CreateFeedbackRequest, FeedbackResponse,
     CourseStatsResponse, GlobalStatsResponse,
+    CalendarResponse, CalendarDay, CalendarCourseActivity,
 )
 
 logger = logging.getLogger(__name__)
@@ -1327,6 +1327,17 @@ def get_course_stats(course_id: int, db: Session = Depends(get_db)):
     )
 
 
+def _event_local_date(dt: datetime) -> date:
+    """把事件时间戳归一到服务器本地日期。
+
+    SQLite 取回的是裸时间（无时区，实为 UTC），先补 UTC 再转本地，
+    避免凌晨学习被错算到「昨天」。tz-aware 的输入也能正确处理。
+    """
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone().date()
+
+
 @router.get("/stats", response_model=GlobalStatsResponse)
 def get_global_stats(db: Session = Depends(get_db)):
     courses = db.query(Course).all()
@@ -1338,12 +1349,11 @@ def get_global_stats(db: Session = Depends(get_db)):
     total_annotations = db.query(Annotation).count()
     total_feedback = db.query(Feedback).count()
 
-    # Calculate streaks from learning events
-    event_dates = db.query(
-        func.date(LearningEvent.created_at)
-    ).distinct().order_by(func.date(LearningEvent.created_at).desc()).all()
-
-    event_dates = [row[0] for row in event_dates]
+    # Calculate streaks from learning events（按本地日期，与学习日历口径一致）
+    raw_times = db.query(LearningEvent.created_at).all()
+    event_dates = sorted(
+        {_event_local_date(r[0]) for r in raw_times if r[0]}, reverse=True
+    )
 
     current_streak = 0
     longest_streak = 0
@@ -1388,4 +1398,84 @@ def get_global_stats(db: Session = Depends(get_db)):
         total_feedback=total_feedback,
         current_streak=current_streak,
         longest_streak=longest_streak,
+    )
+
+
+@router.get("/calendar", response_model=CalendarResponse)
+def get_learning_calendar(db: Session = Depends(get_db)):
+    """按天聚合所有学习活动，供个人中心的学习日历展示「哪天学了什么」。
+
+    日期归组用本地日期（与 /stats 的连续天数口径一致），每天给出：
+    接触到的课程、对应课文编号、划线条数与事件总数。
+    划线按 Annotation 行数（真实划线条数）统计，而非问答事件数——
+    避免追问轮次把数字撑大，从而与 /stats 的 total_annotations 一致。
+    """
+    course_meta = {c.id: (c.name, c.mode) for c in db.query(Course).all()}
+
+    def _cell(course_id: int) -> dict:
+        name, mode = course_meta.get(course_id, ("", "topic"))
+        return {
+            "course_id": course_id,
+            "course_name": name,
+            "mode": mode,
+            "lessons": set(),
+            "annotations": 0,
+            "event_count": 0,
+        }
+
+    days: dict[str, dict] = {}
+
+    # 课文与事件：从 learning_events 取课文编号与事件总数
+    for event in db.query(LearningEvent).order_by(LearningEvent.created_at).all():
+        if not event.created_at or event.course_id not in course_meta:
+            continue
+        day_key = _event_local_date(event.created_at).isoformat()
+        c = days.setdefault(day_key, {}).setdefault(event.course_id, _cell(event.course_id))
+        c["event_count"] += 1
+        if event.lesson_number and event.lesson_number > 0:
+            c["lessons"].add(event.lesson_number)
+
+    # 划线：从 annotations 表按创建日期统计真实划线条数（追问不重复计）
+    ann_rows = (
+        db.query(Annotation.created_at, Lesson.course_id)
+        .join(Lesson, Annotation.lesson_id == Lesson.id)
+        .all()
+    )
+    for created_at, course_id in ann_rows:
+        if not created_at or course_id not in course_meta:
+            continue
+        day_key = _event_local_date(created_at).isoformat()
+        c = days.setdefault(day_key, {}).setdefault(course_id, _cell(course_id))
+        c["annotations"] += 1
+
+    result_days = []
+    for day_key in sorted(days.keys()):
+        course_list, lessons_read, annotations, event_count = [], 0, 0, 0
+        for c in days[day_key].values():
+            lessons_sorted = sorted(c["lessons"])
+            lessons_read += len(lessons_sorted)
+            annotations += c["annotations"]
+            event_count += c["event_count"]
+            course_list.append(CalendarCourseActivity(
+                course_id=c["course_id"],
+                course_name=c["course_name"],
+                mode=c["mode"],
+                lessons=lessons_sorted,
+                annotations=c["annotations"],
+                event_count=c["event_count"],
+            ))
+        course_list.sort(key=lambda x: x.event_count, reverse=True)
+        result_days.append(CalendarDay(
+            date=day_key,
+            event_count=event_count,
+            lessons_read=lessons_read,
+            annotations=annotations,
+            courses=course_list,
+        ))
+
+    return CalendarResponse(
+        days=result_days,
+        total_active_days=len(result_days),
+        first_active_date=result_days[0].date if result_days else None,
+        last_active_date=result_days[-1].date if result_days else None,
     )
