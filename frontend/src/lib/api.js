@@ -180,11 +180,25 @@ export async function submitFeedback(courseId, lessonNum, content, thoughtAnswer
 
 // --- Generate Next Lesson (SSE streaming) ---
 
+// Bound inactivity, not total generation time: long lessons can keep streaming
+// for more than two minutes, especially with the context from previous lessons.
+const LESSON_STREAM_IDLE_TIMEOUT_MS = 120000;
+
 export async function generateNextLesson(courseId, onChunk, onDone) {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 120000); // 2 min timeout
+  let timeout;
+  let timedOut = false;
+  let reader;
+  const resetIdleTimeout = () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      timedOut = true;
+      controller.abort();
+    }, LESSON_STREAM_IDLE_TIMEOUT_MS);
+  };
 
   try {
+    resetIdleTimeout();
     const res = await fetch(`${API_BASE}/courses/${courseId}/next`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -195,34 +209,58 @@ export async function generateNextLesson(courseId, onChunk, onDone) {
       const data = await res.json().catch(() => ({}));
       throw new Error(extractDetail(data, res.status));
     }
+    if (!res.body) throw new Error('服务器未返回生成内容，请稍后重试');
 
-    const reader = res.body.getReader();
+    resetIdleTimeout();
+    reader = res.body.getReader();
     const decoder = new TextDecoder();
     let buffer = '';
+    const processLine = (line) => {
+      if (!line.startsWith('data:')) return false;
+      let data;
+      try { data = JSON.parse(line.slice(5)); } catch { return false; }
+      if (!data) return false;
+      if (data.error) throw new Error(data.error);
+      // Keep callback exceptions outside the JSON parse catch.
+      if (data.content) onChunk(data.content);
+      if (data.done) {
+        if (onDone) onDone(data);
+        return true;
+      }
+      return false;
+    };
 
     while (true) {
       const { done, value } = await reader.read();
-      if (done) break;
-
+      if (done) {
+        buffer += decoder.decode();
+        if (processLine(buffer)) return;
+        // EOF alone does not confirm that the backend saved the generated lesson.
+        throw new Error('生成连接意外中断，未收到完成确认。请刷新课程查看是否已生成，再重试。');
+      }
+      // Any non-empty chunk (including SSE heartbeats) proves the stream is alive.
+      if (value.byteLength > 0) resetIdleTimeout();
       buffer += decoder.decode(value, { stream: true });
       const lines = buffer.split('\n');
       buffer = lines.pop() || '';
 
       for (const line of lines) {
-        if (line.startsWith('data: ')) {
-          try {
-            const data = JSON.parse(line.slice(6));
-            if (data.content) onChunk(data.content);
-            if (data.done && onDone) onDone(data);
-            if (data.error) throw new Error(data.error);
-          } catch (e) {
-            if (!(e instanceof SyntaxError)) throw e;
-          }
-        }
+        // The backend sends done after committing; do not wait for socket closure.
+        if (processLine(line)) return;
       }
     }
+  } catch (err) {
+    if (timedOut) {
+      throw new Error('生成超时：连续 2 分钟未收到服务器数据。请刷新课程查看是否已生成，再重试。');
+    }
+    throw err;
   } finally {
     clearTimeout(timeout);
+    if (reader) {
+      // Teardown must not delay navigation or replace the original stream error.
+      reader.cancel().catch(() => {});
+      reader.releaseLock();
+    }
   }
 }
 
