@@ -1,3 +1,5 @@
+import { useI18n } from '../i18n/useI18n.js';
+
 const LANES = ['补地基', '做连接', '向外长'];
 
 function SourceTopics({ topics }) {
@@ -17,18 +19,19 @@ function SourceTopics({ topics }) {
 }
 
 function RecommendationCard({ item, index, onSave, onStart, starting }) {
+  const { t } = useI18n();
   return (
     <article className="stagger-in bg-white border border-stone-200/70 rounded-xl p-4 hover:border-stone-300 hover:shadow-[0_10px_28px_-22px_rgba(28,25,23,0.55)] transition-all duration-200" style={{ '--i': index }}>
       <div className="flex items-start justify-between gap-3 mb-3">
         <div className="min-w-0">
-          <p className="text-[11px] font-mono text-emerald-600 mb-1">{LANES[index] || '推荐'}</p>
+          <p className="text-[11px] font-mono text-emerald-600 mb-1">{t(LANES[index] || '推荐')}</p>
           <h3 className="text-base font-semibold text-stone-900 tracking-tight break-words">{item.title}</h3>
         </div>
         <button
           type="button"
           onClick={() => onSave(item)}
           className="shrink-0 w-8 h-8 rounded-full border border-stone-200 text-stone-400 hover:text-amber-600 hover:border-amber-200 hover:bg-amber-50 transition-colors flex items-center justify-center"
-          title="收藏到待学习清单"
+          title={t('收藏到待学习清单')}
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M17.6 21 12 17.7 6.4 21V5.8c0-1 .8-1.8 1.8-1.8h7.6c1 0 1.8.8 1.8 1.8V21Z" />
@@ -50,7 +53,7 @@ function RecommendationCard({ item, index, onSave, onStart, starting }) {
           disabled={starting}
           className="shrink-0 bg-stone-900 text-white px-3 py-2 rounded-lg text-xs font-medium hover:bg-stone-800 disabled:opacity-50 transition-colors"
         >
-          {starting ? '创建中...' : '开始学习'}
+          {starting ? t('创建中...') : t('开始学习')}
         </button>
       </div>
     </article>
@@ -58,6 +61,7 @@ function RecommendationCard({ item, index, onSave, onStart, starting }) {
 }
 
 function SavedRow({ item, onRemove, onStart, starting }) {
+  const { t } = useI18n();
   return (
     <div className="bg-white border border-stone-200/70 rounded-xl px-3.5 py-3">
       <div className="flex items-start justify-between gap-3">
@@ -69,7 +73,7 @@ function SavedRow({ item, onRemove, onStart, starting }) {
           type="button"
           onClick={() => onRemove(item)}
           className="shrink-0 text-stone-300 hover:text-rose-500 transition-colors p-1"
-          title="移出待学习清单"
+          title={t('移出待学习清单')}
         >
           <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
@@ -82,7 +86,7 @@ function SavedRow({ item, onRemove, onStart, starting }) {
         disabled={starting}
         className="mt-3 w-full border border-stone-200 text-stone-700 px-3 py-2 rounded-lg text-xs font-medium hover:bg-stone-50 disabled:opacity-50 transition-colors"
       >
-        {starting ? '创建中...' : '进入学习'}
+        {starting ? t('创建中...') : t('进入学习')}
       </button>
     </div>
   );
@@ -98,12 +102,13 @@ export default function RecommendationPanel({
   onRemove,
   onStart,
 }) {
+  const { t } = useI18n();
   return (
     <section className="mb-10">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-4">
         <div>
-          <h2 className="text-xl font-semibold tracking-tight text-stone-900">下一步学习</h2>
-          <p className="text-sm text-stone-400 mt-1">从已学内容长出的 3 个主题</p>
+          <h2 className="text-xl font-semibold tracking-tight text-stone-900">{t('下一步学习')}</h2>
+          <p className="text-sm text-stone-400 mt-1">{t('从已学内容长出的 3 个主题')}</p>
         </div>
         <button
           type="button"
@@ -114,7 +119,7 @@ export default function RecommendationPanel({
           <svg className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M20 11a8.1 8.1 0 0 0-15.5-3M4 5v3h3m-3 5a8.1 8.1 0 0 0 15.5 3M20 19v-3h-3" />
           </svg>
-          {refreshing ? '刷新中' : recommendations.length ? '换一组' : '生成推荐'}
+          {refreshing ? t('刷新中') : recommendations.length ? t('换一组') : t('生成推荐')}
         </button>
       </div>
 
@@ -143,14 +148,14 @@ export default function RecommendationPanel({
             ))
           ) : (
             <div className="md:col-span-3 bg-white border border-dashed border-stone-300 rounded-xl px-5 py-8 text-center">
-              <p className="text-sm text-stone-500">还没有推荐主题</p>
+              <p className="text-sm text-stone-500">{t('还没有推荐主题')}</p>
             </div>
           )}
         </div>
 
         <aside className="space-y-2">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-semibold text-stone-800">待学习清单</h3>
+            <h3 className="text-sm font-semibold text-stone-800">{t('待学习清单')}</h3>
             <span className="text-xs font-mono text-stone-400">{savedRecommendations.length}</span>
           </div>
           {savedRecommendations.length > 0 ? (
@@ -165,7 +170,7 @@ export default function RecommendationPanel({
             ))
           ) : (
             <div className="bg-white border border-stone-200/70 rounded-xl px-4 py-6 text-center">
-              <p className="text-xs text-stone-400">收藏的主题会放在这里</p>
+              <p className="text-xs text-stone-400">{t('收藏的主题会放在这里')}</p>
             </div>
           )}
         </aside>

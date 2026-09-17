@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/immutability -- 本组件用 pdf.js 命令式渲染 canvas/文本层/高亮 overlay 到真实 DOM，不适用不可变性规则 */
+import { useI18n } from '../i18n/useI18n.js';
 import { useEffect, useRef, useState } from 'react';
 import * as pdfjsLib from 'pdfjs-dist';
 import { TextLayer } from 'pdfjs-dist';
@@ -14,6 +15,8 @@ const FALLBACK_WIDTH = 800;
 // 再叠一层高亮 overlay。划线定位用「归一化矩形 + 页码」的几何坐标（而非字符 offset），
 // 缩放/翻页/resize 都能精确还原 —— 这是 PDF 标注的标准做法，根治字符 offset 漂移。
 export default function PdfViewer({ url, highlights = [], onSelect, onOpenHighlight, onHighlightTops, onClearSelection }) {
+  const { t, formatError } = useI18n();
+  const [loadError, setLoadError] = useState('');
   const hostRef = useRef(null);
   const pagesRef = useRef([]); // [{ pageEl, hlLayer, width, height }]
   const [containerWidth, setContainerWidth] = useState(0);
@@ -50,6 +53,7 @@ export default function PdfViewer({ url, highlights = [], onSelect, onOpenHighli
       try {
         const data = await (await fetch(url)).arrayBuffer();
         if (cancelled) return;
+        setLoadError('');
         const pdf = await pdfjsLib.getDocument({ data }).promise;
         const targetWidth = Math.max(1, containerWidth || host.clientWidth || FALLBACK_WIDTH);
         for (let n = 1; n <= pdf.numPages; n++) {
@@ -95,7 +99,10 @@ export default function PdfViewer({ url, highlights = [], onSelect, onOpenHighli
         }
         if (!cancelled) setReady((t) => t + 1);
       } catch (e) {
-        if (!cancelled) host.innerHTML = `<p style="color:#dc2626;font-size:13px;padding:1rem;">PDF 加载失败：${e?.message || e}</p>`;
+        if (!cancelled) {
+          host.innerHTML = '';
+          setLoadError(String(e?.message || e));
+        }
       }
     })();
 
@@ -121,7 +128,7 @@ export default function PdfViewer({ url, highlights = [], onSelect, onOpenHighli
         const cursor = hl.pending ? 'default' : 'pointer';
         div.style.cssText = `position:absolute;left:${r.x * p.width}px;top:${r.y * p.height}px;width:${r.w * p.width}px;height:${r.h * p.height}px;background:${bg};border-radius:2px;pointer-events:${pointer};cursor:${cursor};`;
         if (!hl.pending) {
-          div.title = '点击查看这条划线问答';
+          div.title = t('点击查看这条划线问答');
           div.onclick = () => onOpenHighlight && onOpenHighlight(hl.id);
         }
         p.hlLayer.appendChild(div);
@@ -130,7 +137,7 @@ export default function PdfViewer({ url, highlights = [], onSelect, onOpenHighli
       if (!hl.pending && firstTop !== null) nextTops[hl.id] = Math.max(0, Math.round(firstTop));
     }
     onHighlightTops && onHighlightTops(nextTops);
-  }, [highlights, ready, onOpenHighlight, onHighlightTops]);
+  }, [highlights, ready, onOpenHighlight, onHighlightTops, t]);
 
   // 选区 → 归一化矩形 + 页码 → 回调
   const handleMouseUp = (event) => {
@@ -189,5 +196,10 @@ export default function PdfViewer({ url, highlights = [], onSelect, onOpenHighli
     });
   };
 
-  return <div ref={hostRef} className="pdf-viewer w-full overflow-hidden" onMouseUp={handleMouseUp} />;
+  return (
+    <>
+      {loadError && <p role="alert" className="text-rose-600 text-sm p-4">{t('PDF 加载失败：{message}', { message: formatError(loadError) })}</p>}
+      <div ref={hostRef} className="pdf-viewer w-full overflow-hidden" onMouseUp={handleMouseUp} />
+    </>
+  );
 }

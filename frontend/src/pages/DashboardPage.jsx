@@ -1,3 +1,4 @@
+import { useI18n } from '../i18n/useI18n.js';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RecommendationPanel from '../components/RecommendationPanel';
@@ -62,6 +63,7 @@ async function filesFromDataTransfer(dt) {
 }
 
 export default function DashboardPage() {
+  const { t, formatError, locale } = useI18n();
   const [courses, setCourses] = useState([]);
   const [stats, setStats] = useState(null);
   const [recommendations, setRecommendations] = useState([]);
@@ -239,7 +241,7 @@ export default function DashboardPage() {
 
   const handleDelete = async (e, courseId) => {
     e.stopPropagation();
-    if (!confirm('确定删除这个课程吗？所有课文和批注都将丢失。')) return;
+    if (!confirm(t('确定删除这个课程吗？所有课文和批注都将丢失。'))) return;
     try {
       await deleteCourse(courseId);
       setCourses((prev) => prev.filter((c) => c.id !== courseId));
@@ -255,9 +257,9 @@ export default function DashboardPage() {
         <div className="fixed inset-0 z-50 bg-stone-950/40 modal-backdrop flex items-center justify-center p-6">
           <div className="bg-white rounded-2xl p-8 max-w-sm w-full shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] border border-stone-200/40 text-center">
             <div className="w-11 h-11 rounded-full border-[3px] border-stone-200 border-t-emerald-600 animate-spin mx-auto mb-5" />
-            <h3 className="text-base font-semibold text-stone-900 mb-1.5">正在为你定制课程</h3>
+            <h3 className="text-base font-semibold text-stone-900 mb-1.5">{t('正在为你定制课程')}</h3>
             <p className="text-sm text-stone-500 mb-6 min-h-[20px] transition-opacity duration-300">
-              {LOADING_MESSAGES[loadingStep]}
+              {t(LOADING_MESSAGES[loadingStep])}
             </p>
             <div className="w-full h-1.5 bg-stone-100 rounded-full overflow-hidden mb-2.5">
               <div
@@ -265,7 +267,7 @@ export default function DashboardPage() {
                 style={{ width: `${Math.round(progress)}%` }}
               />
             </div>
-            <p className="text-xs text-stone-400">AI 串行生成大纲与第一课 · 约 20–60 秒</p>
+            <p className="text-xs text-stone-400">{t('AI 串行生成大纲与第一课 · 约 20–60 秒')}</p>
           </div>
         </div>
       )}
@@ -283,15 +285,15 @@ export default function DashboardPage() {
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
             </svg>
-            个人中心
+            {t('个人中心')}
           </button>
         </div>
       </header>
 
       <main className="max-w-[1100px] mx-auto px-6 py-10">
         {/* Tabs + action */}
-        <div className="flex items-center justify-between gap-3 mb-8">
-          <div className="inline-flex rounded-xl border border-stone-200 bg-stone-50 p-1">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-8">
+          <div className="inline-flex flex-wrap rounded-xl border border-stone-200 bg-stone-50 p-1">
             <button
               type="button"
               onClick={() => setActiveTab('courses')}
@@ -301,7 +303,7 @@ export default function DashboardPage() {
                   : 'text-stone-500 hover:text-stone-700'
               }`}
             >
-              我的课程
+              {t('我的课程')}
             </button>
             <button
               type="button"
@@ -312,21 +314,21 @@ export default function DashboardPage() {
                   : 'text-stone-500 hover:text-stone-700'
               }`}
             >
-              下一步学习
+              {t('下一步学习')}
             </button>
           </div>
           <button
             onClick={() => { setActiveTab('courses'); setShowCreate((s) => !s); }}
             className="bg-emerald-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-emerald-700 transition-all duration-200 cursor-pointer shrink-0"
           >
-            新建课程
+            {t('新建课程')}
           </button>
         </div>
 
         {/* Error — 两个 tab 都可见 */}
         {error && (
           <div className="bg-rose-50 text-rose-600 text-sm px-4 py-2.5 rounded-lg mb-6 border border-rose-100">
-            {error}
+            {formatError(error)}
           </div>
         )}
 
@@ -348,19 +350,19 @@ export default function DashboardPage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
             <div className="bg-white rounded-xl border border-stone-200/60 p-4">
               <p className="text-2xl font-semibold text-stone-900 tabular-nums">{stats.total_lessons_read}</p>
-              <p className="text-xs text-stone-400 mt-1">已学课文</p>
+              <p className="text-xs text-stone-400 mt-1">{t('已学课文')}</p>
             </div>
             <div className="bg-white rounded-xl border border-stone-200/60 p-4">
               <p className="text-2xl font-semibold text-stone-900 tabular-nums">{stats.total_annotations}</p>
-              <p className="text-xs text-stone-400 mt-1">批注数</p>
+              <p className="text-xs text-stone-400 mt-1">{t('批注数')}</p>
             </div>
             <div className="bg-white rounded-xl border border-stone-200/60 p-4">
               <p className="text-2xl font-semibold text-stone-900 tabular-nums">{stats.current_streak}</p>
-              <p className="text-xs text-stone-400 mt-1">连续学习天数</p>
+              <p className="text-xs text-stone-400 mt-1">{t('连续学习天数')}</p>
             </div>
             <div className="bg-white rounded-xl border border-stone-200/60 p-4">
               <p className="text-2xl font-semibold text-emerald-600 tabular-nums">{stats.completed_courses}</p>
-              <p className="text-xs text-stone-400 mt-1">已完成课程</p>
+              <p className="text-xs text-stone-400 mt-1">{t('已完成课程')}</p>
             </div>
           </div>
         )}
@@ -368,7 +370,7 @@ export default function DashboardPage() {
         {/* Create form */}
         {showCreate && (
           <form onSubmit={handleCreate} className="mb-8 bg-white rounded-xl border border-stone-200/60 p-5 space-y-4">
-            <div className="inline-flex rounded-lg border border-stone-200 bg-stone-50 p-1">
+            <div className="inline-flex flex-wrap rounded-lg border border-stone-200 bg-stone-50 p-1">
               <button
                 type="button"
                 onClick={() => setCreateMode('topic')}
@@ -378,7 +380,7 @@ export default function DashboardPage() {
                     : 'text-stone-500 hover:text-stone-700'
                 }`}
               >
-                主题生成
+                {t('主题生成')}
               </button>
               <button
                 type="button"
@@ -389,7 +391,7 @@ export default function DashboardPage() {
                     : 'text-stone-500 hover:text-stone-700'
                 }`}
               >
-                上传原文
+                {t('上传原文')}
               </button>
               <button
                 type="button"
@@ -400,13 +402,13 @@ export default function DashboardPage() {
                     : 'text-stone-500 hover:text-stone-700'
                 }`}
               >
-                项目文件
+                {t('项目文件')}
               </button>
             </div>
 
             {createMode !== 'project' && (
             <div>
-              <label className="block text-sm font-medium text-stone-700 mb-1.5">学习深度</label>
+              <label className="block text-sm font-medium text-stone-700 mb-1.5">{t('学习深度')}</label>
               <div className="grid grid-cols-3 gap-2">
                 {LEARNING_DEPTH_OPTIONS.map((option) => {
                   const selected = learningDepth === option.value;
@@ -423,9 +425,9 @@ export default function DashboardPage() {
                           : 'border-stone-200 bg-white text-stone-600 hover:border-stone-300 hover:bg-stone-50'
                       }`}
                     >
-                      <span className="block text-sm font-medium">{option.label}</span>
+                      <span className="block text-sm font-medium">{t(option.label)}</span>
                       <span className={`block text-xs mt-0.5 ${selected ? 'text-emerald-600' : 'text-stone-400'}`}>
-                        {option.hint}
+                        {t(option.hint)}
                       </span>
                     </button>
                   );
@@ -435,12 +437,12 @@ export default function DashboardPage() {
             )}
 
             <div>
-              <label className="block text-sm font-medium text-stone-700 mb-1.5">课题名称</label>
+              <label className="block text-sm font-medium text-stone-700 mb-1.5">{t('课题名称')}</label>
               <input
                 type="text"
                 value={newCourseName}
                 onChange={(e) => setNewCourseName(e.target.value)}
-                placeholder={createMode === 'topic' ? '例如「博弈论基础」「Python 装饰器」' : '可留空，默认使用文件名/文件夹名'}
+                placeholder={createMode === 'topic' ? t('例如「博弈论基础」「Python 装饰器」') : t('可留空，默认使用文件名/文件夹名')}
                 className="w-full px-3.5 py-2.5 bg-white border border-stone-200 rounded-lg text-sm transition-colors hover:border-stone-300 focus:border-emerald-600 outline-none"
                 autoFocus
                 disabled={creating}
@@ -450,26 +452,26 @@ export default function DashboardPage() {
             {createMode === 'topic' ? (
               <div>
                 <label className="block text-sm font-medium text-stone-700 mb-1.5">
-                  参考材料
-                  <span className="text-stone-400 font-normal ml-1">（可选）</span>
+                  {t('参考材料')}
+                  <span className="text-stone-400 font-normal ml-1">{t('（可选）')}</span>
                 </label>
                 <textarea
                   value={newCourseRef}
                   onChange={(e) => setNewCourseRef(e.target.value)}
-                  placeholder="粘贴课本章节、论文摘要、笔记、或任何你希望 AI 参考的内容..."
+                  placeholder={t('粘贴课本章节、论文摘要、笔记、或任何你希望 AI 参考的内容...')}
                   className="w-full border border-stone-200 rounded-lg p-3.5 text-sm resize-none h-28 transition-colors hover:border-stone-300 focus:border-emerald-600 outline-none"
                   disabled={creating}
                 />
-                <p className="text-xs text-stone-400 mt-1">AI 会根据这些材料设计课程大纲和课文内容</p>
+                <p className="text-xs text-stone-400 mt-1">{t('AI 会根据这些材料设计课程大纲和课文内容')}</p>
               </div>
             ) : createMode === 'source' ? (
               <div>
-                <label className="block text-sm font-medium text-stone-700 mb-1.5">PDF / TXT / MD 原文</label>
+                <label className="block text-sm font-medium text-stone-700 mb-1.5">{t('PDF / TXT / MD 原文')}</label>
                 <label className="flex items-center justify-between gap-3 border border-dashed border-stone-300 rounded-lg px-3.5 py-3 bg-stone-50/70 hover:bg-stone-50 transition-colors cursor-pointer">
                   <span className="text-sm text-stone-500 truncate">
-                    {sourceFile ? sourceFile.name : '选择一个 PDF、TXT 或 MD 文件'}
+                    {sourceFile ? sourceFile.name : t('选择一个 PDF、TXT 或 MD 文件')}
                   </span>
-                  <span className="text-xs text-emerald-600 font-medium shrink-0">选择文件</span>
+                  <span className="text-xs text-emerald-600 font-medium shrink-0">{t('选择文件')}</span>
                   <input
                     type="file"
                     accept=".pdf,.txt,.md,.markdown,application/pdf,text/plain,text/markdown,text/x-markdown"
@@ -478,11 +480,11 @@ export default function DashboardPage() {
                     onChange={(e) => setSourceFile(e.target.files?.[0] || null)}
                   />
                 </label>
-                <p className="text-xs text-stone-400 mt-1">创建后先阅读原文，划线提问会立即回答；读完后再生成下一篇</p>
+                <p className="text-xs text-stone-400 mt-1">{t('创建后先阅读原文，划线提问会立即回答；读完后再生成下一篇')}</p>
               </div>
             ) : (
               <div>
-                <label className="block text-sm font-medium text-stone-700 mb-1.5">项目文件 / 文件夹</label>
+                <label className="block text-sm font-medium text-stone-700 mb-1.5">{t('项目文件 / 文件夹')}</label>
                 <label
                   onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
                   onDragLeave={() => setDragOver(false)}
@@ -493,9 +495,9 @@ export default function DashboardPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
                   </svg>
                   <span className="text-sm text-stone-600">
-                    {projectFiles.length ? `已选 ${projectFiles.length} 个文件` : '拖入文件或文件夹，或点击选择文件'}
+                    {projectFiles.length ? t('已选 {count} 个文件', { count: projectFiles.length }) : t('拖入文件或文件夹，或点击选择文件')}
                   </span>
-                  <span className="text-xs text-stone-400">拖文件夹会自动读取其中所有文件</span>
+                  <span className="text-xs text-stone-400">{t('拖文件夹会自动读取其中所有文件')}</span>
                   <input
                     type="file"
                     multiple
@@ -504,7 +506,7 @@ export default function DashboardPage() {
                     onChange={(e) => setProjectFiles(Array.from(e.target.files || []))}
                   />
                 </label>
-                <p className="text-xs text-stone-400 mt-1">每个文件单独渲染成一篇，可随时划线提问；不生成大纲、不生成下一篇</p>
+                <p className="text-xs text-stone-400 mt-1">{t('每个文件单独渲染成一篇，可随时划线提问；不生成大纲、不生成下一篇')}</p>
               </div>
             )}
 
@@ -514,7 +516,7 @@ export default function DashboardPage() {
                 disabled={creating}
                 className="bg-stone-900 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-stone-800 disabled:opacity-50 transition-all duration-200 cursor-pointer"
               >
-                {creating ? '创建中...' : createMode === 'source' ? '上传并创建' : '创建课程'}
+                {creating ? t('创建中...') : createMode === 'source' ? t('上传并创建') : t('创建课程')}
               </button>
             </div>
           </form>
@@ -543,8 +545,8 @@ export default function DashboardPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
               </svg>
             </div>
-            <p className="text-stone-400 text-sm mb-1">还没有课程</p>
-            <p className="text-stone-300 text-xs">点击「新建课程」开始你的第一次一对一学习</p>
+            <p className="text-stone-400 text-sm mb-1">{t('还没有课程')}</p>
+            <p className="text-stone-300 text-xs">{t('点击「新建课程」开始你的第一次一对一学习')}</p>
           </div>
         ) : (
           <div className="space-y-2">
@@ -555,24 +557,24 @@ export default function DashboardPage() {
                 className="stagger-in w-full bg-white rounded-xl p-5 text-left border border-stone-200/60 hover:border-stone-300 hover:shadow-[0_2px_12px_-4px_rgba(0,0,0,0.06)] transition-all duration-200 group cursor-pointer"
                 onClick={() => navigate(`/course/${course.id}`)}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 min-w-0">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex flex-wrap items-center gap-2 min-w-0">
                     <h3 className="font-medium text-stone-800 group-hover:text-stone-900 transition-colors truncate">
                       {course.name}
                     </h3>
                     {course.is_project ? (
                       <span className="text-[10px] px-1.5 py-0.5 rounded bg-violet-50 text-violet-600 border border-violet-100 shrink-0">
-                        项目
+                        {t('项目')}
                       </span>
                     ) : (
                       <>
                         {course.mode === 'source' && (
                           <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-600 border border-amber-100 shrink-0">
-                            原文
+                            {t('原文')}
                           </span>
                         )}
                         <span className="text-[10px] px-1.5 py-0.5 rounded bg-stone-100 text-stone-500 border border-stone-200/70 shrink-0">
-                          {DEPTH_LABELS[course.learning_depth] || '标准'}
+                          {t(DEPTH_LABELS[course.learning_depth] || '标准')}
                         </span>
                       </>
                     )}
@@ -580,7 +582,7 @@ export default function DashboardPage() {
                   <div className="flex items-center gap-3">
                     {course.status === 'completed' ? (
                       <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100">
-                        已完成
+                        {t('已完成')}
                       </span>
                     ) : (
                       <span className="text-xs px-2 py-0.5 rounded-full bg-stone-50 text-stone-500 border border-stone-100">
@@ -588,12 +590,12 @@ export default function DashboardPage() {
                       </span>
                     )}
                     <span className="text-xs text-stone-400 font-mono tabular-nums">
-                      {course.lesson_count} 篇
+                      {t('{count} 篇', { count: course.lesson_count })}
                     </span>
                     <button
                       onClick={(e) => handleDelete(e, course.id)}
                       className="opacity-0 group-hover:opacity-100 text-stone-300 hover:text-rose-500 transition-all p-1"
-                      title="删除课程"
+                      title={t('删除课程')}
                     >
                       <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
@@ -606,7 +608,7 @@ export default function DashboardPage() {
                 </div>
                 <div className="flex items-center gap-3 mt-1.5">
                   <p className="text-xs text-stone-400 font-mono tabular-nums">
-                    {new Date(course.created_at).toLocaleDateString('zh-CN')}
+                    {new Date(course.created_at).toLocaleDateString(locale)}
                   </p>
                   {course.status !== 'completed' && course.mastery_progress > 0 && (
                     <div className="flex-1 h-1 bg-stone-100 rounded-full overflow-hidden max-w-[120px]">
