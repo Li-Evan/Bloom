@@ -1,3 +1,4 @@
+import { useI18n } from '../i18n/useI18n.js';
 import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getGlobalStats, getCalendar } from '../lib/api';
@@ -5,7 +6,6 @@ import { getGlobalStats, getCalendar } from '../lib/api';
 const pad = (n) => String(n).padStart(2, '0');
 const toKey = (y, m, d) => `${y}-${pad(m + 1)}-${pad(d)}`; // m 为 0 基月份
 const WEEK_LABELS = ['一', '二', '三', '四', '五', '六', '日']; // 周一开头
-const WEEK_ZH = ['日', '一', '二', '三', '四', '五', '六'];
 
 // 当天活动强度 → 月历单元格配色（0 表示无活动）
 const CELL = [
@@ -36,6 +36,7 @@ function StatCard({ value, label, accent }) {
 }
 
 export default function ProfilePage() {
+  const { t, formatError, locale } = useI18n();
   const navigate = useNavigate();
   const [stats, setStats] = useState(null);
   const [dayMap, setDayMap] = useState({});
@@ -108,8 +109,7 @@ export default function ProfilePage() {
   const selectedTitle = (() => {
     if (!selectedDay) return '';
     const [y, mm, d] = selectedDay.split('-').map(Number);
-    const wk = new Date(y, mm - 1, d).getDay();
-    return `${mm} 月 ${d} 日 · 周${WEEK_ZH[wk]}`;
+    return new Date(y, mm - 1, d).toLocaleDateString(locale, { month: 'long', day: 'numeric', weekday: 'short' });
   })();
 
   return (
@@ -119,7 +119,7 @@ export default function ProfilePage() {
         <div className="max-w-[1100px] mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <button onClick={() => navigate('/')} className="text-base font-semibold text-white tracking-tight hover:text-emerald-400 transition-colors cursor-pointer">Bloom</button>
-            <span className="text-stone-600 text-xs font-mono">个人中心</span>
+            <span className="text-stone-600 text-xs font-mono">{t('个人中心')}</span>
           </div>
           <button
             onClick={() => navigate('/')}
@@ -128,19 +128,19 @@ export default function ProfilePage() {
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
-            我的课程
+            {t('我的课程')}
           </button>
         </div>
       </header>
 
       <main className="max-w-[1100px] mx-auto px-6 py-10">
         <div className="mb-8">
-          <h2 className="text-2xl font-semibold tracking-tight text-stone-900">学习概览</h2>
-          <p className="text-sm text-stone-400 mt-1">回顾你的学习足迹，点击日历看每天学了什么</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-stone-900">{t('学习概览')}</h2>
+          <p className="text-sm text-stone-400 mt-1">{t('回顾你的学习足迹，点击日历看每天学了什么')}</p>
         </div>
 
         {error && (
-          <div className="bg-rose-50 text-rose-600 text-sm px-4 py-2.5 rounded-lg mb-6 border border-rose-100">{error}</div>
+          <div className="bg-rose-50 text-rose-600 text-sm px-4 py-2.5 rounded-lg mb-6 border border-rose-100">{formatError(error)}</div>
         )}
 
         {loading ? (
@@ -155,11 +155,11 @@ export default function ProfilePage() {
             {/* Stat cards */}
             {stats && (
               <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-8">
-                <StatCard value={stats.total_lessons_read} label="已学课文" />
-                <StatCard value={stats.current_streak} label="连续学习天数" />
-                <StatCard value={stats.longest_streak} label="最长连续天数" />
-                <StatCard value={stats.total_annotations} label="划线提问数" />
-                <StatCard value={stats.completed_courses} label="已完成课程" accent />
+                <StatCard value={stats.total_lessons_read} label={t('已学课文')} />
+                <StatCard value={stats.current_streak} label={t('连续学习天数')} />
+                <StatCard value={stats.longest_streak} label={t('最长连续天数')} />
+                <StatCard value={stats.total_annotations} label={t('划线提问数')} />
+                <StatCard value={stats.completed_courses} label={t('已完成课程')} accent />
               </div>
             )}
 
@@ -167,12 +167,12 @@ export default function ProfilePage() {
               {/* Month calendar */}
               <div className="bg-white rounded-xl border border-stone-200/60 p-5">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-sm font-semibold text-stone-800">{year} 年 {m + 1} 月</h3>
+                  <h3 className="text-sm font-semibold text-stone-800">{month.toLocaleDateString(locale, { year: 'numeric', month: 'long' })}</h3>
                   <div className="flex items-center gap-1">
                     <button
                       onClick={() => setMonth(new Date(year, m - 1, 1))}
                       className="w-7 h-7 rounded-md hover:bg-stone-100 flex items-center justify-center text-stone-500 transition-colors cursor-pointer"
-                      title="上个月"
+                      title={t('上个月')}
                     >
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
                     </button>
@@ -180,7 +180,7 @@ export default function ProfilePage() {
                       onClick={() => !isCurrentMonth && setMonth(new Date(year, m + 1, 1))}
                       disabled={isCurrentMonth}
                       className="w-7 h-7 rounded-md hover:bg-stone-100 flex items-center justify-center text-stone-500 transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
-                      title="下个月"
+                      title={t('下个月')}
                     >
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
                     </button>
@@ -189,7 +189,7 @@ export default function ProfilePage() {
 
                 <div className="grid grid-cols-7 gap-1.5 mb-1.5">
                   {WEEK_LABELS.map((w) => (
-                    <div key={w} className="text-center text-[11px] text-stone-400 font-medium py-1">{w}</div>
+                    <div key={w} className="text-center text-[11px] text-stone-400 font-medium py-1">{t(w)}</div>
                   ))}
                 </div>
                 <div className="grid grid-cols-7 gap-1.5">
@@ -206,7 +206,7 @@ export default function ProfilePage() {
                         key={key}
                         onClick={() => clickable && selectDay(key)}
                         disabled={!clickable}
-                        title={day ? `${day.lessons_read} 篇课文 · ${day.annotations} 条划线` : ''}
+                        title={day ? t('{lessons} 篇课文 · {annotations} 条划线', { lessons: day.lessons_read, annotations: day.annotations }) : ''}
                         className={`aspect-square rounded-lg flex items-center justify-center text-xs font-medium relative transition-all
                           ${CELL[lv]}
                           ${clickable ? 'cursor-pointer hover:scale-[1.06]' : 'cursor-default'}
@@ -220,9 +220,9 @@ export default function ProfilePage() {
 
                 {/* Legend */}
                 <div className="flex items-center justify-end gap-1.5 mt-4 text-[11px] text-stone-400">
-                  <span>少</span>
+                  <span>{t('少')}</span>
                   {CELL.map((c, i) => <span key={i} className={`w-3 h-3 rounded ${c.split(' ')[0]}`} />)}
-                  <span>多</span>
+                  <span>{t('多')}</span>
                 </div>
               </div>
 
@@ -232,9 +232,9 @@ export default function ProfilePage() {
                   <>
                     <div className="flex items-baseline justify-between mb-1">
                       <h3 className="text-sm font-semibold text-stone-800">{selectedTitle}</h3>
-                      <span className="text-[11px] text-stone-400 font-mono tabular-nums">{detail.courses.length} 个课程</span>
+                      <span className="text-[11px] text-stone-400 font-mono tabular-nums">{t('{count} 个课程', { count: detail.courses.length })}</span>
                     </div>
-                    <p className="text-xs text-stone-400 mb-4">这天你学了 {detail.lessons_read} 篇课文，提出 {detail.annotations} 个划线问题</p>
+                    <p className="text-xs text-stone-400 mb-4">{t('这天你学了 {lessons} 篇课文，提出 {annotations} 个划线问题', { lessons: detail.lessons_read, annotations: detail.annotations })}</p>
                     <div className="space-y-2.5 max-h-[340px] overflow-y-auto -mr-2 pr-2">
                       {detail.courses.map((c) => (
                         <button
@@ -245,19 +245,19 @@ export default function ProfilePage() {
                           <div className="flex items-center gap-2 mb-1.5">
                             <span className="font-medium text-sm text-stone-800 group-hover:text-stone-900 truncate">{c.course_name}</span>
                             {c.mode === 'source' && (
-                              <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-600 border border-amber-100 shrink-0">原文</span>
+                              <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-600 border border-amber-100 shrink-0">{t('原文')}</span>
                             )}
                           </div>
                           <div className="flex flex-wrap items-center gap-1.5">
                             {c.lessons.length > 0 ? (
                               c.lessons.map((n) => (
-                                <span key={n} className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100 tabular-nums">第 {n} 篇</span>
+                                <span key={n} className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100 tabular-nums">{t('第 {number} 篇', { number: n })}</span>
                               ))
                             ) : (
-                              <span className="text-[11px] text-stone-400">课程整理</span>
+                              <span className="text-[11px] text-stone-400">{t('课程整理')}</span>
                             )}
                             {c.annotations > 0 && (
-                              <span className="text-[11px] px-2 py-0.5 rounded-full bg-stone-100 text-stone-500 tabular-nums">{c.annotations} 划线</span>
+                              <span className="text-[11px] px-2 py-0.5 rounded-full bg-stone-100 text-stone-500 tabular-nums">{t('{count} 划线', { count: c.annotations })}</span>
                             )}
                           </div>
                         </button>
@@ -271,8 +271,8 @@ export default function ProfilePage() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
                       </svg>
                     </div>
-                    <p className="text-stone-400 text-sm mb-1">{selectedDay ? '这天没有学习记录' : '点击日历查看当天内容'}</p>
-                    <p className="text-stone-300 text-xs">绿色越深，代表那天学得越多</p>
+                    <p className="text-stone-400 text-sm mb-1">{selectedDay ? t('这天没有学习记录') : t('点击日历查看当天内容')}</p>
+                    <p className="text-stone-300 text-xs">{t('绿色越深，代表那天学得越多')}</p>
                   </div>
                 )}
               </div>
@@ -281,8 +281,8 @@ export default function ProfilePage() {
             {/* Contribution heatmap — 最近半年足迹 */}
             <div className="bg-white rounded-xl border border-stone-200/60 p-5">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-sm font-semibold text-stone-800">学习足迹</h3>
-                <span className="text-xs text-stone-400">最近 26 周 · 共 {calendar?.total_active_days || 0} 天有学习</span>
+                <h3 className="text-sm font-semibold text-stone-800">{t('学习足迹')}</h3>
+                <span className="text-xs text-stone-400">{t('最近 26 周 · 共 {count} 天有学习', { count: calendar?.total_active_days || 0 })}</span>
               </div>
               <div className="overflow-x-auto -mx-1 px-1">
                 <div className="flex gap-1 min-w-max">
@@ -298,7 +298,7 @@ export default function ProfilePage() {
                             key={ri}
                             onClick={() => day && selectDay(cell.key)}
                             disabled={!day}
-                            title={day ? `${cell.key} · ${day.lessons_read} 篇课文` : cell.key}
+                            title={day ? `${cell.key} · ${t('{count} 篇课文', { count: day.lessons_read })}` : cell.key}
                             className={`w-3 h-3 rounded-sm ${HEAT[lv]} ${day ? 'cursor-pointer hover:ring-1 hover:ring-stone-400' : 'cursor-default'} ${isSel ? 'ring-2 ring-stone-900' : ''}`}
                           />
                         );

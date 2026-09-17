@@ -1,9 +1,11 @@
+import { useI18n } from '../i18n/useI18n.js';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Markdown from '../components/Markdown';
 import { getCourse, getLessons, getSummary } from '../lib/api';
 
 export default function CoursePage() {
+  const { t, formatError, locale } = useI18n();
   const { courseId } = useParams();
   const navigate = useNavigate();
   const [course, setCourse] = useState(null);
@@ -59,9 +61,9 @@ export default function CoursePage() {
   if (error) {
     return (
       <div className="min-h-[100dvh] bg-stone-50 flex flex-col items-center justify-center gap-4">
-        <p className="text-rose-500 text-sm">{error}</p>
+        <p className="text-rose-500 text-sm">{formatError(error)}</p>
         <button onClick={() => navigate('/')} className="text-emerald-600 hover:text-emerald-700 text-sm font-medium transition-colors">
-          返回首页
+          {t('返回首页')}
         </button>
       </div>
     );
@@ -72,7 +74,7 @@ export default function CoursePage() {
     ? [...normalLessons].sort((a, b) => {
         const cmp = sortBy === 'time'
           ? (new Date(a.created_at) - new Date(b.created_at) || (a.number - b.number))
-          : (a.source_filename || a.title || '').localeCompare(b.source_filename || b.title || '', 'zh');
+          : (a.source_filename || a.title || '').localeCompare(b.source_filename || b.title || '', locale);
         return sortDir === 'asc' ? cmp : -cmp;
       })
     : normalLessons;
@@ -90,7 +92,7 @@ export default function CoursePage() {
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
-            返回
+            {t('返回')}
           </button>
           <span className="text-xs text-stone-500 font-mono">
             {isCompleted ? 'COMPLETED' : 'IN PROGRESS'}
@@ -102,28 +104,28 @@ export default function CoursePage() {
         {/* Course hero */}
         <div className="mb-10">
           <h1 className="text-3xl font-semibold tracking-tight text-stone-900">{course.name}</h1>
-          <div className="flex items-center gap-4 mt-3">
+          <div className="flex flex-wrap items-center gap-4 mt-3">
             <span className={`text-xs px-2.5 py-1 rounded-full border ${
               isCompleted
                 ? 'bg-emerald-50 text-emerald-600 border-emerald-100'
                 : 'bg-stone-50 text-stone-500 border-stone-100'
             }`}>
-              {isCompleted ? '已完成' : '学习中'}
+              {isCompleted ? t('已完成') : t('学习中')}
             </span>
             {course.is_project ? (
               <span className="text-xs px-2.5 py-1 rounded-full bg-violet-50 text-violet-600 border border-violet-100">
-                项目
+                {t('项目')}
               </span>
             ) : course.mode === 'source' && (
               <span className="text-xs px-2.5 py-1 rounded-full bg-amber-50 text-amber-600 border border-amber-100">
-                原文模式
+                {t('原文模式')}
               </span>
             )}
             <span className="text-sm text-stone-400">
-              <span className="font-mono tabular-nums">{normalLessons.length}</span> 篇课文
+              <span className="font-mono tabular-nums">{t('{count} 篇课文', { count: normalLessons.length })}</span>
             </span>
             <span className="text-sm text-stone-300 font-mono tabular-nums">
-              {new Date(course.created_at).toLocaleDateString('zh-CN')}
+              {new Date(course.created_at).toLocaleDateString(locale)}
             </span>
           </div>
 
@@ -131,7 +133,7 @@ export default function CoursePage() {
           {!course.is_project && course.mastery_progress !== undefined && (
             <div className="mt-4">
               <div className="flex items-center justify-between mb-1.5">
-                <span className="text-xs text-stone-400">掌握进度</span>
+                <span className="text-xs text-stone-400">{t('掌握进度')}</span>
                 <span className="text-xs font-mono tabular-nums text-stone-500">
                   {Math.round(course.mastery_progress * 100)}%
                 </span>
@@ -149,15 +151,15 @@ export default function CoursePage() {
         {/* Lesson list (syllabus as first item) */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xs font-medium text-stone-400 uppercase tracking-wide">{course.is_project ? '文件' : '目录'}</h2>
+            <h2 className="text-xs font-medium text-stone-400 uppercase tracking-wide">{course.is_project ? t('文件') : t('目录')}</h2>
             {course.is_project && (
               <div className="flex items-center gap-1.5">
                 <div className="inline-flex rounded-lg border border-stone-200 bg-stone-50 p-0.5">
-                  <button type="button" onClick={() => setSortBy('name')} className={`px-2 py-1 rounded-md text-xs font-medium transition-all ${sortBy === 'name' ? 'bg-white text-stone-900 shadow-sm' : 'text-stone-500 hover:text-stone-700'}`}>名称</button>
-                  <button type="button" onClick={() => setSortBy('time')} className={`px-2 py-1 rounded-md text-xs font-medium transition-all ${sortBy === 'time' ? 'bg-white text-stone-900 shadow-sm' : 'text-stone-500 hover:text-stone-700'}`}>时间</button>
+                  <button type="button" onClick={() => setSortBy('name')} className={`px-2 py-1 rounded-md text-xs font-medium transition-all ${sortBy === 'name' ? 'bg-white text-stone-900 shadow-sm' : 'text-stone-500 hover:text-stone-700'}`}>{t('名称')}</button>
+                  <button type="button" onClick={() => setSortBy('time')} className={`px-2 py-1 rounded-md text-xs font-medium transition-all ${sortBy === 'time' ? 'bg-white text-stone-900 shadow-sm' : 'text-stone-500 hover:text-stone-700'}`}>{t('时间')}</button>
                 </div>
                 <button type="button" onClick={() => setSortDir((d) => (d === 'asc' ? 'desc' : 'asc'))} className="px-2 py-1 rounded-md text-xs font-medium border border-stone-200 bg-white text-stone-600 hover:bg-stone-50 transition-all">
-                  {sortDir === 'asc' ? '↑ 升序' : '↓ 降序'}
+                  {sortDir === 'asc' ? t('↑ 升序') : t('↓ 降序')}
                 </button>
               </div>
             )}
@@ -176,8 +178,8 @@ export default function CoursePage() {
                   </svg>
                 </span>
                 <div>
-                  <span className="font-medium text-stone-700 text-sm group-hover:text-stone-900 transition-colors block">课程大纲</span>
-                  <span className="text-xs text-stone-400">掌握项与学习进度</span>
+                  <span className="font-medium text-stone-700 text-sm group-hover:text-stone-900 transition-colors block">{t('课程大纲')}</span>
+                  <span className="text-xs text-stone-400">{t('掌握项与学习进度')}</span>
                 </div>
               </div>
               <svg className="w-4 h-4 text-stone-300 group-hover:text-stone-500 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -193,7 +195,7 @@ export default function CoursePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                 </svg>
               </div>
-              <p className="text-stone-400 text-sm">暂无课文</p>
+              <p className="text-stone-400 text-sm">{t('暂无课文')}</p>
             </div>
           ) : (
             <div className="space-y-2">
@@ -209,17 +211,17 @@ export default function CoursePage() {
                     </span>
                     <div className="min-w-0">
                       <span className="font-medium text-stone-700 text-sm group-hover:text-stone-900 transition-colors block truncate">
-                        {(course.is_project && lesson.source_filename) || lesson.title || `第 ${String(lesson.number).padStart(2, '0')} 篇`}
+                        {(course.is_project && lesson.source_filename) || lesson.title || t('第 {number} 篇', { number: String(lesson.number).padStart(2, '0') })}
                       </span>
                       <div className="flex items-center gap-2">
                         <span className="text-xs text-stone-400 font-mono tabular-nums">
-                          {new Date(lesson.created_at).toLocaleDateString('zh-CN')}
+                          {new Date(lesson.created_at).toLocaleDateString(locale)}
                         </span>
                         {lesson.is_source && (
-                          <span className="text-[10px] text-amber-500">上传原文</span>
+                          <span className="text-[10px] text-amber-500">{t('上传原文')}</span>
                         )}
                         {lesson.has_feedback && (
-                          <span className="text-[10px] text-emerald-500">已反馈</span>
+                          <span className="text-[10px] text-emerald-500">{t('已反馈')}</span>
                         )}
                       </div>
                     </div>
@@ -227,12 +229,12 @@ export default function CoursePage() {
                   <div className="flex items-center gap-2">
                     {lesson.is_source && (
                       <span className="text-xs px-2 py-0.5 rounded-full bg-amber-50 text-amber-600 border border-amber-100">
-                        原文
+                        {t('原文')}
                       </span>
                     )}
                     {lesson.is_evaluation && (
                       <span className="text-xs px-2 py-0.5 rounded-full bg-amber-50 text-amber-600 border border-amber-100">
-                        评估篇
+                        {t('评估篇')}
                       </span>
                     )}
                     <svg className="w-4 h-4 text-stone-300 group-hover:text-stone-500 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -248,7 +250,7 @@ export default function CoursePage() {
         {/* Summary section */}
         {summary && (
           <div className="mb-8">
-            <h2 className="text-xs font-medium text-emerald-600 uppercase tracking-wide mb-4">课程总结</h2>
+            <h2 className="text-xs font-medium text-emerald-600 uppercase tracking-wide mb-4">{t('课程总结')}</h2>
             <div className="bg-white rounded-xl border border-emerald-200/40 p-6">
               <div className="prose prose-sm prose-stone max-w-none">
                 <Markdown>{summary.content}</Markdown>
