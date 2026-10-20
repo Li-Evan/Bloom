@@ -25,11 +25,11 @@
 </p>
 
 <p align="center">
-  <a href="https://li-evan.github.io/Bloom/"><strong>🌐 Website</strong></a> · <a href="./README.zh.md">Chinese</a> · English
+  <a href="https://bloomtutor.app"><strong>🌐 Website</strong></a> · <a href="./README.zh.md">Chinese</a> · English
 </p>
 
 <p align="center">
-  <a href="https://li-evan.github.io/Bloom/"><img src="assets/hero.png" alt="Bloom — from average to the top 2%" width="820"></a>
+  <a href="https://bloomtutor.app"><img src="assets/hero.png" alt="Bloom — from average to the top 2%" width="820"></a>
 </p>
 
 ---
