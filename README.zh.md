@@ -25,11 +25,11 @@
 </p>
 
 <p align="center">
-  <a href="https://li-evan.github.io/Bloom/"><strong>🌐 官网</strong></a> · 简体中文 · <a href="./README.md">English</a>
+  <a href="https://bloomtutor.app"><strong>🌐 官网</strong></a> · 简体中文 · <a href="./README.md">English</a>
 </p>
 
 <p align="center">
-  <a href="https://li-evan.github.io/Bloom/"><img src="assets/hero.png" alt="Bloom — 从平均水平到前 2%" width="820"></a>
+  <a href="https://bloomtutor.app"><img src="assets/hero.png" alt="Bloom — 从平均水平到前 2%" width="820"></a>
 </p>
 
 ---
