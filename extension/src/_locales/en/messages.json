@@ -1,0 +1,5 @@
+{
+  "name": { "message": "Bloom Web Clipper" },
+  "description": { "message": "Save the page you are reading to Web Clippings in Bloom, then highlight it and ask questions about it." },
+  "action": { "message": "Save this page to Bloom" }
+}

@@ -1,6 +1,14 @@
 import json
 from unittest.mock import patch, MagicMock
 
+import pytest
+from tests.conftest import mock_stream
+
+
+@pytest.fixture
+def client(authed_client):
+    return authed_client
+
 
 def _sse_done(res):
     """Extract the final `done` event payload from an SSE response."""
@@ -22,17 +30,7 @@ def _make_mock_response(content):
 
 def _make_mock_stream(content_chunks):
     """Create a mock OpenAI streaming response."""
-    chunks = []
-    for text in content_chunks:
-        chunk = MagicMock()
-        chunk.choices = [MagicMock()]
-        chunk.choices[0].delta.content = text
-        chunks.append(chunk)
-    final = MagicMock()
-    final.choices = [MagicMock()]
-    final.choices[0].delta.content = None
-    chunks.append(final)
-    return iter(chunks)
+    return mock_stream(content_chunks)
 
 
 def _setup_course(client, syllabus_content=None):
@@ -47,6 +45,8 @@ def _setup_course(client, syllabus_content=None):
         mock_client.chat.completions.create.side_effect = [syllabus_resp, lesson_resp]
         mock_get_client.return_value = mock_client
         data = client.post("/api/courses", json={"name": "测试课程"}).json()
+        # 建课只生成大纲，第 01 篇在确认大纲后由 /first 生成
+        assert client.post(f"/api/courses/{data['id']}/first").status_code == 200
 
     return data["id"]
 
@@ -144,6 +144,36 @@ def test_update_feedback(client):
     })
     assert res.status_code == 200
     assert res.json()["content"] == "更新后的反馈"
+
+
+@pytest.mark.parametrize("first, second", [
+    ({"content": "初稿", "thought_answers": "答案"}, {"content": "二稿", "thought_answers": None}),
+    ({"content": "初稿", "thought_answers": "答案"}, {"content": None, "thought_answers": "答案二"}),
+    ({"content": None, "thought_answers": None}, {"content": None, "thought_answers": None}),
+])
+def test_feedback_null_fields_are_stored_as_empty_string(client, first, second):
+    course_id = _setup_course(client)
+    url = f"/api/courses/{course_id}/lessons/1/feedback"
+
+    assert client.post(url, json=first).status_code == 200
+    res = client.post(url, json=second)
+
+    assert res.status_code == 200
+    expected = {key: value or "" for key, value in second.items()}
+    assert {key: res.json()[key] for key in expected} == expected
+    saved = client.get(url).json()
+    assert {key: saved[key] for key in expected} == expected
+
+
+def test_feedback_without_fields_is_stored_as_empty_string(client):
+    course_id = _setup_course(client)
+    url = f"/api/courses/{course_id}/lessons/1/feedback"
+
+    client.post(url, json={"content": "初稿", "thought_answers": "答案"})
+    res = client.post(url, json={})
+
+    assert res.status_code == 200
+    assert (res.json()["content"], res.json()["thought_answers"]) == ("", "")
 
 
 def test_feedback_nonexistent_lesson(client):

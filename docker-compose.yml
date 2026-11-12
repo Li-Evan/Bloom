@@ -1,27 +1,32 @@
+# docker compose up -d --build 之后打开 http://localhost:3000
+# 只有前端对外开放端口；后端只在 compose 内部网络里，前端服务端用 BACKEND_JWT_SECRET 签令牌访问它。
 services:
   backend:
     build: ./backend
     env_file: .env
-    volumes:
-      - db-data:/app/data
     environment:
-      - DATABASE_URL=sqlite:///./data/bloom.db
+      WEB_URL: http://localhost:3000
+    volumes:
+      - bloom-storage:/app/storage
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
       interval: 30s
       timeout: 5s
-      retries: 3
-      start_period: 10s
+      retries: 5
+      start_period: 30s
 
   frontend:
     build: ./frontend
+    environment:
+      BACKEND_URL: http://backend:8000
+      BACKEND_JWT_SECRET: ${BACKEND_JWT_SECRET:?run make setup to create .env}
     ports:
-      - "3000:80"
+      - "127.0.0.1:3000:3000"
     depends_on:
       backend:
         condition: service_healthy
     restart: unless-stopped
 
 volumes:
-  db-data:
+  bloom-storage:

@@ -1,0 +1,1285 @@
+{
+ "release": "2026.11",
+ "concepts": [
+  {
+   "id": "01M6GT4A1BKWKHM4X20HR7225A",
+   "qid": "Q10885877",
+   "parent": {
+    "article": "Mortgage"
+   },
+   "en": "Housing Provident Fund",
+   "zh": "住房公积金",
+   "zh_source": "wikidata",
+   "en_source": "bloom",
+   "en_alt": [],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "公积金",
+    "公积金贷款",
+    "公积金提取"
+   ]
+  },
+  {
+   "id": "01M6GT4A1BA9TREJM5MPT1TV69",
+   "qid": "Q7653906",
+   "parent": {
+    "article": "Welfare state"
+   },
+   "en": "Social insurance",
+   "zh": "社会保险",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "social insurance schemes"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "社保",
+    "五险一金",
+    "社保断缴"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CS59QBQ0G03VTNMHD",
+   "qid": "Q675059",
+   "parent": {
+    "section": "Society and social sciences › Politics and economics › Business and economics › Business › Employment"
+   },
+   "en": "Probation",
+   "zh": "试用期",
+   "zh_source": "bloom",
+   "en_source": "wikidata",
+   "en_alt": [
+    "probationary period"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "转正"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CQ28FCQN3W19PJ0RS",
+   "qid": "Q667022",
+   "parent": {
+    "article": "Working time"
+   },
+   "en": "Overtime",
+   "zh": "加班",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "加班费"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CG4G9RVCVF102S103",
+   "qid": "Q1221208",
+   "parent": {
+    "article": "Labour law"
+   },
+   "en": "Employment contract",
+   "zh": "劳动合同",
+   "zh_source": "bloom",
+   "en_source": "wikidata",
+   "en_alt": [
+    "employment agreement",
+    "labor contract",
+    "labour contract"
+   ],
+   "zh_alt_wikidata": [
+    "雇佣合约"
+   ],
+   "zh_alt": [
+    "劳动合同法"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CD0RB3EA3TFA8NRYP",
+   "qid": "Q327988",
+   "parent": {
+    "article": "Stress (biology)"
+   },
+   "en": "Occupational burnout",
+   "zh": "职业倦怠",
+   "zh_source": "bloom",
+   "en_source": "wikidata",
+   "en_alt": [
+    "occupational burn-out",
+    "burn-out",
+    "professional burnout",
+    "burnout"
+   ],
+   "zh_alt_wikidata": [
+    "职业过劳",
+    "倦怠"
+   ],
+   "zh_alt": [
+    "过劳",
+    "倦怠"
+   ]
+  },
+  {
+   "id": "01M6GT4A1C08BABS1G37R10M63",
+   "qid": "Q2992127",
+   "parent": {
+    "article": "Civil service"
+   },
+   "en": "Civil service examination",
+   "zh": "公务员考试",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "public tendering",
+    "civil service entrance examination"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "考公",
+    "国考",
+    "省考"
+   ]
+  },
+  {
+   "id": "01M6GT4A1C2YZ8TEH8MHSDRA43",
+   "qid": "Q670287",
+   "parent": {
+    "article": "Education in China"
+   },
+   "en": "Gaokao",
+   "zh": "高考",
+   "zh_source": "bloom",
+   "en_source": "wikidata",
+   "en_alt": [
+    "Nationwide Unified Examination for Admissions to General Universities and Colleges",
+    "National College Entrance Examination"
+   ],
+   "zh_alt_wikidata": [
+    "普通高等学校招生全国统一考试"
+   ],
+   "zh_alt": [
+    "高考志愿填报"
+   ]
+  },
+  {
+   "id": "01M6GT4A1C0AV1K8EYV7Z54FZF",
+   "qid": "Q7234282",
+   "parent": {
+    "article": "Education in China"
+   },
+   "en": "National Postgraduate Entrance Examination",
+   "zh": "全国硕士研究生招生考试",
+   "zh_source": "bloom",
+   "en_source": "wikidata",
+   "en_alt": [
+    "Postgraduate Admission Test"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "考研",
+    "研究生入学考试"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CW98NNER2Y7NE8H4C",
+   "qid": "Q1196083",
+   "parent": {
+    "article": "University"
+   },
+   "en": "Study abroad",
+   "zh": "留学",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "studying abroad",
+    "studies abroad",
+    "international study"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "出国留学"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CACE1Q7MYWV4TH1S9",
+   "qid": "Q490396",
+   "parent": {
+    "article": "Standardized test"
+   },
+   "en": "IELTS",
+   "zh": "雅思",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "International English Language Testing System"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": []
+  },
+  {
+   "id": "01M6GT4A1CJJHATJKHKKVWWAE7",
+   "qid": "Q487425",
+   "parent": {
+    "article": "Standardized test"
+   },
+   "en": "TOEFL",
+   "zh": "托福",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "Test of English as a Foreign Language"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": []
+  },
+  {
+   "id": "01M6GT4A1C4ARDSGDB3AQFKT15",
+   "qid": "Q1787103",
+   "parent": {
+    "section": "Society and social sciences › Politics and economics › Business and economics › Banking and financing › Securities › Credit and debt"
+   },
+   "en": "Credit score",
+   "zh": "信用评分",
+   "zh_source": "bloom",
+   "en_source": "wikidata",
+   "en_alt": [
+    "credit rating"
+   ],
+   "zh_alt_wikidata": [
+    "信用评分系统"
+   ],
+   "zh_alt": [
+    "征信",
+    "个人征信"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CN6GCVSBP3K677CW2",
+   "qid": "Q1267212",
+   "parent": {
+    "article": "Investment fund"
+   },
+   "en": "Dollar cost averaging",
+   "zh": "定期定额投资",
+   "zh_source": "bloom",
+   "en_source": "wikidata",
+   "en_alt": [
+    "pound-cost averaging",
+    "unit cost averaging",
+    "incremental trading",
+    "cost average effect"
+   ],
+   "zh_alt_wikidata": [
+    "平均成本法",
+    "定期定额"
+   ],
+   "zh_alt": [
+    "定投",
+    "基金定投"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CV09MBCR9SPWVATSP",
+   "qid": "Q1365703",
+   "parent": {
+    "article": "Payment"
+   },
+   "en": "Mobile payment",
+   "zh": "移动支付",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "mobile wallet",
+    "mobile money transfer"
+   ],
+   "zh_alt_wikidata": [
+    "行动支付",
+    "行动支付系统"
+   ],
+   "zh_alt": [
+    "微信支付",
+    "扫码支付"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CG49BD0J1QY01JV46",
+   "qid": "Q2068804",
+   "parent": {
+    "article": "Retail"
+   },
+   "en": "Used good",
+   "zh": "二手商品",
+   "zh_source": "bloom",
+   "en_source": "wikidata",
+   "en_alt": [
+    "secondhand good",
+    "hand-me-downs",
+    "b-ware",
+    "second-hand"
+   ],
+   "zh_alt_wikidata": [
+    "二手货"
+   ],
+   "zh_alt": [
+    "二手",
+    "二手交易",
+    "二手物品"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CZ8HHW7SG4A58CXNZ",
+   "qid": "Q32187808",
+   "parent": {
+    "article": "Alibaba Group"
+   },
+   "en": "Xianyu",
+   "zh": "闲鱼",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "goofish.com"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "闲鱼二手"
+   ]
+  },
+  {
+   "id": "01M6GT4A1C7D0HDSEN6FVWANGH",
+   "qid": "Q664183",
+   "parent": {
+    "article": "Consumer"
+   },
+   "en": "Consumer protection",
+   "zh": "消费者权益保护",
+   "zh_source": "bloom",
+   "en_source": "wikidata",
+   "en_alt": [
+    "protection of consumers"
+   ],
+   "zh_alt_wikidata": [
+    "消费者保障"
+   ],
+   "zh_alt": [
+    "维权",
+    "消费维权"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CA7RHTEZZEEGB1HZZ",
+   "qid": "Q10932402",
+   "parent": {
+    "article": "Restaurant"
+   },
+   "en": "Food delivery",
+   "zh": "外卖",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "food delivery service",
+    "food delivery industry"
+   ],
+   "zh_alt_wikidata": [
+    "食品配送服务",
+    "外送"
+   ],
+   "zh_alt": [
+    "点外卖"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CFG9CH2RFC00PAENB",
+   "qid": "Q3139771",
+   "parent": {
+    "article": "Childbirth"
+   },
+   "en": "Postpartum confinement",
+   "zh": "坐月子",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "Zuò yuè zi"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "月子",
+    "产后恢复"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CSQEWY1Y5TH7S1ZPT",
+   "qid": "Q437458",
+   "parent": {
+    "article": "Old age"
+   },
+   "en": "Elderly care",
+   "zh": "老年护理",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "eldercare",
+    "aged care",
+    "aged care service",
+    "aged health care"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "养老",
+    "照顾老人"
+   ]
+  },
+  {
+   "id": "01M6GT4A1C6FDJE8VPJC0WSFT8",
+   "qid": "Q931389",
+   "parent": {
+    "article": "Recycling"
+   },
+   "en": "Waste sorting",
+   "zh": "垃圾分类",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "waste classification"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": []
+  },
+  {
+   "id": "01M6GT4A1CGB5FGQVH11EKQK4N",
+   "qid": "Q716009",
+   "parent": {
+    "article": "Chinese New Year"
+   },
+   "en": "Red envelope",
+   "zh": "红包",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "ang pow",
+    "red packet"
+   ],
+   "zh_alt_wikidata": [
+    "利市"
+   ],
+   "zh_alt": [
+    "压岁钱"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CETNDDZCDM3TDHPEX",
+   "qid": "Q718636",
+   "parent": {
+    "article": "Chinese New Year"
+   },
+   "en": "Lantern Festival",
+   "zh": "元宵节",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "Tết Nguyên Tiêu"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "元宵"
+   ]
+  },
+  {
+   "id": "01M6GT4A1C54R1H6MYFPNFE77Z",
+   "qid": "Q797439",
+   "parent": {
+    "article": "Qigong"
+   },
+   "en": "Baduanjin",
+   "zh": "八段锦",
+   "zh_source": "wikidata",
+   "en_source": "bloom",
+   "en_alt": [
+    "Ba Duan Jin"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": []
+  },
+  {
+   "id": "01M6GT4A1C1T7KHK9BVMX42NZ4",
+   "qid": "Q5100786",
+   "parent": {
+    "article": "Dance"
+   },
+   "en": "Chinese square dancing",
+   "zh": "广场舞",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "square dancing (China)",
+    "guangchangwu",
+    "Chinese fitness dancing",
+    "plaza dancing"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "跳广场舞"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CGEVME7MTFNS7S3MJ",
+   "qid": "Q629266",
+   "parent": {
+    "article": "Liquor"
+   },
+   "en": "Baijiu",
+   "zh": "白酒",
+   "zh_source": "wikidata",
+   "en_source": "bloom",
+   "en_alt": [],
+   "zh_alt_wikidata": [],
+   "zh_alt": []
+  },
+  {
+   "id": "01M6GT4A1C10YFBMAE01FKFG22",
+   "qid": "Q726306",
+   "parent": {
+    "section": "Arts › Audiovisual arts › Music › Musical instruments › String instruments"
+   },
+   "en": "Erhu",
+   "zh": "二胡",
+   "zh_source": "wikidata",
+   "en_source": "bloom",
+   "en_alt": [
+    "urheen",
+    "Chinese two-stringed fiddle"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": []
+  },
+  {
+   "id": "01M6GT4A1CDK1T4MS047JF8M11",
+   "qid": "Q1091366",
+   "parent": {
+    "section": "Arts › Narrative arts › Literature › Literatures by religion, language and region"
+   },
+   "en": "Ci (poetry)",
+   "zh": "词",
+   "zh_source": "wikidata",
+   "en_source": "bloom",
+   "en_alt": [
+    "ci poetry",
+    "ci lyrics"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "宋词",
+    "词牌"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CG1C6ZBBKBKAVC021",
+   "qid": "Q267114",
+   "parent": {
+    "article": "Marketing"
+   },
+   "en": "Social media marketing",
+   "zh": "社交媒体营销",
+   "zh_source": "bloom",
+   "en_source": "wikidata",
+   "en_alt": [
+    "SMM",
+    "Digital Marketing"
+   ],
+   "zh_alt_wikidata": [
+    "社会网路行销"
+   ],
+   "zh_alt": [
+    "新媒体运营",
+    "账号运营"
+   ]
+  },
+  {
+   "id": "01M6GT4A1C57MYV9VCN4C1XHCC",
+   "qid": "Q1154312",
+   "parent": {
+    "article": "Film editing"
+   },
+   "en": "Video editing",
+   "zh": "视频编辑",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "剪辑",
+    "视频剪辑"
+   ]
+  },
+  {
+   "id": "01M6GT4A1C9BZ0AB8HNHEKRW61",
+   "qid": "Q132451509",
+   "parent": {
+    "article": "Large language model"
+   },
+   "en": "AI agent",
+   "zh": "AI 智能体",
+   "zh_source": "bloom",
+   "en_source": "wikidata",
+   "en_alt": [
+    "AI agents",
+    "agentic AI",
+    "artificial intelligent agent",
+    "intelligent agent (artificial intelligence)"
+   ],
+   "zh_alt_wikidata": [
+    "代理式人工智能",
+    "人工智慧代理人"
+   ],
+   "zh_alt": [
+    "智能体",
+    "Agent"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CQJ33T7TWYBFM9ASH",
+   "qid": "Q529909",
+   "parent": {
+    "article": "Artificial intelligence"
+   },
+   "en": "Multi-agent system",
+   "zh": "多智能体系统",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "multi-agent systems",
+    "multiagent system",
+    "multiagent systems",
+    "MAS"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "多智能体"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CPZ9V7WY9W1R2F622",
+   "qid": "Q121362277",
+   "parent": {
+    "article": "Large language model"
+   },
+   "en": "Retrieval-augmented generation",
+   "zh": "检索增强生成",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "RAG",
+    "retrieval augmented generation (RAG)",
+    "retrieval-based generation"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "RAG"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CCW1CGA6QGD0NW14E",
+   "qid": "Q108941486",
+   "parent": {
+    "article": "Large language model"
+   },
+   "en": "Prompt engineering",
+   "zh": "提示工程",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "prompt-based learning",
+    "AI prompt engineering"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "提示词工程",
+    "提示词"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CD90T9PESRVQ971ET",
+   "qid": "Q2034224",
+   "parent": {
+    "article": "Note-taking"
+   },
+   "en": "Personal knowledge management",
+   "zh": "个人知识管理",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "PKM"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "知识管理",
+    "第二大脑"
+   ]
+  },
+  {
+   "id": "01M6GT4A1C8K690W6GR77JHH8T",
+   "qid": "Q3467906",
+   "parent": {
+    "article": "Chatbot"
+   },
+   "en": "Virtual assistant",
+   "zh": "虚拟助手",
+   "zh_source": "bloom",
+   "en_source": "wikidata",
+   "en_alt": [
+    "digital assistant",
+    "intelligent personal assistant",
+    "IVA",
+    "IPA"
+   ],
+   "zh_alt_wikidata": [
+    "智慧型个人助理",
+    "智能个人助理"
+   ],
+   "zh_alt": [
+    "语音助手",
+    "智能助手"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CH4QEDVC5JNSJ8HE4",
+   "qid": "Q22661306",
+   "parent": {
+    "article": "Cloud computing"
+   },
+   "en": "Kubernetes",
+   "zh": "Kubernetes",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "K8s",
+    "container orchestrator"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "K8s"
+   ]
+  },
+  {
+   "id": "01M6GT4A1CKHAJP27XTFNP4H04",
+   "qid": "Q19399674",
+   "parent": {
+    "article": "JavaScript"
+   },
+   "en": "React",
+   "zh": "React",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "React.js",
+    "Reactjs"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": []
+  },
+  {
+   "id": "01M6GT4A1CKM44CJG6ETYQ8NSM",
+   "qid": "Q7370386",
+   "parent": {
+    "article": "Pension"
+   },
+   "en": "Roth IRA",
+   "zh": "Roth IRA",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [],
+   "zh_alt_wikidata": [],
+   "zh_alt": []
+  },
+  {
+   "id": "01M6GT4A1C5HYRQT5Q7RGGD47H",
+   "qid": "Q16191934",
+   "parent": {
+    "article": "Freedom of speech"
+   },
+   "en": "Section 230 of the Communications Decency Act",
+   "zh": "230条款",
+   "zh_source": "wikidata",
+   "en_source": "wikidata",
+   "en_alt": [
+    "Section 230"
+   ],
+   "zh_alt_wikidata": [],
+   "zh_alt": [
+    "230 条款"
+   ]
+  }
+ ],
+ "aliases": [
+  {
+   "article": "Mortgage",
+   "zh": [
+    "房贷",
+    "按揭",
+    "房屋贷款"
+   ]
+  },
+  {
+   "article": "Pension",
+   "zh": [
+    "养老金",
+    "退休金",
+    "个人养老金"
+   ]
+  },
+  {
+   "article": "Income tax",
+   "zh": [
+    "个税",
+    "个人所得税",
+    "个税汇算"
+   ]
+  },
+  {
+   "article": "Health insurance",
+   "zh": [
+    "医保",
+    "医疗保险"
+   ]
+  },
+  {
+   "article": "Unemployment benefits",
+   "zh": [
+    "失业金",
+    "失业保险"
+   ]
+  },
+  {
+   "article": "Retirement",
+   "zh": [
+    "退休"
+   ]
+  },
+  {
+   "article": "Dismissal (employment)",
+   "zh": [
+    "辞退",
+    "裁员",
+    "被裁员",
+    "离职补偿"
+   ]
+  },
+  {
+   "article": "Arbitration",
+   "zh": [
+    "仲裁",
+    "劳动仲裁"
+   ]
+  },
+  {
+   "article": "Labour law",
+   "zh": [
+    "劳动法"
+   ]
+  },
+  {
+   "article": "Salary",
+   "zh": [
+    "工资",
+    "薪水",
+    "谈薪",
+    "涨薪"
+   ]
+  },
+  {
+   "article": "Job interview",
+   "zh": [
+    "面试"
+   ]
+  },
+  {
+   "article": "Résumé",
+   "zh": [
+    "简历",
+    "求职信"
+   ]
+  },
+  {
+   "article": "Time management",
+   "zh": [
+    "时间管理"
+   ]
+  },
+  {
+   "article": "Procrastination",
+   "zh": [
+    "拖延症"
+   ]
+  },
+  {
+   "article": "Infant",
+   "zh": [
+    "新生儿",
+    "婴儿",
+    "宝宝"
+   ]
+  },
+  {
+   "article": "Toddler",
+   "zh": [
+    "幼儿",
+    "学步期"
+   ]
+  },
+  {
+   "article": "Parenting",
+   "zh": [
+    "育儿",
+    "养娃",
+    "带孩子"
+   ]
+  },
+  {
+   "article": "Baby food",
+   "zh": [
+    "辅食"
+   ]
+  },
+  {
+   "article": "Breastfeeding",
+   "zh": [
+    "喂奶",
+    "母乳喂养"
+   ]
+  },
+  {
+   "article": "Parent-in-law",
+   "zh": [
+    "婆婆",
+    "公婆",
+    "婆媳",
+    "岳父母",
+    "丈母娘"
+   ]
+  },
+  {
+   "article": "Bride price",
+   "zh": [
+    "彩礼"
+   ]
+  },
+  {
+   "article": "Wedding",
+   "zh": [
+    "婚礼",
+    "结婚"
+   ]
+  },
+  {
+   "article": "Old age",
+   "zh": [
+    "老年",
+    "老年人"
+   ]
+  },
+  {
+   "article": "Nursing home",
+   "zh": [
+    "养老院"
+   ]
+  },
+  {
+   "article": "Home improvement",
+   "zh": [
+    "装修",
+    "家装",
+    "装修避坑"
+   ]
+  },
+  {
+   "article": "Renting",
+   "zh": [
+    "租房",
+    "押金",
+    "退押金"
+   ]
+  },
+  {
+   "article": "Real estate",
+   "zh": [
+    "房产",
+    "买房"
+   ]
+  },
+  {
+   "article": "Online shopping",
+   "zh": [
+    "网购",
+    "网上购物"
+   ]
+  },
+  {
+   "article": "E-commerce",
+   "zh": [
+    "电商"
+   ]
+  },
+  {
+   "article": "Credit card",
+   "zh": [
+    "信用卡"
+   ]
+  },
+  {
+   "article": "Personal finance",
+   "zh": [
+    "理财",
+    "个人理财",
+    "记账"
+   ]
+  },
+  {
+   "article": "Investment fund",
+   "zh": [
+    "基金"
+   ]
+  },
+  {
+   "article": "Stock market",
+   "zh": [
+    "股市",
+    "炒股"
+   ]
+  },
+  {
+   "article": "Insurance",
+   "zh": [
+    "保险"
+   ]
+  },
+  {
+   "article": "Driver's license",
+   "zh": [
+    "驾照",
+    "考驾照"
+   ]
+  },
+  {
+   "article": "Scam",
+   "zh": [
+    "诈骗",
+    "防骗"
+   ]
+  },
+  {
+   "article": "Skin care",
+   "zh": [
+    "护肤",
+    "护肤品"
+   ]
+  },
+  {
+   "article": "Cosmetics",
+   "zh": [
+    "化妆品",
+    "美妆",
+    "化妆"
+   ]
+  },
+  {
+   "article": "Sourdough",
+   "zh": [
+    "鲁邦种",
+    "天然酵种",
+    "酸面包"
+   ]
+  },
+  {
+   "article": "Qin dynasty",
+   "zh": [
+    "秦朝",
+    "秦代"
+   ]
+  },
+  {
+   "article": "Han dynasty",
+   "zh": [
+    "汉朝",
+    "汉代"
+   ]
+  },
+  {
+   "article": "Traditional Chinese medicine",
+   "zh": [
+    "中医",
+    "中医养生",
+    "养生"
+   ]
+  },
+  {
+   "article": "Qigong",
+   "zh": [
+    "气功"
+   ]
+  },
+  {
+   "article": "Chinese martial arts",
+   "zh": [
+    "功夫",
+    "武术"
+   ]
+  },
+  {
+   "article": "Chinese New Year",
+   "zh": [
+    "春节",
+    "过年"
+   ]
+  },
+  {
+   "article": "Hot pot",
+   "zh": [
+    "火锅"
+   ]
+  },
+  {
+   "article": "Chinese cuisine",
+   "zh": [
+    "中餐",
+    "家常菜"
+   ]
+  },
+  {
+   "article": "Stir frying",
+   "zh": [
+    "炒菜"
+   ]
+  },
+  {
+   "article": "Insomnia",
+   "zh": [
+    "失眠"
+   ]
+  },
+  {
+   "article": "Weight loss",
+   "zh": [
+    "减肥",
+    "减脂"
+   ]
+  },
+  {
+   "article": "Physical fitness",
+   "zh": [
+    "健身"
+   ]
+  },
+  {
+   "article": "Smartphone",
+   "zh": [
+    "手机"
+   ]
+  },
+  {
+   "article": "Photography",
+   "zh": [
+    "摄影",
+    "拍照"
+   ]
+  },
+  {
+   "article": "Live streaming",
+   "zh": [
+    "直播",
+    "直播带货"
+   ]
+  },
+  {
+   "article": "Influencer",
+   "zh": [
+    "网红",
+    "博主"
+   ]
+  },
+  {
+   "article": "Electric vehicle",
+   "zh": [
+    "电动车",
+    "新能源车"
+   ]
+  },
+  {
+   "article": "Pet",
+   "zh": [
+    "宠物",
+    "养宠物"
+   ]
+  },
+  {
+   "article": "Cat",
+   "zh": [
+    "猫",
+    "养猫"
+   ]
+  },
+  {
+   "article": "Dog",
+   "zh": [
+    "狗",
+    "养狗"
+   ]
+  },
+  {
+   "article": "Mental health",
+   "zh": [
+    "心理健康"
+   ]
+  },
+  {
+   "article": "Tourism",
+   "zh": [
+    "旅游",
+    "自由行"
+   ]
+  },
+  {
+   "article": "Backpacking (travel)",
+   "zh": [
+    "穷游",
+    "背包客"
+   ]
+  },
+  {
+   "article": "Large language model",
+   "zh": [
+    "大模型",
+    "大语言模型"
+   ]
+  },
+  {
+   "article": "Hukou",
+   "zh": [
+    "户口",
+    "户籍",
+    "落户"
+   ]
+  },
+  {
+   "article": "Travel visa",
+   "zh": [
+    "办签证"
+   ]
+  },
+  {
+   "article": "Service (motor vehicle)",
+   "zh": [
+    "保养",
+    "车辆保养"
+   ]
+  },
+  {
+   "article": "Child care",
+   "zh": [
+    "带娃",
+    "托育",
+    "幼儿照护",
+    "儿童照护"
+   ]
+  }
+ ]
+}

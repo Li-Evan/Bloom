@@ -1,6 +1,13 @@
 import json
 from unittest.mock import MagicMock, patch
 
+import pytest
+
+
+@pytest.fixture
+def client(authed_client):
+    return authed_client
+
 
 def _make_mock_response(content):
     response = MagicMock()
@@ -77,6 +84,27 @@ def test_save_and_remove_recommendation(client):
     remove_res = client.delete(f"/api/recommendations/{rec_id}/save")
     assert remove_res.status_code == 200
     assert client.get("/api/recommendations").json()["saved"] == []
+
+
+def test_not_interested_hides_a_suggestion_keeps_it_avoided_and_can_be_undone(client, user):
+    from app import recommendations
+    from tests.conftest import TestSession
+
+    course = _create_course(client)
+    with patch("app.recommendations._call_llm", return_value=_refresh_payload()):
+        recs = client.post("/api/recommendations/refresh").json()["recommendations"]
+
+    assert client.post(f"/api/recommendations/{recs[0]['id']}/dismiss").json() == {"ok": True}
+    assert [item["title"] for item in client.get("/api/recommendations").json()["recommendations"]] == ["决策理论", "社会选择理论"]
+    with TestSession() as db:
+        assert "机制设计" in recommendations._avoid_titles(db, user.uuid)
+
+    restored = client.delete(f"/api/recommendations/{recs[0]['id']}/dismiss")
+    assert restored.status_code == 200 and restored.json()["status"] == "suggested"
+    assert [item["id"] for item in client.get("/api/recommendations").json()["recommendations"]] == [item["id"] for item in recs]
+
+    client.post(f"/api/recommendations/{recs[1]['id']}/start", json={"course_id": course["id"]})
+    assert client.post(f"/api/recommendations/{recs[1]['id']}/dismiss").status_code == 400
 
 
 def test_refresh_keeps_saved_list_and_replaces_suggestions(client):
