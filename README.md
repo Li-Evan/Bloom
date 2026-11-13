@@ -19,8 +19,8 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License"></a>
   <img src="https://img.shields.io/github/last-commit/Li-Evan/Bloom" alt="Last commit">
   <img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python 3.11+">
-  <img src="https://img.shields.io/badge/node-18+-blue.svg" alt="Node.js 18+">
-  <img src="https://img.shields.io/badge/react-19-blue.svg" alt="React 19">
+  <img src="https://img.shields.io/badge/node-20+-blue.svg" alt="Node.js 20+">
+  <img src="https://img.shields.io/badge/next.js-15-blue.svg" alt="Next.js 15">
   <img src="https://img.shields.io/badge/fastapi-0.115+-blue.svg" alt="FastAPI">
 </p>
 
@@ -43,7 +43,7 @@ In 1984, educational psychologist Benjamin Bloom discovered that students receiv
 | Mode | Setup | Best for |
 |------|-------|----------|
 | **CLI** | Claude Code + terminal | Power users who like Markdown editors |
-| **Web** | Browser (React + FastAPI) | Visual learners, shareable setup |
+| **Web** | Browser (Next.js + FastAPI), self-hosted | Visual learners, your own materials and PDFs |
 
 Both follow the same flow: **syllabus → lesson → annotate → feedback → next lesson → evaluation → summary**.
 
@@ -77,11 +77,13 @@ See [GUIDE.md](./GUIDE.md) for the full walkthrough.
 
 ## Quick Start: Web Mode
 
+The web app is a self-hosted, single-user tutor: no accounts, no billing. You bring an API key for any OpenAI-compatible model; everything you create stays in your own database.
+
 ### Prerequisites
 
 - Python 3.11+ with [uv](https://docs.astral.sh/uv/)
-- Node.js 18+
-- An OpenAI-compatible LLM API key (e.g. [DashScope](https://dashscope.console.aliyun.com/), OpenAI, etc.)
+- Node.js 20+ with [pnpm](https://pnpm.io/)
+- An API key for any OpenAI-compatible chat model (OpenAI, DeepSeek, Qwen/DashScope, Moonshot, a local Ollama, …)
 
 ### Setup
 
@@ -89,81 +91,96 @@ See [GUIDE.md](./GUIDE.md) for the full walkthrough.
 git clone https://github.com/Li-Evan/Bloom.git
 cd Bloom
 
-# Configure
-cp .env.example .env
-# Edit .env — fill in LLM_API_KEY
+make setup          # creates .env with a random BACKEND_JWT_SECRET, installs backend and frontend deps
+# edit .env: fill in LLM_API_KEY, LLM_BASE_URL and LLM_MODEL
 
-# Backend
-cd backend && uv sync && uv run uvicorn app.main:app --reload --port 8000
-
-# Frontend (new terminal)
-cd frontend && npm install && npm run dev
+make dev-backend    # terminal 1: runs the database migrations, then the API on 127.0.0.1:8000
+make dev-frontend   # terminal 2: the web app on http://localhost:3000
 ```
 
-Open http://localhost:5173. Click **New Course**, choose **Topic**, **Source Upload**, or **Project Files**, and start learning.
+Open http://localhost:3000, click **New course**, and start learning.
 
 ### Docker
 
 ```bash
-cp .env.example .env   # fill in API key
-docker compose up -d   # visit http://localhost:3000
+make setup                   # or: cp .env.example .env and fill it in yourself
+docker compose up -d --build # then open http://localhost:3000
 ```
+
+Data lives in the `bloom-storage` volume (a SQLite database plus the images inside your materials). To use Postgres instead, set `DATABASE_URL` in `.env`.
+
+### Configuration
+
+| Variable | What it does |
+|----------|--------------|
+| `LLM_API_KEY`, `LLM_BASE_URL`, `LLM_MODEL` | The model used for syllabi, lessons and answers |
+| `LLM_FAST_MODEL` | Optional smaller model for the knowledge map, course placement and selection translation |
+| `PDF_READING_MODEL` | Optional vision model for "PDF reading" (page images → Markdown) |
+| `LLM_EXTRA_BODY` | JSON passed as `extra_body` on every call, e.g. `{"thinking":{"type":"disabled"}}` for DeepSeek |
+| `BACKEND_JWT_SECRET` | Shared by the frontend server and the backend; the backend only accepts tokens signed with it |
+| `DATABASE_URL` | Defaults to `backend/storage/bloom.sqlite3` |
+| `LANGFUSE_*` | Optional tracing of every model call to [Langfuse](https://langfuse.com) |
+
+### Security
+
+Bloom has no login: anyone who can open the web app is you. Keep it on `localhost`, or put it behind something that authenticates (a VPN, Tailscale, or a reverse proxy with basic auth) before exposing it. The backend is never published by `docker compose`; it only answers requests signed with `BACKEND_JWT_SECRET`.
+
+### Upgrading from the previous (Vite) version
+
+The web app was rebuilt on Next.js with a new database schema. The old `bloom.db` is not migrated; the new app starts with an empty database in `backend/storage/`.
 
 ---
 
 ## How It Works
 
-### Topic Mode
+### Topic or your materials
 
 ```
-Create course → AI generates syllabus + lesson 01
+Describe a goal (optionally upload materials) → Bloom asks a few clarifying questions
                         ↓
-        Read lesson → highlight text → add annotations
+        Outline: what you will be able to do, in order → review / edit it
                         ↓
-        Write feedback → answer thought questions
+        Read lesson 1 → highlight and ask → write feedback → answer thought questions
                         ↓
-        Click "Done Reading" → AI generates next lesson
-        (answer review + annotation responses + new content)
+        Click "Done reading" → the next lesson reviews your answers, answers your highlights,
+        follows your feedback and moves on
                         ↓
-        Repeat until all mastery items checked ✅
-                        ↓
-        Auto-generate evaluation → then summary
+        Repeat until every mastery item is covered ✅ → evaluation → course summary
 ```
 
-### Source Mode
+### Project files, web articles, PDF reading
 
 ```
-Upload PDF / TXT / MD → AI generates syllabus + source-reading chapter
-                          ↓
-       Read source → highlight text → ask and get an immediate answer
-                          ↓
-       Click "Done Reading" → AI reads the full source + Q&A, then generates the next lesson
-                          ↓
-       Continue with the normal adaptive lesson flow
-```
-
-### Project Files
-
-```
-Upload a file / multiple files / a whole folder → each file renders directly as one page
-                          ↓
-       Read each file → highlight text → ask and get an immediate answer
-                          ↓
-       No syllabus, no next-lesson generation; the files and highlight Q&A feed next-step recommendations
+Upload files / a folder / a link / PDFs → each one becomes a page (no outline)
+                        ↓
+        Read → highlight and ask, or ask about the whole page → mark as read, archive
+                        ↓
+        What you read feeds the knowledge map and next-step suggestions
 ```
 
 ## Features
 
-- **Three course modes** — generate from a topic, upload a PDF/TXT/MD source, or **Project Files** (upload files/a folder, render each directly, highlight-ask anytime, no syllabus or next-lesson generation)
-- **Learning depth** — choose simple, standard, or deep syllabus expansion when creating a course; shown as a badge on each course card
-- **Reference material** — paste textbook chapters, papers, or notes when creating a topic course
-- **Next-topic recommendations** — generate 3 course-ready topics from your full learning history, refresh the set, save ideas to a learning queue, or start one directly through the normal syllabus → lesson flow
-- **Highlight Q&A sessions** — select any text in any lesson (or source) and a small icon pops up; click it to ask. The highlighted text stays marked in yellow, the AI answers instantly, and you can keep asking follow-ups in the same thread. The window is draggable and collapses into a margin dot you can reopen anytime. Each session sees the full lesson + the highlighted span + its own conversation, and your questions still feed the next lesson.
-- **Adaptive lessons** — each lesson addresses your specific gaps from the previous one
-- **Chapter sidebar** — quick-jump between lessons while reading
-- **Collapsible syllabus** — track mastery progress without clutter
-- **Streaming generation** — watch AI write the next lesson in real-time
-- **Personal center & learning calendar** — open the profile from the header to see a month calendar shaded by daily activity; click any day to see which courses, lessons, and highlights you studied, alongside overview stat cards and a six-month contribution heatmap (streaks and grouping use your local date)
+**Ways to start a course**
+- **Topic** — describe what you want to learn; Bloom asks a few clarifying questions about your goal, then designs an outline at the depth you pick (simple / standard / deep)
+- **Your materials** — upload PDFs, Word, PowerPoint, Excel, EPUB, Markdown or text (or a ZIP); Bloom reads everything into a knowledge pack and grounds the outline and lessons in it, with source citations
+- **Project files** — upload files or a whole folder; each file becomes a page you can read and ask about, no outline needed
+- **Web articles** — paste a link to import the article text and images, or use the [browser clipper](./extension/) to save the page you are reading
+- **PDF reading** (experimental) — a vision model turns each PDF page into reflowable Markdown with formulas, tables and figures, next to the original PDF
+
+**Learning**
+- **Outline first** — review the outline before lesson 1; edit it or tell Bloom how to change it
+- **Adaptive lessons** — each lesson reviews your answers to the last one's questions, answers what you highlighted, and follows your feedback (shorter, more examples, slower…); the last lesson is an evaluation, then a course summary
+- **Highlight Q&A** — select any passage (also inside PDFs) to ask; keep asking follow-ups in the same thread; mark passages without asking
+- **Ask this lesson** — a chat about the whole lesson or file, no selection needed
+- **Selection translation** — translate a passage into the interface language, with what it means in context and the word roots of a term
+- **Teaching style** — presets (concise, analogy, rigorous…) or your own instructions, for every course
+- **Reading comfort** — table of contents, reading time, text size, fonts, light / dark theme, Chinese / English interface
+
+**Seeing the whole**
+- **Knowledge map** — every course is placed on a shared tree of knowledge (a frozen snapshot of Wikipedia's Vital Articles), with the topics you actually read and neighbouring directions to explore
+- **Next steps** — three course-ready suggestions grown from your history; save them to a wishlist or start one
+- **User center** — activity heatmap and streaks, all your highlight notes in one place, export to Markdown
+- **Material folders** — move, rename, edit, archive or delete files in material courses
 
 ## Skills
 
@@ -185,40 +202,43 @@ Each folder is dependency-free: copy it into a skills directory, then just talk 
 
 | Layer | Technology |
 |-------|-----------|
-| Backend | Python, FastAPI, SQLAlchemy, SQLite |
-| Frontend | React, Vite, Tailwind CSS |
-| AI | Any OpenAI-compatible LLM API |
-| Container | Docker, docker-compose |
-| Font | Outfit, JetBrains Mono |
+| Backend | Python, FastAPI, SQLAlchemy 2, Alembic; SQLite by default, Postgres supported |
+| Frontend | Next.js 15 (App Router), React 19, Tailwind CSS 4, Radix UI, next-intl, pdf.js |
+| AI | Any OpenAI-compatible chat completions API |
+| Container | Docker, docker compose |
+| Font | Outfit, Public Sans, JetBrains Mono |
 
 ## Commands
 
 ```bash
-make dev-backend      # backend with hot reload
-make dev-frontend     # frontend dev server
-make test             # run pytest
-make up / make down   # docker start / stop
+make setup            # create .env, install dependencies
+make dev-backend      # migrations + API with hot reload (127.0.0.1:8000)
+make dev-frontend     # web app dev server (localhost:3000)
+make test             # backend pytest + frontend tests
+make up / make down   # docker compose start / stop
 ```
 
 ## Project Structure
 
 ```
-├── GUIDE.md               # CLI usage guide
-├── .env.example           # env template
+├── GUIDE.md                # CLI usage guide
+├── .env.example            # configuration template
 ├── backend/
-│   └── app/
-│       ├── courses.py     # course, lesson, annotation, feedback, stats, summary APIs
-│       ├── recommendations.py # next-topic recommendation APIs
-│       ├── models.py      # Course, Lesson, Annotation, Feedback, Recommendation
-│       └── config.py      # reads .env
+│   ├── app/                # FastAPI app: courses.py (course engine), knowledge*.py / coordinate.py (knowledge map),
+│   │                       # lesson_chat.py, translate.py, recommendations.py, uploads / web_import / document_import ...
+│   ├── alembic/            # database migrations (the second one imports the knowledge tree)
+│   ├── data/knowledge/     # the knowledge tree release (Wikipedia Vital Articles level 5 snapshot)
+│   └── tests/
 ├── frontend/
-│   └── src/pages/
-│       ├── DashboardPage  # course list + create form
-│       ├── CoursePage     # syllabus + lesson list
-│       └── LessonPage     # reader + annotations + feedback + AI gen
-├── example/               # pre-built topics for CLI mode
-├── site/                  # marketing website (standalone Astro static build, decoupled from the app)
-└── skills/                # portable Claude Code skills (bloom-tutor + learn-*)
+│   └── src/
+│       ├── app/[locale]/   # pages: /learn (courses, lessons, map, next), /me (user center)
+│       ├── components/     # learn/, me/, site/ (header, footer), ui/
+│       └── lib/            # API clients, lesson logic
+├── extension/              # browser web clipper
+├── docs/ARCHITECTURE.md    # how the pieces fit together
+├── example/                # pre-built topics for CLI mode
+├── site/                   # marketing website (standalone Astro static build, decoupled from the app)
+└── skills/                 # portable Claude Code skills (bloom-tutor + learn-*)
 ```
 
 ## The Science
@@ -243,4 +263,4 @@ make up / make down   # docker start / stop
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE). Third-party components, fonts and the knowledge-tree data keep their own licences: see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

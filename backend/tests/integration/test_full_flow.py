@@ -7,6 +7,15 @@ Flow: create course → read lesson 1 → annotate → feedback → generate les
 import json
 from unittest.mock import patch, MagicMock
 
+import pytest
+from app.models import Syllabus
+from tests.conftest import TestSession, mock_stream
+
+
+@pytest.fixture
+def client(authed_client):
+    return authed_client
+
 
 def _sse_done(res):
     """Extract the final `done` event payload from an SSE response."""
@@ -26,17 +35,7 @@ def _mock_response(content):
 
 
 def _mock_stream(chunks):
-    result = []
-    for text in chunks:
-        c = MagicMock()
-        c.choices = [MagicMock()]
-        c.choices[0].delta.content = text
-        result.append(c)
-    end = MagicMock()
-    end.choices = [MagicMock()]
-    end.choices[0].delta.content = None
-    result.append(end)
-    return iter(result)
+    return mock_stream(chunks)
 
 
 SYLLABUS = """# 测试课题 · 课程大纲
@@ -201,10 +200,15 @@ def test_complete_learning_journey(client):
         ]
         mock.return_value = mc
         res = client.post("/api/courses", json={"name": "测试课题"})
+        assert res.status_code == 200
+        course = res.json()
+        cid = course["id"]
+        assert course["lesson_count"] == 0  # 建课只生成大纲
+        # ── Step 1b: Confirm the outline, generate lesson 1 ──
+        first = client.post(f"/api/courses/{cid}/first")
+        assert first.status_code == 200 and first.json()["number"] == 1
 
-    assert res.status_code == 200
-    course = res.json()
-    cid = course["id"]
+    course = client.get(f"/api/courses/{cid}").json()
     assert course["status"] == "learning"
     assert course["lesson_count"] == 1
     assert course["mastery_progress"] == 0.0
@@ -283,9 +287,13 @@ def test_complete_learning_journey(client):
         "thought_answers": "第1题：A和B是互补关系\n第2题：在动态环境中A会失效",
     })
 
-    # ── Step 9: Update syllabus to all-checked → trigger eval ──
+    # ── Step 9: Mark every mastery item done → trigger eval ──
+    # 开始学习后大纲不能再通过接口修改（409），直接在库里勾满
     all_checked = SYLLABUS.replace("- [ ]", "- [x]")
-    client.put(f"/api/courses/{cid}/syllabus", json={"content": all_checked})
+    assert client.put(f"/api/courses/{cid}/syllabus", json={"content": all_checked}).status_code == 409
+    with TestSession() as db:
+        db.query(Syllabus).filter(Syllabus.course_id == cid).one().content = all_checked
+        db.commit()
 
     # Verify mastery progress is now 100%
     detail = client.get(f"/api/courses/{cid}").json()
@@ -362,6 +370,7 @@ def test_feedback_get_empty(client):
         ]
         mock.return_value = mc
         course = client.post("/api/courses", json={"name": "空反馈测试"}).json()
+        assert client.post(f"/api/courses/{course['id']}/first").status_code == 200  # 第 01 篇在确认大纲后生成
 
     fb = client.get(f"/api/courses/{course['id']}/lessons/1/feedback").json()
     assert fb["exists"] is False
@@ -378,6 +387,7 @@ def test_lesson_opened_event(client):
         ]
         mock.return_value = mc
         course = client.post("/api/courses", json={"name": "事件测试"}).json()
+        assert client.post(f"/api/courses/{course['id']}/first").status_code == 200  # 第 01 篇在确认大纲后生成
 
     cid = course["id"]
     res = client.post(f"/api/courses/{cid}/lessons/1/opened")
@@ -406,6 +416,7 @@ def test_delete_annotation(client):
         ]
         mock.return_value = mc
         course = client.post("/api/courses", json={"name": "删除批注测试"}).json()
+        assert client.post(f"/api/courses/{course['id']}/first").status_code == 200  # 第 01 篇在确认大纲后生成
 
     cid = course["id"]
 
@@ -451,6 +462,7 @@ def test_delete_course(client):
         ]
         mock.return_value = mc
         course = client.post("/api/courses", json={"name": "待删除课程"}).json()
+        assert client.post(f"/api/courses/{course['id']}/first").status_code == 200  # 第 01 篇在确认大纲后生成
 
     cid = course["id"]
 
@@ -485,7 +497,8 @@ def test_course_list_has_mastery_progress(client):
             _mock_response(LESSON_01),
         ]
         mock.return_value = mc
-        client.post("/api/courses", json={"name": "进度测试"})
+        course = client.post("/api/courses", json={"name": "进度测试"}).json()
+        assert client.post(f"/api/courses/{course['id']}/first").status_code == 200  # 第 01 篇在确认大纲后生成
 
     courses = client.get("/api/courses").json()
     assert courses[0]["mastery_progress"] == 0.0
@@ -501,6 +514,7 @@ def test_auto_mastery_check(client):
         ]
         mock.return_value = mc
         course = client.post("/api/courses", json={"name": "自动勾选测试"}).json()
+        assert client.post(f"/api/courses/{course['id']}/first").status_code == 200  # 第 01 篇在确认大纲后生成
 
     cid = course["id"]
 
@@ -524,6 +538,7 @@ def test_auto_mastery_check(client):
         res = client.post(f"/api/courses/{cid}/next")
         assert res.status_code == 200
 
+    client.post(f"/api/courses/{cid}/lessons/2/feedback", json={"content": "读完了", "thought_answers": ""})
     # Verify syllabus was auto-updated: 2 out of 4 items checked
     detail = client.get(f"/api/courses/{cid}").json()
     assert detail["mastery_progress"] == 0.5  # 2/4
@@ -546,6 +561,7 @@ def test_lesson_list_has_title_and_feedback_status(client):
         ]
         mock.return_value = mc
         course = client.post("/api/courses", json={"name": "标题测试"}).json()
+        assert client.post(f"/api/courses/{course['id']}/first").status_code == 200  # 第 01 篇在确认大纲后生成
 
     cid = course["id"]
 

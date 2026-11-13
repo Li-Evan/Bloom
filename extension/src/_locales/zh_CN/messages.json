@@ -1,0 +1,5 @@
+{
+  "name": { "message": "Bloom 网页剪藏" },
+  "description": { "message": "把正在看的网页存进 Bloom 的「网页剪藏」，之后可以划线提问。" },
+  "action": { "message": "把这一页存进 Bloom" }
+}

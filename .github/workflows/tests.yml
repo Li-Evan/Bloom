@@ -1,0 +1,83 @@
+name: tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  secret-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: No key-like strings in the repository (same script as the local pre-push hook)
+        run: ./scripts/secret-scan.sh
+
+  backend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: bloom
+          POSTGRES_PASSWORD: bloom
+          POSTGRES_DB: bloom
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U bloom"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      # A throwaway database that only exists for this job
+      DATABASE_URL: postgresql+psycopg://bloom:bloom@localhost:5432/bloom
+      TEST_DATABASE_URL: postgresql+psycopg://bloom:bloom@localhost:5432/bloom
+      BACKEND_JWT_SECRET: ci-only-secret-0123456789abcdef0123456789abcdef
+      LLM_MODEL: ci-model
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+          enable-cache: true
+          cache-dependency-glob: backend/uv.lock
+      - run: uv sync --frozen
+      - name: Run every migration on a fresh Postgres
+        run: uv run --frozen alembic upgrade head
+      - name: Migrations match the models
+        run: uv run --frozen alembic check
+      - name: Backend tests (the Postgres-only ones run too because TEST_DATABASE_URL is set)
+        run: uv run --frozen pytest -q
+
+  frontend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: frontend/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec tsc --noEmit
+      - run: pnpm test

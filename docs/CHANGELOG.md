@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.3.0 — 2026-11-12
+
+The web app was rebuilt. It is still self-hosted and single-user, with no accounts and no billing.
+
+### Changed
+
+- Frontend moved from React + Vite to Next.js 15 (App Router) with a new interface, Chinese / English UI (next-intl), light and dark themes, and a same-origin proxy to the backend.
+- Backend database moved to Alembic migrations. SQLite stays the default (now in `backend/storage/`); Postgres is supported.
+- The backend now requires `BACKEND_JWT_SECRET`, shared with the frontend server; `make setup` generates it.
+- Breaking: the old `bloom.db` is not migrated. The new version starts with an empty database.
+
+### Added
+
+- Course creation from a goal with clarifying questions, from uploaded materials (PDF, Word, PowerPoint, Excel, EPUB, Markdown, ZIP) with a cited knowledge pack, from project files or folders, from web articles, and "PDF reading" (vision-model page conversion).
+- Outline review before lesson 1 (edit or regenerate), adaptive lessons with teaching plans and feedback scopes, evaluation lesson and course summary.
+- Highlight Q&A threads, passage marks, selection translation with in-context meaning and word roots, whole-lesson chat.
+- Teaching styles, lesson table of contents, reading time, text size and font settings.
+- Knowledge map on a shared knowledge tree (Wikipedia Vital Articles level 5 snapshot) with course placement and neighbouring directions.
+- Next-step recommendations with a wishlist; user center with activity heatmap, notes and Markdown export.
+- Material courses as folders: move, rename, edit, archive, delete files.
+- Browser web clipper extension.
+- Optional Langfuse tracing of model calls.
+
 ## 2026-06-08
 
 ### Added

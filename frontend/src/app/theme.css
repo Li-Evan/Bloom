@@ -1,0 +1,201 @@
+/* Bloom 设计令牌：「一本安静的实验室笔记本」。
+   暖灰纸面、墨色文字、翠绿是唯一的强调色。变量名沿用 shadcn，components/ui/* 自动套用。
+
+   绿色分工（色值用原官网的 Tailwind v4 emerald 色板，全站只有这一套绿）：
+   - 填充（主按钮、徽标、进度条、圆点）与描边装饰：--primary = emerald-500 #00bc7d + 近黑字 --primary-foreground #0a0908，亮暗两套一致，对比 8.0:1；
+     悬停 --primary-hover = emerald-400 #00d492（原官网 hover:bg-emerald-400）；
+     **--primary / --primary-hover 不得当文字色**（亮色底上只有 2.4 / 1.9:1），源码里不许出现 text-primary、hover:text-primary-hover；
+   - 文字（链接、悬停、小标签、数字强调）：--primary-text，亮色 emerald-700 #007a55（在 #fafaf9 / 白卡 / muted / 强调底上 5.1 / 5.4 / 4.9 / 5.1:1，都 ≥ 4.5:1），
+     暗色 emerald-400 #00d492（在 #0c0a09 / 卡片 / muted 上 10.2 / 9.0 / 7.8:1）；
+     --accent-foreground 只用于「强调底（bg-accent）上的字」：亮色 #007a55 在 #ecfdf5 上 5.1:1，暗色 emerald-300 #5ee9b5 在 emerald-950 #002c22 上 10.0:1；
+   - 焦点轮廓：--ring，亮色 emerald-600 #009966（在页面底 / 白卡 / muted / 强调底上 3.5 / 3.7 / 3.4 / 3.5:1、深色顶栏 5.4:1，都 ≥ 3:1），暗色 #00d492（对暗色底 10.2:1）。
+   禁用的实心按钮不拿主色淡化，用 --muted 底 + --muted-foreground 字。
+   暗色下的灰字：--muted-foreground #b2aca7（说明文字、正文里的次要句，在页面底 / 卡片 / 推荐包行底 / 用量表头底上 8.8 / 7.8 / 7.3 / 7.2:1，都 ≥ 7:1）、
+   --subtle-foreground #a39d98（脚注、占位符，在页面底 / 卡片上 7.4 / 6.5:1）；原来是 #a8a29e / #8a837d，卡片上只有 6.9 / 4.7:1，首页暗色小灰字难读。
+   翠绿填充上的字（首页「然后循环」卡、底部行动区）用 --primary-foreground / stone-950（8.0:1），不用 emerald-950（6.1:1）。
+   色值的来源：https://li-evan.github.io/Bloom/ 的样式表里 --color-emerald-* 是 oklch（Tailwind v4），按 oklch → sRGB 换算成十六进制写在这里；
+   源码里的 emerald-* 工具类本来就是 v4 色板，和这些令牌是同一套。 */
+
+:root {
+  --background: #fafaf9;
+  --foreground: #1c1917;
+  --card: #ffffff;
+  --card-foreground: #1c1917;
+  --popover: #ffffff;
+  --popover-foreground: #1c1917;
+  --primary: #00bc7d;
+  --primary-hover: #00d492;
+  --primary-foreground: #0a0908;
+  --primary-text: #007a55;
+  --secondary: #f5f5f4;
+  --secondary-foreground: #1c1917;
+  --muted: #f5f5f4;
+  --muted-foreground: #57534e;
+  --subtle-foreground: #78716c;
+  --accent: #ecfdf5;
+  --accent-foreground: #007a55;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --warning: #b45309;
+  --ink-inverse: #0c0a09;
+  --border: #e7e5e4;
+  --input: #e7e5e4;
+  --ring: #009966;
+  --chart-1: #009966;
+  --chart-2: #00d492;
+  --chart-3: #a4f4cf;
+  --chart-4: #78716c;
+  --chart-5: #d6d3d1;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1c1917;
+  --sidebar-primary: #00bc7d;
+  --sidebar-primary-foreground: #0a0908;
+  --sidebar-accent: #ecfdf5;
+  --sidebar-accent-foreground: #007a55;
+  --sidebar-border: #e7e5e4;
+  --sidebar-ring: #009966;
+  --radius: 0.75rem;
+  --shadow-sm: 0 1px 2px rgb(28 25 23 / 0.06);
+  --shadow-md: 0 8px 24px -8px rgb(28 25 23 / 0.12);
+  /* 顶栏高度：吸顶的二级条（课文页面包屑等）用它定位 */
+  --header-height: 4rem;
+  /* 界面的西文字体：设置里可换（lib/font.ts 在 <html> 上设 data-font），默认 Outfit */
+  --font-ui: var(--font-outfit);
+  --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+  /* 正文字号：设置里和页面顶上的「字号」按钮可调（lib/text-size.ts 在 <html> 上设 data-text-size），
+     globals.css、learn.css 里阅读正文（.prose-bloom）的字号都乘它；界面文字不跟着变。
+     --text-scale 是西文的倍数，--text-scale-cjk 是汉字的倍数（放大时汉字放大得少，同一档里两者看起来一样大），--cjk-ratio 是两者之比。
+     中文段落（data-script="cjk"）整段换成汉字的倍数；英文段落里零星的汉字由 --font-reading 里缩小过的黑体（globals.css 的 Bloom CJK）单独缩 */
+  --text-scale: 1;
+  --text-scale-cjk: 1;
+  --cjk-ratio: calc(var(--text-scale-cjk) / var(--text-scale));
+  --font-reading: var(--font-sans);
+}
+:root[data-font="public-sans"] {
+  --font-ui: var(--font-public-sans);
+}
+:root[data-font="system"] {
+  --font-ui: var(--font-system);
+}
+:root[data-text-size="sm"] {
+  --text-scale: 0.9;
+  --text-scale-cjk: 0.9;
+}
+:root[data-text-size="lg"] {
+  --text-scale: 1.2;
+  --text-scale-cjk: 1.08;
+  --font-reading: "Bloom CJK lg", var(--font-sans);
+}
+:root[data-text-size="xl"] {
+  --text-scale: 1.4;
+  --text-scale-cjk: 1.2;
+  --font-reading: "Bloom CJK xl", var(--font-sans);
+}
+:root[data-text-size="xxl"] {
+  --text-scale: 1.6;
+  --text-scale-cjk: 1.36;
+  --font-reading: "Bloom CJK xxl", var(--font-sans);
+}
+
+.dark {
+  --background: #0c0a09;
+  --foreground: #f5f5f4;
+  --card: #1c1917;
+  --card-foreground: #f5f5f4;
+  --popover: #1c1917;
+  --popover-foreground: #f5f5f4;
+  --primary: #00bc7d;
+  --primary-hover: #00d492;
+  --primary-foreground: #0a0908;
+  --primary-text: #00d492;
+  --secondary: #292524;
+  --secondary-foreground: #f5f5f4;
+  --muted: #292524;
+  --muted-foreground: #b2aca7;
+  --subtle-foreground: #a39d98;
+  --accent: #002c22;
+  --accent-foreground: #5ee9b5;
+  --destructive: #f87171;
+  --destructive-foreground: #1c0a0a;
+  --warning: #fbbf24;
+  --ink-inverse: #0c0a09;
+  --border: #292524;
+  --input: #292524;
+  --ring: #00d492;
+  --chart-1: #00bc7d;
+  --chart-2: #5ee9b5;
+  --chart-3: #007a55;
+  --chart-4: #a8a29e;
+  --chart-5: #57534e;
+  --sidebar: #1c1917;
+  --sidebar-foreground: #f5f5f4;
+  --sidebar-primary: #00bc7d;
+  --sidebar-primary-foreground: #0a0908;
+  --sidebar-accent: #002c22;
+  --sidebar-accent-foreground: #5ee9b5;
+  --sidebar-border: #292524;
+  --sidebar-ring: #00d492;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 8px 24px -8px rgb(0 0 0 / 0.4);
+}
+
+/* 阴影只留两档：shadow-sm / shadow-md。其余档位清掉，用到会直接看不到阴影而不是回退成默认值 */
+@theme {
+  --shadow-*: initial;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-text: var(--primary-text);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-subtle-foreground: var(--subtle-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-warning: var(--warning);
+  --color-ink-inverse: var(--ink-inverse);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* 字体：next/font 在 <html> 上挂 --font-outfit / --font-public-sans / --font-jetbrains（见 src/fonts/index.ts），
+     --font-ui 是其中被选中的那个西文字体（见上面 :root）。中文回退栈必须有：Outfit、Public Sans 都没有汉字。 */
+  --font-sans: var(--font-ui), "PingFang SC", "Hiragino Sans GB",
+    "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", Menlo, Consolas,
+    "PingFang SC", "Microsoft YaHei", monospace;
+
+  /* 圆角（和原官网一致）：小按钮 / 小控件 6px、按钮与输入框 8px、中等容器 12px、卡片 16px */
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+}

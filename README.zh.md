@@ -19,8 +19,8 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License"></a>
   <img src="https://img.shields.io/github/last-commit/Li-Evan/Bloom" alt="Last commit">
   <img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python 3.11+">
-  <img src="https://img.shields.io/badge/node-18+-blue.svg" alt="Node.js 18+">
-  <img src="https://img.shields.io/badge/react-19-blue.svg" alt="React 19">
+  <img src="https://img.shields.io/badge/node-20+-blue.svg" alt="Node.js 20+">
+  <img src="https://img.shields.io/badge/next.js-15-blue.svg" alt="Next.js 15">
   <img src="https://img.shields.io/badge/fastapi-0.115+-blue.svg" alt="FastAPI">
 </p>
 
@@ -43,7 +43,7 @@
 | 方式 | 配置 | 适合 |
 |------|------|------|
 | **CLI 模式** | Claude Code + 终端 | 喜欢用 Markdown 编辑器的人 |
-| **Web 模式** | 浏览器（React + FastAPI） | 偏好可视化界面的人 |
+| **Web 模式** | 浏览器（Next.js + FastAPI），自己部署 | 偏好可视化界面、想用自己的资料和 PDF 的人 |
 
 两种模式遵循相同流程：**大纲 → 课文 → 批注 → 反馈 → 下一篇 → 评估 → 总结**。
 
@@ -77,11 +77,13 @@ claude
 
 ## 快速开始：Web 模式
 
+Web 版是自己部署、只给自己用的 AI 私教：没有账号，也不收费。你用自己的模型 API Key（任意 OpenAI 兼容接口），学的东西都存在你自己的数据库里。
+
 ### 前置条件
 
 - Python 3.11+，已安装 [uv](https://docs.astral.sh/uv/)
-- Node.js 18+
-- 任意 OpenAI 兼容的 LLM API Key（如 [DashScope](https://dashscope.console.aliyun.com/)、OpenAI 等）
+- Node.js 20+，已安装 [pnpm](https://pnpm.io/)
+- 任意 OpenAI 兼容聊天模型的 API Key（OpenAI、DeepSeek、通义千问、Moonshot、本地的 Ollama 等）
 
 ### 安装
 
@@ -89,81 +91,95 @@ claude
 git clone https://github.com/Li-Evan/Bloom.git
 cd Bloom
 
-# 配置
-cp .env.example .env
-# 编辑 .env，填入 LLM_API_KEY
+make setup          # 生成 .env（带随机的 BACKEND_JWT_SECRET），装好前后端依赖
+# 编辑 .env：填上 LLM_API_KEY、LLM_BASE_URL、LLM_MODEL
 
-# 后端
-cd backend && uv sync && uv run uvicorn app.main:app --reload --port 8000
-
-# 前端（新终端）
-cd frontend && npm install && npm run dev
+make dev-backend    # 终端 1：先跑数据库迁移，再在 127.0.0.1:8000 启动后端
+make dev-frontend   # 终端 2：在 http://localhost:3000 启动网页
 ```
 
-打开 http://localhost:5173，点击「新建课程」，选择「主题生成」「上传原文」或「项目文件」，开始学习。
+打开 http://localhost:3000，点「新建课程」开始学习。
 
 ### Docker 部署
 
 ```bash
-cp .env.example .env   # 填入 API Key
-docker compose up -d   # 访问 http://localhost:3000
+make setup                   # 或者自己 cp .env.example .env 再填好
+docker compose up -d --build # 然后打开 http://localhost:3000
 ```
+
+数据存在 `bloom-storage` 卷里：一个 SQLite 数据库，加上资料里的图片。想用 Postgres，在 `.env` 里设 `DATABASE_URL`。
+
+### 配置
+
+| 变量 | 作用 |
+|------|------|
+| `LLM_API_KEY`、`LLM_BASE_URL`、`LLM_MODEL` | 生成大纲、课文和回答用的模型 |
+| `LLM_FAST_MODEL` | 可选。知识地图、课程定位、划线翻译用的小模型 |
+| `PDF_READING_MODEL` | 可选。「PDF 阅读版」把页面图片转成文字用的模型，要能看图 |
+| `LLM_EXTRA_BODY` | 每次调用原样带上的 `extra_body`（JSON），例如给 DeepSeek 关掉推理：`{"thinking":{"type":"disabled"}}` |
+| `BACKEND_JWT_SECRET` | 前端服务端和后端共用的密钥；后端只认这把密钥签的令牌 |
+| `DATABASE_URL` | 默认是 `backend/storage/bloom.sqlite3` |
+| `LANGFUSE_*` | 可选。把每次模型调用记到 [Langfuse](https://langfuse.com) |
+
+### 安全
+
+Bloom 没有登录：能打开网页的人，就被当成你本人。所以请只在本机使用；要放到公网上，先在外面套一层鉴权，比如 VPN、Tailscale，或者带 basic auth 的反向代理。`docker compose` 不会把后端端口暴露出去，后端也只接受用 `BACKEND_JWT_SECRET` 签过的请求。
+
+### 从旧版（Vite）升级
+
+Web 版改用 Next.js 重写，数据库结构也换了新的。旧的 `bloom.db` 不会迁移过来，新版从 `backend/storage/` 里的空数据库开始。
 
 ---
 
 ## 工作流程
 
-### 主题生成
+### 按主题或用自己的资料建课
 
 ```
-创建课程 → AI 生成大纲 + 首篇课文
+写下想学什么（可以附上资料）→ Bloom 追问几个和目标有关的问题
                   ↓
-    阅读课文 → 选中文字 → 添加批注
+    生成大纲：学完能做到什么、按什么顺序学 → 先看大纲，可以修改
                   ↓
-    写反馈 → 回答思考题
+    读第一篇 → 划线提问 → 写反馈 → 回答思考题
                   ↓
-    点击「我读完了」→ AI 生成下一篇
-   （包含：思考题复盘 + 批注解答 + 新内容）
+    点「我读完了」→ 下一篇先点评你的回答、解答你划线问的地方，按你的反馈调整，再往下讲
                   ↓
-    重复，直到大纲所有掌握项全部 ✅
-                  ↓
-    自动生成评估篇 → 然后生成总结
+    重复，直到大纲的掌握项全部覆盖 ✅ → 评估篇 → 课程总结
 ```
 
-### 上传原文
+### 项目文件、网页文章、PDF 阅读版
 
 ```
-上传 PDF / TXT / MD → AI 根据全文生成大纲 + 原文阅读章
-                         ↓
-      阅读原文 → 选中文字 → 即时提问并得到回答
-                         ↓
-      点击「我读完原文了」→ AI 读取全文 + 划线问答，生成下一篇
-                         ↓
-      后续按主题生成模式继续推进
-```
-
-### 项目文件
-
-```
-上传单个文件 / 多个文件 / 整个文件夹 → 每个文件直接渲染成一篇
-                         ↓
-      逐个文件阅读 → 选中文字 → 即时提问并得到回答
-                         ↓
-      不生成大纲、不生成下一篇；文件与划线问答会进入「下一步学习」推荐
+上传文件 / 整个文件夹 / 网页链接 / PDF → 每个变成一页（没有大纲）
+                  ↓
+    阅读 → 划线提问，或者对整页提问 → 标记已读、归档
+                  ↓
+    读过的内容会进入知识地图和下一步推荐
 ```
 
 ## 功能特性
 
-- **三种课程模式** — 主题生成、上传 PDF/TXT/MD 原文、或「项目文件」（上传文件 / 文件夹直接渲染、随时划线提问、不生成大纲与下一篇）
-- **学习深度** — 创建课程时选择简单、标准或深入，控制大纲展开颗粒度；课程卡片上标明所选深度
-- **参考材料** — 创建主题课程时粘贴课本、论文、笔记，AI 据此设计课程
-- **下一步学习推荐** — 根据完整学习历史生成 3 个可直接创建课程的主题，支持刷新、收藏到待学习清单、或直接进入“大纲 → 课文”的学习流程
-- **划线问答会话** — 任意课文（或原文）中选中文字后会冒出一个小图标，点它再提问；划线处持续标黄，AI 立即作答，可在同一会话中持续追问。窗口可拖动，可缩小为右侧小圆点、随时点开。每条会话的上下文 = 整篇课文 + 划线那段 + 本会话对话；你的提问仍会喂入下一篇课文生成
-- **自适应课文** — 每篇新课文针对你上一篇的薄弱点定制
-- **章节导航** — 右侧侧栏快速跳转
-- **可折叠大纲** — 随时查看掌握进度
-- **流式生成** — 实时看 AI 写下一篇课文
-- **个人中心与学习日历** — 顶栏进入个人中心，月历按强度着色展示每天学习量，点某天即可看到当天学了哪些课程、第几篇、提了几条划线；配学习概览统计卡与近半年学习足迹热力图（连续天数等口径统一按本地日期）
+**建课方式**
+- **按主题**：说想学什么，Bloom 先问几个和目标有关的问题，再按你选的深度（简单 / 标准 / 深入）设计大纲
+- **用自己的资料**：上传 PDF、Word、PowerPoint、Excel、EPUB、Markdown 或文本（也可以打包成 ZIP）。Bloom 把资料整理成知识包，大纲和课文都以它为依据，并标注出处
+- **项目文件**：上传文件或整个文件夹，每个文件是一页，直接读、直接问，不需要大纲
+- **网页文章**：贴一个链接，导入正文和图片；也可以用[浏览器剪藏插件](./extension/)存下正在看的网页
+- **PDF 阅读版**（实验）：用能看图的模型把每一页 PDF 转成能重排的 Markdown，公式、表格、插图按原来的位置排好，原 PDF 一起保留
+
+**学习**
+- **先看大纲**：第一篇之前先过一遍大纲，可以直接改，也可以说想怎么改
+- **自适应课文**：每一篇先点评上一篇思考题的回答，再解答你划线问的地方，并照你的反馈调整（短一点、多举例、慢一点……）；最后一篇是评估篇，之后生成课程总结
+- **划线提问**：选中任意一段（PDF 里也行）就能提问，同一处可以接着追问；也可以只标记、不提问
+- **问这篇**：不用划线，对整篇课文或整个文件提问
+- **划线翻译**：把一段译成界面语言，附上它在这里的意思；翻单词和短语时附上词根拆解
+- **教学风格**：几种预设（简洁、类比、严谨……），也可以写你自己的要求，对所有课程生效
+- **阅读体验**：目录、阅读时长、字号、字体、亮暗主题、中英文界面
+
+**看到全局**
+- **知识地图**：每门课都落在一棵共用的知识树上（维基百科 Vital Articles 的冻结快照），能看到你实际读过的主题，以及相邻可以接着学的方向
+- **下一步学习**：根据学习记录推荐三个能直接建课的主题，可以收进待学清单，也可以直接开始
+- **用户中心**：学习热力图和连续天数、所有划线笔记集中在一处、导出成 Markdown
+- **资料课当文件夹用**：资料类课程里的文件可以移动、改名、编辑、归档、删除
 
 ## Skills 技能
 
@@ -185,19 +201,43 @@ Bloom 在 [`skills/`](./skills/) 里附带一组可移植的 **[Claude Code](htt
 
 | 层 | 技术 |
 |----|------|
-| 后端 | Python, FastAPI, SQLAlchemy, SQLite |
-| 前端 | React, Vite, Tailwind CSS |
-| AI | 任意 OpenAI 兼容 LLM API |
-| 容器 | Docker, docker-compose |
-| 字体 | Outfit, JetBrains Mono |
+| 后端 | Python、FastAPI、SQLAlchemy 2、Alembic；默认 SQLite，也支持 Postgres |
+| 前端 | Next.js 15（App Router）、React 19、Tailwind CSS 4、Radix UI、next-intl、pdf.js |
+| AI | 任意 OpenAI 兼容的聊天补全接口 |
+| 容器 | Docker、docker compose |
+| 字体 | Outfit、Public Sans、JetBrains Mono |
 
 ## 常用命令
 
 ```bash
-make dev-backend      # 启动后端（热重载）
-make dev-frontend     # 启动前端
-make test             # 运行测试
-make up / make down   # Docker 启动 / 停止
+make setup            # 生成 .env，装好依赖
+make dev-backend      # 跑迁移，启动后端（热重载，127.0.0.1:8000）
+make dev-frontend     # 启动网页（localhost:3000）
+make test             # 后端 pytest + 前端测试
+make up / make down   # docker compose 启动 / 停止
+```
+
+## 项目结构
+
+```
+├── GUIDE.zh.md             # CLI 模式使用说明
+├── .env.example            # 配置模板
+├── backend/
+│   ├── app/                # FastAPI 应用：courses.py（课程引擎）、knowledge*.py / coordinate.py（知识地图）、
+│   │                       # lesson_chat.py、translate.py、recommendations.py、上传与导入 ……
+│   ├── alembic/            # 数据库迁移（第二个迁移导入知识树）
+│   ├── data/knowledge/     # 知识树数据（维基百科 Vital Articles 第 5 级快照）
+│   └── tests/
+├── frontend/
+│   └── src/
+│       ├── app/[locale]/   # 页面：/learn（课程、课文、地图、下一步），/me（用户中心）
+│       ├── components/     # learn/、me/、site/（顶栏、页脚）、ui/
+│       └── lib/            # 接口封装、课文逻辑
+├── extension/              # 浏览器网页剪藏插件
+├── docs/ARCHITECTURE.md    # 各部分怎么配合
+├── example/                # CLI 模式的预制主题
+├── site/                   # 营销网站（独立的 Astro 静态站，和应用解耦）
+└── skills/                 # 可移植的 Claude Code 技能（bloom-tutor + learn-*）
 ```
 
 ## 背后的科学
@@ -222,4 +262,4 @@ make up / make down   # Docker 启动 / 停止
 
 ## 许可
 
-[MIT](LICENSE)
+[MIT](LICENSE)。第三方组件、字体和知识树数据沿用各自的许可，见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。

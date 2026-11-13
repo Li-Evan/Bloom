@@ -137,9 +137,9 @@ The tutor will:
 3. Generate the next document
 
 The next document's opening will include:
-- **Thought question review** (evaluates each of your answers, provides correct answers)
-- **??? responses** (addresses every confusion you annotated)
-- **New content** (tailored to your understanding level)
+- **Thought question review** (kept short: if you answered, one or two sentences per answer; if you did not, a single sentence, and the reference answers sit at the end of that lesson)
+- **Annotation responses** (only if you annotated; two or three sentences each, and a one-sentence callback for anything already answered in the highlight Q&A)
+- **New content** (tailored to your understanding level, starting right after the review)
 
 ### 5. Repeat Until Course Completion
 

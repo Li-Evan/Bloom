@@ -1,0 +1,535 @@
+/* 课文阅读页与学习区共用的样式。颜色全部走令牌，亮暗主题自动切换。
+   CSS Custom Highlight 的 ::highlight() 规则 Turbopack 的 CSS 解析器不认，放在 lib/learn/highlight.ts 里运行时注入。
+   正文排版叠在 globals.css 的 .prose-bloom 上：.prose-lesson（课文）、.prose-compact（问答卡片里的回答）；
+   正文里用 rem 写的字号都乘 --text-scale（正文字号，lib/text-size.ts）；
+   .lesson-table（表格的滚动容器）由 markdown 渲染统一加上，博客、课程总结、问答回答里的表格也用它；
+   .lesson-meta（标题下的元信息一行小字）只有课文用；
+   .learn-rail（课程页 / 大纲页 / 课文页右栏里吸顶的内容）、.lesson-nav-toggle（课文页右栏「文件 / 课文」收起那一行）、.rail-head（课文页右栏里吸顶的各组标题行）、.nw（中文标题里不换行的词）、.scroll-fade-x（横向滚动条两端的渐隐，用户中心手机标签条也用）。 */
+
+/* 课文页有两条吸顶的条（全站顶栏 + 面包屑细条）：滚动到某个位置（scrollIntoView、锚点）时都要躲开 */
+html:has(.lesson-page) {
+  scroll-padding-top: calc(var(--header-height) + 4rem);
+}
+
+/* ── 右栏吸顶（课程页、大纲页、课文页共用）──
+   吸在全站顶栏下面；课文页的面包屑条还在时再让出它的高度（--rail-offset），条收起（往下滚）时让出的高度回到 0。
+   右栏是会滚动的容器，会截掉溢出的内容：四周留 4px（padding），再用负 margin 抵掉，给聚焦轮廓（2px 间隙 + 2px 线）。 */
+.lesson-page {
+  --rail-offset: 3.5rem;
+}
+.lesson-page[data-bar-hidden="true"] {
+  --rail-offset: 0px;
+}
+@media (min-width: 1024px) {
+  .learn-rail {
+    position: sticky;
+    top: calc(var(--header-height) + var(--rail-offset, 0px) + 1.5rem);
+    max-height: calc(100dvh - var(--header-height) - var(--rail-offset, 0px) - 3rem);
+    margin: -0.25rem;
+    padding: 0.25rem;
+    overflow-y: auto;
+    scroll-padding-block: 0.25rem;
+    transition: top 150ms ease;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .learn-rail {
+    transition: none;
+  }
+}
+
+/* 课文页右栏滚动时，「文件 / 课文」和提问、标记、翻译几组的标题行（.rail-head）吸在右栏顶上：每行只在自己那一组里吸，
+   这一组滚完了被下一组的标题顶走。要有底色盖住滚到下面的列表；放在 components 层，hover:bg-muted（utilities 层）还盖得过它。
+   右栏四周留了 4px 给聚焦轮廓，标题吸在这 4px 下面：上面再垫一条同样底色的 4px（::before，不接鼠标），滚上去的列表不会从标题上沿露出一丝。
+   手机抽屉、问答卡片打开时那一行目录里是同一份列表，但不在 .learn-rail 里，不吸。
+   用键盘往回 Tab 时，聚焦的那一项要露在吸顶的标题下面：滚动留白让出一行标题的高度 */
+@layer components {
+  .learn-rail .rail-head {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--background);
+  }
+  .learn-rail .rail-head::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 100%;
+    height: 0.25rem;
+    background-color: var(--background);
+    pointer-events: none;
+  }
+}
+@media (min-width: 1024px) {
+  .learn-rail:has(.rail-head) {
+    scroll-padding-top: 2.75rem;
+  }
+}
+
+/* 课文页右栏的「文件 / 课文」列表默认收起，本机展开过才在 <html> 上有 data-lesson-nav="expanded"（lib/learn/lesson-nav.ts）：
+   服务端照展开渲染出列表，没有这个标记时 React 接管前就先藏起来、箭头朝下，刷新时不会先闪出整列；接管后收着组件自己就不渲染列表了 */
+:root:not([data-lesson-nav="expanded"]) .lesson-nav-toggle + ul {
+  display: none;
+}
+:root:not([data-lesson-nav="expanded"]) .lesson-nav-toggle > svg {
+  rotate: none;
+}
+
+/* 中文标题里一个词一个片段：折行只发生在词与词之间（lib/learn/words.ts） */
+.nw {
+  white-space: nowrap;
+}
+
+/* 横向滚动条两端的渐隐：还有内容没露出来的那一端淡出。data-fade-start / data-fade-end 由脚本按滚动位置设 */
+.scroll-fade-x {
+  --fade-start: 0px;
+  --fade-end: 0px;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    var(--foreground) var(--fade-start),
+    var(--foreground) calc(100% - var(--fade-end)),
+    transparent
+  );
+}
+.scroll-fade-x[data-fade-start="true"] {
+  --fade-start: var(--fade-size, 1.5rem);
+}
+.scroll-fade-x[data-fade-end="true"] {
+  --fade-end: var(--fade-size, 1.5rem);
+}
+
+/* ── 课文正文 ── */
+/* 段落末行不留一两个字（课文、问答回答、大纲都是 .prose-bloom）；短的说明文字在组件里用 text-balance */
+.prose-bloom :is(p, li, blockquote) {
+  text-wrap: pretty;
+}
+.prose-bloom.prose-lesson h1 {
+  font-size: calc(1.625rem * var(--text-scale));
+  font-weight: 700; /* typography 插件给 h1 的是 800，和别的页面（700）对不上 */
+  line-height: 1.22;
+  margin: 0 0 0.55em;
+}
+.prose-bloom.prose-lesson h2 {
+  font-size: calc(1.3125rem * var(--text-scale));
+  margin: 2.2em 0 0.7em;
+}
+.prose-bloom.prose-lesson h3 {
+  font-size: calc(1.125rem * var(--text-scale));
+}
+@media (min-width: 768px) {
+  .prose-bloom.prose-lesson h1 {
+    font-size: calc(2.25rem * var(--text-scale));
+    line-height: 1.15;
+  }
+  .prose-bloom.prose-lesson h2 {
+    font-size: calc(1.5rem * var(--text-scale));
+  }
+  .prose-bloom.prose-lesson h3 {
+    font-size: calc(1.25rem * var(--text-scale));
+  }
+}
+/* 课文末尾的「思考题」二级标题（lib/learn/rehype-lesson.ts 的 rehypeThoughtQuestions）：和别的小节标题（三级）一样大、一样粗，
+   上方一条细线把它和正文隔开，不再比小节标题大一级 */
+.prose-bloom.prose-lesson h2.lesson-thoughts {
+  font-size: calc(1.125rem * var(--text-scale));
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 2.8em 0 0.7em;
+  padding-top: 1.6em;
+  border-top: 1px solid var(--border);
+}
+@media (min-width: 768px) {
+  .prose-bloom.prose-lesson h2.lesson-thoughts {
+    font-size: calc(1.25rem * var(--text-scale));
+  }
+}
+.prose-bloom.prose-lesson .lesson-note {
+  margin: 1.2em 0 0;
+  font-size: calc(0.9375rem * var(--text-scale));
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+/* 暗色下代码块用卡片色：页面底色已经是最深的，再用墨色就和页面糊在一起 */
+.dark .prose-bloom.prose-lesson {
+  --tw-prose-pre-bg: var(--card);
+}
+/* 代码里不要连字：JetBrains Mono 会把 <!-- 画成箭头、!= 画成 ≠，讲代码的课文里这会误导人 */
+.prose-lesson :is(pre, code),
+.prose-compact :is(pre, code) {
+  font-variant-ligatures: none;
+}
+/* 块级公式：外面包了一层 div.math-scroll（lib/learn/rehype-lesson.ts 的 rehypeScrollMath），横向滚动和两端渐隐都在这一层 */
+.prose-lesson .math-scroll,
+.prose-compact .math-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.3em 0;
+}
+.prose-lesson .math-scroll .katex-display,
+.prose-compact .math-scroll .katex-display {
+  margin: 0;
+}
+/* 代码块、块级公式、表格容器横向可滚时，还没露出来的那一端渐隐（components/learn/scroll-fade.tsx 按滚动位置设 data-fade-*）。
+   渐隐盖过了全站代码块那套「滚动阴影」背景，这里去掉免得叠两层。
+   键盘聚焦到可滚动区域时去掉渐隐：遮罩会把聚焦轮廓从边上截掉 */
+.prose-lesson pre.scroll-fade-x,
+.prose-compact pre.scroll-fade-x {
+  background-image: none;
+}
+.prose-lesson .scroll-fade-x:focus-visible,
+.prose-compact .scroll-fade-x:focus-visible {
+  mask-image: none;
+}
+
+/* 原文篇里「原文」二级标题换成的小标签（lib/learn/rehype-lesson.ts 的 rehypeSourceHeading）：
+   这个元素是 rehype 插件生成的，没法带 Tailwind 类，所以数值照抄 components/brand/eyebrow.tsx 的 LABEL_CLASS（13px、等宽、大写、
+   字距 0.2em、字重 400；中文 500 / 0.08em），改那边时这里一起改（tests/round2-front-a.test.mjs 对照两边的数值） */
+.prose-lesson .lesson-label {
+  margin: 2.2em 0 0.9em;
+  font-family: var(--font-mono);
+  font-size: calc(0.8125rem * var(--text-scale));
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary-text);
+}
+.prose-lesson .lesson-label:lang(zh) {
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+/* 标题下的元信息（前置知识 / 难度 / 预计阅读时间）：一行灰色等宽小字，长的另起一行（见 lib/learn/rehype-lesson.ts） */
+.lesson-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin: 0 0 1.75rem;
+  font-family: var(--font-mono);
+  font-size: calc(0.8125rem * var(--text-scale));
+  line-height: 1.7;
+  color: var(--subtle-foreground);
+}
+/* 正文上方的那一行（资料文件、PDF 的预计阅读时间，见 components/learn/reading-time.tsx）：贴着下面的标题或 PDF */
+.lesson-meta-top {
+  margin-bottom: 0.75rem;
+}
+.lesson-meta-val {
+  margin-inline-start: 0.4em;
+  color: var(--muted-foreground);
+}
+/* 中文页：整行用正文字体，只有数字和拉丁字母（.lesson-mono，lib/learn/rehype-lesson.ts 包的）用等宽 */
+.lesson-meta:lang(zh) {
+  font-family: var(--font-sans);
+}
+.lesson-meta .lesson-mono {
+  font-family: var(--font-mono);
+}
+/* 元信息里的行内公式（前置知识：det(A − λI) = 0）不在中间断行：KaTeX 在关系符、运算符处允许折行，
+   手机宽度下会拆成「det(A −」和「λI) = 0」两行；整个公式当成一个不可拆的块，放不下就整个挪到下一行 */
+.lesson-meta .katex {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+  vertical-align: bottom;
+}
+.lesson-meta-long {
+  order: 1;
+  flex-basis: 100%;
+}
+
+/* 表格放在可横向滚动的圆角容器里：窄屏滚动表格，不撑破页面 */
+.lesson-table {
+  overflow-x: auto;
+  margin: 1.6em 0;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+.lesson-table > table {
+  margin: 0;
+  width: 100%;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+/* prose-bloom 为了不撑破页面设了 overflow-wrap:anywhere，在表格里会把数字、单词拆成一个个字符；
+   表格有自己的滚动容器，格子里的词保持完整，放不下就横向滚动 */
+.lesson-table :is(table, th, td) {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.lesson-table :is(th, td) {
+  min-width: 5em;
+  padding: 0.55em 0.85em;
+}
+.lesson-table tbody tr:last-child {
+  border-bottom-width: 0;
+}
+/* 大纲末尾的「学习进度」表（篇号 | 覆盖的掌握项 | 生成日期）：
+   最后一列是日期，窄屏上别在 2026-10-15 的连字符处断成两行，表头「生成日期」也别折；
+   中间「覆盖的掌握项」一列可能很长，要给它一个最小宽度（不然窄屏上被挤成一个字一行），它自己在格子里换行；
+   三列加起来比手机屏宽时，整张表在 .lesson-table 容器里横向滑动，右端有渐隐提示（scroll-fade.tsx） */
+.syllabus-prose .lesson-table td:last-child,
+.syllabus-prose .lesson-table th:last-child {
+  min-width: 8em;
+}
+.syllabus-prose .lesson-table td:nth-child(2),
+.syllabus-prose .lesson-table th:nth-child(2) {
+  min-width: 13em;
+}
+
+/* 学习进度表：篇号一列不折行（「第 2 篇」不拆成两行）；「覆盖要点」一格是列表（rehypeProgressCards），一条一行，不再是一长串 */
+.syllabus-prose .progress-cards td:first-child {
+  white-space: nowrap;
+}
+.syllabus-prose .progress-items {
+  margin: 0;
+  padding-left: 1.1em;
+  list-style: disc;
+}
+.syllabus-prose .progress-items li {
+  margin: 0 0 0.3em;
+  padding: 0;
+}
+.syllabus-prose .progress-items li:last-child {
+  margin-bottom: 0;
+}
+/* 窄屏（< 640px）上，学习进度表改成一篇一张的竖排卡片：第一行是篇号和日期，下面是覆盖的掌握项（lib/learn/rehype-lesson.ts 的 rehypeProgressCards 给表格容器加的 .progress-cards）。
+   表头用「只给读屏看」的写法留着，表格的语义不丢；整张表不再横向滑动，也就不需要右端的渐隐 */
+@media (max-width: 639px) {
+  .syllabus-prose .lesson-table.progress-cards {
+    overflow: visible;
+    mask-image: none;
+    border: 0;
+    border-radius: 0;
+  }
+  .syllabus-prose .progress-cards :is(table, tbody) {
+    display: block;
+    width: auto;
+  }
+  .syllabus-prose .progress-cards thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .syllabus-prose .progress-cards tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.4rem 0.75rem;
+    margin: 0 0 0.75rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    background: var(--card);
+  }
+  .syllabus-prose .progress-cards tbody tr:last-child {
+    margin-bottom: 0;
+    border-bottom-width: 1px;
+  }
+  .syllabus-prose .progress-cards :is(td, th) {
+    display: block;
+    min-width: 0 !important;
+    padding: 0;
+    border: 0;
+  }
+  .syllabus-prose .progress-cards td:nth-child(1) {
+    grid-column: 1;
+    font-weight: 600;
+  }
+  .syllabus-prose .progress-cards td:nth-child(3) {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: calc(0.8125rem * var(--text-scale));
+    color: var(--muted-foreground);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .syllabus-prose .progress-cards td:nth-child(2) {
+    grid-column: 1 / -1;
+    line-height: 1.65;
+  }
+}
+
+/* 问答卡片里的回答与「下一篇」生成预览：同一套排版，小一号，和课文一样跟着正文字号放大。
+   中文回答显得大是汉字本身比西文大，由 globals.css 的「Bloom CJK」统一缩小，不按区域另调 */
+.prose-bloom.prose-compact {
+  font-size: calc(0.9375rem * var(--text-scale));
+  line-height: 1.7;
+}
+.prose-bloom.prose-compact :is(h1, h2, h3, h4) {
+  font-size: calc(1rem * var(--text-scale));
+  line-height: 1.4;
+  margin: 1.2em 0 0.5em;
+}
+.prose-bloom.prose-compact p {
+  margin: 0.7em 0;
+}
+.prose-bloom.prose-compact :is(ul, ol) {
+  margin: 0.7em 0;
+}
+.prose-bloom.prose-compact li {
+  margin: 0.25em 0;
+}
+.prose-bloom.prose-compact blockquote {
+  margin: 1em 0;
+}
+.prose-bloom.prose-compact pre {
+  padding: 0.75rem 1rem;
+  font-size: 0.8125em;
+}
+.prose-bloom.prose-compact .lesson-table {
+  margin: 1em 0;
+}
+.dark .prose-bloom.prose-compact {
+  --tw-prose-pre-bg: var(--muted);
+}
+
+/* ── 划线提问 ── */
+@keyframes ann-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.ann-in {
+  animation: ann-in 0.15s ease-out both;
+}
+
+/* 内容刚被整块换掉（大纲重新生成后）：边框亮一下再淡掉 */
+@keyframes done-flash {
+  from {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--primary) 30%, transparent);
+  }
+}
+.done-flash {
+  animation: done-flash 2.4s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ann-in,
+  .done-flash {
+    animation: none;
+  }
+}
+
+/* ── PDF 课文 ──
+   pdf.js 6 的画布默认透明，PDF 页面是「纸」，暗色主题下也必须是白底，否则黑字落在深色上看不见 */
+/* 缩小到比容器窄时居中；放大到比容器宽时 .pdf-viewer 横向滚动 */
+.pdf-viewer .pdf-page {
+  position: relative;
+  margin: 0 auto 1rem;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  /* pdf.js 算文字层宽高时取整用的步长（--total-scale-factor 由 pdf-viewer.tsx 按每页缩放设） */
+  --scale-round-x: 1px;
+  --scale-round-y: 1px;
+}
+.pdf-viewer .pdf-page canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.pdf-viewer .pdf-hl-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.pdf-viewer .pdf-hl {
+  position: absolute;
+  border-radius: 2px;
+  background: color-mix(in oklab, var(--primary) 32%, transparent);
+  pointer-events: auto;
+  cursor: pointer;
+}
+/* 按着拖选字的时候高亮不接鼠标：不然拖到高亮上，选区的那一端落进高亮层里，选区就断了（.selecting 由 lib/learn/pdf-blank-selection.ts 加） */
+.pdf-viewer .textLayer.selecting ~ .pdf-hl-layer .pdf-hl {
+  pointer-events: none;
+}
+.pdf-viewer .pdf-hl[data-pending] {
+  background: color-mix(in oklab, var(--primary) 48%, transparent);
+  pointer-events: none;
+  cursor: default;
+}
+/* 问答卡片开着的那条：比平时更明显 */
+.pdf-viewer .pdf-hl[data-active] {
+  background: color-mix(in oklab, var(--primary) 52%, transparent);
+}
+/* 划线翻译：透明底 + 虚线下划线（文字是 canvas 画的，下划线画在矩形底边）；卡片开着时再补一层淡底 */
+.pdf-viewer .pdf-hl[data-translation] {
+  background: transparent;
+  border-bottom: 2px dashed var(--ring);
+  border-radius: 0;
+}
+.pdf-viewer .pdf-hl[data-translation][data-active] {
+  background: color-mix(in oklab, var(--primary) 24%, transparent);
+}
+
+/* 浏览器画原生拖选时保持 PDF 文字层透明；否则部分引擎会把文字层临时画成黑字叠在 canvas 上，
+   看起来像重影。 */
+.pdf-viewer .textLayer span::selection,
+.pdf-viewer .textLayer br::selection {
+  color: transparent;
+  background: color-mix(in oklab, var(--primary) 28%, transparent);
+}
+.pdf-viewer .textLayer span::-moz-selection,
+.pdf-viewer .textLayer br::-moz-selection {
+  color: transparent;
+  background: color-mix(in oklab, var(--primary) 28%, transparent);
+}
+
+/* PDF 放大时外框跟着变宽：pdf-viewer.tsx 在整页容器上设 --pdf-extra（放大多出来的宽度），
+   整页容器和课文栏各放宽这么多，右栏往右让；屏幕放不下时课文栏照样收窄（minmax 的下限是 0），PDF 在框里横向滚动。
+   下面「参考原文面板打开」的规则更具体，打开面板时还是半屏布局 */
+/* 不继承：改它只重算用到它的两个元素（pdf-viewer.tsx 在这两个元素上各设一遍）；
+   按默认的继承，点一下缩放，整页每个元素（PDF 文字层的每一段字）的样式都要重算 */
+@property --pdf-extra {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@media (min-width: 1024px) {
+  [data-learn-page][style*="--pdf-extra"] {
+    max-width: calc(72rem + var(--pdf-extra));
+  }
+  [data-learn-page][style*="--pdf-extra"] [data-learn-columns] {
+    grid-template-columns: minmax(0, calc(720px + var(--pdf-extra))) 19rem;
+  }
+}
+
+/* 课文页左栏的目录（components/learn/lesson-outline.tsx，xl 起显示）挂在整页容器左边的留白里：容器左边至少空出目录的宽度（14rem）。
+   屏幕够宽（72rem + 两边各 14rem）时容器照样居中、和顶栏对齐；不够宽时容器往右让，先用掉右边的留白，正文栏随后才收窄。
+   课文页的面包屑条里那一行跟着一起让，和正文、右栏对齐。
+   参考原文面板打开时整页是左半屏（下面那组规则），目录不显示、也不让位 */
+@media (min-width: 80rem) {
+  body:not(:has([data-reference-panel][data-state="open"])) .lesson-page[data-outline] :is([data-learn-page], [data-crumb-row]) {
+    width: auto;
+    margin-left: max(14rem, calc((100% - 72rem) / 2));
+  }
+}
+body:has([data-reference-panel][data-state="open"]) [data-lesson-outline] {
+  display: none;
+}
+
+/* Keep the entire lesson readable beside the original document on desktop. */
+@media (min-width: 1024px) {
+  body:has([data-reference-panel][data-state="open"]) [data-learn-page] {
+    width: 50vw;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  body:has([data-reference-panel][data-state="open"]) [data-learn-columns] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  body:has([data-reference-panel][data-state="open"]) [data-learn-columns] > aside {
+    display: none;
+  }
+}

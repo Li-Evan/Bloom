@@ -1,0 +1,4982 @@
+{
+ "People": {
+  "zh": "人物",
+  "en": "People"
+ },
+ "People › Artists, musicians, and composers": {
+  "zh": "艺术家与音乐家",
+  "en": "Artists and musicians"
+ },
+ "People › Artists, musicians, and composers › Visual artists": {
+  "zh": "视觉艺术家",
+  "en": "Visual artists"
+ },
+ "People › Artists, musicians, and composers › Visual artists › Painters": {
+  "zh": "画家",
+  "en": "Painters"
+ },
+ "People › Artists, musicians, and composers › Visual artists › Comics and manga artists, print cartoonists and illustrators": {
+  "zh": "漫画家与插画家",
+  "en": "Comics artists and illustrators"
+ },
+ "People › Artists, musicians, and composers › Visual artists › Sculptors": {
+  "zh": "雕塑家",
+  "en": "Sculptors"
+ },
+ "People › Artists, musicians, and composers › Visual artists › Architects": {
+  "zh": "建筑师",
+  "en": "Architects"
+ },
+ "People › Artists, musicians, and composers › Visual artists › Designers": {
+  "zh": "设计师",
+  "en": "Designers"
+ },
+ "People › Artists, musicians, and composers › Visual artists › Photographers": {
+  "zh": "摄影师",
+  "en": "Photographers"
+ },
+ "People › Artists, musicians, and composers › Visual artists › Contemporary art": {
+  "zh": "当代艺术家",
+  "en": "Contemporary artists"
+ },
+ "People › Artists, musicians, and composers › Visual artists › Other arts": {
+  "zh": "工艺与其他艺术家",
+  "en": "Craft and other artists"
+ },
+ "People › Artists, musicians, and composers › Visual artists › Non-Western art": {
+  "zh": "非西方艺术家",
+  "en": "Non-Western artists"
+ },
+ "People › Artists, musicians, and composers › Musicians and composers": {
+  "zh": "音乐家与作曲家",
+  "en": "Musicians and composers"
+ },
+ "People › Artists, musicians, and composers › Musicians and composers › Western art music": {
+  "zh": "西方古典音乐家",
+  "en": "Western classical musicians"
+ },
+ "People › Artists, musicians, and composers › Musicians and composers › Non-Western art music": {
+  "zh": "非西方传统音乐家",
+  "en": "Non-Western traditional musicians"
+ },
+ "People › Artists, musicians, and composers › Musicians and composers › Religious music": {
+  "zh": "宗教音乐家",
+  "en": "Religious musicians"
+ },
+ "People › Artists, musicians, and composers › Musicians and composers › Jazz and related genres": {
+  "zh": "爵士乐音乐家",
+  "en": "Jazz and related musicians"
+ },
+ "People › Artists, musicians, and composers › Musicians and composers › Popular music": {
+  "zh": "流行音乐人",
+  "en": "Popular musicians"
+ },
+ "People › Artists, musicians, and composers › Musicians and composers › Music producers, songwriters and businesspeople": {
+  "zh": "音乐制作人与词曲作者",
+  "en": "Music producers and songwriters"
+ },
+ "People › Entertainers, directors, producers, and screenwriters": {
+  "zh": "演艺与影视人物",
+  "en": "Entertainers and filmmakers"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Entertainers": {
+  "zh": "演员与表演者",
+  "en": "Actors and performers"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Entertainers › Stage actors and actresses": {
+  "zh": "舞台剧演员",
+  "en": "Stage actors"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Entertainers › Film actors and actresses": {
+  "zh": "电影演员",
+  "en": "Film actors"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Entertainers › Television actors and actresses": {
+  "zh": "电视演员",
+  "en": "Television actors"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Entertainers › Dancers and choreographers": {
+  "zh": "舞蹈家与编舞家",
+  "en": "Dancers and choreographers"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Entertainers › Comedians": {
+  "zh": "喜剧演员",
+  "en": "Comedians"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Entertainers › Television hosts and personalities": {
+  "zh": "电视主持人",
+  "en": "TV hosts and personalities"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Entertainers › Other entertainment and fields": {
+  "zh": "其他演艺人物",
+  "en": "Other entertainers"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Filmmakers and theatre directors": {
+  "zh": "影视与戏剧创作者",
+  "en": "Filmmakers and theatre directors"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Filmmakers and theatre directors › Animation artists and puppeting filmmakers": {
+  "zh": "动画与木偶电影人",
+  "en": "Animators and puppet filmmakers"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Filmmakers and theatre directors › Film directors": {
+  "zh": "电影导演",
+  "en": "Film directors"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Filmmakers and theatre directors › Producers and executives": {
+  "zh": "电影制片人与高管",
+  "en": "Film producers and executives"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Filmmakers and theatre directors › Screenwriters": {
+  "zh": "编剧",
+  "en": "Screenwriters"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Filmmakers and theatre directors › Cinematographers": {
+  "zh": "电影摄影师",
+  "en": "Cinematographers"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Filmmakers and theatre directors › Art directors": {
+  "zh": "电影美术指导",
+  "en": "Film art directors"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Filmmakers and theatre directors › Editors": {
+  "zh": "电影剪辑师",
+  "en": "Film editors"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Filmmakers and theatre directors › Showrunners, television writers and producers": {
+  "zh": "电视制作人与编剧",
+  "en": "TV producers and writers"
+ },
+ "People › Entertainers, directors, producers, and screenwriters › Filmmakers and theatre directors › Theatre directors": {
+  "zh": "戏剧导演",
+  "en": "Theatre directors"
+ },
+ "People › Military personnel, revolutionaries, and activists": {
+  "zh": "军人、革命者与活动家",
+  "en": "Soldiers, revolutionaries and activists"
+ },
+ "People › Military personnel, revolutionaries, and activists › Military leaders, personnel, and theorists": {
+  "zh": "军事将领与理论家",
+  "en": "Military leaders and theorists"
+ },
+ "People › Military personnel, revolutionaries, and activists › Military leaders, personnel, and theorists › Ancient": {
+  "zh": "古代军事将领",
+  "en": "Ancient military leaders"
+ },
+ "People › Military personnel, revolutionaries, and activists › Military leaders, personnel, and theorists › Post-classical era": {
+  "zh": "中古军事将领",
+  "en": "Medieval military leaders"
+ },
+ "People › Military personnel, revolutionaries, and activists › Military leaders, personnel, and theorists › Early modern era": {
+  "zh": "近代早期军事将领",
+  "en": "Early modern military leaders"
+ },
+ "People › Military personnel, revolutionaries, and activists › Military leaders, personnel, and theorists › Modern era": {
+  "zh": "近现代军事将领",
+  "en": "Modern military leaders"
+ },
+ "People › Military personnel, revolutionaries, and activists › Rebels, revolutionaries and activists": {
+  "zh": "革命者与社会活动家",
+  "en": "Revolutionaries and activists"
+ },
+ "People › Military personnel, revolutionaries, and activists › Rebels, revolutionaries and activists › Ancient era": {
+  "zh": "古代起义领袖",
+  "en": "Ancient rebel leaders"
+ },
+ "People › Military personnel, revolutionaries, and activists › Rebels, revolutionaries and activists › Post-classical era": {
+  "zh": "中古起义领袖",
+  "en": "Medieval rebel leaders"
+ },
+ "People › Military personnel, revolutionaries, and activists › Rebels, revolutionaries and activists › Early modern era": {
+  "zh": "近代早期革命者",
+  "en": "Early modern revolutionaries"
+ },
+ "People › Military personnel, revolutionaries, and activists › Rebels, revolutionaries and activists › Modern era": {
+  "zh": "近现代革命者与活动家",
+  "en": "Modern revolutionaries and activists"
+ },
+ "People › Miscellaneous": {
+  "zh": "其他领域人物",
+  "en": "People in other fields"
+ },
+ "People › Miscellaneous › Businesspeople": {
+  "zh": "企业家",
+  "en": "Businesspeople"
+ },
+ "People › Miscellaneous › Businesspeople › Banking, finance and trade": {
+  "zh": "金融家与贸易商",
+  "en": "Bankers, financiers and traders"
+ },
+ "People › Miscellaneous › Businesspeople › Computing and information technology": {
+  "zh": "信息技术企业家",
+  "en": "Tech entrepreneurs"
+ },
+ "People › Miscellaneous › Businesspeople › Cosmetics, beauty, and personal care": {
+  "zh": "美妆与个护企业家",
+  "en": "Beauty industry entrepreneurs"
+ },
+ "People › Miscellaneous › Businesspeople › Electronics": {
+  "zh": "电子业企业家",
+  "en": "Electronics entrepreneurs"
+ },
+ "People › Miscellaneous › Businesspeople › Energy": {
+  "zh": "能源业企业家",
+  "en": "Energy industry entrepreneurs"
+ },
+ "People › Miscellaneous › Businesspeople › Food and drink": {
+  "zh": "食品饮料企业家",
+  "en": "Food and drink entrepreneurs"
+ },
+ "People › Miscellaneous › Businesspeople › Media and communication": {
+  "zh": "传媒出版企业家",
+  "en": "Media and publishing entrepreneurs"
+ },
+ "People › Miscellaneous › Businesspeople › Munitions, arms, and PMCs": {
+  "zh": "军火商与军事承包商",
+  "en": "Arms makers and military contractors"
+ },
+ "People › Miscellaneous › Businesspeople › Mining and metallurgy": {
+  "zh": "矿业与冶金企业家",
+  "en": "Mining and steel magnates"
+ },
+ "People › Miscellaneous › Businesspeople › Multiple industries": {
+  "zh": "跨行业企业家",
+  "en": "Multi-industry entrepreneurs"
+ },
+ "People › Miscellaneous › Businesspeople › Patrons and philanthropists": {
+  "zh": "赞助人与慈善家",
+  "en": "Patrons and philanthropists"
+ },
+ "People › Miscellaneous › Businesspeople › Real estate, property, and hotels": {
+  "zh": "地产与酒店业企业家",
+  "en": "Real estate and hotel magnates"
+ },
+ "People › Miscellaneous › Businesspeople › Recreation and fashion": {
+  "zh": "时尚与休闲企业家",
+  "en": "Fashion and leisure entrepreneurs"
+ },
+ "People › Miscellaneous › Businesspeople › Retail": {
+  "zh": "零售业企业家",
+  "en": "Retail entrepreneurs"
+ },
+ "People › Miscellaneous › Businesspeople › Transport": {
+  "zh": "交通运输企业家",
+  "en": "Transport entrepreneurs"
+ },
+ "People › Miscellaneous › Businesspeople › Other businesspeople": {
+  "zh": "其他企业家",
+  "en": "Other businesspeople"
+ },
+ "People › Miscellaneous › Explorers": {
+  "zh": "探险家",
+  "en": "Explorers"
+ },
+ "People › Miscellaneous › Explorers › Ancient explorers": {
+  "zh": "古代探险家",
+  "en": "Ancient explorers"
+ },
+ "People › Miscellaneous › Explorers › Post-classical explorers": {
+  "zh": "中古探险家",
+  "en": "Medieval explorers"
+ },
+ "People › Miscellaneous › Explorers › Early modern explorers": {
+  "zh": "近代早期探险家",
+  "en": "Early modern explorers"
+ },
+ "People › Miscellaneous › Explorers › Modern explorers": {
+  "zh": "近现代探险家",
+  "en": "Modern explorers"
+ },
+ "People › Miscellaneous › Law enforcement, intelligence, and security officials": {
+  "zh": "执法与情报人员",
+  "en": "Law enforcement and intelligence"
+ },
+ "People › Miscellaneous › Crime": {
+  "zh": "犯罪相关人物",
+  "en": "Crime figures"
+ },
+ "People › Miscellaneous › Crime › Criminals": {
+  "zh": "罪犯",
+  "en": "Criminals"
+ },
+ "People › Miscellaneous › Crime › Victims": {
+  "zh": "犯罪受害者",
+  "en": "Crime victims"
+ },
+ "People › Miscellaneous › Chefs, bartenders and winemakers": {
+  "zh": "厨师、调酒师与酿酒师",
+  "en": "Chefs, bartenders and winemakers"
+ },
+ "People › Miscellaneous › Case studies": {
+  "zh": "特殊个案人物",
+  "en": "Unusual human cases"
+ },
+ "People › Miscellaneous › Cosmetics people": {
+  "zh": "化妆与造型师",
+  "en": "Makeup and beauty artists"
+ },
+ "People › Miscellaneous › Sex work": {
+  "zh": "性产业人物",
+  "en": "Sex industry figures"
+ },
+ "People › Miscellaneous › Socialites and favorites": {
+  "zh": "社交名流与宠臣",
+  "en": "Socialites and royal favorites"
+ },
+ "People › Miscellaneous › Fandom, conventions and festivals": {
+  "zh": "粉丝文化与节庆人物",
+  "en": "Fandom and festival figures"
+ },
+ "People › Miscellaneous › Tradespeople": {
+  "zh": "劳动者与工匠",
+  "en": "Notable workers and tradespeople"
+ },
+ "People › Miscellaneous › Pseudoscientists": {
+  "zh": "伪科学人物",
+  "en": "Pseudoscientists"
+ },
+ "People › Miscellaneous › Pseudoscientists › Pseudoscientists: General": {
+  "zh": "神秘术士与冒险家",
+  "en": "Occultists and adventurers"
+ },
+ "People › Miscellaneous › Pseudoscientists › Astrologers": {
+  "zh": "占星家",
+  "en": "Astrologers"
+ },
+ "People › Miscellaneous › Pseudoscientists › Conspiracy theorists": {
+  "zh": "阴谋论者",
+  "en": "Conspiracy theorists"
+ },
+ "People › Miscellaneous › Pseudoscientists › Fad diets": {
+  "zh": "流行节食法倡导者",
+  "en": "Fad diet promoters"
+ },
+ "People › Miscellaneous › Pseudoscientists › Paranormal": {
+  "zh": "超自然现象人物",
+  "en": "Paranormal figures"
+ },
+ "People › Miscellaneous › Pseudoscientists › Pseudoarchaeology and pseudohistory": {
+  "zh": "伪考古与伪史学者",
+  "en": "Pseudoarchaeologists and pseudohistorians"
+ },
+ "People › Miscellaneous › Pseudoscientists › Pseudobiology": {
+  "zh": "伪生物学人物",
+  "en": "Pseudobiology proponents"
+ },
+ "People › Miscellaneous › Pseudoscientists › Pseudolinguistics": {
+  "zh": "伪语言学人物",
+  "en": "Pseudolinguistics proponents"
+ },
+ "People › Miscellaneous › Other": {
+  "zh": "其他知名人物",
+  "en": "Other notable people"
+ },
+ "People › Philosophers, historians, political and social scientists": {
+  "zh": "人文社科学者",
+  "en": "Philosophers, historians, social scientists"
+ },
+ "People › Philosophers, historians, political and social scientists › Philosophers": {
+  "zh": "哲学家",
+  "en": "Philosophers"
+ },
+ "People › Philosophers, historians, political and social scientists › Philosophers › Ancient philosophers": {
+  "zh": "古代哲学家",
+  "en": "Ancient philosophers"
+ },
+ "People › Philosophers, historians, political and social scientists › Philosophers › Post-classical philosophers": {
+  "zh": "中古哲学家",
+  "en": "Medieval philosophers"
+ },
+ "People › Philosophers, historians, political and social scientists › Philosophers › Early modern philosophers": {
+  "zh": "近代早期哲学家",
+  "en": "Early modern philosophers"
+ },
+ "People › Philosophers, historians, political and social scientists › Philosophers › Modern philosophers": {
+  "zh": "近现代哲学家",
+  "en": "Modern philosophers"
+ },
+ "People › Philosophers, historians, political and social scientists › Historians": {
+  "zh": "历史学家",
+  "en": "Historians"
+ },
+ "People › Philosophers, historians, political and social scientists › Historians › Ancient historians": {
+  "zh": "古代历史学家",
+  "en": "Ancient historians"
+ },
+ "People › Philosophers, historians, political and social scientists › Historians › Post-classical historians": {
+  "zh": "中古历史学家",
+  "en": "Medieval historians"
+ },
+ "People › Philosophers, historians, political and social scientists › Historians › Early modern historians": {
+  "zh": "近代早期历史学家",
+  "en": "Early modern historians"
+ },
+ "People › Philosophers, historians, political and social scientists › Historians › Modern historians": {
+  "zh": "近现代历史学家",
+  "en": "Modern historians"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists": {
+  "zh": "社会科学家",
+  "en": "Social scientists"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Economists and business theorists": {
+  "zh": "经济学家与管理学家",
+  "en": "Economists and business theorists"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Political scientists, theorists, and writers": {
+  "zh": "政治学家与政治理论家",
+  "en": "Political scientists and theorists"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Linguists": {
+  "zh": "语言学家",
+  "en": "Linguists"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Sociologists": {
+  "zh": "社会学家",
+  "en": "Sociologists"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Anthropologists and archaeologists": {
+  "zh": "人类学家与考古学家",
+  "en": "Anthropologists and archaeologists"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Art historians, theorists and critics": {
+  "zh": "艺术史家与评论家",
+  "en": "Art historians and critics"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Musicologists and music theorists": {
+  "zh": "音乐学家与音乐理论家",
+  "en": "Musicologists and music theorists"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Classicists": {
+  "zh": "古典学家",
+  "en": "Classicists"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Educators": {
+  "zh": "教育家",
+  "en": "Educators"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Forensic sciences": {
+  "zh": "法医与刑侦学者",
+  "en": "Forensic scientists"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Human geographers and cartographers": {
+  "zh": "人文地理学家与地图学家",
+  "en": "Human geographers and cartographers"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Jurists": {
+  "zh": "法学家与法官",
+  "en": "Jurists and judges"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Library science and curators": {
+  "zh": "图书馆学家与策展人",
+  "en": "Librarians and curators"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Public relations, marketing and advertising theorists": {
+  "zh": "公关与广告营销专家",
+  "en": "PR and advertising experts"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Sexologists": {
+  "zh": "性学家",
+  "en": "Sexologists"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Other social sciences": {
+  "zh": "其他社会科学家",
+  "en": "Other social scientists"
+ },
+ "People › Philosophers, historians, political and social scientists › Social scientists › Psychologists and psychiatrists": {
+  "zh": "心理学家与精神病学家",
+  "en": "Psychologists and psychiatrists"
+ },
+ "People › Politicians and leaders": {
+  "zh": "政治人物与统治者",
+  "en": "Politicians and rulers"
+ },
+ "People › Politicians and leaders › Ancient": {
+  "zh": "古代统治者",
+  "en": "Ancient rulers and statesmen"
+ },
+ "People › Politicians and leaders › Ancient › Ancient Africa": {
+  "zh": "古代非洲统治者",
+  "en": "Ancient African rulers"
+ },
+ "People › Politicians and leaders › Ancient › Ancient Americas": {
+  "zh": "古代美洲统治者",
+  "en": "Rulers of the ancient Americas"
+ },
+ "People › Politicians and leaders › Ancient › Ancient Asia": {
+  "zh": "古代亚洲统治者",
+  "en": "Ancient Asian rulers"
+ },
+ "People › Politicians and leaders › Ancient › Ancient Europe": {
+  "zh": "古代欧洲统治者",
+  "en": "Ancient European rulers"
+ },
+ "People › Politicians and leaders › Post-classical": {
+  "zh": "中古统治者",
+  "en": "Medieval rulers"
+ },
+ "People › Politicians and leaders › Post-classical › Post-classical Africa": {
+  "zh": "中古非洲统治者",
+  "en": "Medieval African rulers"
+ },
+ "People › Politicians and leaders › Post-classical › Post-classical Americas": {
+  "zh": "中古美洲统治者",
+  "en": "Rulers of the post-classical Americas"
+ },
+ "People › Politicians and leaders › Post-classical › Post-classical Asia": {
+  "zh": "中古亚洲统治者",
+  "en": "Medieval Asian rulers"
+ },
+ "People › Politicians and leaders › Post-classical › Medieval Europe": {
+  "zh": "中古欧洲统治者",
+  "en": "Medieval European rulers"
+ },
+ "People › Politicians and leaders › Early modern": {
+  "zh": "近代早期统治者",
+  "en": "Early modern rulers"
+ },
+ "People › Politicians and leaders › Early modern › Early modern Africa": {
+  "zh": "近代早期非洲统治者",
+  "en": "Early modern African rulers"
+ },
+ "People › Politicians and leaders › Early modern › Early modern Americas": {
+  "zh": "近代早期美洲领袖",
+  "en": "Early modern leaders in the Americas"
+ },
+ "People › Politicians and leaders › Early modern › Early modern Asia": {
+  "zh": "近代早期亚洲统治者",
+  "en": "Early modern Asian rulers"
+ },
+ "People › Politicians and leaders › Early modern › Early modern Europe": {
+  "zh": "近代早期欧洲统治者",
+  "en": "Early modern European rulers"
+ },
+ "People › Politicians and leaders › Early modern › Early modern Oceania": {
+  "zh": "近代早期大洋洲领袖",
+  "en": "Early modern leaders in Oceania"
+ },
+ "People › Politicians and leaders › Modern": {
+  "zh": "近代政治领袖",
+  "en": "Modern political leaders"
+ },
+ "People › Politicians and leaders › Modern › Modern Africa": {
+  "zh": "近代非洲政要",
+  "en": "Modern African leaders"
+ },
+ "People › Politicians and leaders › Modern › Modern North America": {
+  "zh": "近代北美政要",
+  "en": "Modern North American leaders"
+ },
+ "People › Politicians and leaders › Modern › Modern South America": {
+  "zh": "近代南美政要",
+  "en": "Modern South American leaders"
+ },
+ "People › Politicians and leaders › Modern › Modern Asia": {
+  "zh": "近代亚洲政要",
+  "en": "Modern Asian leaders"
+ },
+ "People › Politicians and leaders › Modern › Modern Europe": {
+  "zh": "近代欧洲政要",
+  "en": "Modern European leaders"
+ },
+ "People › Politicians and leaders › Modern › Modern Oceania": {
+  "zh": "近代大洋洲政要",
+  "en": "Modern Oceanian leaders"
+ },
+ "People › Politicians and leaders › Contemporary": {
+  "zh": "当代政治领袖",
+  "en": "Contemporary political leaders"
+ },
+ "People › Politicians and leaders › Contemporary › Africa (after 1945)": {
+  "zh": "当代非洲政要",
+  "en": "Contemporary African leaders"
+ },
+ "People › Politicians and leaders › Contemporary › North America (post-World War II)": {
+  "zh": "当代北美政要",
+  "en": "Contemporary North American leaders"
+ },
+ "People › Politicians and leaders › Contemporary › South America (after 1945)": {
+  "zh": "当代南美政要",
+  "en": "Contemporary South American leaders"
+ },
+ "People › Politicians and leaders › Contemporary › Asia (post-World War II)": {
+  "zh": "当代亚洲政要",
+  "en": "Contemporary Asian leaders"
+ },
+ "People › Politicians and leaders › Contemporary › Europe (post-World War II)": {
+  "zh": "当代欧洲政要",
+  "en": "Contemporary European leaders"
+ },
+ "People › Politicians and leaders › Contemporary › Oceania (after 1945)": {
+  "zh": "当代大洋洲政要",
+  "en": "Contemporary Oceanian leaders"
+ },
+ "People › Politicians and leaders › Contemporary › United Nations": {
+  "zh": "联合国领导人",
+  "en": "United Nations leaders"
+ },
+ "People › Religious figures": {
+  "zh": "宗教人物",
+  "en": "Religious figures"
+ },
+ "People › Religious figures › Abrahamic religions": {
+  "zh": "亚伯拉罕宗教人物",
+  "en": "Abrahamic religious figures"
+ },
+ "People › Religious figures › Abrahamic religions › Judaism": {
+  "zh": "犹太教人物",
+  "en": "Jewish religious figures"
+ },
+ "People › Religious figures › Abrahamic religions › Christianity": {
+  "zh": "基督教人物",
+  "en": "Christian figures"
+ },
+ "People › Religious figures › Abrahamic religions › Islam": {
+  "zh": "伊斯兰教人物",
+  "en": "Islamic figures"
+ },
+ "People › Religious figures › Abrahamic religions › Other Abrahamic": {
+  "zh": "其他亚伯拉罕宗教人物",
+  "en": "Other Abrahamic figures"
+ },
+ "People › Religious figures › Dharmic religions": {
+  "zh": "印度系宗教人物",
+  "en": "Dharmic religious figures"
+ },
+ "People › Religious figures › Dharmic religions › Hinduism": {
+  "zh": "印度教人物",
+  "en": "Hindu figures"
+ },
+ "People › Religious figures › Dharmic religions › Buddhism": {
+  "zh": "佛教人物",
+  "en": "Buddhist figures"
+ },
+ "People › Religious figures › Dharmic religions › Other Dharmic": {
+  "zh": "耆那教与锡克教人物",
+  "en": "Jain and Sikh figures"
+ },
+ "People › Religious figures › Other religions": {
+  "zh": "其他宗教人物",
+  "en": "Other religious figures"
+ },
+ "People › Religious figures › Other religions › Modern paganism": {
+  "zh": "新异教人物",
+  "en": "Modern pagan figures"
+ },
+ "People › Religious figures › Other religions › New Age": {
+  "zh": "新纪元运动人物",
+  "en": "New Age figures"
+ },
+ "People › Religious figures › Other religions › New Thought": {
+  "zh": "新思想运动人物",
+  "en": "New Thought figures"
+ },
+ "People › Religious figures › Other religions › Scientology": {
+  "zh": "山达基人物",
+  "en": "Scientology figures"
+ },
+ "People › Religious figures › Other religions › Zoroastrianism": {
+  "zh": "琐罗亚斯德教人物",
+  "en": "Zoroastrian figures"
+ },
+ "People › Religious figures › Other religions › Other": {
+  "zh": "神秘学与新兴宗教人物",
+  "en": "Occultists and new religions"
+ },
+ "People › Scientists, inventors, and mathematicians": {
+  "zh": "科学家、发明家与数学家",
+  "en": "Scientists, inventors, mathematicians"
+ },
+ "People › Scientists, inventors, and mathematicians › Pre-modern figures": {
+  "zh": "古代与中古科学家",
+  "en": "Pre-modern scientists"
+ },
+ "People › Scientists, inventors, and mathematicians › Pre-modern figures › Ancient": {
+  "zh": "古代科学家",
+  "en": "Ancient scientists"
+ },
+ "People › Scientists, inventors, and mathematicians › Pre-modern figures › Post-classical": {
+  "zh": "中古科学家",
+  "en": "Medieval scientists"
+ },
+ "People › Scientists, inventors, and mathematicians › Physics": {
+  "zh": "物理学家",
+  "en": "Physicists"
+ },
+ "People › Scientists, inventors, and mathematicians › Physics › Physicists of the early modern era": {
+  "zh": "近代早期物理学家",
+  "en": "Early modern physicists"
+ },
+ "People › Scientists, inventors, and mathematicians › Physics › Physicists of the modern era": {
+  "zh": "近代物理学家",
+  "en": "Modern physicists"
+ },
+ "People › Scientists, inventors, and mathematicians › Physics › Physicists of the Contemporary era": {
+  "zh": "当代物理学家",
+  "en": "Contemporary physicists"
+ },
+ "People › Scientists, inventors, and mathematicians › Physics › Nuclear physicists and nuclear chemists": {
+  "zh": "核物理学家与核化学家",
+  "en": "Nuclear physicists and chemists"
+ },
+ "People › Scientists, inventors, and mathematicians › Astronomy and geodesy": {
+  "zh": "天文与大地测量学家",
+  "en": "Astronomers and geodesists"
+ },
+ "People › Scientists, inventors, and mathematicians › Astronomy and geodesy › Astronomers of the Early modern era": {
+  "zh": "近代早期天文学家",
+  "en": "Early modern astronomers"
+ },
+ "People › Scientists, inventors, and mathematicians › Astronomy and geodesy › Astronomers of the Modern era": {
+  "zh": "近现代天文学家",
+  "en": "Modern astronomers"
+ },
+ "People › Scientists, inventors, and mathematicians › Chemistry": {
+  "zh": "化学家",
+  "en": "Chemists"
+ },
+ "People › Scientists, inventors, and mathematicians › Chemistry › Chemists of the Early modern era": {
+  "zh": "近代早期化学家",
+  "en": "Early modern chemists"
+ },
+ "People › Scientists, inventors, and mathematicians › Chemistry › Chemists of the Modern era": {
+  "zh": "近现代化学家",
+  "en": "Modern chemists"
+ },
+ "People › Scientists, inventors, and mathematicians › Chemistry › Western Asia": {
+  "zh": "西亚化学家",
+  "en": "Western Asian chemists"
+ },
+ "People › Scientists, inventors, and mathematicians › Biology": {
+  "zh": "生物学家",
+  "en": "Biologists"
+ },
+ "People › Scientists, inventors, and mathematicians › Biology › Biologists of the Early modern era": {
+  "zh": "近代早期生物学家",
+  "en": "Early modern biologists"
+ },
+ "People › Scientists, inventors, and mathematicians › Biology › Biologists of the Modern era": {
+  "zh": "近现代生物学家",
+  "en": "Modern biologists"
+ },
+ "People › Scientists, inventors, and mathematicians › Biology › Biochemists": {
+  "zh": "生物化学家",
+  "en": "Biochemists"
+ },
+ "People › Scientists, inventors, and mathematicians › Medicine": {
+  "zh": "医学家",
+  "en": "Medical scientists"
+ },
+ "People › Scientists, inventors, and mathematicians › Medicine › Medical scientists and health professionals of the Early modern era": {
+  "zh": "近代早期医学家",
+  "en": "Early modern medical scientists"
+ },
+ "People › Scientists, inventors, and mathematicians › Medicine › Medical scientists and health professionals of the Modern era": {
+  "zh": "近现代医学家",
+  "en": "Modern medical scientists"
+ },
+ "People › Scientists, inventors, and mathematicians › Earth science and physical geography": {
+  "zh": "地球科学家与地理学家",
+  "en": "Earth scientists and geographers"
+ },
+ "People › Scientists, inventors, and mathematicians › Earth science and physical geography › Earth scientists and physical geographers of the Early modern era": {
+  "zh": "近代早期地球科学家",
+  "en": "Early modern earth scientists"
+ },
+ "People › Scientists, inventors, and mathematicians › Earth science and physical geography › Earth scientists and physical geographers of the Modern era": {
+  "zh": "近现代地球科学家",
+  "en": "Modern earth scientists"
+ },
+ "People › Scientists, inventors, and mathematicians › Inventors and engineers": {
+  "zh": "发明家与工程师",
+  "en": "Inventors and engineers"
+ },
+ "People › Scientists, inventors, and mathematicians › Inventors and engineers › Inventors and engineers of the Early modern era": {
+  "zh": "近代早期发明家",
+  "en": "Early modern inventors and engineers"
+ },
+ "People › Scientists, inventors, and mathematicians › Inventors and engineers › Inventors and engineers of the Modern era": {
+  "zh": "近现代发明家",
+  "en": "Modern inventors and engineers"
+ },
+ "People › Scientists, inventors, and mathematicians › Mathematicians": {
+  "zh": "数学家",
+  "en": "Mathematicians"
+ },
+ "People › Scientists, inventors, and mathematicians › Mathematicians › Mathematicians of the Early modern era": {
+  "zh": "近代早期数学家",
+  "en": "Early modern mathematicians"
+ },
+ "People › Scientists, inventors, and mathematicians › Mathematicians › Mathematicians of the Modern era": {
+  "zh": "近现代数学家",
+  "en": "Modern mathematicians"
+ },
+ "People › Scientists, inventors, and mathematicians › Computer scientists and programmers": {
+  "zh": "计算机科学家与程序员",
+  "en": "Computer scientists and programmers"
+ },
+ "People › Scientists, inventors, and mathematicians › Computer scientists and programmers › United States": {
+  "zh": "美国计算机科学家",
+  "en": "US computer scientists"
+ },
+ "People › Scientists, inventors, and mathematicians › Computer scientists and programmers › Canada": {
+  "zh": "加拿大计算机科学家",
+  "en": "Canadian computer scientists"
+ },
+ "People › Scientists, inventors, and mathematicians › Computer scientists and programmers › Asia": {
+  "zh": "亚洲计算机科学家",
+  "en": "Asian computer scientists"
+ },
+ "People › Scientists, inventors, and mathematicians › Computer scientists and programmers › British Isles": {
+  "zh": "英伦计算机科学家",
+  "en": "British and Irish computer scientists"
+ },
+ "People › Scientists, inventors, and mathematicians › Computer scientists and programmers › Other parts of Europe": {
+  "zh": "欧陆计算机科学家",
+  "en": "Continental European computer scientists"
+ },
+ "People › Scientists, inventors, and mathematicians › Computer scientists and programmers › Unknown countries": {
+  "zh": "国籍不明计算机科学家",
+  "en": "Computer scientists of unknown origin"
+ },
+ "People › Sports figures": {
+  "zh": "体育人物",
+  "en": "Sports figures"
+ },
+ "People › Sports figures › Team sports": {
+  "zh": "集体项目运动员",
+  "en": "Team sport athletes"
+ },
+ "People › Sports figures › Team sports › Association football": {
+  "zh": "足球运动员",
+  "en": "Association football players"
+ },
+ "People › Sports figures › Team sports › Basketball": {
+  "zh": "篮球运动员",
+  "en": "Basketball players"
+ },
+ "People › Sports figures › Team sports › Baseball": {
+  "zh": "棒球运动员",
+  "en": "Baseball players"
+ },
+ "People › Sports figures › Team sports › Cricket": {
+  "zh": "板球运动员",
+  "en": "Cricketers"
+ },
+ "People › Sports figures › Team sports › Ice hockey": {
+  "zh": "冰球运动员",
+  "en": "Ice hockey players"
+ },
+ "People › Sports figures › Team sports › American football": {
+  "zh": "美式橄榄球运动员",
+  "en": "American football players"
+ },
+ "People › Sports figures › Team sports › Rugby": {
+  "zh": "英式橄榄球运动员",
+  "en": "Rugby players"
+ },
+ "People › Sports figures › Team sports › Other team sports": {
+  "zh": "其他集体项目运动员",
+  "en": "Other team sport athletes"
+ },
+ "People › Sports figures › Individual sports": {
+  "zh": "个人项目运动员",
+  "en": "Individual sport athletes"
+ },
+ "People › Sports figures › Individual sports › Tennis": {
+  "zh": "网球运动员",
+  "en": "Tennis players"
+ },
+ "People › Sports figures › Individual sports › Golf": {
+  "zh": "高尔夫球手",
+  "en": "Golfers"
+ },
+ "People › Sports figures › Individual sports › Athletics": {
+  "zh": "田径运动员",
+  "en": "Track and field athletes"
+ },
+ "People › Sports figures › Individual sports › Figure skating": {
+  "zh": "花样滑冰运动员",
+  "en": "Figure skaters"
+ },
+ "People › Sports figures › Individual sports › Martial arts": {
+  "zh": "武术与格斗人物",
+  "en": "Martial artists and fighters"
+ },
+ "People › Sports figures › Individual sports › Cycling": {
+  "zh": "自行车运动员",
+  "en": "Cyclists"
+ },
+ "People › Sports figures › Individual sports › Gymnastics": {
+  "zh": "体操运动员",
+  "en": "Gymnasts"
+ },
+ "People › Sports figures › Individual sports › Motor racing": {
+  "zh": "赛车手",
+  "en": "Racing drivers"
+ },
+ "People › Sports figures › Individual sports › Water sports": {
+  "zh": "水上项目运动员",
+  "en": "Water sports athletes"
+ },
+ "People › Sports figures › Individual sports › Outdoor sports": {
+  "zh": "户外项目运动员",
+  "en": "Outdoor sports athletes"
+ },
+ "People › Sports figures › Individual sports › Tabletop games and other competitions": {
+  "zh": "棋牌与其他竞技选手",
+  "en": "Board game and contest players"
+ },
+ "People › Sports figures › Individual sports › Other individual sports": {
+  "zh": "其他个人项目运动员",
+  "en": "Other individual athletes"
+ },
+ "People › Sports figures › Individual sports › Ancient sports": {
+  "zh": "古代运动员",
+  "en": "Ancient athletes"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees": {
+  "zh": "教练、裁判与体育管理者",
+  "en": "Coaches, referees and executives"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › American football business-people, coaches, and referees": {
+  "zh": "美式橄榄球教练与管理者",
+  "en": "American football coaches and executives"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Association football business-people, coaches, and referees": {
+  "zh": "足球教练与管理者",
+  "en": "Association football coaches and officials"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Baseball business-people, coaches, and referees": {
+  "zh": "棒球教练与管理者",
+  "en": "Baseball managers and executives"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Basketball business-people, coaches, and referees": {
+  "zh": "篮球教练",
+  "en": "Basketball coaches"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Bodybuilding business-people, coaches, and referees": {
+  "zh": "健美运动经营者",
+  "en": "Bodybuilding promoters"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Boxing business-people, coaches, and referees": {
+  "zh": "拳击教练与推广人",
+  "en": "Boxing trainers and promoters"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Cycling business-people, coaches, and referees": {
+  "zh": "自行车运动组织者",
+  "en": "Cycling race organizers"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Equestrianism business-people, coaches, and referees": {
+  "zh": "马术教练与驯马师",
+  "en": "Riding masters and horse trainers"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Gymnastics business-people, coaches, and referees": {
+  "zh": "体操教练与先驱",
+  "en": "Gymnastics coaches and pioneers"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Ice hockey business-people, coaches, and referees": {
+  "zh": "冰球教练与管理者",
+  "en": "Ice hockey coaches and executives"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Olympics officials": {
+  "zh": "奥运会官员",
+  "en": "Olympic officials"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Racing business-people, coaches, and referees": {
+  "zh": "赛车运动经营者",
+  "en": "Motorsport executives"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Rugby union business-people, coaches, and referees": {
+  "zh": "英式橄榄球教练与先驱",
+  "en": "Rugby coaches and pioneers"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Tennis business-people, coaches, and referees": {
+  "zh": "网球教练",
+  "en": "Tennis coaches"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Track and Field business-people, coaches, and referees": {
+  "zh": "田径教练",
+  "en": "Track and field coaches"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Volleyball business-people, coaches, and referees": {
+  "zh": "排球教练与创始人",
+  "en": "Volleyball founders and coaches"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Water polo business-people, coaches, and referees": {
+  "zh": "水球教练与先驱",
+  "en": "Water polo coaches and pioneers"
+ },
+ "People › Sports figures › Sports business-people, coaches, and referees › Multiple sports business-people, coaches, and referees": {
+  "zh": "跨项目体育经营者",
+  "en": "Multi-sport owners and executives"
+ },
+ "People › Writers and journalists": {
+  "zh": "作家与记者",
+  "en": "Writers and journalists"
+ },
+ "People › Writers and journalists › Writers": {
+  "zh": "作家",
+  "en": "Writers"
+ },
+ "People › Writers and journalists › Writers › Prose writers": {
+  "zh": "小说与散文作家",
+  "en": "Novelists and prose writers"
+ },
+ "People › Writers and journalists › Writers › Poets": {
+  "zh": "诗人",
+  "en": "Poets"
+ },
+ "People › Writers and journalists › Writers › Playwrights": {
+  "zh": "剧作家",
+  "en": "Playwrights"
+ },
+ "People › Writers and journalists › Writers › Comics writers and graphic novelists": {
+  "zh": "漫画作者与图像小说家",
+  "en": "Comics writers and graphic novelists"
+ },
+ "People › Writers and journalists › Writers › Librettists": {
+  "zh": "歌剧剧本作家",
+  "en": "Librettists"
+ },
+ "People › Writers and journalists › Journalists": {
+  "zh": "新闻工作者",
+  "en": "Journalists"
+ },
+ "People › Writers and journalists › Journalists › Journalists: General": {
+  "zh": "记者与专栏作家",
+  "en": "Reporters and columnists"
+ },
+ "People › Writers and journalists › Journalists › Broadcast journalists, presenters and commentators": {
+  "zh": "广播电视记者与主持人",
+  "en": "Broadcast journalists and presenters"
+ },
+ "People › Writers and journalists › Journalists › Critics": {
+  "zh": "文艺评论家",
+  "en": "Critics and reviewers"
+ },
+ "People › Writers and journalists › Journalists › Photojournalists": {
+  "zh": "新闻摄影记者",
+  "en": "Photojournalists"
+ },
+ "People › Writers and journalists › Journalists › Publishers and editors": {
+  "zh": "出版人与编辑",
+  "en": "Publishers and editors"
+ },
+ "People › Writers and journalists › Journalists › Sports journalists, sportswriters, commentators and sports announcers": {
+  "zh": "体育记者与解说员",
+  "en": "Sports journalists and commentators"
+ },
+ "People › Writers and journalists › Journalists › Web journalists": {
+  "zh": "网络媒体人",
+  "en": "Online journalists"
+ },
+ "Arts": {
+  "zh": "艺术",
+  "en": "Arts"
+ },
+ "Arts › Audiovisual arts": {
+  "zh": "视觉与表演艺术",
+  "en": "Visual and performing arts"
+ },
+ "Arts › Audiovisual arts › Arts: General": {
+  "zh": "艺术概论",
+  "en": "General art topics"
+ },
+ "Arts › Audiovisual arts › Architecture": {
+  "zh": "建筑",
+  "en": "Architecture"
+ },
+ "Arts › Audiovisual arts › Architecture › Basics": {
+  "zh": "建筑基础",
+  "en": "Architecture basics"
+ },
+ "Arts › Audiovisual arts › Architecture › By geographic location": {
+  "zh": "各地建筑",
+  "en": "Architecture by region"
+ },
+ "Arts › Audiovisual arts › Architecture › Styles": {
+  "zh": "建筑风格",
+  "en": "Architectural styles"
+ },
+ "Arts › Audiovisual arts › Architecture › Architectural elements": {
+  "zh": "建筑构件",
+  "en": "Architectural elements"
+ },
+ "Arts › Audiovisual arts › Architecture › Specific structures": {
+  "zh": "著名建筑",
+  "en": "Notable buildings"
+ },
+ "Arts › Audiovisual arts › Cultural venues": {
+  "zh": "文化场所",
+  "en": "Cultural venues"
+ },
+ "Arts › Audiovisual arts › Cultural venues › Museums": {
+  "zh": "博物馆",
+  "en": "Museums"
+ },
+ "Arts › Audiovisual arts › Cultural venues › Specific cultural venues and organizations": {
+  "zh": "著名文化场馆与机构",
+  "en": "Notable venues and institutions"
+ },
+ "Arts › Audiovisual arts › Music": {
+  "zh": "音乐",
+  "en": "Music"
+ },
+ "Arts › Audiovisual arts › Music › Basics": {
+  "zh": "音乐基础",
+  "en": "Music basics"
+ },
+ "Arts › Audiovisual arts › Music › Music genres and forms": {
+  "zh": "音乐流派与体裁",
+  "en": "Music genres and forms"
+ },
+ "Arts › Audiovisual arts › Music › World music": {
+  "zh": "世界各地音乐",
+  "en": "Music around the world"
+ },
+ "Arts › Audiovisual arts › Music › Musical instruments": {
+  "zh": "乐器",
+  "en": "Musical instruments"
+ },
+ "Arts › Audiovisual arts › Music › Specific musical works": {
+  "zh": "著名音乐作品",
+  "en": "Notable musical works"
+ },
+ "Arts › Audiovisual arts › Performing arts": {
+  "zh": "表演艺术",
+  "en": "Performing arts"
+ },
+ "Arts › Audiovisual arts › Performing arts › Concepts": {
+  "zh": "表演艺术概念",
+  "en": "Performing arts concepts"
+ },
+ "Arts › Audiovisual arts › Performing arts › Forms": {
+  "zh": "表演艺术形式",
+  "en": "Forms of performing arts"
+ },
+ "Arts › Audiovisual arts › Visual arts": {
+  "zh": "视觉艺术",
+  "en": "Visual arts"
+ },
+ "Arts › Audiovisual arts › Visual arts › History of art": {
+  "zh": "美术史",
+  "en": "Art history"
+ },
+ "Arts › Audiovisual arts › Visual arts › Concepts and forms": {
+  "zh": "视觉艺术概念与形式",
+  "en": "Visual art concepts and forms"
+ },
+ "Arts › Audiovisual arts › Visual arts › Specific works of visual art": {
+  "zh": "著名艺术作品",
+  "en": "Notable artworks"
+ },
+ "Arts › Narrative arts": {
+  "zh": "叙事艺术",
+  "en": "Narrative arts"
+ },
+ "Arts › Narrative arts › Concepts of fiction and narrative": {
+  "zh": "叙事与虚构概念",
+  "en": "Narrative and fiction concepts"
+ },
+ "Arts › Narrative arts › Concepts of fiction and narrative › Narrative": {
+  "zh": "叙事要素",
+  "en": "Elements of narrative"
+ },
+ "Arts › Narrative arts › Concepts of fiction and narrative › Characters and archetypes": {
+  "zh": "人物与原型",
+  "en": "Characters and archetypes"
+ },
+ "Arts › Narrative arts › Concepts of fiction and narrative › Genres": {
+  "zh": "虚构作品类型",
+  "en": "Genres of fiction"
+ },
+ "Arts › Narrative arts › Literature": {
+  "zh": "文学",
+  "en": "Literature"
+ },
+ "Arts › Narrative arts › Literature › Basics": {
+  "zh": "文学基础",
+  "en": "Literature basics"
+ },
+ "Arts › Narrative arts › Literature › Literary genres": {
+  "zh": "文学体裁",
+  "en": "Literary genres"
+ },
+ "Arts › Narrative arts › Literature › Literatures by religion, language and region": {
+  "zh": "各地区与语种文学",
+  "en": "Literature by region and language"
+ },
+ "Arts › Narrative arts › Literature › Specific works of non-fiction literature": {
+  "zh": "著名非虚构作品",
+  "en": "Notable non-fiction works"
+ },
+ "Arts › Narrative arts › Literature › Specific works of fiction literature": {
+  "zh": "著名虚构文学作品",
+  "en": "Notable works of fiction"
+ },
+ "Arts › Narrative arts › Literature › Poetic works": {
+  "zh": "著名诗歌作品",
+  "en": "Notable poems"
+ },
+ "Arts › Narrative arts › Theatre": {
+  "zh": "戏剧",
+  "en": "Theatre"
+ },
+ "Arts › Narrative arts › Theatre › Comedy": {
+  "zh": "喜剧表演",
+  "en": "Stage comedy"
+ },
+ "Arts › Narrative arts › Theatre › Drama": {
+  "zh": "戏剧体裁",
+  "en": "Dramatic genres"
+ },
+ "Arts › Narrative arts › Theatre › Musical theatre": {
+  "zh": "音乐剧",
+  "en": "Musical theatre"
+ },
+ "Arts › Narrative arts › Theatre › Stagecraft": {
+  "zh": "舞台技术",
+  "en": "Stagecraft"
+ },
+ "Arts › Narrative arts › Theatre › Theatre by location or era": {
+  "zh": "各地各时代戏剧",
+  "en": "Theatre by region and era"
+ },
+ "Arts › Narrative arts › Film and television": {
+  "zh": "影视",
+  "en": "Film and television"
+ },
+ "Arts › Narrative arts › Film and television › Basic film and television concepts": {
+  "zh": "影视基础概念",
+  "en": "Film and TV basics"
+ },
+ "Arts › Narrative arts › Film and television › Specific films": {
+  "zh": "著名电影",
+  "en": "Notable films"
+ },
+ "Arts › Narrative arts › Film and television › Specific television shows": {
+  "zh": "著名电视节目",
+  "en": "Notable TV shows"
+ },
+ "Arts › Narrative arts › Film and television › Specific web video shows": {
+  "zh": "著名网络视频节目",
+  "en": "Notable web video shows"
+ },
+ "Arts › Narrative arts › Fictional and legendary characters": {
+  "zh": "虚构与传说人物",
+  "en": "Fictional and legendary characters"
+ },
+ "Arts › Narrative arts › Fictional and legendary characters › Western folklore": {
+  "zh": "西方传说人物",
+  "en": "Western folklore figures"
+ },
+ "Arts › Narrative arts › Fictional and legendary characters › Eastern folklore": {
+  "zh": "东方传说人物",
+  "en": "Eastern folklore figures"
+ },
+ "Arts › Narrative arts › Fictional and legendary characters › Literature and drama": {
+  "zh": "文学与戏剧人物",
+  "en": "Literary and stage characters"
+ },
+ "Arts › Narrative arts › Fictional and legendary characters › Mass media": {
+  "zh": "流行文化角色",
+  "en": "Pop culture characters"
+ },
+ "Everyday life": {
+  "zh": "日常生活",
+  "en": "Everyday life"
+ },
+ "Everyday life › Everyday life: General": {
+  "zh": "日常与个人生活",
+  "en": "Everyday and personal life"
+ },
+ "Everyday life › Home living": {
+  "zh": "居家生活",
+  "en": "Home life"
+ },
+ "Everyday life › Home living › Housing": {
+  "zh": "住房",
+  "en": "Housing"
+ },
+ "Everyday life › Clothing and fashion": {
+  "zh": "服饰与时尚",
+  "en": "Clothing and fashion"
+ },
+ "Everyday life › Clothing and fashion › Clothes": {
+  "zh": "服装",
+  "en": "Garments"
+ },
+ "Everyday life › Clothing and fashion › Accessories": {
+  "zh": "配饰与随身用品",
+  "en": "Accessories"
+ },
+ "Everyday life › Clothing and fashion › Hair": {
+  "zh": "发型与胡须",
+  "en": "Hair and facial hair"
+ },
+ "Everyday life › Clothing and fashion › Cosmetics": {
+  "zh": "化妆品",
+  "en": "Cosmetics"
+ },
+ "Everyday life › Clothing and fashion › Other": {
+  "zh": "其他服饰话题",
+  "en": "Other clothing topics"
+ },
+ "Everyday life › Cooking, food and drink": {
+  "zh": "饮食与烹饪",
+  "en": "Food, drink and cooking"
+ },
+ "Everyday life › Cooking, food and drink › Basics": {
+  "zh": "饮食基础",
+  "en": "Food and drink basics"
+ },
+ "Everyday life › Cooking, food and drink › Cuisine": {
+  "zh": "菜系",
+  "en": "Cuisines"
+ },
+ "Everyday life › Cooking, food and drink › Preparation and serving": {
+  "zh": "烹饪与食物加工",
+  "en": "Food preparation and serving"
+ },
+ "Everyday life › Cooking, food and drink › Cooking oils": {
+  "zh": "食用油",
+  "en": "Cooking oils"
+ },
+ "Everyday life › Cooking, food and drink › Grains-based products": {
+  "zh": "谷物及其制品",
+  "en": "Grains and grain products"
+ },
+ "Everyday life › Cooking, food and drink › Meat and other animal products": {
+  "zh": "肉类与动物性食品",
+  "en": "Meat and animal products"
+ },
+ "Everyday life › Cooking, food and drink › Dairy and analogues": {
+  "zh": "乳制品及替代品",
+  "en": "Dairy and alternatives"
+ },
+ "Everyday life › Cooking, food and drink › Herbs and condiments": {
+  "zh": "香料与调味品",
+  "en": "Herbs, spices and condiments"
+ },
+ "Everyday life › Cooking, food and drink › Food types": {
+  "zh": "菜肴与食品",
+  "en": "Dishes and food types"
+ },
+ "Everyday life › Cooking, food and drink › Confectionery": {
+  "zh": "糕点与糖果",
+  "en": "Sweets and pastries"
+ },
+ "Everyday life › Cooking, food and drink › Drinks": {
+  "zh": "饮料",
+  "en": "Drinks"
+ },
+ "Everyday life › Household items": {
+  "zh": "家居用品",
+  "en": "Household items"
+ },
+ "Everyday life › Household items › Furniture and interior design": {
+  "zh": "家具与室内设计",
+  "en": "Furniture and interior design"
+ },
+ "Everyday life › Household items › Cooking and eating": {
+  "zh": "厨具与餐具",
+  "en": "Kitchenware and tableware"
+ },
+ "Everyday life › Household items › Other": {
+  "zh": "其他家居用品",
+  "en": "Other household items"
+ },
+ "Everyday life › Family and kinship": {
+  "zh": "家庭与亲属",
+  "en": "Family and kinship"
+ },
+ "Everyday life › Family and kinship › Family: General": {
+  "zh": "家庭形态",
+  "en": "Family structures"
+ },
+ "Everyday life › Family and kinship › Kinship": {
+  "zh": "亲属关系",
+  "en": "Kinship"
+ },
+ "Everyday life › Family and kinship › Interpersonal relationships": {
+  "zh": "人际关系",
+  "en": "Relationships"
+ },
+ "Everyday life › Family and kinship › Marriage": {
+  "zh": "婚姻",
+  "en": "Marriage"
+ },
+ "Everyday life › Family and kinship › Parenting": {
+  "zh": "育儿",
+  "en": "Parenting"
+ },
+ "Everyday life › Family and kinship › Family members": {
+  "zh": "家庭成员",
+  "en": "Family members"
+ },
+ "Everyday life › Sexuality and gender": {
+  "zh": "性与性别",
+  "en": "Sexuality and gender"
+ },
+ "Everyday life › Sexuality and gender › Gender": {
+  "zh": "性别",
+  "en": "Gender"
+ },
+ "Everyday life › Sexuality and gender › Sexual orientation": {
+  "zh": "性取向",
+  "en": "Sexual orientation"
+ },
+ "Everyday life › Sexuality and gender › Sexuality": {
+  "zh": "人类性行为",
+  "en": "Human sexuality"
+ },
+ "Everyday life › Stages of life": {
+  "zh": "人生阶段",
+  "en": "Stages of life"
+ },
+ "Everyday life › Sports, games and recreation": {
+  "zh": "体育、游戏与休闲",
+  "en": "Sports, games and recreation"
+ },
+ "Everyday life › Sports, games and recreation › Entertainment": {
+  "zh": "娱乐",
+  "en": "Entertainment"
+ },
+ "Everyday life › Sports, games and recreation › Entertainment › Entertainment and leisure": {
+  "zh": "休闲与爱好",
+  "en": "Leisure and hobbies"
+ },
+ "Everyday life › Sports, games and recreation › Entertainment › Recreation and tourism": {
+  "zh": "游乐与旅游",
+  "en": "Recreation and tourism"
+ },
+ "Everyday life › Sports, games and recreation › Entertainment › Toys": {
+  "zh": "玩具",
+  "en": "Toys"
+ },
+ "Everyday life › Sports, games and recreation › Games": {
+  "zh": "游戏",
+  "en": "Games"
+ },
+ "Everyday life › Sports, games and recreation › Games › General game topics": {
+  "zh": "游戏基本概念",
+  "en": "Game concepts"
+ },
+ "Everyday life › Sports, games and recreation › Games › Tabletop games": {
+  "zh": "桌面游戏",
+  "en": "Tabletop games"
+ },
+ "Everyday life › Sports, games and recreation › Games › Video games": {
+  "zh": "电子游戏",
+  "en": "Video games"
+ },
+ "Everyday life › Sports, games and recreation › Games › Gambling": {
+  "zh": "博彩",
+  "en": "Gambling"
+ },
+ "Everyday life › Sports, games and recreation › Games › Other games and plays": {
+  "zh": "其他游戏",
+  "en": "Other games"
+ },
+ "Everyday life › Sports, games and recreation › Sports": {
+  "zh": "体育运动",
+  "en": "Sports"
+ },
+ "Everyday life › Sports, games and recreation › Sports › Basics": {
+  "zh": "体育基础",
+  "en": "Sports basics"
+ },
+ "Everyday life › Sports, games and recreation › Sports › Sports equipment": {
+  "zh": "体育器材",
+  "en": "Sports equipment"
+ },
+ "Everyday life › Sports, games and recreation › Sports › International competitions": {
+  "zh": "国际体育赛事",
+  "en": "International sporting events"
+ },
+ "Everyday life › Sports, games and recreation › Sports › Team sports": {
+  "zh": "团体运动",
+  "en": "Team sports"
+ },
+ "Everyday life › Sports, games and recreation › Sports › Air sports": {
+  "zh": "航空运动",
+  "en": "Air sports"
+ },
+ "Everyday life › Sports, games and recreation › Sports › Animal sport": {
+  "zh": "动物竞技",
+  "en": "Animal sports"
+ },
+ "Everyday life › Sports, games and recreation › Sports › Athletics": {
+  "zh": "田径",
+  "en": "Athletics"
+ },
+ "Everyday life › Sports, games and recreation › Sports › Combat sport and martial arts": {
+  "zh": "格斗与武术",
+  "en": "Combat sports and martial arts"
+ },
+ "Everyday life › Sports, games and recreation › Sports › Cycling": {
+  "zh": "自行车运动",
+  "en": "Cycling"
+ },
+ "Everyday life › Sports, games and recreation › Sports › Gymnastics": {
+  "zh": "体操",
+  "en": "Gymnastics"
+ },
+ "Everyday life › Sports, games and recreation › Sports › Motor racing": {
+  "zh": "赛车运动",
+  "en": "Motor racing"
+ },
+ "Everyday life › Sports, games and recreation › Sports › Skating": {
+  "zh": "滑冰与轮滑",
+  "en": "Skating"
+ },
+ "Everyday life › Sports, games and recreation › Sports › Water sports": {
+  "zh": "水上运动",
+  "en": "Water sports"
+ },
+ "Everyday life › Sports, games and recreation › Sports › Winter sports": {
+  "zh": "冬季运动",
+  "en": "Winter sports"
+ },
+ "Everyday life › Sports, games and recreation › Sports › Other individual sports": {
+  "zh": "其他个人运动",
+  "en": "Other individual sports"
+ },
+ "Everyday life › Sports, games and recreation › Sports organizations": {
+  "zh": "体育组织",
+  "en": "Sports organizations"
+ },
+ "Everyday life › Sports, games and recreation › Sports organizations › Sports leagues": {
+  "zh": "体育联赛",
+  "en": "Sports leagues"
+ },
+ "Everyday life › Sports, games and recreation › Sports organizations › Sports teams and clubs": {
+  "zh": "运动队与俱乐部",
+  "en": "Sports teams and clubs"
+ },
+ "Everyday life › Sports, games and recreation › Sports organizations › Governing authorities": {
+  "zh": "体育管理机构",
+  "en": "Sports governing bodies"
+ },
+ "Everyday life › Sports, games and recreation › Sports organizations › Stadiums": {
+  "zh": "体育场馆",
+  "en": "Stadiums and arenas"
+ },
+ "Mathematics": {
+  "zh": "数学",
+  "en": "Mathematics"
+ },
+ "Mathematics › Basics": {
+  "zh": "数学入门",
+  "en": "Math basics"
+ },
+ "Mathematics › Basics › Number systems": {
+  "zh": "数与数系",
+  "en": "Numbers and number systems"
+ },
+ "Mathematics › Basics › Number notation": {
+  "zh": "记数法",
+  "en": "Number notation"
+ },
+ "Mathematics › Basics › Arithmetic": {
+  "zh": "算术",
+  "en": "Arithmetic"
+ },
+ "Mathematics › Functions": {
+  "zh": "函数",
+  "en": "Functions"
+ },
+ "Mathematics › Functions › Functions: General": {
+  "zh": "函数基本概念",
+  "en": "Function concepts"
+ },
+ "Mathematics › Functions › Specific functions": {
+  "zh": "常见函数",
+  "en": "Common functions"
+ },
+ "Mathematics › Geometry": {
+  "zh": "几何",
+  "en": "Geometry"
+ },
+ "Mathematics › Geometry › Geometry: General": {
+  "zh": "几何基础",
+  "en": "Geometry basics"
+ },
+ "Mathematics › Geometry › Two-dimensional space": {
+  "zh": "平面几何",
+  "en": "Plane geometry"
+ },
+ "Mathematics › Geometry › Three-dimensional space": {
+  "zh": "立体几何",
+  "en": "Solid geometry"
+ },
+ "Mathematics › Geometry › Four-dimensional space": {
+  "zh": "四维几何",
+  "en": "Four-dimensional geometry"
+ },
+ "Mathematics › Geometry › Trigonometry": {
+  "zh": "三角学",
+  "en": "Trigonometry"
+ },
+ "Mathematics › Geometry › Topology": {
+  "zh": "拓扑学",
+  "en": "Topology"
+ },
+ "Mathematics › Geometry › Measurement": {
+  "zh": "几何度量",
+  "en": "Geometric measurement"
+ },
+ "Mathematics › Geometry › Euclidean geometry": {
+  "zh": "欧几里得几何",
+  "en": "Euclidean geometry"
+ },
+ "Mathematics › Geometry › Non-Euclidean geometry": {
+  "zh": "非欧几何",
+  "en": "Non-Euclidean geometry"
+ },
+ "Mathematics › Geometry › Fractals": {
+  "zh": "分形",
+  "en": "Fractals"
+ },
+ "Mathematics › Geometry › Differential geometry": {
+  "zh": "微分几何",
+  "en": "Differential geometry"
+ },
+ "Mathematics › Geometry › Other": {
+  "zh": "其他几何话题",
+  "en": "Other geometry topics"
+ },
+ "Mathematics › Algebra": {
+  "zh": "代数",
+  "en": "Algebra"
+ },
+ "Mathematics › Algebra › Algebra: General": {
+  "zh": "代数概述",
+  "en": "Algebra overview"
+ },
+ "Mathematics › Algebra › Elementary algebra": {
+  "zh": "初等代数",
+  "en": "Elementary algebra"
+ },
+ "Mathematics › Algebra › Linear algebra": {
+  "zh": "线性代数",
+  "en": "Linear algebra"
+ },
+ "Mathematics › Algebra › Abstract algebra": {
+  "zh": "抽象代数",
+  "en": "Abstract algebra"
+ },
+ "Mathematics › Algebra › Other algebra topics": {
+  "zh": "其他代数话题",
+  "en": "Other algebra topics"
+ },
+ "Mathematics › Statistics and probability": {
+  "zh": "概率与统计",
+  "en": "Probability and statistics"
+ },
+ "Mathematics › Statistics and probability › Probability": {
+  "zh": "概率论",
+  "en": "Probability"
+ },
+ "Mathematics › Statistics and probability › Statistics": {
+  "zh": "统计学",
+  "en": "Statistics"
+ },
+ "Mathematics › Foundations": {
+  "zh": "数理逻辑与数学基础",
+  "en": "Logic and foundations"
+ },
+ "Mathematics › Foundations › Mathematical logic": {
+  "zh": "数理逻辑",
+  "en": "Mathematical logic"
+ },
+ "Mathematics › Foundations › Set theory": {
+  "zh": "集合论",
+  "en": "Set theory"
+ },
+ "Mathematics › Foundations › Axiomatic systems": {
+  "zh": "公理系统",
+  "en": "Axiomatic systems"
+ },
+ "Mathematics › Foundations › Computability theory": {
+  "zh": "可计算性理论",
+  "en": "Computability theory"
+ },
+ "Mathematics › Foundations › Proof theory": {
+  "zh": "证明论",
+  "en": "Proof theory"
+ },
+ "Mathematics › Foundations › Model theory": {
+  "zh": "模型论",
+  "en": "Model theory"
+ },
+ "Mathematics › Foundations › Category theory": {
+  "zh": "范畴论",
+  "en": "Category theory"
+ },
+ "Mathematics › Discrete mathematics": {
+  "zh": "离散数学",
+  "en": "Discrete mathematics"
+ },
+ "Mathematics › Discrete mathematics › Combinatorics": {
+  "zh": "组合数学",
+  "en": "Combinatorics"
+ },
+ "Mathematics › Discrete mathematics › Graph theory": {
+  "zh": "图论",
+  "en": "Graph theory"
+ },
+ "Mathematics › Discrete mathematics › Order theory": {
+  "zh": "序理论",
+  "en": "Order theory"
+ },
+ "Mathematics › Calculus and analysis": {
+  "zh": "微积分与分析",
+  "en": "Calculus and analysis"
+ },
+ "Mathematics › Calculus and analysis › Basics": {
+  "zh": "微积分基础",
+  "en": "Calculus basics"
+ },
+ "Mathematics › Calculus and analysis › Differential calculus": {
+  "zh": "微分学",
+  "en": "Differential calculus"
+ },
+ "Mathematics › Calculus and analysis › Integral calculus": {
+  "zh": "积分学",
+  "en": "Integral calculus"
+ },
+ "Mathematics › Calculus and analysis › Multivariable and vector calculus": {
+  "zh": "多元微积分与向量分析",
+  "en": "Multivariable and vector calculus"
+ },
+ "Mathematics › Calculus and analysis › Differential equations": {
+  "zh": "微分方程",
+  "en": "Differential equations"
+ },
+ "Mathematics › Calculus and analysis › Sequences and series": {
+  "zh": "数列与级数",
+  "en": "Sequences and series"
+ },
+ "Mathematics › Calculus and analysis › Mathematical analysis": {
+  "zh": "分析学",
+  "en": "Mathematical analysis"
+ },
+ "Mathematics › Number theory": {
+  "zh": "数论",
+  "en": "Number theory"
+ },
+ "Mathematics › Number theory › Divisibility": {
+  "zh": "整除与因数",
+  "en": "Divisibility"
+ },
+ "Mathematics › Number theory › Sums and products": {
+  "zh": "整数的和与积",
+  "en": "Sums and products of integers"
+ },
+ "Mathematics › Number theory › Modular arithmetic": {
+  "zh": "同余与模运算",
+  "en": "Modular arithmetic"
+ },
+ "Mathematics › Number theory › Sequences": {
+  "zh": "整数数列",
+  "en": "Integer sequences"
+ },
+ "Mathematics › Number theory › Diophantine equations": {
+  "zh": "丢番图方程",
+  "en": "Diophantine equations"
+ },
+ "Mathematics › Number theory › Subdisciplines of number theory": {
+  "zh": "数论分支",
+  "en": "Branches of number theory"
+ },
+ "Mathematics › Applied mathematics": {
+  "zh": "应用数学",
+  "en": "Applied mathematics"
+ },
+ "Mathematics › Applied mathematics › Game theory": {
+  "zh": "博弈论",
+  "en": "Game theory"
+ },
+ "Mathematics › Applied mathematics › Information theory": {
+  "zh": "信息论",
+  "en": "Information theory"
+ },
+ "Mathematics › Applied mathematics › Optimization": {
+  "zh": "最优化",
+  "en": "Optimization"
+ },
+ "Mathematics › Theoretical computer science": {
+  "zh": "理论计算机科学",
+  "en": "Theoretical computer science"
+ },
+ "Mathematics › Theoretical computer science › Algorithms": {
+  "zh": "算法",
+  "en": "Algorithms"
+ },
+ "Mathematics › Theoretical computer science › Automata theory": {
+  "zh": "自动机理论",
+  "en": "Automata theory"
+ },
+ "Mathematics › Theoretical computer science › Complexity theory": {
+  "zh": "计算复杂性理论",
+  "en": "Computational complexity"
+ },
+ "Mathematics › Theoretical computer science › Data structures and types": {
+  "zh": "数据结构与类型",
+  "en": "Data structures and types"
+ },
+ "Philosophy and religion": {
+  "zh": "哲学与宗教",
+  "en": "Philosophy and religion"
+ },
+ "Philosophy and religion › Philosophy": {
+  "zh": "哲学",
+  "en": "Philosophy"
+ },
+ "Philosophy and religion › Philosophy › Basics": {
+  "zh": "哲学基础",
+  "en": "Philosophy basics"
+ },
+ "Philosophy and religion › Philosophy › Philosophy by region and period": {
+  "zh": "各地各时代哲学",
+  "en": "Philosophy by region and era"
+ },
+ "Philosophy and religion › Philosophy › Philosophical schools and traditions": {
+  "zh": "哲学流派与传统",
+  "en": "Schools of philosophy"
+ },
+ "Philosophy and religion › Philosophy › Religious philosophy": {
+  "zh": "宗教哲学",
+  "en": "Religious philosophy"
+ },
+ "Philosophy and religion › Philosophy › Philosophical branches, approaches and concepts": {
+  "zh": "哲学分支与概念",
+  "en": "Branches and concepts of philosophy"
+ },
+ "Philosophy and religion › Religion and spirituality": {
+  "zh": "宗教与灵性",
+  "en": "Religion and spirituality"
+ },
+ "Philosophy and religion › Religion and spirituality › Basics": {
+  "zh": "宗教基础",
+  "en": "Religion basics"
+ },
+ "Philosophy and religion › Religion and spirituality › Deity": {
+  "zh": "神祇",
+  "en": "Deities"
+ },
+ "Philosophy and religion › Religion and spirituality › Practices": {
+  "zh": "宗教实践",
+  "en": "Religious practices"
+ },
+ "Philosophy and religion › Religion and spirituality › Beliefs": {
+  "zh": "宗教信仰",
+  "en": "Religious beliefs"
+ },
+ "Philosophy and religion › Religion and spirituality › Afterlife": {
+  "zh": "来世",
+  "en": "Afterlife"
+ },
+ "Philosophy and religion › Religion and spirituality › Institutions": {
+  "zh": "宗教制度与组织",
+  "en": "Religious institutions"
+ },
+ "Philosophy and religion › Religion and spirituality › Theistic philosophies": {
+  "zh": "有神论",
+  "en": "Theism"
+ },
+ "Philosophy and religion › Religion and spirituality › Pantheism and nontheistic religions": {
+  "zh": "泛神论与无神宗教",
+  "en": "Pantheism and nontheistic religions"
+ },
+ "Philosophy and religion › Religion and spirituality › Non-theistic philosophies": {
+  "zh": "无神论与不可知论",
+  "en": "Atheism and agnosticism"
+ },
+ "Philosophy and religion › Abrahamic religions": {
+  "zh": "亚伯拉罕诸教",
+  "en": "Abrahamic religions"
+ },
+ "Philosophy and religion › Abrahamic religions › Basics": {
+  "zh": "亚伯拉罕诸教概述",
+  "en": "Abrahamic religions overview"
+ },
+ "Philosophy and religion › Abrahamic religions › Books of the Bible": {
+  "zh": "圣经各卷",
+  "en": "Books of the Bible"
+ },
+ "Philosophy and religion › Abrahamic religions › Christianity": {
+  "zh": "基督教",
+  "en": "Christianity"
+ },
+ "Philosophy and religion › Abrahamic religions › Judaism": {
+  "zh": "犹太教",
+  "en": "Judaism"
+ },
+ "Philosophy and religion › Abrahamic religions › Islam": {
+  "zh": "伊斯兰教",
+  "en": "Islam"
+ },
+ "Philosophy and religion › Abrahamic religions › Mandaeism": {
+  "zh": "曼达安教",
+  "en": "Mandaeism"
+ },
+ "Philosophy and religion › Eastern religions": {
+  "zh": "东方宗教",
+  "en": "Eastern religions"
+ },
+ "Philosophy and religion › Eastern religions › Basics": {
+  "zh": "东方宗教概述",
+  "en": "Eastern religions overview"
+ },
+ "Philosophy and religion › Eastern religions › Hinduism": {
+  "zh": "印度教",
+  "en": "Hinduism"
+ },
+ "Philosophy and religion › Eastern religions › Buddhism": {
+  "zh": "佛教",
+  "en": "Buddhism"
+ },
+ "Philosophy and religion › Eastern religions › Jainism": {
+  "zh": "耆那教",
+  "en": "Jainism"
+ },
+ "Philosophy and religion › Eastern religions › Other": {
+  "zh": "其他东方宗教",
+  "en": "Other Eastern religions"
+ },
+ "Philosophy and religion › Other religions": {
+  "zh": "其他宗教",
+  "en": "Other religions"
+ },
+ "Philosophy and religion › Other religions › Other religions: General": {
+  "zh": "民间与原住民宗教",
+  "en": "Folk and indigenous religions"
+ },
+ "Philosophy and religion › Other religions › Ancient religions": {
+  "zh": "古代宗教",
+  "en": "Ancient religions"
+ },
+ "Philosophy and religion › Other religions › Western esotericism": {
+  "zh": "西方神秘学",
+  "en": "Western esotericism"
+ },
+ "Philosophy and religion › Other religions › New religious movements": {
+  "zh": "新兴宗教运动",
+  "en": "New religious movements"
+ },
+ "Philosophy and religion › Mythology": {
+  "zh": "神话",
+  "en": "Mythology"
+ },
+ "Philosophy and religion › Mythology › Mythology: General": {
+  "zh": "神话与民间传说概论",
+  "en": "Myth and folklore basics"
+ },
+ "Philosophy and religion › Mythology › By culture and religion": {
+  "zh": "各文化与宗教神话",
+  "en": "Mythology by culture"
+ },
+ "Philosophy and religion › Mythology › Mythological figures": {
+  "zh": "神话人物",
+  "en": "Mythological figures"
+ },
+ "Philosophy and religion › Mythology › Mythological creatures": {
+  "zh": "神话生物",
+  "en": "Mythical creatures"
+ },
+ "Philosophy and religion › Mythology › Mythological places": {
+  "zh": "神话地点",
+  "en": "Mythical places"
+ },
+ "Philosophy and religion › Mythology › Mythological objects": {
+  "zh": "神话器物",
+  "en": "Mythical objects"
+ },
+ "Biology and health sciences": {
+  "zh": "生物与健康",
+  "en": "Biology and health"
+ },
+ "Biology and health sciences › Animals": {
+  "zh": "动物",
+  "en": "Animals"
+ },
+ "Biology and health sciences › Animals › General classifications": {
+  "zh": "动物通用类群",
+  "en": "General animal groups"
+ },
+ "Biology and health sciences › Animals › Animal breeds and hybrids": {
+  "zh": "动物品种与杂交种",
+  "en": "Animal breeds and hybrids"
+ },
+ "Biology and health sciences › Animals › Animal breeds and hybrids › Cats": {
+  "zh": "猫品种",
+  "en": "Cat breeds"
+ },
+ "Biology and health sciences › Animals › Animal breeds and hybrids › Cattle": {
+  "zh": "牛品种",
+  "en": "Cattle breeds"
+ },
+ "Biology and health sciences › Animals › Animal breeds and hybrids › Chickens": {
+  "zh": "鸡品种",
+  "en": "Chicken breeds"
+ },
+ "Biology and health sciences › Animals › Animal breeds and hybrids › Dogs": {
+  "zh": "犬种",
+  "en": "Dog breeds and types"
+ },
+ "Biology and health sciences › Animals › Animal breeds and hybrids › Donkeys": {
+  "zh": "驴品种",
+  "en": "Donkey breeds"
+ },
+ "Biology and health sciences › Animals › Animal breeds and hybrids › Goats": {
+  "zh": "山羊品种",
+  "en": "Goat breeds"
+ },
+ "Biology and health sciences › Animals › Animal breeds and hybrids › Horses": {
+  "zh": "马品种",
+  "en": "Horse breeds"
+ },
+ "Biology and health sciences › Animals › Animal breeds and hybrids › Hybrids": {
+  "zh": "杂交动物",
+  "en": "Animal hybrids"
+ },
+ "Biology and health sciences › Animals › Animal breeds and hybrids › Pigeons": {
+  "zh": "鸽品种",
+  "en": "Pigeon breeds"
+ },
+ "Biology and health sciences › Animals › Animal breeds and hybrids › Pigs": {
+  "zh": "猪品种",
+  "en": "Pig breeds"
+ },
+ "Biology and health sciences › Animals › Animal breeds and hybrids › Rabbits": {
+  "zh": "兔品种",
+  "en": "Rabbit breeds"
+ },
+ "Biology and health sciences › Animals › Animal breeds and hybrids › Sheep": {
+  "zh": "绵羊品种",
+  "en": "Sheep breeds"
+ },
+ "Biology and health sciences › Animals › Animal breeds and hybrids › Turkeys": {
+  "zh": "火鸡品种",
+  "en": "Turkey breeds"
+ },
+ "Biology and health sciences › Animals › Individual animals": {
+  "zh": "著名动物个体",
+  "en": "Famous individual animals"
+ },
+ "Biology and health sciences › Animals › Vertebrates": {
+  "zh": "脊椎动物",
+  "en": "Vertebrates"
+ },
+ "Biology and health sciences › Animals › Vertebrates › General classifications": {
+  "zh": "脊椎动物主要类群",
+  "en": "Major vertebrate groups"
+ },
+ "Biology and health sciences › Animals › Vertebrates › Mammals": {
+  "zh": "哺乳动物",
+  "en": "Mammals"
+ },
+ "Biology and health sciences › Animals › Vertebrates › Proto-mammals": {
+  "zh": "似哺乳爬行动物",
+  "en": "Proto-mammals"
+ },
+ "Biology and health sciences › Animals › Vertebrates › Birds": {
+  "zh": "鸟类",
+  "en": "Birds"
+ },
+ "Biology and health sciences › Animals › Vertebrates › Reptiles": {
+  "zh": "爬行动物",
+  "en": "Reptiles"
+ },
+ "Biology and health sciences › Animals › Vertebrates › Reptiliomorphs": {
+  "zh": "爬行形类",
+  "en": "Reptiliomorphs"
+ },
+ "Biology and health sciences › Animals › Vertebrates › Amphibians": {
+  "zh": "两栖动物",
+  "en": "Amphibians"
+ },
+ "Biology and health sciences › Animals › Vertebrates › Fishes": {
+  "zh": "鱼类",
+  "en": "Fishes"
+ },
+ "Biology and health sciences › Animals › Vertebrates › Agnatha": {
+  "zh": "无颌类",
+  "en": "Jawless fishes"
+ },
+ "Biology and health sciences › Animals › Arthropods": {
+  "zh": "节肢动物",
+  "en": "Arthropods"
+ },
+ "Biology and health sciences › Animals › Arthropods › Crustaceans": {
+  "zh": "甲壳动物",
+  "en": "Crustaceans"
+ },
+ "Biology and health sciences › Animals › Arthropods › Arachnids": {
+  "zh": "蛛形纲",
+  "en": "Arachnids"
+ },
+ "Biology and health sciences › Animals › Arthropods › Insects and other hexapods": {
+  "zh": "昆虫与其他六足动物",
+  "en": "Insects and other hexapods"
+ },
+ "Biology and health sciences › Animals › Arthropods › Myriapoda": {
+  "zh": "多足类",
+  "en": "Myriapods"
+ },
+ "Biology and health sciences › Animals › Arthropods › Chelicerata (except arachnids)": {
+  "zh": "其他螯肢动物",
+  "en": "Other chelicerates"
+ },
+ "Biology and health sciences › Animals › Arthropods › Fossil arthropods": {
+  "zh": "化石节肢动物",
+  "en": "Fossil arthropods"
+ },
+ "Biology and health sciences › Animals › Mollusks": {
+  "zh": "软体动物",
+  "en": "Mollusks"
+ },
+ "Biology and health sciences › Animals › Mollusks › Bivalvia": {
+  "zh": "双壳纲",
+  "en": "Bivalves"
+ },
+ "Biology and health sciences › Animals › Mollusks › Cephalopods": {
+  "zh": "头足纲",
+  "en": "Cephalopods"
+ },
+ "Biology and health sciences › Animals › Mollusks › Gastropods": {
+  "zh": "腹足纲",
+  "en": "Gastropods"
+ },
+ "Biology and health sciences › Animals › Echinoderms": {
+  "zh": "棘皮动物",
+  "en": "Echinoderms"
+ },
+ "Biology and health sciences › Animals › Bilateria, others": {
+  "zh": "其他两侧对称动物",
+  "en": "Other bilaterians"
+ },
+ "Biology and health sciences › Animals › Bilateria, others › Chordata (except vertebrates)": {
+  "zh": "原索动物",
+  "en": "Invertebrate chordates"
+ },
+ "Biology and health sciences › Animals › Bilateria, others › Ecdysozoa": {
+  "zh": "蜕皮动物",
+  "en": "Ecdysozoans"
+ },
+ "Biology and health sciences › Animals › Bilateria, others › Spiralia": {
+  "zh": "螺旋动物",
+  "en": "Spiralians"
+ },
+ "Biology and health sciences › Animals › Bilateria, others › Bilateria, others": {
+  "zh": "半索动物与异无腔动物",
+  "en": "Hemichordates and xenacoelomorphs"
+ },
+ "Biology and health sciences › Animals › Cnidarians": {
+  "zh": "刺胞动物",
+  "en": "Cnidarians"
+ },
+ "Biology and health sciences › Animals › Porifera": {
+  "zh": "海绵动物",
+  "en": "Sponges"
+ },
+ "Biology and health sciences › Animals › Other animals": {
+  "zh": "其他动物类群",
+  "en": "Other animal groups"
+ },
+ "Biology and health sciences › Biology": {
+  "zh": "生物学",
+  "en": "Biology"
+ },
+ "Biology and health sciences › Biology › Biology basics": {
+  "zh": "生物学基础",
+  "en": "Biology basics"
+ },
+ "Biology and health sciences › Biology › Biology basics › Paleontology": {
+  "zh": "古生物学",
+  "en": "Paleontology"
+ },
+ "Biology and health sciences › Biology › Biology basics › Phylogenetics and taxonomy": {
+  "zh": "系统发育与分类学",
+  "en": "Phylogenetics and taxonomy"
+ },
+ "Biology and health sciences › Biology › Anatomy and morphology": {
+  "zh": "解剖学与形态学",
+  "en": "Anatomy and morphology"
+ },
+ "Biology and health sciences › Biology › Anatomy and morphology › Basic anatomy": {
+  "zh": "解剖学基础",
+  "en": "Anatomy basics"
+ },
+ "Biology and health sciences › Biology › Anatomy and morphology › Animal anatomy and morphology": {
+  "zh": "动物解剖与形态",
+  "en": "Animal anatomy and morphology"
+ },
+ "Biology and health sciences › Biology › Anatomy and morphology › Plant anatomy and morphology": {
+  "zh": "植物解剖与形态",
+  "en": "Plant anatomy and morphology"
+ },
+ "Biology and health sciences › Biology › Anatomy and morphology › Fungal morphology and anatomy": {
+  "zh": "真菌解剖与形态",
+  "en": "Fungal anatomy and morphology"
+ },
+ "Biology and health sciences › Biology › Biological processes and physiology": {
+  "zh": "生理与生命过程",
+  "en": "Physiology and life processes"
+ },
+ "Biology and health sciences › Biology › Biological processes and physiology › Basics": {
+  "zh": "生理学基础",
+  "en": "Physiology basics"
+ },
+ "Biology and health sciences › Biology › Biological processes and physiology › Thermoregulation": {
+  "zh": "体温调节",
+  "en": "Thermoregulation"
+ },
+ "Biology and health sciences › Biology › Biological processes and physiology › Development": {
+  "zh": "生物发育",
+  "en": "Biological development"
+ },
+ "Biology and health sciences › Biology › Biological processes and physiology › Biological reproduction": {
+  "zh": "生殖",
+  "en": "Reproduction"
+ },
+ "Biology and health sciences › Biology › Biochemistry": {
+  "zh": "生物化学",
+  "en": "Biochemistry"
+ },
+ "Biology and health sciences › Biology › Biochemistry › Biochemical substances": {
+  "zh": "生物分子与生化物质",
+  "en": "Biomolecules and biochemicals"
+ },
+ "Biology and health sciences › Biology › Biochemistry › Metabolic processes": {
+  "zh": "代谢过程",
+  "en": "Metabolic processes"
+ },
+ "Biology and health sciences › Biology › Zoology": {
+  "zh": "动物学",
+  "en": "Zoology"
+ },
+ "Biology and health sciences › Biology › Zoology › Basics": {
+  "zh": "动物学及其分支",
+  "en": "Zoology and its branches"
+ },
+ "Biology and health sciences › Biology › Zoology › Ethology": {
+  "zh": "动物行为学",
+  "en": "Animal behavior"
+ },
+ "Biology and health sciences › Biology › Botany": {
+  "zh": "植物学",
+  "en": "Botany"
+ },
+ "Biology and health sciences › Biology › Cell biology": {
+  "zh": "细胞生物学",
+  "en": "Cell biology"
+ },
+ "Biology and health sciences › Biology › Cell biology › Basics": {
+  "zh": "细胞生物学基础",
+  "en": "Cell biology basics"
+ },
+ "Biology and health sciences › Biology › Cell biology › Cell processes": {
+  "zh": "细胞过程",
+  "en": "Cell processes"
+ },
+ "Biology and health sciences › Biology › Cell biology › Organelles and other cell parts": {
+  "zh": "细胞器与细胞结构",
+  "en": "Organelles and cell parts"
+ },
+ "Biology and health sciences › Biology › Ecology": {
+  "zh": "生态学",
+  "en": "Ecology"
+ },
+ "Biology and health sciences › Biology › Ecology › Biological interactions": {
+  "zh": "生物间相互作用",
+  "en": "Biological interactions"
+ },
+ "Biology and health sciences › Biology › Ecology › Conservation biology": {
+  "zh": "保护生物学",
+  "en": "Conservation biology"
+ },
+ "Biology and health sciences › Biology › Genetics and molecular biology": {
+  "zh": "遗传学与分子生物学",
+  "en": "Genetics and molecular biology"
+ },
+ "Biology and health sciences › Biology › Genetics and molecular biology › Molecular biology": {
+  "zh": "分子生物学",
+  "en": "Molecular biology"
+ },
+ "Biology and health sciences › Biology › Genetics and molecular biology › Genetics": {
+  "zh": "遗传学",
+  "en": "Genetics"
+ },
+ "Biology and health sciences › Biology › Evolutionary biology": {
+  "zh": "进化生物学",
+  "en": "Evolutionary biology"
+ },
+ "Biology and health sciences › Biology › Evolutionary biology › Basics": {
+  "zh": "进化生物学基础",
+  "en": "Evolution basics"
+ },
+ "Biology and health sciences › Biology › Evolutionary biology › Population genetics": {
+  "zh": "群体遗传学",
+  "en": "Population genetics"
+ },
+ "Biology and health sciences › Health": {
+  "zh": "健康",
+  "en": "Health"
+ },
+ "Biology and health sciences › Health › Medical basics": {
+  "zh": "医学基础",
+  "en": "Medical basics"
+ },
+ "Biology and health sciences › Health › Medical basics › General concepts": {
+  "zh": "医学与医疗服务",
+  "en": "Medicine and health care"
+ },
+ "Biology and health sciences › Health › Medical basics › Human anatomy": {
+  "zh": "人体解剖学",
+  "en": "Human anatomy"
+ },
+ "Biology and health sciences › Health › Medical basics › Fields of medicine": {
+  "zh": "医学专科",
+  "en": "Medical specialties"
+ },
+ "Biology and health sciences › Health › Medical basics › Public health": {
+  "zh": "公共卫生",
+  "en": "Public health"
+ },
+ "Biology and health sciences › Health › Medical basics › Alternative and traditional medicine": {
+  "zh": "替代与传统医学",
+  "en": "Alternative and traditional medicine"
+ },
+ "Biology and health sciences › Health › Medical procedures": {
+  "zh": "诊疗操作",
+  "en": "Medical procedures"
+ },
+ "Biology and health sciences › Health › Medical procedures › Medical procedures: General": {
+  "zh": "诊疗操作总论",
+  "en": "General medical procedures"
+ },
+ "Biology and health sciences › Health › Medical procedures › Diagnostics": {
+  "zh": "医学诊断",
+  "en": "Medical diagnostics"
+ },
+ "Biology and health sciences › Health › Medical procedures › Treatments": {
+  "zh": "治疗方法",
+  "en": "Medical treatments"
+ },
+ "Biology and health sciences › Health › Drugs and medication": {
+  "zh": "药物",
+  "en": "Drugs and medication"
+ },
+ "Biology and health sciences › Health › Drugs and medication › General concepts": {
+  "zh": "药物基本概念",
+  "en": "Drug basics"
+ },
+ "Biology and health sciences › Health › Drugs and medication › Drug delivery": {
+  "zh": "给药与剂型",
+  "en": "Drug delivery"
+ },
+ "Biology and health sciences › Health › Drugs and medication › Specific drugs and drug classes": {
+  "zh": "各类药物",
+  "en": "Drugs and drug classes"
+ },
+ "Biology and health sciences › Health › Morbidity": {
+  "zh": "疾病",
+  "en": "Diseases and conditions"
+ },
+ "Biology and health sciences › Health › Morbidity › Disease: general classification": {
+  "zh": "疾病分类",
+  "en": "Disease classification"
+ },
+ "Biology and health sciences › Health › Morbidity › Specific diseases": {
+  "zh": "常见疾病",
+  "en": "Specific diseases"
+ },
+ "Biology and health sciences › Health › Morbidity › Injury": {
+  "zh": "损伤",
+  "en": "Injuries"
+ },
+ "Biology and health sciences › Health › Morbidity › Disabilities": {
+  "zh": "残疾与功能障碍",
+  "en": "Disabilities"
+ },
+ "Biology and health sciences › Health › Morbidity › Cancer": {
+  "zh": "肿瘤与癌症",
+  "en": "Cancer and tumors"
+ },
+ "Biology and health sciences › Health › Morbidity › Infectious disease": {
+  "zh": "传染病",
+  "en": "Infectious diseases"
+ },
+ "Biology and health sciences › Health › Morbidity › Mental disorders": {
+  "zh": "精神障碍",
+  "en": "Mental disorders"
+ },
+ "Biology and health sciences › Health › Morbidity › Symptoms, signs and pathophysiology": {
+  "zh": "症状与病理生理",
+  "en": "Symptoms and pathophysiology"
+ },
+ "Biology and health sciences › Health › Health and fitness": {
+  "zh": "保健与健身",
+  "en": "Wellness and fitness"
+ },
+ "Biology and health sciences › Health › Health and fitness › Health and fitness: General": {
+  "zh": "健康概论",
+  "en": "Health overview"
+ },
+ "Biology and health sciences › Health › Health and fitness › Nutrition": {
+  "zh": "营养",
+  "en": "Nutrition"
+ },
+ "Biology and health sciences › Health › Health and fitness › Physical fitness": {
+  "zh": "体能与锻炼",
+  "en": "Physical fitness"
+ },
+ "Biology and health sciences › Health › Health and fitness › Hygiene": {
+  "zh": "个人卫生",
+  "en": "Personal hygiene"
+ },
+ "Biology and health sciences › Plants": {
+  "zh": "植物、真菌与微生物",
+  "en": "Plants, fungi and microbes"
+ },
+ "Biology and health sciences › Plants › Plants": {
+  "zh": "植物",
+  "en": "Plants"
+ },
+ "Biology and health sciences › Plants › Plants › Bryophytes": {
+  "zh": "苔藓植物",
+  "en": "Bryophytes"
+ },
+ "Biology and health sciences › Plants › Plants › Vascular plants (except seed plants)": {
+  "zh": "无种子维管植物",
+  "en": "Seedless vascular plants"
+ },
+ "Biology and health sciences › Plants › Plants › Seed plants (except flowering plants)": {
+  "zh": "裸子植物",
+  "en": "Gymnosperms"
+ },
+ "Biology and health sciences › Plants › Plants › Flowering plants": {
+  "zh": "被子植物",
+  "en": "Flowering plants"
+ },
+ "Biology and health sciences › Plants › Fungi": {
+  "zh": "真菌",
+  "en": "Fungi"
+ },
+ "Biology and health sciences › Plants › Other eukaryotes": {
+  "zh": "其他真核生物",
+  "en": "Other eukaryotes"
+ },
+ "Biology and health sciences › Plants › Other eukaryotes › Amorphea": {
+  "zh": "单鞭毛生物",
+  "en": "Amorphea"
+ },
+ "Biology and health sciences › Plants › Other eukaryotes › Excavata": {
+  "zh": "古虫界",
+  "en": "Excavates"
+ },
+ "Biology and health sciences › Plants › Other eukaryotes › Diaphoretickes": {
+  "zh": "藻类与近缘原生生物",
+  "en": "Algae and related protists"
+ },
+ "Biology and health sciences › Plants › Other eukaryotes › Obsolete taxa": {
+  "zh": "已废弃真核类群",
+  "en": "Obsolete eukaryote groups"
+ },
+ "Biology and health sciences › Plants › Prokaryotes": {
+  "zh": "原核生物",
+  "en": "Prokaryotes"
+ },
+ "Biology and health sciences › Plants › Prokaryotes › Archaea": {
+  "zh": "古菌",
+  "en": "Archaea"
+ },
+ "Biology and health sciences › Plants › Prokaryotes › Bacteria": {
+  "zh": "细菌",
+  "en": "Bacteria"
+ },
+ "Biology and health sciences › Plants › Other organisms: General": {
+  "zh": "其他生物类型",
+  "en": "Other organism types"
+ },
+ "Biology and health sciences › Plants › Viruses": {
+  "zh": "病毒",
+  "en": "Viruses"
+ },
+ "Biology and health sciences › Plants › Viruses › Specific viruses": {
+  "zh": "常见病毒",
+  "en": "Notable viruses"
+ },
+ "Technology": {
+  "zh": "技术",
+  "en": "Technology"
+ },
+ "Technology › Technology: General": {
+  "zh": "技术总论",
+  "en": "Technology overview"
+ },
+ "Technology › Technology: General › Engineering": {
+  "zh": "工程学",
+  "en": "Engineering"
+ },
+ "Technology › Energy": {
+  "zh": "能源",
+  "en": "Energy"
+ },
+ "Technology › Energy › Energy: General": {
+  "zh": "能源总论",
+  "en": "Energy overview"
+ },
+ "Technology › Energy › Fuel": {
+  "zh": "燃料",
+  "en": "Fuels"
+ },
+ "Technology › Energy › Heating and cooling": {
+  "zh": "供暖与制冷",
+  "en": "Heating and cooling"
+ },
+ "Technology › Energy › Lighting": {
+  "zh": "照明",
+  "en": "Lighting"
+ },
+ "Technology › Energy › Fire": {
+  "zh": "火与点火器具",
+  "en": "Fire and fire-starting"
+ },
+ "Technology › Energy › Power generation": {
+  "zh": "发电",
+  "en": "Power generation"
+ },
+ "Technology › Energy › Energy storage": {
+  "zh": "储能",
+  "en": "Energy storage"
+ },
+ "Technology › Energy › Power transmission": {
+  "zh": "输配电",
+  "en": "Power transmission"
+ },
+ "Technology › Energy › Specific energy structure": {
+  "zh": "著名能源设施",
+  "en": "Notable energy infrastructure"
+ },
+ "Technology › Industry": {
+  "zh": "工业",
+  "en": "Industry"
+ },
+ "Technology › Industry › Industry: General": {
+  "zh": "工业总论",
+  "en": "Industry overview"
+ },
+ "Technology › Industry › Food, water and health": {
+  "zh": "食品、饮水与健康技术",
+  "en": "Food, water and health tech"
+ },
+ "Technology › Industry › Materials": {
+  "zh": "工业材料",
+  "en": "Industrial materials"
+ },
+ "Technology › Industry › Chemicals": {
+  "zh": "化学工业",
+  "en": "Chemical industry"
+ },
+ "Technology › Industry › Metallurgy": {
+  "zh": "冶金",
+  "en": "Metallurgy"
+ },
+ "Technology › Industry › Textiles": {
+  "zh": "纺织",
+  "en": "Textiles"
+ },
+ "Technology › Infrastructure": {
+  "zh": "基础设施",
+  "en": "Infrastructure"
+ },
+ "Technology › Infrastructure › Basics": {
+  "zh": "基础设施概述",
+  "en": "Infrastructure basics"
+ },
+ "Technology › Infrastructure › Building materials": {
+  "zh": "建筑材料",
+  "en": "Building materials"
+ },
+ "Technology › Infrastructure › Environmental remediation": {
+  "zh": "环境修复",
+  "en": "Environmental remediation"
+ },
+ "Technology › Infrastructure › Infrastructure by type": {
+  "zh": "基础设施类型",
+  "en": "Types of infrastructure"
+ },
+ "Technology › Infrastructure › Specific infrastructure": {
+  "zh": "著名基础设施",
+  "en": "Notable infrastructure"
+ },
+ "Technology › Machinery and tools": {
+  "zh": "机械与工具",
+  "en": "Machinery and tools"
+ },
+ "Technology › Machinery and tools › Machinery and tools: General": {
+  "zh": "机械与工具总论",
+  "en": "Machinery and tools overview"
+ },
+ "Technology › Machinery and tools › Components and mechanisms": {
+  "zh": "零部件与机构",
+  "en": "Components and mechanisms"
+ },
+ "Technology › Machinery and tools › Engines": {
+  "zh": "发动机与电动机",
+  "en": "Engines and motors"
+ },
+ "Technology › Machinery and tools › Hydraulics and pneumatics": {
+  "zh": "液压与气动",
+  "en": "Hydraulics and pneumatics"
+ },
+ "Technology › Machinery and tools › Machinery": {
+  "zh": "各类机器",
+  "en": "Machines"
+ },
+ "Technology › Machinery and tools › Tools": {
+  "zh": "工具",
+  "en": "Tools"
+ },
+ "Technology › Agriculture": {
+  "zh": "农业、生物与医疗技术",
+  "en": "Agriculture, biotech and medtech"
+ },
+ "Technology › Agriculture › Agriculture": {
+  "zh": "农业",
+  "en": "Agriculture"
+ },
+ "Technology › Agriculture › Agriculture › Basics": {
+  "zh": "农业基础",
+  "en": "Agriculture basics"
+ },
+ "Technology › Agriculture › Agriculture › Academic disciplines": {
+  "zh": "农业相关学科",
+  "en": "Agricultural disciplines"
+ },
+ "Technology › Agriculture › Agriculture › Forms of agriculture": {
+  "zh": "农业类型",
+  "en": "Types of farming"
+ },
+ "Technology › Agriculture › Agriculture › Pest and disease control": {
+  "zh": "病虫害防治",
+  "en": "Pest and disease control"
+ },
+ "Technology › Agriculture › Agriculture › Buildings and infrastructure": {
+  "zh": "农业建筑与设施",
+  "en": "Farm buildings and facilities"
+ },
+ "Technology › Agriculture › Agriculture › Animal husbandry": {
+  "zh": "畜牧业",
+  "en": "Animal husbandry"
+ },
+ "Technology › Agriculture › Agriculture › Agronomy": {
+  "zh": "农艺学",
+  "en": "Agronomy"
+ },
+ "Technology › Agriculture › Agriculture › Horticulture": {
+  "zh": "园艺",
+  "en": "Horticulture"
+ },
+ "Technology › Agriculture › Agriculture › Trees and forestry": {
+  "zh": "树木与林业",
+  "en": "Trees and forestry"
+ },
+ "Technology › Agriculture › Agriculture › Agriculture, labor and economy": {
+  "zh": "农业劳动与经济",
+  "en": "Farm labor and economy"
+ },
+ "Technology › Agriculture › Agriculture › Agriculture and ecology": {
+  "zh": "农业与生态",
+  "en": "Agriculture and ecology"
+ },
+ "Technology › Agriculture › Biotechnology": {
+  "zh": "生物技术",
+  "en": "Biotechnology"
+ },
+ "Technology › Agriculture › Medical technology": {
+  "zh": "医疗技术",
+  "en": "Medical technology"
+ },
+ "Technology › Agriculture › Medical technology › Diagnostic technologies": {
+  "zh": "诊断技术",
+  "en": "Diagnostic technologies"
+ },
+ "Technology › Agriculture › Medical technology › Imaging": {
+  "zh": "医学影像",
+  "en": "Medical imaging"
+ },
+ "Technology › Agriculture › Medical technology › Devices": {
+  "zh": "医疗器械",
+  "en": "Medical devices"
+ },
+ "Technology › Agriculture › Medical technology › Equipment": {
+  "zh": "医疗用品",
+  "en": "Medical supplies"
+ },
+ "Technology › Agriculture › Medical technology › Mobility aids": {
+  "zh": "助行辅具",
+  "en": "Mobility aids"
+ },
+ "Technology › Agriculture › Medical technology › Surgical instruments": {
+  "zh": "手术器械",
+  "en": "Surgical instruments"
+ },
+ "Technology › Agriculture › Medical technology › Techniques": {
+  "zh": "临床治疗技术",
+  "en": "Clinical techniques"
+ },
+ "Technology › Agriculture › Medical technology › Transport": {
+  "zh": "医疗转运",
+  "en": "Medical transport"
+ },
+ "Technology › Computing and communication": {
+  "zh": "计算与通信",
+  "en": "Computing and communication"
+ },
+ "Technology › Computing and communication › Electronics": {
+  "zh": "电子学",
+  "en": "Electronics"
+ },
+ "Technology › Computing and communication › Electronics › Electronics: General": {
+  "zh": "电子学总论",
+  "en": "Electronics overview"
+ },
+ "Technology › Computing and communication › Electronics › Components": {
+  "zh": "电子元件",
+  "en": "Electronic components"
+ },
+ "Technology › Computing and communication › Electronics › Consumer electronics": {
+  "zh": "消费电子",
+  "en": "Consumer electronics"
+ },
+ "Technology › Computing and communication › Electronics › Digital logic": {
+  "zh": "数字逻辑",
+  "en": "Digital logic"
+ },
+ "Technology › Computing and communication › Electronics › Functional circuits": {
+  "zh": "功能电路",
+  "en": "Functional circuits"
+ },
+ "Technology › Computing and communication › Electronics › Semiconductors": {
+  "zh": "半导体器件",
+  "en": "Semiconductor devices"
+ },
+ "Technology › Computing and communication › Electronics › Signal processing": {
+  "zh": "信号处理",
+  "en": "Signal processing"
+ },
+ "Technology › Computing and communication › Electronics › Signal transmission": {
+  "zh": "信号传输",
+  "en": "Signal transmission"
+ },
+ "Technology › Computing and communication › Computing and information technology": {
+  "zh": "计算机与信息技术",
+  "en": "Computing and IT"
+ },
+ "Technology › Computing and communication › Computing and information technology › Basics": {
+  "zh": "计算基础",
+  "en": "Computing basics"
+ },
+ "Technology › Computing and communication › Computing and information technology › Computer science": {
+  "zh": "计算机科学",
+  "en": "Computer science"
+ },
+ "Technology › Computing and communication › Computing and information technology › Computer architecture concepts": {
+  "zh": "计算机体系结构",
+  "en": "Computer architecture concepts"
+ },
+ "Technology › Computing and communication › Computing and information technology › Computer security": {
+  "zh": "计算机安全",
+  "en": "Computer security"
+ },
+ "Technology › Computing and communication › Computing and information technology › Computer hardware": {
+  "zh": "计算机硬件",
+  "en": "Computer hardware"
+ },
+ "Technology › Computing and communication › Computing and information technology › Computer software": {
+  "zh": "计算机软件",
+  "en": "Computer software"
+ },
+ "Technology › Computing and communication › Computing and information technology › Data storage and memory": {
+  "zh": "数据存储",
+  "en": "Data storage and memory"
+ },
+ "Technology › Computing and communication › Computing and information technology › Networks": {
+  "zh": "计算机网络",
+  "en": "Computer networks"
+ },
+ "Technology › Computing and communication › Computing and information technology › Specific computing services": {
+  "zh": "知名计算服务",
+  "en": "Notable computing services"
+ },
+ "Technology › Computing and communication › Computing and information technology › Software development": {
+  "zh": "软件开发",
+  "en": "Software development"
+ },
+ "Technology › Computing and communication › Computing and information technology › Specific hardware": {
+  "zh": "知名计算机",
+  "en": "Notable computers"
+ },
+ "Technology › Computing and communication › Computing and information technology › Specific software": {
+  "zh": "知名软件",
+  "en": "Notable software"
+ },
+ "Technology › Computing and communication › Media and communication": {
+  "zh": "媒体与通信",
+  "en": "Media and communication"
+ },
+ "Technology › Computing and communication › Media and communication › Media and communication: Basics": {
+  "zh": "媒体与通信基础",
+  "en": "Media and communication basics"
+ },
+ "Technology › Computing and communication › Media and communication › Printing": {
+  "zh": "印刷",
+  "en": "Printing"
+ },
+ "Technology › Computing and communication › Media and communication › Telecommunications": {
+  "zh": "电信",
+  "en": "Telecommunications"
+ },
+ "Technology › Optical, navigation and astronomical": {
+  "zh": "光学、导航、天文与航天",
+  "en": "Optics, navigation, astronomy, space"
+ },
+ "Technology › Optical, navigation and astronomical › Navigation and timekeeping": {
+  "zh": "导航与计时",
+  "en": "Navigation and timekeeping"
+ },
+ "Technology › Optical, navigation and astronomical › Navigation and timekeeping › Navigation": {
+  "zh": "导航",
+  "en": "Navigation"
+ },
+ "Technology › Optical, navigation and astronomical › Navigation and timekeeping › Timekeeping": {
+  "zh": "计时与历法",
+  "en": "Timekeeping and calendars"
+ },
+ "Technology › Optical, navigation and astronomical › Optical technology": {
+  "zh": "光学技术",
+  "en": "Optical technology"
+ },
+ "Technology › Optical, navigation and astronomical › Optical technology › Optical components": {
+  "zh": "光学元件",
+  "en": "Optical components"
+ },
+ "Technology › Optical, navigation and astronomical › Optical technology › Optical instruments": {
+  "zh": "光学仪器",
+  "en": "Optical instruments"
+ },
+ "Technology › Optical, navigation and astronomical › Optical technology › Lasers": {
+  "zh": "激光器",
+  "en": "Lasers"
+ },
+ "Technology › Optical, navigation and astronomical › Optical technology › Photography": {
+  "zh": "摄影与相机",
+  "en": "Photography and cameras"
+ },
+ "Technology › Optical, navigation and astronomical › Astronomical technology": {
+  "zh": "天文技术",
+  "en": "Astronomical technology"
+ },
+ "Technology › Optical, navigation and astronomical › Astronomical technology › Telescope": {
+  "zh": "望远镜",
+  "en": "Telescopes"
+ },
+ "Technology › Optical, navigation and astronomical › Astronomical technology › Specific observatories": {
+  "zh": "著名天文台与望远镜",
+  "en": "Notable observatories"
+ },
+ "Technology › Optical, navigation and astronomical › Space": {
+  "zh": "航天",
+  "en": "Spaceflight"
+ },
+ "Technology › Optical, navigation and astronomical › Space › Basics": {
+  "zh": "航天基础",
+  "en": "Spaceflight basics"
+ },
+ "Technology › Optical, navigation and astronomical › Space › Programs and launch sites": {
+  "zh": "航天计划与发射场",
+  "en": "Space programs and launch sites"
+ },
+ "Technology › Optical, navigation and astronomical › Space › Crewed vehicles": {
+  "zh": "载人航天器",
+  "en": "Crewed spacecraft"
+ },
+ "Technology › Optical, navigation and astronomical › Space › Unmanned spacecraft": {
+  "zh": "无人航天器",
+  "en": "Uncrewed spacecraft"
+ },
+ "Technology › Optical, navigation and astronomical › Space › Rovers": {
+  "zh": "行星探测车",
+  "en": "Planetary rovers"
+ },
+ "Technology › Transportation": {
+  "zh": "交通运输",
+  "en": "Transportation"
+ },
+ "Technology › Transportation › Transportation: General": {
+  "zh": "交通运输总论",
+  "en": "Transport overview"
+ },
+ "Technology › Transportation › Ground transport": {
+  "zh": "陆路交通",
+  "en": "Ground transport"
+ },
+ "Technology › Transportation › Ground transport › Concepts of ground transport": {
+  "zh": "陆路交通基础",
+  "en": "Ground transport basics"
+ },
+ "Technology › Transportation › Ground transport › Road infrastructure": {
+  "zh": "道路设施",
+  "en": "Road infrastructure"
+ },
+ "Technology › Transportation › Ground transport › Motorized road transport": {
+  "zh": "机动车辆",
+  "en": "Motor vehicles"
+ },
+ "Technology › Transportation › Ground transport › Rail and cable transport": {
+  "zh": "轨道与索道交通",
+  "en": "Rail and cable transport"
+ },
+ "Technology › Transportation › Ground transport › Animal-powered transport": {
+  "zh": "畜力交通",
+  "en": "Animal-powered transport"
+ },
+ "Technology › Transportation › Ground transport › Human-powered transport": {
+  "zh": "人力交通",
+  "en": "Human-powered transport"
+ },
+ "Technology › Transportation › Ground transport › Specific-purpose transportation": {
+  "zh": "专用运输方式",
+  "en": "Special-purpose transport"
+ },
+ "Technology › Transportation › Ground transport › Specific automobiles": {
+  "zh": "知名车型",
+  "en": "Notable car models"
+ },
+ "Technology › Transportation › Maritime transport": {
+  "zh": "水上交通",
+  "en": "Maritime transport"
+ },
+ "Technology › Transportation › Maritime transport › Specific piers and ports": {
+  "zh": "著名港口",
+  "en": "Notable ports"
+ },
+ "Technology › Transportation › Maritime transport › Specific ships": {
+  "zh": "著名船舶",
+  "en": "Notable ships"
+ },
+ "Technology › Transportation › Aviation": {
+  "zh": "航空",
+  "en": "Aviation"
+ },
+ "Technology › Transportation › Aviation › Concepts of aviation": {
+  "zh": "航空基础",
+  "en": "Aviation basics"
+ },
+ "Technology › Transportation › Aviation › Types of aircraft": {
+  "zh": "航空器类型",
+  "en": "Types of aircraft"
+ },
+ "Technology › Transportation › Aviation › Aircraft components": {
+  "zh": "航空器部件",
+  "en": "Aircraft components"
+ },
+ "Technology › Transportation › Aviation › Specific aircraft": {
+  "zh": "知名机型",
+  "en": "Notable aircraft"
+ },
+ "Technology › Transportation › Specific transportation systems": {
+  "zh": "著名交通系统",
+  "en": "Notable transport systems"
+ },
+ "Technology › Transportation › Specific transportation systems › Ground transportation networks": {
+  "zh": "陆路交通网",
+  "en": "Ground transport networks"
+ },
+ "Technology › Transportation › Specific transportation systems › Rapid transit": {
+  "zh": "地铁系统",
+  "en": "Metro systems"
+ },
+ "Technology › Transportation › Specific transportation systems › High-speed rail": {
+  "zh": "高速铁路系统",
+  "en": "High-speed rail systems"
+ },
+ "Technology › Transportation › Specific transportation systems › Railway lines": {
+  "zh": "铁路干线",
+  "en": "Railway lines"
+ },
+ "Technology › Transportation › Specific transportation systems › Railway services": {
+  "zh": "著名列车",
+  "en": "Notable train services"
+ },
+ "Technology › Transportation › Specific transportation systems › Airports": {
+  "zh": "著名机场",
+  "en": "Major airports"
+ },
+ "Technology › Weapons": {
+  "zh": "武器",
+  "en": "Weapons"
+ },
+ "Technology › Weapons › Military technology": {
+  "zh": "军事技术",
+  "en": "Military technology"
+ },
+ "Technology › Weapons › Military technology › Military technology: General": {
+  "zh": "军事技术总论",
+  "en": "Military tech overview"
+ },
+ "Technology › Weapons › Military technology › Countermeasures": {
+  "zh": "防护与反制",
+  "en": "Countermeasures and armor"
+ },
+ "Technology › Weapons › Military technology › Melee weapons": {
+  "zh": "近战武器",
+  "en": "Melee weapons"
+ },
+ "Technology › Weapons › Military technology › Ranged weapons": {
+  "zh": "远程武器",
+  "en": "Ranged weapons"
+ },
+ "Technology › Weapons › Military technology › Explosive weapons": {
+  "zh": "爆炸性武器",
+  "en": "Explosive weapons"
+ },
+ "Technology › Weapons › Military technology › Incendiary weapons": {
+  "zh": "燃烧武器",
+  "en": "Incendiary weapons"
+ },
+ "Technology › Weapons › Military technology › Maneuver": {
+  "zh": "军事机动装备",
+  "en": "Military mobility"
+ },
+ "Technology › Weapons › Military technology › Military aviation": {
+  "zh": "军事航空",
+  "en": "Military aviation"
+ },
+ "Technology › Weapons › Military technology › Naval warfare": {
+  "zh": "海战与舰艇",
+  "en": "Naval warfare"
+ },
+ "Technology › Weapons › Military technology › Less-lethal weapons": {
+  "zh": "非致命武器",
+  "en": "Less-lethal weapons"
+ },
+ "Technology › Weapons › Military technology › Weapon of mass destruction": {
+  "zh": "大规模杀伤性武器",
+  "en": "Weapons of mass destruction"
+ },
+ "Physical sciences": {
+  "zh": "物理科学",
+  "en": "Physical sciences"
+ },
+ "Physical sciences › Astronomy": {
+  "zh": "天文学",
+  "en": "Astronomy"
+ },
+ "Physical sciences › Astronomy › Astronomy basics": {
+  "zh": "天文学基础",
+  "en": "Astronomy basics"
+ },
+ "Physical sciences › Astronomy › Astronomy basics › Databases": {
+  "zh": "天文数据库",
+  "en": "Astronomy databases"
+ },
+ "Physical sciences › Astronomy › Astronomy basics › Surveys and Catalogs": {
+  "zh": "巡天与星表",
+  "en": "Sky surveys and catalogs"
+ },
+ "Physical sciences › Astronomy › Observational astronomy": {
+  "zh": "观测天文学",
+  "en": "Observational astronomy"
+ },
+ "Physical sciences › Astronomy › Observational astronomy › Basics": {
+  "zh": "观测天文学基础",
+  "en": "Observational astronomy basics"
+ },
+ "Physical sciences › Astronomy › Observational astronomy › Radio astronomy": {
+  "zh": "射电天文学",
+  "en": "Radio astronomy"
+ },
+ "Physical sciences › Astronomy › Observational astronomy › High-energy astronomy": {
+  "zh": "高能天文学",
+  "en": "High-energy astronomy"
+ },
+ "Physical sciences › Astronomy › Astronomical objects": {
+  "zh": "天体",
+  "en": "Astronomical objects"
+ },
+ "Physical sciences › Astronomy › Astronomical objects › Solar System": {
+  "zh": "太阳系",
+  "en": "Solar System"
+ },
+ "Physical sciences › Astronomy › Astronomical objects › Milky Way galaxy": {
+  "zh": "银河系天体",
+  "en": "Milky Way objects"
+ },
+ "Physical sciences › Astronomy › Astronomical objects › Outside the Milky Way galaxy": {
+  "zh": "河外天体",
+  "en": "Extragalactic objects"
+ },
+ "Physical sciences › Astronomy › Astronomical objects › Notable patches of universe": {
+  "zh": "著名深空天区",
+  "en": "Notable deep-sky fields"
+ },
+ "Physical sciences › Astronomy › Celestial mechanics": {
+  "zh": "天体力学",
+  "en": "Celestial mechanics"
+ },
+ "Physical sciences › Astronomy › Celestial mechanics › Times of the day": {
+  "zh": "一天中的时段",
+  "en": "Times of day"
+ },
+ "Physical sciences › Astronomy › Celestial mechanics › Orbital mechanics": {
+  "zh": "轨道力学",
+  "en": "Orbital mechanics"
+ },
+ "Physical sciences › Astronomy › Celestial sphere": {
+  "zh": "天球",
+  "en": "Celestial sphere"
+ },
+ "Physical sciences › Astronomy › Celestial sphere › Celestial sphere: General": {
+  "zh": "天球基础",
+  "en": "Celestial sphere basics"
+ },
+ "Physical sciences › Astronomy › Celestial sphere › Constellations and asterisms": {
+  "zh": "星座与星群",
+  "en": "Constellations and asterisms"
+ },
+ "Physical sciences › Astronomy › Planetary science": {
+  "zh": "行星科学",
+  "en": "Planetary science"
+ },
+ "Physical sciences › Astronomy › Stellar astronomy": {
+  "zh": "恒星天文学",
+  "en": "Stellar astronomy"
+ },
+ "Physical sciences › Astronomy › Stellar astronomy › Stellar classification": {
+  "zh": "恒星分类",
+  "en": "Stellar classification"
+ },
+ "Physical sciences › Astronomy › Stellar astronomy › Variable star": {
+  "zh": "变星",
+  "en": "Variable stars"
+ },
+ "Physical sciences › Astronomy › Galactic and extragalactic astronomy": {
+  "zh": "星系与河外天文学",
+  "en": "Galactic and extragalactic astronomy"
+ },
+ "Physical sciences › Astronomy › Galactic and extragalactic astronomy › Basics": {
+  "zh": "星系天文学基础",
+  "en": "Galaxy astronomy basics"
+ },
+ "Physical sciences › Astronomy › Galactic and extragalactic astronomy › Large-scale structures": {
+  "zh": "宇宙大尺度结构",
+  "en": "Large-scale cosmic structure"
+ },
+ "Physical sciences › Astronomy › Galactic and extragalactic astronomy › Galaxy classification": {
+  "zh": "星系分类",
+  "en": "Galaxy classification"
+ },
+ "Physical sciences › Astronomy › Galactic and extragalactic astronomy › Active galactic nuclei": {
+  "zh": "活动星系核",
+  "en": "Active galactic nuclei"
+ },
+ "Physical sciences › Astronomy › Physical cosmology": {
+  "zh": "物理宇宙学",
+  "en": "Physical cosmology"
+ },
+ "Physical sciences › Astronomy › Physical cosmology › Chronology of the universe": {
+  "zh": "宇宙年表",
+  "en": "Timeline of the universe"
+ },
+ "Physical sciences › Basics and measurement": {
+  "zh": "科学与测量",
+  "en": "Science and measurement"
+ },
+ "Physical sciences › Basics and measurement › Science basics": {
+  "zh": "科学基础",
+  "en": "Science basics"
+ },
+ "Physical sciences › Basics and measurement › Research methods": {
+  "zh": "科学研究方法",
+  "en": "Scientific research methods"
+ },
+ "Physical sciences › Basics and measurement › Research methods › Laboratory": {
+  "zh": "实验室",
+  "en": "Laboratory"
+ },
+ "Physical sciences › Basics and measurement › Measurement": {
+  "zh": "测量",
+  "en": "Measurement"
+ },
+ "Physical sciences › Basics and measurement › Measurement › Measurement: General": {
+  "zh": "测量基础",
+  "en": "Measurement basics"
+ },
+ "Physical sciences › Basics and measurement › Measurement › Units of measurement": {
+  "zh": "计量单位",
+  "en": "Units of measurement"
+ },
+ "Physical sciences › Chemistry": {
+  "zh": "化学",
+  "en": "Chemistry"
+ },
+ "Physical sciences › Chemistry › Basics": {
+  "zh": "化学基础",
+  "en": "Chemistry basics"
+ },
+ "Physical sciences › Chemistry › Basics › Basics: General": {
+  "zh": "化学概论",
+  "en": "Chemistry overview"
+ },
+ "Physical sciences › Chemistry › Basics › Subdisciplines": {
+  "zh": "化学分支学科",
+  "en": "Branches of chemistry"
+ },
+ "Physical sciences › Chemistry › Basics › Principles": {
+  "zh": "化学基本原理",
+  "en": "Chemical principles"
+ },
+ "Physical sciences › Chemistry › Chemical elements": {
+  "zh": "化学元素",
+  "en": "Chemical elements"
+ },
+ "Physical sciences › Chemistry › Chemical elements › s-Block": {
+  "zh": "s区元素",
+  "en": "s-block elements"
+ },
+ "Physical sciences › Chemistry › Chemical elements › p-Block": {
+  "zh": "p区元素",
+  "en": "p-block elements"
+ },
+ "Physical sciences › Chemistry › Chemical elements › d-Block": {
+  "zh": "d区元素",
+  "en": "d-block elements"
+ },
+ "Physical sciences › Chemistry › Chemical elements › f-Block": {
+  "zh": "f区元素",
+  "en": "f-block elements"
+ },
+ "Physical sciences › Chemistry › Chemical elements › Periods": {
+  "zh": "周期与超重元素",
+  "en": "Periods and superheavy elements"
+ },
+ "Physical sciences › Chemistry › Acids and bases": {
+  "zh": "酸与碱",
+  "en": "Acids and bases"
+ },
+ "Physical sciences › Chemistry › Acids and bases › Concepts": {
+  "zh": "酸碱概念",
+  "en": "Acid–base concepts"
+ },
+ "Physical sciences › Chemistry › Acids and bases › Specific acids": {
+  "zh": "常见酸",
+  "en": "Common acids"
+ },
+ "Physical sciences › Chemistry › Acids and bases › Specific bases": {
+  "zh": "常见碱",
+  "en": "Common bases"
+ },
+ "Physical sciences › Chemistry › Alloys and ceramic compounds": {
+  "zh": "合金与陶瓷化合物",
+  "en": "Alloys and ceramics"
+ },
+ "Physical sciences › Chemistry › Alloys and ceramic compounds › Specific alloys": {
+  "zh": "常见合金",
+  "en": "Common alloys"
+ },
+ "Physical sciences › Chemistry › Alloys and ceramic compounds › Ceramic compounds": {
+  "zh": "陶瓷化合物",
+  "en": "Ceramic compounds"
+ },
+ "Physical sciences › Chemistry › Molecular compounds": {
+  "zh": "分子化合物",
+  "en": "Molecular compounds"
+ },
+ "Physical sciences › Chemistry › Molecular compounds › Molecular halides": {
+  "zh": "分子卤化物",
+  "en": "Molecular halides"
+ },
+ "Physical sciences › Chemistry › Molecular compounds › Covalent oxides": {
+  "zh": "共价氧化物",
+  "en": "Covalent oxides"
+ },
+ "Physical sciences › Chemistry › Molecular compounds › Hydrogen compounds": {
+  "zh": "氢化合物",
+  "en": "Hydrogen compounds"
+ },
+ "Physical sciences › Chemistry › Molecular compounds › Water": {
+  "zh": "水",
+  "en": "Water"
+ },
+ "Physical sciences › Chemistry › Organic compounds": {
+  "zh": "有机化合物",
+  "en": "Organic compounds"
+ },
+ "Physical sciences › Chemistry › Organic compounds › Concepts": {
+  "zh": "有机结构概念",
+  "en": "Organic structure concepts"
+ },
+ "Physical sciences › Chemistry › Organic compounds › Concepts: General": {
+  "zh": "含杂原子有机物",
+  "en": "Heteroatom organic compounds"
+ },
+ "Physical sciences › Chemistry › Organic compounds › Organometallics": {
+  "zh": "有机金属化合物",
+  "en": "Organometallic compounds"
+ },
+ "Physical sciences › Chemistry › Organic compounds › Organic mixtures": {
+  "zh": "有机混合物",
+  "en": "Organic mixtures"
+ },
+ "Physical sciences › Chemistry › Organic compounds › Hydrocarbons": {
+  "zh": "烃类",
+  "en": "Hydrocarbons"
+ },
+ "Physical sciences › Chemistry › Organic compounds › Alcohols": {
+  "zh": "醇类",
+  "en": "Alcohols"
+ },
+ "Physical sciences › Chemistry › Organic compounds › Carboxylic acids": {
+  "zh": "羧酸",
+  "en": "Carboxylic acids"
+ },
+ "Physical sciences › Chemistry › Organic compounds › Aldehydes and ketones": {
+  "zh": "醛与酮",
+  "en": "Aldehydes and ketones"
+ },
+ "Physical sciences › Chemistry › Organic compounds › Amides and amines": {
+  "zh": "酰胺与胺",
+  "en": "Amides and amines"
+ },
+ "Physical sciences › Chemistry › Organic compounds › Esters and ethers": {
+  "zh": "酯与醚",
+  "en": "Esters and ethers"
+ },
+ "Physical sciences › Chemistry › Organic compounds › Halocarbons": {
+  "zh": "卤代烃",
+  "en": "Halocarbons"
+ },
+ "Physical sciences › Chemistry › Organic compounds › Alkaloids": {
+  "zh": "生物碱与含氮杂环",
+  "en": "Alkaloids and N-heterocycles"
+ },
+ "Physical sciences › Chemistry › Organic compounds › Phenylpropanoids": {
+  "zh": "苯丙素类",
+  "en": "Phenylpropanoids"
+ },
+ "Physical sciences › Chemistry › Organic compounds › Polymers": {
+  "zh": "聚合物",
+  "en": "Polymers"
+ },
+ "Physical sciences › Chemistry › Organic compounds › Polyphenols": {
+  "zh": "多酚",
+  "en": "Polyphenols"
+ },
+ "Physical sciences › Chemistry › Organic compounds › Terpenes and terpenoids": {
+  "zh": "萜类化合物",
+  "en": "Terpenes and terpenoids"
+ },
+ "Physical sciences › Chemistry › Salts and ions": {
+  "zh": "盐与离子",
+  "en": "Salts and ions"
+ },
+ "Physical sciences › Chemistry › Salts and ions › Salts and ions: General": {
+  "zh": "盐与离子概述",
+  "en": "Salts and ions overview"
+ },
+ "Physical sciences › Chemistry › Salts and ions › Borohydride salts": {
+  "zh": "硼氢化物",
+  "en": "Borohydrides"
+ },
+ "Physical sciences › Chemistry › Salts and ions › Carbide salts": {
+  "zh": "离子型碳化物",
+  "en": "Ionic carbides"
+ },
+ "Physical sciences › Chemistry › Salts and ions › Cyanide salts": {
+  "zh": "氰化物",
+  "en": "Cyanides"
+ },
+ "Physical sciences › Chemistry › Salts and ions › Halide salts": {
+  "zh": "卤化物",
+  "en": "Halide salts"
+ },
+ "Physical sciences › Chemistry › Salts and ions › Hydride salts": {
+  "zh": "离子型氢化物",
+  "en": "Ionic hydrides"
+ },
+ "Physical sciences › Chemistry › Salts and ions › Nitride salts": {
+  "zh": "氮化物与叠氮化物",
+  "en": "Nitrides and azides"
+ },
+ "Physical sciences › Chemistry › Salts and ions › Noble gas compounds": {
+  "zh": "稀有气体化合物",
+  "en": "Noble gas compounds"
+ },
+ "Physical sciences › Chemistry › Salts and ions › Organic salts": {
+  "zh": "有机盐",
+  "en": "Organic salts"
+ },
+ "Physical sciences › Chemistry › Salts and ions › Oxide salts": {
+  "zh": "金属氧化物",
+  "en": "Metal oxides"
+ },
+ "Physical sciences › Chemistry › Salts and ions › Oxyanionic salts": {
+  "zh": "含氧酸盐",
+  "en": "Oxyanion salts"
+ },
+ "Physical sciences › Chemistry › Salts and ions › Sulfide salts": {
+  "zh": "硫化物",
+  "en": "Sulfides"
+ },
+ "Physical sciences › Chemistry › Analysis": {
+  "zh": "分析化学",
+  "en": "Chemical analysis"
+ },
+ "Physical sciences › Chemistry › Analysis › Basics": {
+  "zh": "分析化学基础",
+  "en": "Analytical chemistry basics"
+ },
+ "Physical sciences › Chemistry › Analysis › Chemical methods": {
+  "zh": "化学分析法",
+  "en": "Chemical test methods"
+ },
+ "Physical sciences › Chemistry › Analysis › Instrumental methods": {
+  "zh": "仪器分析",
+  "en": "Instrumental analysis"
+ },
+ "Physical sciences › Chemistry › Reactions and synthesis": {
+  "zh": "化学反应与合成",
+  "en": "Reactions and synthesis"
+ },
+ "Physical sciences › Chemistry › Reactions and synthesis › Basics": {
+  "zh": "化学反应基础",
+  "en": "Reaction basics"
+ },
+ "Physical sciences › Chemistry › Reactions and synthesis › Organic reactions": {
+  "zh": "有机反应",
+  "en": "Organic reactions"
+ },
+ "Physical sciences › Chemistry › Reactions and synthesis › Redox reactions": {
+  "zh": "氧化还原反应",
+  "en": "Redox reactions"
+ },
+ "Physical sciences › Chemistry › Reactions and synthesis › Other reactions": {
+  "zh": "其他化学反应",
+  "en": "Other chemical reactions"
+ },
+ "Physical sciences › Chemistry › Reactions and synthesis › Synthetic strategies": {
+  "zh": "合成策略",
+  "en": "Synthesis strategies"
+ },
+ "Physical sciences › Chemistry › Separation processes": {
+  "zh": "分离过程",
+  "en": "Separation processes"
+ },
+ "Physical sciences › Chemistry › Separation processes › Chromatography": {
+  "zh": "色谱法",
+  "en": "Chromatography"
+ },
+ "Physical sciences › Chemistry › Separation processes › Phase separations": {
+  "zh": "相分离与蒸馏",
+  "en": "Phase separation and distillation"
+ },
+ "Physical sciences › Chemistry › Separation processes › Other separations": {
+  "zh": "吸附、萃取与过滤",
+  "en": "Adsorption, extraction, filtration"
+ },
+ "Physical sciences › Chemistry › Chemical engineering": {
+  "zh": "化学工程",
+  "en": "Chemical engineering"
+ },
+ "Physical sciences › Chemistry › Theory": {
+  "zh": "化学理论",
+  "en": "Chemical theory"
+ },
+ "Physical sciences › Chemistry › Theory › Bond structure": {
+  "zh": "化学键与分子结构",
+  "en": "Bonding and molecular structure"
+ },
+ "Physical sciences › Chemistry › Theory › Electrochemistry": {
+  "zh": "电化学",
+  "en": "Electrochemistry"
+ },
+ "Physical sciences › Chemistry › Theory › Kinetics": {
+  "zh": "化学动力学",
+  "en": "Chemical kinetics"
+ },
+ "Physical sciences › Chemistry › Theory › Stereochemistry": {
+  "zh": "立体化学",
+  "en": "Stereochemistry"
+ },
+ "Physical sciences › Chemistry › Theory › Supramolecular chemistry": {
+  "zh": "超分子化学",
+  "en": "Supramolecular chemistry"
+ },
+ "Physical sciences › Chemistry › Theory › Thermodynamics": {
+  "zh": "化学热力学",
+  "en": "Chemical thermodynamics"
+ },
+ "Physical sciences › Earth science": {
+  "zh": "地球科学",
+  "en": "Earth science"
+ },
+ "Physical sciences › Earth science › Earth science basics": {
+  "zh": "地球科学基础",
+  "en": "Earth science basics"
+ },
+ "Physical sciences › Earth science › Earth science basics › Earth science basics: General": {
+  "zh": "地球科学概论",
+  "en": "Earth science overview"
+ },
+ "Physical sciences › Earth science › Earth science basics › Humans and the environment": {
+  "zh": "人类与环境",
+  "en": "Humans and the environment"
+ },
+ "Physical sciences › Earth science › Earth science basics › Biomes": {
+  "zh": "生物群系",
+  "en": "Biomes"
+ },
+ "Physical sciences › Earth science › Air": {
+  "zh": "大气科学",
+  "en": "Atmospheric sciences"
+ },
+ "Physical sciences › Earth science › Air › Atmosphere": {
+  "zh": "地球大气",
+  "en": "Earth's atmosphere"
+ },
+ "Physical sciences › Earth science › Air › Meteorology": {
+  "zh": "气象学",
+  "en": "Meteorology"
+ },
+ "Physical sciences › Earth science › Air › Climatology": {
+  "zh": "气候学",
+  "en": "Climatology"
+ },
+ "Physical sciences › Earth science › Air › Seasons": {
+  "zh": "季节",
+  "en": "Seasons"
+ },
+ "Physical sciences › Earth science › Geology": {
+  "zh": "地质学",
+  "en": "Geology"
+ },
+ "Physical sciences › Earth science › Geology › Geology: General": {
+  "zh": "地质学概论",
+  "en": "Geology overview"
+ },
+ "Physical sciences › Earth science › Geology › Geochemistry": {
+  "zh": "地球化学",
+  "en": "Geochemistry"
+ },
+ "Physical sciences › Earth science › Geology › Geophysics": {
+  "zh": "地球物理学",
+  "en": "Geophysics"
+ },
+ "Physical sciences › Earth science › Geology › Historical geology": {
+  "zh": "历史地质学",
+  "en": "Historical geology"
+ },
+ "Physical sciences › Earth science › Geology › Terrestrial geology": {
+  "zh": "矿物、岩石与构造",
+  "en": "Minerals, rocks and tectonics"
+ },
+ "Physical sciences › Earth science › Geomorphology": {
+  "zh": "地貌学",
+  "en": "Geomorphology"
+ },
+ "Physical sciences › Earth science › Geomorphology › Geomorphology: General": {
+  "zh": "地貌学概论",
+  "en": "Geomorphology overview"
+ },
+ "Physical sciences › Earth science › Geomorphology › Landforms": {
+  "zh": "地貌类型",
+  "en": "Landforms"
+ },
+ "Physical sciences › Earth science › Water": {
+  "zh": "水圈",
+  "en": "Hydrosphere"
+ },
+ "Physical sciences › Earth science › Water › Water: General": {
+  "zh": "水圈概述",
+  "en": "Hydrosphere overview"
+ },
+ "Physical sciences › Earth science › Water › Oceanography": {
+  "zh": "海洋学",
+  "en": "Oceanography"
+ },
+ "Physical sciences › Earth science › Water › Glaciology": {
+  "zh": "冰川学",
+  "en": "Glaciology"
+ },
+ "Physical sciences › Earth science › Water › Hydrology": {
+  "zh": "水文学",
+  "en": "Hydrology"
+ },
+ "Physical sciences › Physics": {
+  "zh": "物理学",
+  "en": "Physics"
+ },
+ "Physical sciences › Physics › Physics basics": {
+  "zh": "物理学基础",
+  "en": "Physics basics"
+ },
+ "Physical sciences › Physics › Physics basics › Physics basics: General": {
+  "zh": "物理学概论",
+  "en": "Physics overview"
+ },
+ "Physical sciences › Physics › Physics basics › Space and time": {
+  "zh": "空间与时间",
+  "en": "Space and time"
+ },
+ "Physical sciences › Physics › Physics basics › Physical constants": {
+  "zh": "物理常数",
+  "en": "Physical constants"
+ },
+ "Physical sciences › Physics › Atomic and molecular physics": {
+  "zh": "原子与分子物理",
+  "en": "Atomic and molecular physics"
+ },
+ "Physical sciences › Physics › Atomic and molecular physics › Atomic physics": {
+  "zh": "原子物理学",
+  "en": "Atomic physics"
+ },
+ "Physical sciences › Physics › Atomic and molecular physics › Molecular physics": {
+  "zh": "分子物理学",
+  "en": "Molecular physics"
+ },
+ "Physical sciences › Physics › Color": {
+  "zh": "颜色",
+  "en": "Color"
+ },
+ "Physical sciences › Physics › Color › Basics": {
+  "zh": "颜色基础",
+  "en": "Color basics"
+ },
+ "Physical sciences › Physics › Color › Specific colors": {
+  "zh": "各种颜色",
+  "en": "Individual colors"
+ },
+ "Physical sciences › Physics › Condensed matter physics": {
+  "zh": "凝聚态物理",
+  "en": "Condensed matter physics"
+ },
+ "Physical sciences › Physics › Condensed matter physics › Basics": {
+  "zh": "凝聚态物理基础",
+  "en": "Condensed matter basics"
+ },
+ "Physical sciences › Physics › Condensed matter physics › Electric and magnetic properties of materials": {
+  "zh": "材料的电磁性质",
+  "en": "Electromagnetic properties of materials"
+ },
+ "Physical sciences › Physics › Condensed matter physics › Crystallography": {
+  "zh": "晶体学",
+  "en": "Crystallography"
+ },
+ "Physical sciences › Physics › Condensed matter physics › States of matter": {
+  "zh": "物质状态",
+  "en": "States of matter"
+ },
+ "Physical sciences › Physics › Condensed matter physics › Phase transitions": {
+  "zh": "相变",
+  "en": "Phase transitions"
+ },
+ "Physical sciences › Physics › Electromagnetism": {
+  "zh": "电磁学",
+  "en": "Electromagnetism"
+ },
+ "Physical sciences › Physics › Electromagnetism › Basics": {
+  "zh": "电磁学基础",
+  "en": "Electromagnetism basics"
+ },
+ "Physical sciences › Physics › Electromagnetism › Electrostatics": {
+  "zh": "静电学",
+  "en": "Electrostatics"
+ },
+ "Physical sciences › Physics › Electromagnetism › Magnetostatics": {
+  "zh": "静磁学",
+  "en": "Magnetostatics"
+ },
+ "Physical sciences › Physics › Electromagnetism › Electrodynamics": {
+  "zh": "电动力学",
+  "en": "Electrodynamics"
+ },
+ "Physical sciences › Physics › Electromagnetism › Electromagnetic radiation": {
+  "zh": "电磁辐射",
+  "en": "Electromagnetic radiation"
+ },
+ "Physical sciences › Physics › Electromagnetism › Electrical circuits": {
+  "zh": "电路",
+  "en": "Electrical circuits"
+ },
+ "Physical sciences › Physics › Mechanics": {
+  "zh": "力学",
+  "en": "Mechanics"
+ },
+ "Physical sciences › Physics › Mechanics › Basics": {
+  "zh": "力学基础",
+  "en": "Mechanics basics"
+ },
+ "Physical sciences › Physics › Mechanics › Quantum mechanics": {
+  "zh": "量子力学",
+  "en": "Quantum mechanics"
+ },
+ "Physical sciences › Physics › Mechanics › Theory of relativity": {
+  "zh": "相对论",
+  "en": "Theory of relativity"
+ },
+ "Physical sciences › Physics › Mechanics › Classical mechanics": {
+  "zh": "经典力学",
+  "en": "Classical mechanics"
+ },
+ "Physical sciences › Physics › Mechanics › Continuum mechanics": {
+  "zh": "连续介质力学",
+  "en": "Continuum mechanics"
+ },
+ "Physical sciences › Physics › Mechanics › Granular mechanics": {
+  "zh": "颗粒力学",
+  "en": "Granular mechanics"
+ },
+ "Physical sciences › Physics › Mechanics › Statistical mechanics": {
+  "zh": "统计力学",
+  "en": "Statistical mechanics"
+ },
+ "Physical sciences › Physics › Nuclear physics": {
+  "zh": "核物理学",
+  "en": "Nuclear physics"
+ },
+ "Physical sciences › Physics › Nuclear physics › Radioactivity": {
+  "zh": "放射性",
+  "en": "Radioactivity"
+ },
+ "Physical sciences › Physics › Particle physics": {
+  "zh": "粒子物理学",
+  "en": "Particle physics"
+ },
+ "Physical sciences › Physics › Particle physics › Particle physics: General": {
+  "zh": "粒子物理概论",
+  "en": "Particle physics overview"
+ },
+ "Physical sciences › Physics › Particle physics › Quantum numbers": {
+  "zh": "量子数",
+  "en": "Quantum numbers"
+ },
+ "Physical sciences › Physics › Particle physics › Devices": {
+  "zh": "粒子加速器",
+  "en": "Particle accelerators"
+ },
+ "Physical sciences › Physics › Particle physics › Subatomic particles": {
+  "zh": "亚原子粒子",
+  "en": "Subatomic particles"
+ },
+ "Physical sciences › Physics › Particle physics › Antimatter": {
+  "zh": "反物质",
+  "en": "Antimatter"
+ },
+ "Physical sciences › Physics › Particle physics › Physics beyond the Standard Model": {
+  "zh": "超越标准模型的物理",
+  "en": "Beyond the Standard Model"
+ },
+ "Physical sciences › Physics › Thermodynamics": {
+  "zh": "热力学",
+  "en": "Thermodynamics"
+ },
+ "Physical sciences › Physics › Waves": {
+  "zh": "波动",
+  "en": "Waves"
+ },
+ "Physical sciences › Physics › Waves › Acoustics": {
+  "zh": "声学",
+  "en": "Acoustics"
+ },
+ "Physical sciences › Physics › Waves › Optics": {
+  "zh": "光学",
+  "en": "Optics"
+ },
+ "Geography": {
+  "zh": "地理",
+  "en": "Geography"
+ },
+ "Geography › Cities": {
+  "zh": "城市",
+  "en": "Cities"
+ },
+ "Geography › Cities › Urban studies and planning": {
+  "zh": "城市研究与规划",
+  "en": "Urban studies and planning"
+ },
+ "Geography › Cities › Africa": {
+  "zh": "非洲城市",
+  "en": "Cities of Africa"
+ },
+ "Geography › Cities › Africa › Northern Africa": {
+  "zh": "北非城市",
+  "en": "Cities of North Africa"
+ },
+ "Geography › Cities › Africa › Central Africa": {
+  "zh": "中部非洲城市",
+  "en": "Cities of Central Africa"
+ },
+ "Geography › Cities › Africa › Eastern Africa": {
+  "zh": "东非城市",
+  "en": "Cities of East Africa"
+ },
+ "Geography › Cities › Africa › Southern Africa": {
+  "zh": "南部非洲城市",
+  "en": "Cities of Southern Africa"
+ },
+ "Geography › Cities › Africa › Western Africa": {
+  "zh": "西非城市",
+  "en": "Cities of West Africa"
+ },
+ "Geography › Cities › Americas": {
+  "zh": "美洲城市",
+  "en": "Cities of the Americas"
+ },
+ "Geography › Cities › Americas › North America": {
+  "zh": "北美洲城市",
+  "en": "Cities of North America"
+ },
+ "Geography › Cities › Americas › Central America and Caribbean": {
+  "zh": "中美洲与加勒比城市",
+  "en": "Central American and Caribbean cities"
+ },
+ "Geography › Cities › Americas › South America": {
+  "zh": "南美洲城市",
+  "en": "Cities of South America"
+ },
+ "Geography › Cities › Asia": {
+  "zh": "亚洲城市",
+  "en": "Cities of Asia"
+ },
+ "Geography › Cities › Asia › Central Asia": {
+  "zh": "中亚城市",
+  "en": "Cities of Central Asia"
+ },
+ "Geography › Cities › Asia › Eastern Asia": {
+  "zh": "东亚城市",
+  "en": "Cities of East Asia"
+ },
+ "Geography › Cities › Asia › Southern Asia": {
+  "zh": "南亚城市",
+  "en": "Cities of South Asia"
+ },
+ "Geography › Cities › Asia › Southeast Asia": {
+  "zh": "东南亚城市",
+  "en": "Cities of Southeast Asia"
+ },
+ "Geography › Cities › Asia › Western Asia": {
+  "zh": "西亚城市",
+  "en": "Cities of West Asia"
+ },
+ "Geography › Cities › Europe and Russia": {
+  "zh": "欧洲与俄罗斯城市",
+  "en": "Cities of Europe and Russia"
+ },
+ "Geography › Cities › Europe and Russia › Central and Eastern Europe": {
+  "zh": "中东欧城市",
+  "en": "Cities of Central and Eastern Europe"
+ },
+ "Geography › Cities › Europe and Russia › Northern Europe": {
+  "zh": "北欧城市",
+  "en": "Cities of Northern Europe"
+ },
+ "Geography › Cities › Europe and Russia › Western Europe": {
+  "zh": "西欧城市",
+  "en": "Cities of Western Europe"
+ },
+ "Geography › Cities › Europe and Russia › Southern Europe": {
+  "zh": "南欧城市",
+  "en": "Cities of Southern Europe"
+ },
+ "Geography › Cities › Oceania": {
+  "zh": "大洋洲城市",
+  "en": "Cities of Oceania"
+ },
+ "Geography › Cities › Oceania › Australia": {
+  "zh": "澳大利亚城市",
+  "en": "Cities of Australia"
+ },
+ "Geography › Cities › Oceania › New Zealand": {
+  "zh": "新西兰城市",
+  "en": "Cities of New Zealand"
+ },
+ "Geography › Cities › Oceania › Pacific Islands": {
+  "zh": "太平洋岛屿城市",
+  "en": "Cities of the Pacific Islands"
+ },
+ "Geography › Cities › Non-city settlements": {
+  "zh": "非城市聚落",
+  "en": "Non-city settlements"
+ },
+ "Geography › Cities › Non-city settlements › Antarctica": {
+  "zh": "南极洲聚落",
+  "en": "Settlements in Antarctica"
+ },
+ "Geography › Cities › Non-city settlements › Asia": {
+  "zh": "亚洲非城市聚落",
+  "en": "Non-city settlements in Asia"
+ },
+ "Geography › Cities › Non-city settlements › Europe": {
+  "zh": "欧洲非城市聚落",
+  "en": "Non-city settlements in Europe"
+ },
+ "Geography › Cities › Non-city settlements › North America": {
+  "zh": "北美洲非城市聚落",
+  "en": "Non-city settlements in North America"
+ },
+ "Geography › Cities › Non-city settlements › South America": {
+  "zh": "南美洲非城市聚落",
+  "en": "Non-city settlements in South America"
+ },
+ "Geography › Physical": {
+  "zh": "自然地理",
+  "en": "Physical geography"
+ },
+ "Geography › Physical › Physical geography: Basics": {
+  "zh": "自然地理基础",
+  "en": "Physical geography basics"
+ },
+ "Geography › Physical › Bodies of water": {
+  "zh": "水体",
+  "en": "Bodies of water"
+ },
+ "Geography › Physical › Bodies of water › Oceans and seas": {
+  "zh": "大洋与海",
+  "en": "Oceans and seas"
+ },
+ "Geography › Physical › Bodies of water › Lakes": {
+  "zh": "湖泊",
+  "en": "Lakes"
+ },
+ "Geography › Physical › Bodies of water › Rivers": {
+  "zh": "河流",
+  "en": "Rivers"
+ },
+ "Geography › Physical › Bodies of water › Straits": {
+  "zh": "海峡",
+  "en": "Straits"
+ },
+ "Geography › Physical › Bodies of water › Canals": {
+  "zh": "运河",
+  "en": "Canals"
+ },
+ "Geography › Physical › Bodies of water › Shipping routes": {
+  "zh": "海上航线",
+  "en": "Shipping routes"
+ },
+ "Geography › Physical › Other hydrological features": {
+  "zh": "其他水文特征",
+  "en": "Other hydrological features"
+ },
+ "Geography › Physical › Other hydrological features › Aquifers": {
+  "zh": "含水层",
+  "en": "Aquifers"
+ },
+ "Geography › Physical › Other hydrological features › Geysers and hot springs": {
+  "zh": "间歇泉与温泉",
+  "en": "Geysers and hot springs"
+ },
+ "Geography › Physical › Other hydrological features › Glaciers and sea ice": {
+  "zh": "冰川与海冰",
+  "en": "Glaciers and sea ice"
+ },
+ "Geography › Physical › Other hydrological features › Springs": {
+  "zh": "泉水",
+  "en": "Springs"
+ },
+ "Geography › Physical › Other hydrological features › River deltas and estuaries": {
+  "zh": "河口与三角洲",
+  "en": "River deltas and estuaries"
+ },
+ "Geography › Physical › Other hydrological features › Seabed": {
+  "zh": "海底地貌",
+  "en": "Seabed features"
+ },
+ "Geography › Physical › Other hydrological features › Waterfalls": {
+  "zh": "瀑布",
+  "en": "Waterfalls"
+ },
+ "Geography › Physical › Other hydrological features › Watersheds": {
+  "zh": "流域与分水岭",
+  "en": "Watersheds and basins"
+ },
+ "Geography › Physical › Other hydrological features › Wetlands": {
+  "zh": "湿地",
+  "en": "Wetlands"
+ },
+ "Geography › Physical › Islands": {
+  "zh": "岛屿",
+  "en": "Islands"
+ },
+ "Geography › Physical › Islands › Islands in Africa": {
+  "zh": "非洲岛屿",
+  "en": "Islands in Africa"
+ },
+ "Geography › Physical › Islands › Islands surrounding Antarctica": {
+  "zh": "南极洲周边岛屿",
+  "en": "Islands around Antarctica"
+ },
+ "Geography › Physical › Islands › Islands in Asia": {
+  "zh": "亚洲岛屿",
+  "en": "Islands in Asia"
+ },
+ "Geography › Physical › Islands › Islands in Europe": {
+  "zh": "欧洲岛屿",
+  "en": "Islands in Europe"
+ },
+ "Geography › Physical › Islands › Islands in North and Central America": {
+  "zh": "北美洲与中美洲岛屿",
+  "en": "Islands in North and Central America"
+ },
+ "Geography › Physical › Islands › Islands in Oceania": {
+  "zh": "大洋洲岛屿",
+  "en": "Islands in Oceania"
+ },
+ "Geography › Physical › Islands › Islands in South America": {
+  "zh": "南美洲岛屿",
+  "en": "Islands in South America"
+ },
+ "Geography › Physical › Peninsulas": {
+  "zh": "半岛",
+  "en": "Peninsulas"
+ },
+ "Geography › Physical › Peninsulas › Peninsulas in Africa": {
+  "zh": "非洲半岛",
+  "en": "Peninsulas in Africa"
+ },
+ "Geography › Physical › Peninsulas › Peninsulas in the Americas": {
+  "zh": "美洲半岛",
+  "en": "Peninsulas in the Americas"
+ },
+ "Geography › Physical › Peninsulas › Peninsulas in Antarctica": {
+  "zh": "南极洲半岛",
+  "en": "Peninsulas in Antarctica"
+ },
+ "Geography › Physical › Peninsulas › Peninsulas in Asia": {
+  "zh": "亚洲半岛",
+  "en": "Peninsulas in Asia"
+ },
+ "Geography › Physical › Peninsulas › Peninsulas in Europe": {
+  "zh": "欧洲半岛",
+  "en": "Peninsulas in Europe"
+ },
+ "Geography › Physical › Peninsulas › Peninsulas in Oceania": {
+  "zh": "大洋洲半岛",
+  "en": "Peninsulas in Oceania"
+ },
+ "Geography › Physical › Capes": {
+  "zh": "岬角",
+  "en": "Capes"
+ },
+ "Geography › Physical › Capes › Capes in Africa": {
+  "zh": "非洲岬角",
+  "en": "Capes in Africa"
+ },
+ "Geography › Physical › Capes › Capes in the Americas": {
+  "zh": "美洲岬角",
+  "en": "Capes in the Americas"
+ },
+ "Geography › Physical › Capes › Capes in Asia": {
+  "zh": "亚洲岬角",
+  "en": "Capes in Asia"
+ },
+ "Geography › Physical › Capes › Capes in Europe": {
+  "zh": "欧洲岬角",
+  "en": "Capes in Europe"
+ },
+ "Geography › Physical › Capes › Capes in Oceania": {
+  "zh": "大洋洲岬角",
+  "en": "Capes in Oceania"
+ },
+ "Geography › Physical › Isthmuses": {
+  "zh": "地峡",
+  "en": "Isthmuses"
+ },
+ "Geography › Physical › Land relief": {
+  "zh": "陆地地形",
+  "en": "Landforms"
+ },
+ "Geography › Physical › Land relief › Land relief: General": {
+  "zh": "跨洲地形",
+  "en": "Cross-continental landforms"
+ },
+ "Geography › Physical › Land relief › Land relief in Africa": {
+  "zh": "非洲地形",
+  "en": "Landforms of Africa"
+ },
+ "Geography › Physical › Land relief › Land relief in the Americas": {
+  "zh": "美洲地形",
+  "en": "Landforms of the Americas"
+ },
+ "Geography › Physical › Land relief › Land relief in Antarctica": {
+  "zh": "南极洲地形",
+  "en": "Landforms of Antarctica"
+ },
+ "Geography › Physical › Land relief › Land relief in Asia": {
+  "zh": "亚洲地形",
+  "en": "Landforms of Asia"
+ },
+ "Geography › Physical › Land relief › Land relief in Europe": {
+  "zh": "欧洲地形",
+  "en": "Landforms of Europe"
+ },
+ "Geography › Physical › Land relief › Land relief in Oceania": {
+  "zh": "大洋洲地形",
+  "en": "Landforms of Oceania"
+ },
+ "Geography › Physical › Mountain peaks and volcanos": {
+  "zh": "山峰与火山",
+  "en": "Mountain peaks and volcanoes"
+ },
+ "Geography › Physical › Mountain peaks and volcanos › Mountain peaks in Africa": {
+  "zh": "非洲山峰",
+  "en": "Mountain peaks in Africa"
+ },
+ "Geography › Physical › Mountain peaks and volcanos › Mountain peaks in Antarctica": {
+  "zh": "南极洲山峰",
+  "en": "Mountain peaks in Antarctica"
+ },
+ "Geography › Physical › Mountain peaks and volcanos › Mountain peaks in Asia": {
+  "zh": "亚洲山峰",
+  "en": "Mountain peaks in Asia"
+ },
+ "Geography › Physical › Mountain peaks and volcanos › Mountain peaks in Europe": {
+  "zh": "欧洲山峰",
+  "en": "Mountain peaks in Europe"
+ },
+ "Geography › Physical › Mountain peaks and volcanos › Mountain peaks in North America and Central America": {
+  "zh": "北美洲与中美洲山峰",
+  "en": "Peaks of North and Central America"
+ },
+ "Geography › Physical › Mountain peaks and volcanos › Mountain peaks in Oceania": {
+  "zh": "大洋洲山峰",
+  "en": "Mountain peaks in Oceania"
+ },
+ "Geography › Physical › Mountain peaks and volcanos › Mountain peaks in South America": {
+  "zh": "南美洲山峰",
+  "en": "Mountain peaks in South America"
+ },
+ "Geography › Physical › Other terrestrial features": {
+  "zh": "其他陆地地貌",
+  "en": "Other land features"
+ },
+ "Geography › Physical › Other terrestrial features › Beaches": {
+  "zh": "海滩",
+  "en": "Beaches"
+ },
+ "Geography › Physical › Other terrestrial features › Caves": {
+  "zh": "洞穴",
+  "en": "Caves"
+ },
+ "Geography › Physical › Other terrestrial features › Cliffs, headlands, stacks and natural arches": {
+  "zh": "悬崖、海蚀柱与石拱",
+  "en": "Cliffs, sea stacks and arches"
+ },
+ "Geography › Physical › Other terrestrial features › Craters": {
+  "zh": "陨石坑",
+  "en": "Impact craters"
+ },
+ "Geography › Physical › Vegetation features": {
+  "zh": "荒漠、草原与森林",
+  "en": "Deserts, grasslands and forests"
+ },
+ "Geography › Physical › Vegetation features › Deserts and dunes": {
+  "zh": "沙漠与沙丘",
+  "en": "Deserts and dunes"
+ },
+ "Geography › Physical › Vegetation features › Oases": {
+  "zh": "绿洲",
+  "en": "Oases"
+ },
+ "Geography › Physical › Vegetation features › Grasslands and savannas": {
+  "zh": "草原与稀树草原",
+  "en": "Grasslands and savannas"
+ },
+ "Geography › Physical › Vegetation features › Forests": {
+  "zh": "森林",
+  "en": "Forests"
+ },
+ "Geography › Physical › Parks, preserves, and World Heritage Sites": {
+  "zh": "公园、保护区与世界遗产",
+  "en": "Parks, reserves and heritage sites"
+ },
+ "Geography › Regions and countries": {
+  "zh": "国家与地区",
+  "en": "Countries and regions"
+ },
+ "Geography › Regions and countries › Countries: General": {
+  "zh": "国家与行政区划概念",
+  "en": "Country and subdivision concepts"
+ },
+ "Geography › Regions and countries › Countries": {
+  "zh": "世界各国",
+  "en": "Countries of the world"
+ },
+ "Geography › Regions and countries › Countries › Countries in the Americas": {
+  "zh": "美洲国家",
+  "en": "Countries in the Americas"
+ },
+ "Geography › Regions and countries › Countries › Countries in Africa": {
+  "zh": "非洲国家",
+  "en": "Countries in Africa"
+ },
+ "Geography › Regions and countries › Countries › Countries in Asia": {
+  "zh": "亚洲国家",
+  "en": "Countries in Asia"
+ },
+ "Geography › Regions and countries › Countries › Countries in Europe": {
+  "zh": "欧洲国家",
+  "en": "Countries in Europe"
+ },
+ "Geography › Regions and countries › Countries › Countries in Oceania": {
+  "zh": "大洋洲国家",
+  "en": "Countries in Oceania"
+ },
+ "Geography › Regions and countries › Countries › Unrecognized or largely unrecognized states, and disputed regions": {
+  "zh": "争议地区与未获承认实体",
+  "en": "Disputed and unrecognized territories"
+ },
+ "Geography › Regions and countries › Countries › State-like entities": {
+  "zh": "特殊主权实体",
+  "en": "State-like entities"
+ },
+ "Geography › Regions and countries › Regions and country subdivisions": {
+  "zh": "地区与行政区划",
+  "en": "Regions and subdivisions"
+ },
+ "Geography › Regions and countries › Regions and country subdivisions › Regions and country subdivisions in Africa": {
+  "zh": "非洲地区与行政区",
+  "en": "Regions of Africa"
+ },
+ "Geography › Regions and countries › Regions and country subdivisions › Regions in Antarctica": {
+  "zh": "南极洲地区",
+  "en": "Regions of Antarctica"
+ },
+ "Geography › Regions and countries › Regions and country subdivisions › Regions and country subdivisions in Asia": {
+  "zh": "亚洲地区与行政区",
+  "en": "Regions of Asia"
+ },
+ "Geography › Regions and countries › Regions and country subdivisions › Regions and country subdivisions in Europe and Russia": {
+  "zh": "欧洲与俄罗斯地区",
+  "en": "Regions of Europe and Russia"
+ },
+ "Geography › Regions and countries › Regions and country subdivisions › Regions and country subdivisions in North America": {
+  "zh": "北美洲地区与行政区",
+  "en": "Regions of North America"
+ },
+ "Geography › Regions and countries › Regions and country subdivisions › Regions and country subdivisions in Oceania": {
+  "zh": "大洋洲地区与行政区",
+  "en": "Regions of Oceania"
+ },
+ "Geography › Regions and countries › Regions and country subdivisions › Regions and country subdivisions in South America": {
+  "zh": "南美洲地区与行政区",
+  "en": "Regions of South America"
+ },
+ "Geography › Technical": {
+  "zh": "地理学概念与方法",
+  "en": "Geographic concepts and methods"
+ },
+ "Geography › Technical › Basics": {
+  "zh": "地理学基础",
+  "en": "Geography basics"
+ },
+ "Geography › Technical › Basics › Basics: General": {
+  "zh": "地理学概述",
+  "en": "Overview of geography"
+ },
+ "Geography › Technical › Basics › Continents and regions": {
+  "zh": "大洲与区域",
+  "en": "Continents and regions"
+ },
+ "Geography › Technical › Basics › Earth": {
+  "zh": "经纬线与地球分区",
+  "en": "Latitude, poles and hemispheres"
+ },
+ "Geography › Technical › Basics › Human geography": {
+  "zh": "人文地理",
+  "en": "Human geography"
+ },
+ "Geography › Technical › Technical geography": {
+  "zh": "测绘与地理信息",
+  "en": "Technical geography"
+ },
+ "Geography › Technical › Technical geography › Cartography": {
+  "zh": "地图学",
+  "en": "Cartography"
+ },
+ "History": {
+  "zh": "历史",
+  "en": "History"
+ },
+ "History › Basics": {
+  "zh": "历史学基础",
+  "en": "History basics"
+ },
+ "History › Basics › Basics: General": {
+  "zh": "历史学概述",
+  "en": "Overview of history"
+ },
+ "History › Basics › Archaeology": {
+  "zh": "考古学",
+  "en": "Archaeology"
+ },
+ "History › Basics › Auxiliary sciences of history": {
+  "zh": "历史辅助学科",
+  "en": "Auxiliary sciences of history"
+ },
+ "History › History by continent and large region": {
+  "zh": "大洲与区域史",
+  "en": "History by continent and region"
+ },
+ "History › History by continent and large region › History of Eurasia": {
+  "zh": "欧亚大陆史",
+  "en": "History of Eurasia"
+ },
+ "History › History by continent and large region › History of other continents": {
+  "zh": "欧亚以外各洲史",
+  "en": "History beyond Eurasia"
+ },
+ "History › History by country, small region and city": {
+  "zh": "国别史与地方史",
+  "en": "History by country and locality"
+ },
+ "History › History by country, small region and city › Europe": {
+  "zh": "欧洲国别与地方史",
+  "en": "European national and local history"
+ },
+ "History › History by country, small region and city › North America": {
+  "zh": "北美洲国别与地方史",
+  "en": "North American national and local history"
+ },
+ "History › History by country, small region and city › South America": {
+  "zh": "南美洲国别与地方史",
+  "en": "South American national and local history"
+ },
+ "History › History by country, small region and city › Africa": {
+  "zh": "非洲国别与地方史",
+  "en": "African national and local history"
+ },
+ "History › History by country, small region and city › Oceania": {
+  "zh": "大洋洲国别与地方史",
+  "en": "Oceanian national and local history"
+ },
+ "History › History by country, small region and city › Asia": {
+  "zh": "亚洲国别与地方史",
+  "en": "Asian national and local history"
+ },
+ "History › History by ethnicity": {
+  "zh": "民族史",
+  "en": "Ethnic histories"
+ },
+ "History › Historical cities, towns and archaeological sites": {
+  "zh": "历史城镇与考古遗址",
+  "en": "Historic cities and archaeological sites"
+ },
+ "History › Historical cities, towns and archaeological sites › Asia": {
+  "zh": "亚洲古城与遗址",
+  "en": "Historic sites of Asia"
+ },
+ "History › Historical cities, towns and archaeological sites › Europe": {
+  "zh": "欧洲古城与遗址",
+  "en": "Historic sites of Europe"
+ },
+ "History › Historical cities, towns and archaeological sites › Africa": {
+  "zh": "非洲古城与遗址",
+  "en": "Historic sites of Africa"
+ },
+ "History › Historical cities, towns and archaeological sites › Americas": {
+  "zh": "美洲古城与遗址",
+  "en": "Historic sites of the Americas"
+ },
+ "History › Historical cities, towns and archaeological sites › Oceania": {
+  "zh": "大洋洲古城与遗址",
+  "en": "Historic sites of Oceania"
+ },
+ "History › History by topic": {
+  "zh": "专题史",
+  "en": "History by topic"
+ },
+ "History › History by topic › History of art": {
+  "zh": "艺术史",
+  "en": "History of art"
+ },
+ "History › History by topic › History of everyday life": {
+  "zh": "日常生活史",
+  "en": "History of everyday life"
+ },
+ "History › History by topic › History of philosophy and religion": {
+  "zh": "哲学与宗教史",
+  "en": "History of philosophy and religion"
+ },
+ "History › History by topic › History of science and technology": {
+  "zh": "科学技术史",
+  "en": "History of science and technology"
+ },
+ "History › History by topic › History of society": {
+  "zh": "社会史",
+  "en": "Social history"
+ },
+ "History › History by topic › History of games and sport": {
+  "zh": "游戏与体育史",
+  "en": "History of games and sport"
+ },
+ "History › Prehistory": {
+  "zh": "史前史",
+  "en": "Prehistory"
+ },
+ "History › Prehistory › Paleolithic and Mesolithic": {
+  "zh": "旧石器与中石器时代",
+  "en": "Paleolithic and Mesolithic"
+ },
+ "History › Prehistory › Neolithic": {
+  "zh": "新石器时代",
+  "en": "Neolithic"
+ },
+ "History › Ancient": {
+  "zh": "古代史",
+  "en": "Ancient history"
+ },
+ "History › Ancient › Ancient: General": {
+  "zh": "古代史概述",
+  "en": "Ancient history overview"
+ },
+ "History › Ancient › Ancient Europe": {
+  "zh": "古代欧洲",
+  "en": "Ancient Europe"
+ },
+ "History › Ancient › Ancient Asia": {
+  "zh": "古代亚洲",
+  "en": "Ancient Asia"
+ },
+ "History › Ancient › Ancient Africa": {
+  "zh": "古代非洲",
+  "en": "Ancient Africa"
+ },
+ "History › Ancient › Ancient Americas": {
+  "zh": "古代美洲",
+  "en": "Ancient Americas"
+ },
+ "History › Ancient › Ancient Oceania": {
+  "zh": "古代大洋洲",
+  "en": "Ancient Oceania"
+ },
+ "History › Post-classical": {
+  "zh": "中古史",
+  "en": "Post-classical era"
+ },
+ "History › Post-classical › Post-classical: General": {
+  "zh": "中古史概述",
+  "en": "Post-classical era overview"
+ },
+ "History › Post-classical › Medieval Europe": {
+  "zh": "中古欧洲",
+  "en": "Medieval Europe"
+ },
+ "History › Post-classical › Post-classical Africa": {
+  "zh": "中古非洲",
+  "en": "Post-classical Africa"
+ },
+ "History › Post-classical › Post-classical Americas": {
+  "zh": "中古美洲",
+  "en": "Post-classical Americas"
+ },
+ "History › Post-classical › Post-classical Asia": {
+  "zh": "中古亚洲",
+  "en": "Post-classical Asia"
+ },
+ "History › Post-classical › Post-classical Oceania": {
+  "zh": "中古大洋洲",
+  "en": "Post-classical Oceania"
+ },
+ "History › Early modern": {
+  "zh": "近代早期史",
+  "en": "Early modern period"
+ },
+ "History › Early modern › Early modern: General": {
+  "zh": "近代早期史概述",
+  "en": "Early modern overview"
+ },
+ "History › Early modern › Colonial empires": {
+  "zh": "殖民帝国",
+  "en": "Colonial empires"
+ },
+ "History › Early modern › Early modern Europe": {
+  "zh": "近代早期欧洲",
+  "en": "Early modern Europe"
+ },
+ "History › Early modern › Early modern Americas": {
+  "zh": "近代早期美洲",
+  "en": "Early modern Americas"
+ },
+ "History › Early modern › Early modern Africa": {
+  "zh": "近代早期非洲",
+  "en": "Early modern Africa"
+ },
+ "History › Early modern › Early modern Asia": {
+  "zh": "近代早期亚洲",
+  "en": "Early modern Asia"
+ },
+ "History › Early modern › Early modern Oceania": {
+  "zh": "近代早期大洋洲",
+  "en": "Early modern Oceania"
+ },
+ "History › Modern (1800-1945)": {
+  "zh": "近代史",
+  "en": "Modern era (1800–1945)"
+ },
+ "History › Modern (1800-1945) › Modern (1800-1945): General": {
+  "zh": "近代史概述",
+  "en": "Modern era overview"
+ },
+ "History › Modern (1800-1945) › World War I": {
+  "zh": "第一次世界大战",
+  "en": "World War I"
+ },
+ "History › Modern (1800-1945) › World War II": {
+  "zh": "第二次世界大战",
+  "en": "World War II"
+ },
+ "History › Modern (1800-1945) › Europe (1800-1945)": {
+  "zh": "近代欧洲",
+  "en": "Europe, 1800–1945"
+ },
+ "History › Modern (1800-1945) › Americas (1800-1945)": {
+  "zh": "近代美洲",
+  "en": "Americas, 1800–1945"
+ },
+ "History › Modern (1800-1945) › Africa (1800-1945)": {
+  "zh": "近代非洲",
+  "en": "Africa, 1800–1945"
+ },
+ "History › Modern (1800-1945) › Asia (1800-1945)": {
+  "zh": "近代亚洲",
+  "en": "Asia, 1800–1945"
+ },
+ "History › Modern (1800-1945) › Oceania (1800-1945)": {
+  "zh": "近代大洋洲",
+  "en": "Oceania, 1800–1945"
+ },
+ "History › Contemporary (1945-)": {
+  "zh": "当代史",
+  "en": "Contemporary era (since 1945)"
+ },
+ "History › Contemporary (1945-) › Contemporary (1945-): General": {
+  "zh": "当代史概述",
+  "en": "Contemporary era overview"
+ },
+ "History › Contemporary (1945-) › Africa (1945-)": {
+  "zh": "当代非洲",
+  "en": "Africa since 1945"
+ },
+ "History › Contemporary (1945-) › Americas (1945-)": {
+  "zh": "当代美洲",
+  "en": "Americas since 1945"
+ },
+ "History › Contemporary (1945-) › Asia (1945-)": {
+  "zh": "当代亚洲",
+  "en": "Asia since 1945"
+ },
+ "History › Contemporary (1945-) › Europe": {
+  "zh": "当代欧洲",
+  "en": "Europe since 1945"
+ },
+ "History › Contemporary (1945-) › Oceania (1945-)": {
+  "zh": "当代大洋洲",
+  "en": "Oceania since 1945"
+ },
+ "Society and social sciences": {
+  "zh": "社会与社会科学",
+  "en": "Society and social sciences"
+ },
+ "Society and social sciences › Culture": {
+  "zh": "文化",
+  "en": "Culture"
+ },
+ "Society and social sciences › Culture › Communication": {
+  "zh": "传播与沟通",
+  "en": "Communication"
+ },
+ "Society and social sciences › Culture › Communication › Literary devices": {
+  "zh": "修辞手法",
+  "en": "Literary devices"
+ },
+ "Society and social sciences › Culture › Communication › Nonverbal communication": {
+  "zh": "非言语交流",
+  "en": "Nonverbal communication"
+ },
+ "Society and social sciences › Culture › Culture": {
+  "zh": "文化与习俗",
+  "en": "Culture and customs"
+ },
+ "Society and social sciences › Culture › Culture › Basics": {
+  "zh": "文化基础",
+  "en": "Culture basics"
+ },
+ "Society and social sciences › Culture › Culture › Culture by region": {
+  "zh": "世界各地文化",
+  "en": "Cultures around the world"
+ },
+ "Society and social sciences › Culture › Culture › Festivals, holidays, and observances": {
+  "zh": "节日与纪念日",
+  "en": "Festivals and holidays"
+ },
+ "Society and social sciences › Culture › Culture › Death traditions": {
+  "zh": "丧葬习俗",
+  "en": "Funeral customs"
+ },
+ "Society and social sciences › Culture › Culture › Subcultures": {
+  "zh": "亚文化",
+  "en": "Subcultures"
+ },
+ "Society and social sciences › Culture › Education": {
+  "zh": "教育",
+  "en": "Education"
+ },
+ "Society and social sciences › Culture › Education › Education: General": {
+  "zh": "教育基础",
+  "en": "Education basics"
+ },
+ "Society and social sciences › Culture › Education › Specific libraries": {
+  "zh": "著名图书馆",
+  "en": "Notable libraries"
+ },
+ "Society and social sciences › Culture › Education › Educational institutions": {
+  "zh": "著名院校",
+  "en": "Notable schools and universities"
+ },
+ "Society and social sciences › Culture › Ethnology and anthropology": {
+  "zh": "民族学与人类学",
+  "en": "Ethnology and anthropology"
+ },
+ "Society and social sciences › Culture › Ethnology and anthropology › Anthropology": {
+  "zh": "人类学",
+  "en": "Anthropology"
+ },
+ "Society and social sciences › Culture › Ethnology and anthropology › Ethnology": {
+  "zh": "民族学",
+  "en": "Ethnology"
+ },
+ "Society and social sciences › Culture › Ethnology and anthropology › Ethnic groups": {
+  "zh": "民族与族群",
+  "en": "Ethnic groups"
+ },
+ "Society and social sciences › Culture › Language": {
+  "zh": "语言",
+  "en": "Language"
+ },
+ "Society and social sciences › Culture › Language › Language: General": {
+  "zh": "语言学基础",
+  "en": "Language and linguistics basics"
+ },
+ "Society and social sciences › Culture › Language › Language families and sprachbund": {
+  "zh": "语系与语言联盟",
+  "en": "Language families and areas"
+ },
+ "Society and social sciences › Culture › Language › Alphabets and writing systems": {
+  "zh": "文字与书写系统",
+  "en": "Alphabets and writing systems"
+ },
+ "Society and social sciences › Culture › Language › Specific languages": {
+  "zh": "世界各语种",
+  "en": "Languages of the world"
+ },
+ "Society and social sciences › Culture › Language › The English language": {
+  "zh": "英语",
+  "en": "English language"
+ },
+ "Society and social sciences › Culture › Journalism and mass media": {
+  "zh": "新闻与大众传媒",
+  "en": "Journalism and mass media"
+ },
+ "Society and social sciences › Culture › Journalism and mass media › Journalism": {
+  "zh": "新闻业",
+  "en": "Journalism"
+ },
+ "Society and social sciences › Culture › Journalism and mass media › Mass media": {
+  "zh": "大众媒体",
+  "en": "Mass media"
+ },
+ "Society and social sciences › Culture › Journalism and mass media › Academic journals": {
+  "zh": "学术期刊",
+  "en": "Academic journals"
+ },
+ "Society and social sciences › Culture › Journalism and mass media › Magazines": {
+  "zh": "杂志",
+  "en": "Magazines"
+ },
+ "Society and social sciences › Culture › Journalism and mass media › News agencies": {
+  "zh": "通讯社",
+  "en": "News agencies"
+ },
+ "Society and social sciences › Culture › Journalism and mass media › Newspapers": {
+  "zh": "报纸",
+  "en": "Newspapers"
+ },
+ "Society and social sciences › Culture › Journalism and mass media › Radio": {
+  "zh": "广播",
+  "en": "Radio"
+ },
+ "Society and social sciences › Culture › Journalism and mass media › Television": {
+  "zh": "电视",
+  "en": "Television"
+ },
+ "Society and social sciences › Culture › Journalism and mass media › Internet medium": {
+  "zh": "网络媒体",
+  "en": "Internet media"
+ },
+ "Society and social sciences › Politics and economics": {
+  "zh": "政治与经济",
+  "en": "Politics and economics"
+ },
+ "Society and social sciences › Politics and economics › Business and economics": {
+  "zh": "商业与经济",
+  "en": "Business and economics"
+ },
+ "Society and social sciences › Politics and economics › Business and economics › Money": {
+  "zh": "货币",
+  "en": "Money"
+ },
+ "Society and social sciences › Politics and economics › Business and economics › Banking and financing": {
+  "zh": "银行与金融",
+  "en": "Banking and finance"
+ },
+ "Society and social sciences › Politics and economics › Business and economics › Business": {
+  "zh": "商业",
+  "en": "Business"
+ },
+ "Society and social sciences › Politics and economics › Business and economics › Economics": {
+  "zh": "经济学",
+  "en": "Economics"
+ },
+ "Society and social sciences › Politics and economics › Companies": {
+  "zh": "知名企业",
+  "en": "Notable companies"
+ },
+ "Society and social sciences › Politics and economics › Companies › Financial": {
+  "zh": "金融企业",
+  "en": "Financial companies"
+ },
+ "Society and social sciences › Politics and economics › Companies › Chemical companies": {
+  "zh": "化工企业",
+  "en": "Chemical companies"
+ },
+ "Society and social sciences › Politics and economics › Companies › Computing, telecommunication, electronics, and software": {
+  "zh": "科技与电信企业",
+  "en": "Tech and telecom companies"
+ },
+ "Society and social sciences › Politics and economics › Companies › Gambling, hospitality and restaurants": {
+  "zh": "餐饮、酒店与博彩企业",
+  "en": "Hospitality, dining and gaming companies"
+ },
+ "Society and social sciences › Politics and economics › Companies › Internet and e-commerce": {
+  "zh": "互联网与电商企业",
+  "en": "Internet and e-commerce companies"
+ },
+ "Society and social sciences › Politics and economics › Companies › Investors": {
+  "zh": "投资集团",
+  "en": "Investment groups"
+ },
+ "Society and social sciences › Politics and economics › Companies › Manufacturing": {
+  "zh": "制造业企业",
+  "en": "Manufacturing companies"
+ },
+ "Society and social sciences › Politics and economics › Companies › Media companies": {
+  "zh": "传媒企业",
+  "en": "Media companies"
+ },
+ "Society and social sciences › Politics and economics › Companies › Mining companies": {
+  "zh": "矿业企业",
+  "en": "Mining companies"
+ },
+ "Society and social sciences › Politics and economics › Companies › Oil and energy companies": {
+  "zh": "石油与能源企业",
+  "en": "Oil and energy companies"
+ },
+ "Society and social sciences › Politics and economics › Companies › Medical and health care services": {
+  "zh": "医疗健康企业",
+  "en": "Healthcare companies"
+ },
+ "Society and social sciences › Politics and economics › Companies › Retailers": {
+  "zh": "零售企业",
+  "en": "Retailers"
+ },
+ "Society and social sciences › Politics and economics › Companies › Transport": {
+  "zh": "运输与物流企业",
+  "en": "Transport and logistics companies"
+ },
+ "Society and social sciences › Politics and economics › Companies › Other or multiple industries": {
+  "zh": "综合与其他行业企业",
+  "en": "Diversified and other companies"
+ },
+ "Society and social sciences › Politics and economics › Law": {
+  "zh": "法律",
+  "en": "Law"
+ },
+ "Society and social sciences › Politics and economics › Law › Basics": {
+  "zh": "法律基础",
+  "en": "Legal basics"
+ },
+ "Society and social sciences › Politics and economics › Law › Comparative law and law by country": {
+  "zh": "比较法与各国法律",
+  "en": "Comparative and national law"
+ },
+ "Society and social sciences › Politics and economics › Law › Subjects": {
+  "zh": "法律领域",
+  "en": "Areas of law"
+ },
+ "Society and social sciences › Politics and economics › Law › Institutions and professions": {
+  "zh": "司法机构与法律职业",
+  "en": "Legal institutions and professions"
+ },
+ "Society and social sciences › Politics and economics › Law › Crime": {
+  "zh": "犯罪",
+  "en": "Crime"
+ },
+ "Society and social sciences › Politics and economics › Law › Legal procedure": {
+  "zh": "诉讼程序",
+  "en": "Legal procedure"
+ },
+ "Society and social sciences › Politics and economics › Law › Documents": {
+  "zh": "法律文件与法典",
+  "en": "Legal documents and codes"
+ },
+ "Society and social sciences › Politics and economics › Law › Notable legal decisions": {
+  "zh": "著名判例",
+  "en": "Landmark court cases"
+ },
+ "Society and social sciences › Politics and economics › Organizations": {
+  "zh": "组织机构",
+  "en": "Organizations"
+ },
+ "Society and social sciences › Politics and economics › Organizations › Government agencies": {
+  "zh": "国家机构",
+  "en": "Government institutions"
+ },
+ "Society and social sciences › Politics and economics › Organizations › International organizations": {
+  "zh": "国际组织",
+  "en": "International organizations"
+ },
+ "Society and social sciences › Politics and economics › Organizations › National organizations": {
+  "zh": "各国组织与政党",
+  "en": "National organizations and parties"
+ },
+ "Society and social sciences › Politics and economics › Organizations › Organized crime groups": {
+  "zh": "有组织犯罪集团",
+  "en": "Organized crime groups"
+ },
+ "Society and social sciences › Politics and economics › Politics and government": {
+  "zh": "政治与政府",
+  "en": "Politics and government"
+ },
+ "Society and social sciences › Politics and economics › Politics and government › Politics": {
+  "zh": "政治学",
+  "en": "Politics"
+ },
+ "Society and social sciences › Politics and economics › Politics and government › Governance": {
+  "zh": "政府与政体",
+  "en": "Government and political systems"
+ },
+ "Society and social sciences › Politics and economics › Politics and government › State structure and administration": {
+  "zh": "国家结构与行政",
+  "en": "State structure and administration"
+ },
+ "Society and social sciences › Politics and economics › Politics and government › Ideology and political theory": {
+  "zh": "意识形态与政治理论",
+  "en": "Ideology and political theory"
+ },
+ "Society and social sciences › Politics and economics › Politics and government › Titles": {
+  "zh": "爵位与头衔",
+  "en": "Titles and ranks"
+ },
+ "Society and social sciences › Politics and economics › War and military": {
+  "zh": "战争与军事",
+  "en": "War and military"
+ },
+ "Society and social sciences › Politics and economics › War and military › Basics": {
+  "zh": "战争基础",
+  "en": "Basics of war"
+ },
+ "Society and social sciences › Politics and economics › War and military › Wars by type": {
+  "zh": "战争类型",
+  "en": "Types of war"
+ },
+ "Society and social sciences › Politics and economics › War and military › Warfare by type": {
+  "zh": "作战方式",
+  "en": "Types of warfare"
+ },
+ "Society and social sciences › Politics and economics › War and military › Military": {
+  "zh": "军事组织与战略",
+  "en": "Military organization and strategy"
+ },
+ "Society and social sciences › Social studies": {
+  "zh": "社会研究",
+  "en": "Social studies"
+ },
+ "Society and social sciences › Social studies › Basics": {
+  "zh": "社会科学基础",
+  "en": "Social science basics"
+ },
+ "Society and social sciences › Social studies › Psychology": {
+  "zh": "心理学",
+  "en": "Psychology"
+ },
+ "Society and social sciences › Social studies › Psychology › Basics": {
+  "zh": "心理学基础",
+  "en": "Psychology basics"
+ },
+ "Society and social sciences › Social studies › Psychology › Psychology schools": {
+  "zh": "心理学流派",
+  "en": "Schools of psychology"
+ },
+ "Society and social sciences › Social studies › Psychology › Cognition": {
+  "zh": "认知与偏差",
+  "en": "Cognition and biases"
+ },
+ "Society and social sciences › Social studies › Psychology › Concepts": {
+  "zh": "心理学概念",
+  "en": "Psychological concepts"
+ },
+ "Society and social sciences › Social studies › Psychology › Emotions and traits": {
+  "zh": "情绪与人格特质",
+  "en": "Emotions and traits"
+ },
+ "Society and social sciences › Social studies › Psychology › Interpersonal relations": {
+  "zh": "人际互动",
+  "en": "Interpersonal relations"
+ },
+ "Society and social sciences › Social studies › Psychology › Psychological theories": {
+  "zh": "心理学理论",
+  "en": "Psychological theories"
+ },
+ "Society and social sciences › Social studies › Society": {
+  "zh": "社会",
+  "en": "Society"
+ },
+ "Society and social sciences › Social studies › Society › Groups": {
+  "zh": "社会群体与组织",
+  "en": "Groups and organizations"
+ },
+ "Society and social sciences › Social studies › Society › Services and institutions": {
+  "zh": "公共服务与机构",
+  "en": "Public services and institutions"
+ },
+ "Society and social sciences › Social studies › Society › Issues": {
+  "zh": "社会问题",
+  "en": "Social issues"
+ },
+ "Society and social sciences › Social studies › Society › Social status": {
+  "zh": "社会地位与权利",
+  "en": "Social status and rights"
+ },
+ "Society and social sciences › Social studies › Sociology": {
+  "zh": "社会学",
+  "en": "Sociology"
+ }
+}

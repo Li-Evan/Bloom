@@ -1,6 +1,13 @@
-import json
 from datetime import date
 from unittest.mock import patch, MagicMock
+
+import pytest
+from tests.conftest import mock_stream
+
+
+@pytest.fixture
+def client(authed_client):
+    return authed_client
 
 
 def _make_mock_response(content):
@@ -11,17 +18,7 @@ def _make_mock_response(content):
 
 
 def _mock_stream(chunks):
-    result = []
-    for text in chunks:
-        chunk = MagicMock()
-        chunk.choices = [MagicMock()]
-        chunk.choices[0].delta.content = text
-        result.append(chunk)
-    end = MagicMock()
-    end.choices = [MagicMock()]
-    end.choices[0].delta.content = None
-    result.append(end)
-    return iter(result)
+    return mock_stream(chunks)
 
 
 def _create_course(client, name="博弈论基础"):
@@ -33,6 +30,8 @@ def _create_course(client, name="博弈论基础"):
         mock_get_client.return_value = mock_client
         res = client.post("/api/courses", json={"name": name})
         assert res.status_code == 200
+        # 建课只生成大纲，第 01 篇在确认大纲后由 /first 生成
+        assert client.post(f"/api/courses/{res.json()['id']}/first").status_code == 200
         return res.json()
 
 
